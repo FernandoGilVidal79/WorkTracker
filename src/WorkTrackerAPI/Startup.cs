@@ -43,7 +43,7 @@ namespace WorkTrackerAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foo API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WorkTracker API V1");
             });
 
             app.UseRouting();
@@ -64,14 +64,14 @@ namespace WorkTrackerAPI
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"WorkTracker {groupName}",
                     Version = groupName,
-                    Description = "Foo API",
+                    Description = "WorkTracker API",
                     Contact = new OpenApiContact
                     {
-                        Name = "Foo Company",
+                        Name = "WorkTracker S.L",
                         Email = string.Empty,
-                        Url = new Uri("https://foo.com/"),
+                        Url = new Uri("http://worktracker-001-site1.atempurl.com/"),
                     }
                 });
             });
