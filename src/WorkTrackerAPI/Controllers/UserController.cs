@@ -28,7 +28,7 @@ namespace WorkTrackerAPI.Controllers
             listUser.Add(new Model.User()
             {
                 IdUser = 1,
-                Name = "fernando"
+                Name = "Super fernando"
             });
 
             return listUser;
