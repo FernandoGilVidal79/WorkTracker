@@ -1,15 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 using WorkTrackerAPI.Model;
 
 namespace WorkTrackerAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
 
@@ -22,16 +21,88 @@ namespace WorkTrackerAPI.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUsers")]
         public IEnumerable<User> GetUsers()
         {
             var listUser = new List<User>();
             listUser.Add(new Model.User()
             {
                 IdUser = 1,
-                Name = "Super fernando"
+                Name = "Fernando",
+                Department = "RRHH",
+                Email = "fgil@wotktracker.com",
+                Phone = "67633300",
+                Surname1 = "Gil",
+                Surname2 = "Vidal",
+
             });
 
             return listUser;
+        }
+
+
+        /// <summary>
+        /// Metodo para obtener usuarios
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+   
+        public IEnumerable<User> GetUserById(string id)
+        {
+            var listUser = new List<User>();
+            listUser.Add(new Model.User()
+            {
+                IdUser = 1,
+                Name = "Fernando",
+                Department = "RRHH",
+                Email = "fgil@wotktracker.com",
+                Phone = "67633300",
+                Surname1 = "Gil",
+                Surname2 = "Vidal",
+
+            });
+
+            return listUser;
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("DeleteUser")]
+        public bool DeleteUser(string id)
+        {
+
+            bool OK = true;
+            return OK;
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("UpdateUser")]
+        public User UpdateUser(User user)
+        {
+            return new Model.User()
+            {
+                IdUser = 1,
+                Name = "Fernando",
+                Department = "RRHH",
+                Email = "fgil@wotktracker.com",
+                Phone = "67633300",
+                Surname1 = "Gil",
+                Surname2 = "Vidal",
+
+            };
+
+        }
+
+
+        // PUT api/<ClockInController>/5
+        [HttpPut("{id}")]
+        public void PutUser(int id, [FromBody] User user)
+        {
+
         }
     }
 }

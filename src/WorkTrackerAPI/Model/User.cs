@@ -13,6 +13,18 @@ namespace WorkTrackerAPI.Model
 
         public string Name { get; set; }
 
+        public string Surname1 { get; set; }
+
+        public string Surname2 { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Department { get; set; }
+
+        public bool Status { get; set; }
+
 
     }
 }
