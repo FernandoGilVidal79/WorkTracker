@@ -8,7 +8,7 @@ using WorkTrackerAPI.Model;
 namespace WorkTrackerAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
 
@@ -20,26 +20,26 @@ namespace WorkTrackerAPI.Controllers
             _logger = logger;
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-        //[SwaggerOperation("GetUsers")]
-        //public IEnumerable<User> GetUsers()
-        //{
-        //    var listUser = new List<User>();
-        //    listUser.Add(new Model.User()
-        //    {
-        //        IdUser = 1,
-        //        Name = "Fernando",
-        //        Department =  "RRHH",
-        //        Email ="fgil@wotktracker.com",
-        //        Phone = "67633300",
-        //        Surname1 = "Gil",
-        //        Surname2 = "Vidal",      
+        [HttpGet]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUsers")]
+        public IEnumerable<User> GetUsers()
+        {
+            var listUser = new List<User>();
+            listUser.Add(new Model.User()
+            {
+                IdUser = 1,
+                Name = "Fernando",
+                Department = "RRHH",
+                Email = "fgil@wotktracker.com",
+                Phone = "67633300",
+                Surname1 = "Gil",
+                Surname2 = "Vidal",
 
-        //    });
+            });
 
-        //    return listUser;
-        //}
+            return listUser;
+        }
 
 
         /// <summary>
@@ -47,9 +47,9 @@ namespace WorkTrackerAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-        [SwaggerOperation("GetUsers")]
+   
         public IEnumerable<User> GetUserById(string id)
         {
             var listUser = new List<User>();
@@ -94,6 +94,14 @@ namespace WorkTrackerAPI.Controllers
                 Surname2 = "Vidal",
 
             };
+
+        }
+
+
+        // PUT api/<ClockInController>/5
+        [HttpPut("{id}")]
+        public void PutUser(int id, [FromBody] User user)
+        {
 
         }
     }
