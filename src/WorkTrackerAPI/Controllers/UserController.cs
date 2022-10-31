@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using WorkTrackerAPI.Model;
 
@@ -11,33 +14,24 @@ namespace WorkTrackerAPI.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-
-
         private readonly ILogger<UserController> _logger;
+        private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
+        private MySqlConnection db;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+            db = new MySqlConnection(connection);
+            SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
         [HttpGet]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
         [SwaggerOperation("GetUsers")]
-        public IEnumerable<User> GetUsers()
-        {
-            var listUser = new List<User>();
-            listUser.Add(new Model.User()
-            {
-                IdUser = 1,
-                Name = "Fernando",
-                Department = "RRHH",
-                Email = "fgil@wotktracker.com",
-                Phone = "67633300",
-                Surname1 = "Gil",
-                Surname2 = "Vidal",
-
-            });
-
+        public IEnumerable<Users> GetUsers()
+        { 
+            IEnumerable<Users> listUser = null;     
+            listUser = SimpleCRUD.GetList<Users>(db);
             return listUser;
         }
 
@@ -50,22 +44,11 @@ namespace WorkTrackerAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
    
-        public IEnumerable<User> GetUserById(string id)
+        public IEnumerable<Users> GetUserById(string id)
         {
-            var listUser = new List<User>();
-            listUser.Add(new Model.User()
-            {
-                IdUser = 1,
-                Name = "Fernando",
-                Department = "RRHH",
-                Email = "fgil@wotktracker.com",
-                Phone = "67633300",
-                Surname1 = "Gil",
-                Surname2 = "Vidal",
-
-            });
-
-            return listUser;
+            List<Users> user = new List<Users>();
+            user.Add(SimpleCRUD.Get<Users>(db, id));
+            return user;
         }
 
         [HttpDelete]
@@ -73,36 +56,42 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("DeleteUser")]
         public bool DeleteUser(string id)
         {
-
-            bool OK = true;
-            return OK;
+            List<Users> user = new List<Users>();
+            user.Add(SimpleCRUD.Get<Users>(db, id));
+            user.FirstOrDefault().Status = false;
+            SimpleCRUD.Update<Users>(db, user.First());
+            return true;
+        }
+        [HttpGet("{userName}")]
+        public Users Login(string userName, string password)
+        {
+            List<Users> user = new List<Users>();
+            return SimpleCRUD.Get<Users>(db, $"where userName = {userName}" );
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
-        [SwaggerOperation("UpdateUser")]
-        public User UpdateUser(User user)
+        public void Post([FromBody] Users value)
         {
-            return new Model.User()
-            {
-                IdUser = 1,
-                Name = "Fernando",
-                Department = "RRHH",
-                Email = "fgil@wotktracker.com",
-                Phone = "67633300",
-                Surname1 = "Gil",
-                Surname2 = "Vidal",
-
-            };
-
+          
+           var user = SimpleCRUD.Get<Users>(db, value.IdUser);
+            user.UserName    = value.UserName;
+            user.SurName1    = value.SurName1;
+            user.SurName2    = value.SurName2;
+            user.Status      = value.Status;
+            user.Email       = value.Email;
+            user.Departement = value.Departement;
+            user.Phone       = value.Phone;
+            SimpleCRUD.Update<Users>(db, user);
         }
 
 
         // PUT api/<ClockInController>/5
         [HttpPut("{id}")]
-        public void PutUser(int id, [FromBody] User user)
+        public void PutUser([FromBody] Users user)
         {
-
+            SimpleCRUD.Insert<Users>(db, user);
         }
+
+
     }
 }
