@@ -223,21 +223,23 @@ namespace WorkTrackerAPP
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.button1.Location = new System.Drawing.Point(396, 152);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 42);
             this.button1.TabIndex = 29;
             this.button1.Text = "CONSULTAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.button2.Location = new System.Drawing.Point(525, 152);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 42);
             this.button2.TabIndex = 30;
             this.button2.Text = "GRABAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 

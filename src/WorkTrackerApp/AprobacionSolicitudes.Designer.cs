@@ -424,12 +424,13 @@ namespace WorkTrackerAPP
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.button2.Location = new System.Drawing.Point(340, 361);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 42);
             this.button2.TabIndex = 79;
             this.button2.Text = "GRABAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // AprobacionSolicitudes
             // 
