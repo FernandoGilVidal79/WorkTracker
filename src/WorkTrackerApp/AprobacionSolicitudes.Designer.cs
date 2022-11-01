@@ -179,7 +179,7 @@ namespace WorkTrackerAPP
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(684, 183);
+            this.checkBox2.Location = new System.Drawing.Point(684, 181);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(91, 21);
             this.checkBox2.TabIndex = 45;
@@ -399,7 +399,7 @@ namespace WorkTrackerAPP
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(684, 210);
+            this.checkBox10.Location = new System.Drawing.Point(684, 209);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(91, 21);
             this.checkBox10.TabIndex = 78;
