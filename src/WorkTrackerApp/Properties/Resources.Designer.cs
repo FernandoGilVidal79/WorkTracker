@@ -83,6 +83,16 @@ namespace WorkTrackerAPP.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reloj {
+            get {
+                object obj = ResourceManager.GetObject("reloj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Salir_Rojo {
             get {
                 object obj = ResourceManager.GetObject("Salir Rojo", resourceCulture);
