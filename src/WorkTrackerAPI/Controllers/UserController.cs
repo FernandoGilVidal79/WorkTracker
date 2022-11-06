@@ -79,7 +79,7 @@ namespace WorkTrackerAPI.Controllers
             user.SurName2    = value.SurName2;
             user.Status      = value.Status;
             user.Email       = value.Email;
-            user.Departement = value.Departement;
+            user.Department = value.Department;
             user.Phone       = value.Phone;
             SimpleCRUD.Update<Users>(db, user);
         }
