@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class Login : Form
+    public partial class Fichar : Form
     {
-        public Login()
+        public Fichar()
         {
             InitializeComponent();
+            timer1.Enabled = true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            lblHora.Text = DateTime.Now.ToString("hh:mm tt");
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

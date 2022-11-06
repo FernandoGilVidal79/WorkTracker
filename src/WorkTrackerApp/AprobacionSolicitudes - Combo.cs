@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class Login : Form
+    public partial class AprobacionSolicitudes___Combo : Form
     {
-        public Login()
+        public AprobacionSolicitudes___Combo()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

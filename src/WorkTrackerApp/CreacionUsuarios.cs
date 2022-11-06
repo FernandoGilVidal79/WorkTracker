@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class Login : Form
+    public partial class CreacionUsuarios : Form
     {
-        public Login()
+        public CreacionUsuarios()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void CreacionUsuarios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
