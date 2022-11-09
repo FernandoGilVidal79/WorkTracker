@@ -25,11 +25,19 @@ namespace WorkTrackerAPI.Model
 
         public int Phone { get; set; }
 
-        public string Departement { get; set; }
+        public string Department { get; set; }
 
         public bool Status { get; set; }
 
         public int UserTypeId { get; set; }
+
+        public string Password { get; set; }
+
+        public int NHollidays { get; set; }
+
+       
+
+
 
 
     }
