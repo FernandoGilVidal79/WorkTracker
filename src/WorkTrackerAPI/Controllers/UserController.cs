@@ -89,7 +89,7 @@ namespace WorkTrackerAPI.Controllers
 
 
         // PUT api/<ClockInController>/5
-        [HttpPut("CreateUser/{id}")]
+        [HttpPut("CreateUser")]
         public void PutUser([FromBody] Users user)
         {
             SimpleCRUD.Insert<Users>(db, user);

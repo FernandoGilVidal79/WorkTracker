@@ -1,4 +1,5 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace WorkTrackerAPP
 {
     public partial class CreacionUsuarios : Form
     {
+
+        private bool edicion = false;
         public CreacionUsuarios()
         {
             InitializeComponent();
@@ -31,23 +34,32 @@ namespace WorkTrackerAPP
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-
-
+            
             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-            var users = apiclient.ApiUserGetUserByIdIdGet("1");
-            var user = users.FirstOrDefault();
+          
             if (txtNumEmpleado.Text != string.Empty)
-            {       
-                this.txtNombre.Text = user.UserName;
-                this.txtEmail.Text = user.Email;
-                this.txtApellido1.Text = user.SurName1;
-                this.txtApellido2.Text = user.SurName2;
-                this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                this.txtContrasena.Text = user.Password; /// TODO Encrptada¿?¿?¿?
+            {
+                var users = apiclient.ApiUserGetUserByIdIdGet(txtNumEmpleado.Text);
+                var user = users.FirstOrDefault();
+                if (user != null)
+                {
+                    this.txtNombre.Text        = user.UserName;
+                    this.txtEmail.Text         = user.Email;
+                    this.txtApellido1.Text     = user.SurName1;
+                    this.txtApellido2.Text     = user.SurName2;
+                    this.txtNumVacaciones.Text = user.NHollidays.ToString();
+                    this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
+                    this.txtDepartamento.Text  = user.Phone.ToString();
+                    edicion = true;
+                }
+                else
+                {
+                    this.toolStripStatusLabel1.Text = "Usuario no encontrado";
+                }
             }
             else
             {
-                
+                this.toolStripStatusLabel1.Text = "Introduzca un número de empleado";
             }
         }
 
@@ -59,5 +71,34 @@ namespace WorkTrackerAPP
         {
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var user = new Users();
+                user.Department = txtDepartamento.Text;
+                user.UserTypeId = 1;
+                user.UserName = txtNombre.Text;
+                user.SurName1 = txtApellido1.Text;
+                user.SurName2 = txtApellido2.Text;
+                user.Status = true;
+                user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
+                user.Email = txtEmail.Text;
+                var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                if (edicion)
+                {
+                    apiclient.ApiUserPost(user);
+                }
+                else
+                {
+                    apiclient.ApiUserCreateUserIdPut("", user);
+                }
+            }
+            catch (Exception ex)
+            {
+                toolStripStatusLabel1.Text = "Error creando el usuario";
+            }
+         }
     }
 }

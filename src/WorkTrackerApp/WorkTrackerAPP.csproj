@@ -48,8 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,7 +109,6 @@
     <Compile Include="SolicitudAusencia.Designer.cs">
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <EmbeddedResource Include="AprobacionSolicitudes - Combo.resx">
       <DependentUpon>AprobacionSolicitudes - Combo.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +140,7 @@
     <EmbeddedResource Include="SolicitudAusencia.resx">
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -170,6 +174,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Salir Rojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
+      <Project>{DCE43A51-8477-478A-B686-0905C23B1574}</Project>
+      <Name>IO.Swagger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

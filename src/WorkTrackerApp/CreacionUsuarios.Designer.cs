@@ -55,8 +55,11 @@ namespace WorkTrackerAPP
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +85,7 @@ namespace WorkTrackerAPP
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 205);
+            this.label3.Location = new System.Drawing.Point(62, 200);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
@@ -92,7 +95,7 @@ namespace WorkTrackerAPP
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 229);
+            this.label10.Location = new System.Drawing.Point(51, 229);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 13);
@@ -102,7 +105,7 @@ namespace WorkTrackerAPP
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(64, 253);
+            this.label9.Location = new System.Drawing.Point(51, 253);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
@@ -112,7 +115,7 @@ namespace WorkTrackerAPP
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(70, 278);
+            this.label7.Location = new System.Drawing.Point(59, 278);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
@@ -152,7 +155,7 @@ namespace WorkTrackerAPP
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(405, 291);
+            this.label11.Location = new System.Drawing.Point(406, 286);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 13);
@@ -244,6 +247,7 @@ namespace WorkTrackerAPP
             this.btnGuardar.TabIndex = 30;
             this.btnGuardar.Text = "GRABAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbTipoUsuario
             // 
@@ -277,7 +281,7 @@ namespace WorkTrackerAPP
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(83, 308);
+            this.label8.Location = new System.Drawing.Point(81, 308);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
@@ -294,7 +298,6 @@ namespace WorkTrackerAPP
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
-      
             // 
             // pictureBox1
             // 
@@ -306,11 +309,29 @@ namespace WorkTrackerAPP
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 343);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(700, 22);
+            this.statusStrip1.TabIndex = 37;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // CreacionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 365);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbStatus);
@@ -344,6 +365,8 @@ namespace WorkTrackerAPP
             this.Load += new System.EventHandler(this.CreacionUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +400,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
