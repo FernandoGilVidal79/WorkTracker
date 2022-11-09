@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32916.344
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkTrackerAPI", "WorkTrackerAPI\WorkTrackerAPI.csproj", "{62BBDC46-FDC0-409B-9647-37DAFC0320AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkTrackerAPP", "WorkTrackerApp\WorkTrackerAPP.csproj", "{2F66743C-5B37-49E8-B4AF-B082FEF0DA59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger", "IO.Swagger\IO.Swagger.csproj", "{DCE43A51-8477-478A-B686-0905C23B1574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2F66743C-5B37-49E8-B4AF-B082FEF0DA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F66743C-5B37-49E8-B4AF-B082FEF0DA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F66743C-5B37-49E8-B4AF-B082FEF0DA59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE43A51-8477-478A-B686-0905C23B1574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE43A51-8477-478A-B686-0905C23B1574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE43A51-8477-478A-B686-0905C23B1574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE43A51-8477-478A-B686-0905C23B1574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

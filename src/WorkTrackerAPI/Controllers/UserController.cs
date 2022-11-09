@@ -41,9 +41,9 @@ namespace WorkTrackerAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-   
+        [HttpGet("GetUserById/{id}")]
+        [ProducesResponseType(typeof(IEnumerable<Users>), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUserById/{id}")]
         public IEnumerable<Users> GetUserById(string id)
         {
             List<Users> user = new List<Users>();
@@ -53,7 +53,8 @@ namespace WorkTrackerAPI.Controllers
 
         [HttpDelete]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-        [SwaggerOperation("DeleteUser")]
+        [HttpGet("DeleteUser/{id}")]
+        [SwaggerOperation("DeleteUser/{id}")]
         public bool DeleteUser(string id)
         {
             List<Users> user = new List<Users>();
@@ -62,7 +63,9 @@ namespace WorkTrackerAPI.Controllers
             SimpleCRUD.Update<Users>(db, user.First());
             return true;
         }
-        [HttpGet("{userName}")]
+        [HttpGet("Login/{username}")]
+        [SwaggerOperation("Login/{username}{password}")]
+        [ProducesResponseType(typeof(Users), (int)HttpStatusCode.OK)]
         public Users Login(string userName, string password)
         {
             List<Users> user = new List<Users>();
@@ -86,7 +89,7 @@ namespace WorkTrackerAPI.Controllers
 
 
         // PUT api/<ClockInController>/5
-        [HttpPut("{id}")]
+        [HttpPut("CreateUser/{id}")]
         public void PutUser([FromBody] Users user)
         {
             SimpleCRUD.Insert<Users>(db, user);
