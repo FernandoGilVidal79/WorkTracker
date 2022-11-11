@@ -109,10 +109,6 @@
     <Compile Include="SolicitudAusencia.Designer.cs">
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </Compile>
-
-    <Compile Include="User.cs" />
-
-
     <EmbeddedResource Include="AprobacionSolicitudes - Combo.resx">
       <DependentUpon>AprobacionSolicitudes - Combo.cs</DependentUpon>
     </EmbeddedResource>

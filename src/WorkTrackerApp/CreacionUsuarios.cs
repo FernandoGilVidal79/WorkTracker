@@ -85,14 +85,15 @@ namespace WorkTrackerAPP
                 user.Status = true;
                 user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
                 user.Email = txtEmail.Text;
+                user.Password = txtContrasena.Text;
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 if (edicion)
                 {
-                    apiclient.ApiUserPost(user);
+                    apiclient.ApiUserUpdateUserPost(user);
                 }
                 else
                 {
-                    apiclient.ApiUserCreateUserIdPut("", user);
+                    apiclient.ApiUserCreateUserPut(user);
                 }
             }
             catch (Exception ex)
