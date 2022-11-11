@@ -76,7 +76,7 @@ namespace WorkTrackerAPP
         {
             try
             {
-                var user = new Users();
+                var user = new IO.Swagger.Model.Users();
                 user.Department = txtDepartamento.Text;
                 user.UserTypeId = 1;
                 user.UserName = txtNombre.Text;
