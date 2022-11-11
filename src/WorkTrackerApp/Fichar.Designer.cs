@@ -184,6 +184,7 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.pictureBox1);
             this.Name = "Fichar";
             this.Text = "Fichar";
+            this.Load += new System.EventHandler(this.Fichar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxReloj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

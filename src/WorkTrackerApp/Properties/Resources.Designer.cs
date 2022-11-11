@@ -73,6 +73,16 @@ namespace WorkTrackerAPP.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_p {
+            get {
+                object obj = ResourceManager.GetObject("logo_p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nombre {
             get {
                 object obj = ResourceManager.GetObject("Nombre", resourceCulture);

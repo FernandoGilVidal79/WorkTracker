@@ -23,5 +23,10 @@ namespace WorkTrackerAPP
             lblHora.Text = DateTime.Now.ToString("hh:mm tt");
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
+
+        private void Fichar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

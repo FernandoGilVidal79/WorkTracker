@@ -1,7 +1,24 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WorkTrackerAPP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WorkTrackerFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Tempus Sans ITC, 12pt</Value>
+    </Setting>
+    <Setting Name="WorkTrackerColorG" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
+    <Setting Name="WorkTrackerColorR" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">DarkRed</Value>
+    </Setting>
+    <Setting Name="WorkTrackerBGColorG" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">LightGray</Value>
+    </Setting>
+    <Setting Name="WorkTrackerAlertColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="WorkTrackerSuccessColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">ForestGreen</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
