@@ -30,10 +30,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        void ApiUserCreateUserIdPut (string id, Users body = null);
+        void ApiUserCreateUserPut (Users body = null);
 
         /// <summary>
         /// 
@@ -42,10 +41,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ApiUserCreateUserIdPutWithHttpInfo (string id, Users body = null);
+        ApiResponse<Object> ApiUserCreateUserPutWithHttpInfo (Users body = null);
         /// <summary>
         /// 
         /// </summary>
@@ -55,7 +53,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>bool?</returns>
-        bool? ApiUserDelete (string id);
+        bool? ApiUserDeleteUserIdDelete (string id);
 
         /// <summary>
         /// 
@@ -66,47 +64,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of bool?</returns>
-        ApiResponse<bool?> ApiUserDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>bool?</returns>
-        bool? ApiUserDeleteUserIdGet (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of bool?</returns>
-        ApiResponse<bool?> ApiUserDeleteUserIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>bool?</returns>
-        bool? ApiUserGet ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of bool?</returns>
-        ApiResponse<bool?> ApiUserGetWithHttpInfo ();
+        ApiResponse<bool?> ApiUserDeleteUserIdDeleteWithHttpInfo (string id);
         /// <summary>
         /// 
         /// </summary>
@@ -135,10 +93,8 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
-        /// <param name="password"> (optional)</param>
-        /// <returns>Users</returns>
-        Users ApiUserLoginUsernameGet (string userName, string password = null);
+        /// <returns>bool?</returns>
+        bool? ApiUserGetUsersGet ();
 
         /// <summary>
         /// 
@@ -147,10 +103,31 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
+        /// <returns>ApiResponse of bool?</returns>
+        ApiResponse<bool?> ApiUserGetUsersGetWithHttpInfo ();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
+        /// <param name="password"> (optional)</param>
+        /// <returns>Users</returns>
+        Users ApiUserLoginGet (string userName = null, string password = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
         /// <param name="password"> (optional)</param>
         /// <returns>ApiResponse of Users</returns>
-        ApiResponse<Users> ApiUserLoginUsernameGetWithHttpInfo (string userName, string password = null);
+        ApiResponse<Users> ApiUserLoginGetWithHttpInfo (string userName = null, string password = null);
         /// <summary>
         /// 
         /// </summary>
@@ -160,7 +137,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        void ApiUserPost (Users body = null);
+        void ApiUserUpdateUserPost (Users body = null);
 
         /// <summary>
         /// 
@@ -171,7 +148,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ApiUserPostWithHttpInfo (Users body = null);
+        ApiResponse<Object> ApiUserUpdateUserPostWithHttpInfo (Users body = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -181,10 +158,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ApiUserCreateUserIdPutAsync (string id, Users body = null);
+        System.Threading.Tasks.Task ApiUserCreateUserPutAsync (Users body = null);
 
         /// <summary>
         /// 
@@ -193,10 +169,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserCreateUserIdPutAsyncWithHttpInfo (string id, Users body = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserCreateUserPutAsyncWithHttpInfo (Users body = null);
         /// <summary>
         /// 
         /// </summary>
@@ -206,7 +181,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of bool?</returns>
-        System.Threading.Tasks.Task<bool?> ApiUserDeleteAsync (string id);
+        System.Threading.Tasks.Task<bool?> ApiUserDeleteUserIdDeleteAsync (string id);
 
         /// <summary>
         /// 
@@ -217,47 +192,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (bool?)</returns>
-        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of bool?</returns>
-        System.Threading.Tasks.Task<bool?> ApiUserDeleteUserIdGetAsync (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteUserIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of bool?</returns>
-        System.Threading.Tasks.Task<bool?> ApiUserGetAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteUserIdDeleteAsyncWithHttpInfo (string id);
         /// <summary>
         /// 
         /// </summary>
@@ -286,10 +221,8 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
-        /// <param name="password"> (optional)</param>
-        /// <returns>Task of Users</returns>
-        System.Threading.Tasks.Task<Users> ApiUserLoginUsernameGetAsync (string userName, string password = null);
+        /// <returns>Task of bool?</returns>
+        System.Threading.Tasks.Task<bool?> ApiUserGetUsersGetAsync ();
 
         /// <summary>
         /// 
@@ -298,10 +231,31 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
+        /// <returns>Task of ApiResponse (bool?)</returns>
+        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetUsersGetAsyncWithHttpInfo ();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
+        /// <param name="password"> (optional)</param>
+        /// <returns>Task of Users</returns>
+        System.Threading.Tasks.Task<Users> ApiUserLoginGetAsync (string userName = null, string password = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
         /// <param name="password"> (optional)</param>
         /// <returns>Task of ApiResponse (Users)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Users>> ApiUserLoginUsernameGetAsyncWithHttpInfo (string userName, string password = null);
+        System.Threading.Tasks.Task<ApiResponse<Users>> ApiUserLoginGetAsyncWithHttpInfo (string userName = null, string password = null);
         /// <summary>
         /// 
         /// </summary>
@@ -311,7 +265,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ApiUserPostAsync (Users body = null);
+        System.Threading.Tasks.Task ApiUserUpdateUserPostAsync (Users body = null);
 
         /// <summary>
         /// 
@@ -322,7 +276,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserPostAsyncWithHttpInfo (Users body = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserUpdateUserPostAsyncWithHttpInfo (Users body = null);
         #endregion Asynchronous Operations
     }
 
@@ -438,28 +392,23 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        public void ApiUserCreateUserIdPut (string id, Users body = null)
+        public void ApiUserCreateUserPut (Users body = null)
         {
-             ApiUserCreateUserIdPutWithHttpInfo(id, body);
+             ApiUserCreateUserPutWithHttpInfo(body);
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ApiUserCreateUserIdPutWithHttpInfo (string id, Users body = null)
+        public ApiResponse<Object> ApiUserCreateUserPutWithHttpInfo (Users body = null)
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserCreateUserIdPut");
 
-            var localVarPath = "/api/User/CreateUser/{id}";
+            var localVarPath = "/api/User/CreateUser";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -482,7 +431,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -501,7 +449,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserCreateUserIdPut", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserCreateUserPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -514,12 +462,11 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ApiUserCreateUserIdPutAsync (string id, Users body = null)
+        public async System.Threading.Tasks.Task ApiUserCreateUserPutAsync (Users body = null)
         {
-             await ApiUserCreateUserIdPutAsyncWithHttpInfo(id, body);
+             await ApiUserCreateUserPutAsyncWithHttpInfo(body);
 
         }
 
@@ -527,16 +474,12 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserCreateUserIdPutAsyncWithHttpInfo (string id, Users body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserCreateUserPutAsyncWithHttpInfo (Users body = null)
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserCreateUserIdPut");
 
-            var localVarPath = "/api/User/CreateUser/{id}";
+            var localVarPath = "/api/User/CreateUser";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -559,7 +502,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -578,7 +520,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserCreateUserIdPut", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserCreateUserPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -593,9 +535,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>bool?</returns>
-        public bool? ApiUserDelete (string id)
+        public bool? ApiUserDeleteUserIdDelete (string id)
         {
-             ApiResponse<bool?> localVarResponse = ApiUserDeleteWithHttpInfo(id);
+             ApiResponse<bool?> localVarResponse = ApiUserDeleteUserIdDeleteWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -605,13 +547,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of bool?</returns>
-        public ApiResponse< bool? > ApiUserDeleteWithHttpInfo (string id)
+        public ApiResponse< bool? > ApiUserDeleteUserIdDeleteWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDelete");
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDeleteUserIdDelete");
 
-            var localVarPath = "/api/User";
+            var localVarPath = "/api/User/DeleteUser/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -645,7 +587,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserDelete", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserDeleteUserIdDelete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -660,9 +602,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of bool?</returns>
-        public async System.Threading.Tasks.Task<bool?> ApiUserDeleteAsync (string id)
+        public async System.Threading.Tasks.Task<bool?> ApiUserDeleteUserIdDeleteAsync (string id)
         {
-             ApiResponse<bool?> localVarResponse = await ApiUserDeleteAsyncWithHttpInfo(id);
+             ApiResponse<bool?> localVarResponse = await ApiUserDeleteUserIdDeleteAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -673,13 +615,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (bool?)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteUserIdDeleteAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDelete");
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDeleteUserIdDelete");
 
-            var localVarPath = "/api/User";
+            var localVarPath = "/api/User/DeleteUser/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -713,265 +655,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserDelete", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>bool?</returns>
-        public bool? ApiUserDeleteUserIdGet (string id)
-        {
-             ApiResponse<bool?> localVarResponse = ApiUserDeleteUserIdGetWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of bool?</returns>
-        public ApiResponse< bool? > ApiUserDeleteUserIdGetWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDeleteUserIdGet");
-
-            var localVarPath = "/api/User/DeleteUser/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ApiUserDeleteUserIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of bool?</returns>
-        public async System.Threading.Tasks.Task<bool?> ApiUserDeleteUserIdGetAsync (string id)
-        {
-             ApiResponse<bool?> localVarResponse = await ApiUserDeleteUserIdGetAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserDeleteUserIdGetAsyncWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->ApiUserDeleteUserIdGet");
-
-            var localVarPath = "/api/User/DeleteUser/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ApiUserDeleteUserIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>bool?</returns>
-        public bool? ApiUserGet ()
-        {
-             ApiResponse<bool?> localVarResponse = ApiUserGetWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of bool?</returns>
-        public ApiResponse< bool? > ApiUserGetWithHttpInfo ()
-        {
-
-            var localVarPath = "/api/User";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ApiUserGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of bool?</returns>
-        public async System.Threading.Tasks.Task<bool?> ApiUserGetAsync ()
-        {
-             ApiResponse<bool?> localVarResponse = await ApiUserGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "/api/User";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ApiUserGet", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserDeleteUserIdDelete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1119,12 +803,10 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
-        /// <param name="password"> (optional)</param>
-        /// <returns>Users</returns>
-        public Users ApiUserLoginUsernameGet (string userName, string password = null)
+        /// <returns>bool?</returns>
+        public bool? ApiUserGetUsersGet ()
         {
-             ApiResponse<Users> localVarResponse = ApiUserLoginUsernameGetWithHttpInfo(userName, password);
+             ApiResponse<bool?> localVarResponse = ApiUserGetUsersGetWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1132,16 +814,11 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
-        /// <param name="password"> (optional)</param>
-        /// <returns>ApiResponse of Users</returns>
-        public ApiResponse< Users > ApiUserLoginUsernameGetWithHttpInfo (string userName, string password = null)
+        /// <returns>ApiResponse of bool?</returns>
+        public ApiResponse< bool? > ApiUserGetUsersGetWithHttpInfo ()
         {
-            // verify the required parameter 'userName' is set
-            if (userName == null)
-                throw new ApiException(400, "Missing required parameter 'userName' when calling UserApi->ApiUserLoginUsernameGet");
 
-            var localVarPath = "/api/User/Login/{username}";
+            var localVarPath = "/api/User/GetUsers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1164,7 +841,134 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userName != null) localVarPathParams.Add("userName", this.Configuration.ApiClient.ParameterToString(userName)); // path parameter
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiUserGetUsersGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<bool?>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of bool?</returns>
+        public async System.Threading.Tasks.Task<bool?> ApiUserGetUsersGetAsync ()
+        {
+             ApiResponse<bool?> localVarResponse = await ApiUserGetUsersGetAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (bool?)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetUsersGetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/User/GetUsers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiUserGetUsersGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<bool?>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
+        /// <param name="password"> (optional)</param>
+        /// <returns>Users</returns>
+        public Users ApiUserLoginGet (string userName = null, string password = null)
+        {
+             ApiResponse<Users> localVarResponse = ApiUserLoginGetWithHttpInfo(userName, password);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userName"> (optional)</param>
+        /// <param name="password"> (optional)</param>
+        /// <returns>ApiResponse of Users</returns>
+        public ApiResponse< Users > ApiUserLoginGetWithHttpInfo (string userName = null, string password = null)
+        {
+
+            var localVarPath = "/api/User/Login";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "userName", userName)); // query parameter
             if (password != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "password", password)); // query parameter
 
             // make the HTTP request
@@ -1176,7 +980,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserLoginUsernameGet", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserLoginGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1189,12 +993,12 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
+        /// <param name="userName"> (optional)</param>
         /// <param name="password"> (optional)</param>
         /// <returns>Task of Users</returns>
-        public async System.Threading.Tasks.Task<Users> ApiUserLoginUsernameGetAsync (string userName, string password = null)
+        public async System.Threading.Tasks.Task<Users> ApiUserLoginGetAsync (string userName = null, string password = null)
         {
-             ApiResponse<Users> localVarResponse = await ApiUserLoginUsernameGetAsyncWithHttpInfo(userName, password);
+             ApiResponse<Users> localVarResponse = await ApiUserLoginGetAsyncWithHttpInfo(userName, password);
              return localVarResponse.Data;
 
         }
@@ -1203,16 +1007,13 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userName"></param>
+        /// <param name="userName"> (optional)</param>
         /// <param name="password"> (optional)</param>
         /// <returns>Task of ApiResponse (Users)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Users>> ApiUserLoginUsernameGetAsyncWithHttpInfo (string userName, string password = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Users>> ApiUserLoginGetAsyncWithHttpInfo (string userName = null, string password = null)
         {
-            // verify the required parameter 'userName' is set
-            if (userName == null)
-                throw new ApiException(400, "Missing required parameter 'userName' when calling UserApi->ApiUserLoginUsernameGet");
 
-            var localVarPath = "/api/User/Login/{username}";
+            var localVarPath = "/api/User/Login";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1235,7 +1036,7 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userName != null) localVarPathParams.Add("userName", this.Configuration.ApiClient.ParameterToString(userName)); // path parameter
+            if (userName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "userName", userName)); // query parameter
             if (password != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "password", password)); // query parameter
 
             // make the HTTP request
@@ -1247,7 +1048,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserLoginUsernameGet", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserLoginGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1262,9 +1063,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        public void ApiUserPost (Users body = null)
+        public void ApiUserUpdateUserPost (Users body = null)
         {
-             ApiUserPostWithHttpInfo(body);
+             ApiUserUpdateUserPostWithHttpInfo(body);
         }
 
         /// <summary>
@@ -1273,10 +1074,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ApiUserPostWithHttpInfo (Users body = null)
+        public ApiResponse<Object> ApiUserUpdateUserPostWithHttpInfo (Users body = null)
         {
 
-            var localVarPath = "/api/User";
+            var localVarPath = "/api/User/UpdateUser";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1317,7 +1118,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserPost", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserUpdateUserPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1332,9 +1133,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ApiUserPostAsync (Users body = null)
+        public async System.Threading.Tasks.Task ApiUserUpdateUserPostAsync (Users body = null)
         {
-             await ApiUserPostAsyncWithHttpInfo(body);
+             await ApiUserUpdateUserPostAsyncWithHttpInfo(body);
 
         }
 
@@ -1344,10 +1145,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserPostAsyncWithHttpInfo (Users body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ApiUserUpdateUserPostAsyncWithHttpInfo (Users body = null)
         {
 
-            var localVarPath = "/api/User";
+            var localVarPath = "/api/User/UpdateUser";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1388,7 +1189,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiUserPost", localVarResponse);
+                Exception exception = ExceptionFactory("ApiUserUpdateUserPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

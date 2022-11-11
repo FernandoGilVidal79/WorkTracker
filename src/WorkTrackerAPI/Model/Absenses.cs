@@ -1,4 +1,6 @@
 ﻿using System;
+using Dapper;
+using KeyAttribute = Dapper.KeyAttribute;
 
 namespace WorkTrackerAPI.Model
 {
