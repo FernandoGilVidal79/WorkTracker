@@ -27,7 +27,7 @@ namespace WorkTrackerAPI.Controllers
         }
 
         [HttpGet("GetUsers")]
-        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Users>), (int)HttpStatusCode.OK)]
         [SwaggerOperation("GetUsers")]
         public IEnumerable<Users> GetUsers()
         { 
@@ -36,16 +36,15 @@ namespace WorkTrackerAPI.Controllers
             return listUser;
         }
 
-        [HttpGet("GetUsers")]
-        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-        [SwaggerOperation("GetUsers")]
+        [HttpGet("GetUserTypes")]
+        [ProducesResponseType(typeof(IEnumerable<UserType>), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUserTypes")]
         public IEnumerable<UserType> GetUserTypes()
         {
             IEnumerable<UserType> listUserType = null;
             listUserType = SimpleCRUD.GetList<UserType>(db);
             return listUserType;
         }
-
 
         /// <summary>
         /// Metodo para obtener usuarios
