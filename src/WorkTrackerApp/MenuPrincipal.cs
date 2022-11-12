@@ -23,7 +23,9 @@ namespace WorkTrackerAPP
 
         private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form Frm = new Form();
+            // Form Frm = new Form();
+            pnlFichar.Controls.Clear();
+            Fichar Frm = new Fichar();
             Frm.TopLevel = false;
             pnlFichar.Controls.Add(Frm);
             Frm.Show();

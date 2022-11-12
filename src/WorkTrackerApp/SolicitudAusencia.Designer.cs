@@ -29,40 +29,32 @@ namespace WorkTrackerAPP
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxTipoAusencia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxDesde = new System.Windows.Forms.TextBox();
+            this.tbxHasta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button2
+            // cbxTipoAusencia
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button2.Location = new System.Drawing.Point(340, 341);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 42);
-            this.button2.TabIndex = 80;
-            this.button2.Text = "GRABAR";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 161);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 81;
+            this.cbxTipoAusencia.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipoAusencia.FormattingEnabled = true;
+            this.cbxTipoAusencia.Location = new System.Drawing.Point(98, 166);
+            this.cbxTipoAusencia.Name = "cbxTipoAusencia";
+            this.cbxTipoAusencia.Size = new System.Drawing.Size(121, 25);
+            this.cbxTipoAusencia.TabIndex = 81;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(94, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
+            this.label1.Size = new System.Drawing.Size(111, 22);
             this.label1.TabIndex = 82;
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -73,51 +65,66 @@ namespace WorkTrackerAPP
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 83;
             // 
-            // textBox1
+            // tbxDesde
             // 
-            this.textBox1.Location = new System.Drawing.Point(245, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 84;
+            this.tbxDesde.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F);
+            this.tbxDesde.Location = new System.Drawing.Point(245, 166);
+            this.tbxDesde.Name = "tbxDesde";
+            this.tbxDesde.Size = new System.Drawing.Size(100, 25);
+            this.tbxDesde.TabIndex = 84;
             // 
-            // textBox2
+            // tbxHasta
             // 
-            this.textBox2.Location = new System.Drawing.Point(382, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 85;
+            this.tbxHasta.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F);
+            this.tbxHasta.Location = new System.Drawing.Point(375, 166);
+            this.tbxHasta.Name = "tbxHasta";
+            this.tbxHasta.Size = new System.Drawing.Size(100, 25);
+            this.tbxHasta.TabIndex = 85;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(242, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 17);
+            this.label2.Size = new System.Drawing.Size(96, 22);
             this.label2.TabIndex = 86;
             this.label2.Text = "Fecha Desde";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(379, 142);
+            this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(371, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.Size = new System.Drawing.Size(93, 22);
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnGrabar.Location = new System.Drawing.Point(364, 301);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(100, 43);
+            this.btnGrabar.TabIndex = 88;
+            this.btnGrabar.Text = "GRABAR";
+            this.btnGrabar.UseVisualStyleBackColor = true;
             // 
             // SolicitudAusencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 424);
+            this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxHasta);
+            this.Controls.Add(this.tbxDesde);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cbxTipoAusencia);
             this.Name = "SolicitudAusencia";
             this.Text = "SolicitudAusencia";
             this.ResumeLayout(false);
@@ -126,13 +133,13 @@ namespace WorkTrackerAPP
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxTipoAusencia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxDesde;
+        private System.Windows.Forms.TextBox tbxHasta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGrabar;
     }
 }
