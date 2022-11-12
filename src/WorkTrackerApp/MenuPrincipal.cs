@@ -38,5 +38,14 @@ namespace WorkTrackerAPP
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
+
+        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            SolicitudAusencia FrmAusencia = new SolicitudAusencia();
+            FrmAusencia.TopLevel = false;
+            pnlFichar.Controls.Add(FrmAusencia);
+            FrmAusencia.Show();
+        }
     }
 }
