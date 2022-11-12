@@ -83,6 +83,12 @@
     <Compile Include="CreacionUsuarios.Designer.cs">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fichar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fichar.Designer.cs">
+      <DependentUpon>Fichar.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreacionUsuarios.resx">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fichar.resx">
+      <DependentUpon>Fichar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalAdmin.resx">
       <DependentUpon>MenuPrincipalAdmin.cs</DependentUpon>
@@ -180,6 +189,9 @@
       <Project>{DCE43A51-8477-478A-B686-0905C23B1574}</Project>
       <Name>IO.Swagger</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_p.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
