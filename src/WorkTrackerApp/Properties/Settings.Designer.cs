@@ -22,5 +22,59 @@ namespace WorkTrackerAPP.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tempus Sans ITC, 12pt")]
+        public global::System.Drawing.Font WorkTrackerFont {
+            get {
+                return ((global::System.Drawing.Font)(this["WorkTrackerFont"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color WorkTrackerColorG {
+            get {
+                return ((global::System.Drawing.Color)(this["WorkTrackerColorG"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkRed")]
+        public global::System.Drawing.Color WorkTrackerColorR {
+            get {
+                return ((global::System.Drawing.Color)(this["WorkTrackerColorR"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightGray")]
+        public global::System.Drawing.Color WorkTrackerBGColorG {
+            get {
+                return ((global::System.Drawing.Color)(this["WorkTrackerBGColorG"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color WorkTrackerAlertColor {
+            get {
+                return ((global::System.Drawing.Color)(this["WorkTrackerAlertColor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ForestGreen")]
+        public global::System.Drawing.Color WorkTrackerSuccessColor {
+            get {
+                return ((global::System.Drawing.Color)(this["WorkTrackerSuccessColor"]));
+            }
+        }
     }
 }

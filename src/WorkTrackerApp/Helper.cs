@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkTrackerAPP
 {
-    internal class User
+    internal class Helper
     {
     }
 }
