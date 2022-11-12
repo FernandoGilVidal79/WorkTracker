@@ -36,6 +36,16 @@ namespace WorkTrackerAPI.Controllers
             return listUser;
         }
 
+        [HttpGet("GetUsers")]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUsers")]
+        public IEnumerable<UserType> GetUserTypes()
+        {
+            IEnumerable<UserType> listUserType = null;
+            listUserType = SimpleCRUD.GetList<UserType>(db);
+            return listUserType;
+        }
+
 
         /// <summary>
         /// Metodo para obtener usuarios

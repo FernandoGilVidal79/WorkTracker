@@ -24,33 +24,20 @@ namespace WorkTrackerAPP
             if (nombreUsuario.Text == "")
             {
                 nombreUsuario.Focus();
-                MensajeError("El Nombre de usuario está vacío", "Error");
+                Helper.MensajeError("El Nombre de usuario está vacío", "Error");
                 return false;
 
             }
             if (contrasena.Text == "")
             {
                 contrasena.Focus();
-                MensajeError("La Contraseña no es correcta", "Error");
+                Helper.MensajeError("La Contraseña no es correcta", "Error");
                 return false;
             }
                 return true;
 
         }
-        /*
-         * Mensaje de error 
-         */
-        public static void MensajeError(String mensaje, String cabecera)
-        {
-            MessageBox.Show(mensaje, cabecera, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        /*
-         * Mensaje de OK
-         */
-        public static void MensajeOk(String mensaje, String cabecera)
-        {
-            MessageBox.Show(mensaje, cabecera, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+       
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             //Validamos los campos
@@ -66,8 +53,7 @@ namespace WorkTrackerAPP
                 var user = users.Data;
                 if(user != null)
                 {
-                    Console.WriteLine(user);
-                    MensajeOk("Bienvenido " + user.UserName, "Correcto");
+                    Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
                     this.Hide();
                     MenuPrincipal frmMenuPrincipal  = new MenuPrincipal();
                     frmMenuPrincipal.ShowDialog();
@@ -75,15 +61,19 @@ namespace WorkTrackerAPP
 
                 } else
                 {
-                    MensajeError("El usuario NO existe", "Error");
+                    Helper.MensajeError("El usuario NO existe", "Error");
                 }
 
             } else
             {
-                MensajeError("Ocurrió un error en la validación", "Error");
+                Helper.MensajeError("Ocurrió un error en la validación", "Error");
             }
 
         }
 
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

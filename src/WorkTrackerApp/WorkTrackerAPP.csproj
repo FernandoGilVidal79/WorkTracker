@@ -89,6 +89,7 @@
     <Compile Include="Fichar.Designer.cs">
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helper.cs" />
     <Compile Include="MenuPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,7 @@
     <Compile Include="SolicitudAusencia.Designer.cs">
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\UserSession.cs" />
     <EmbeddedResource Include="AprobacionSolicitudes - Combo.resx">
       <DependentUpon>AprobacionSolicitudes - Combo.cs</DependentUpon>
     </EmbeddedResource>
