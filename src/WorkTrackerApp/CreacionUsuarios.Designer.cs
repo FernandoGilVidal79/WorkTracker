@@ -57,6 +57,7 @@ namespace WorkTrackerAPP
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -193,7 +194,6 @@ namespace WorkTrackerAPP
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(250, 21);
             this.txtApellido1.TabIndex = 22;
-            this.txtApellido1.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtApellido2
             // 
@@ -229,7 +229,7 @@ namespace WorkTrackerAPP
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(360, 123);
+            this.btnConsultar.Location = new System.Drawing.Point(401, 123);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(96, 34);
@@ -240,7 +240,7 @@ namespace WorkTrackerAPP
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(460, 123);
+            this.btnGuardar.Location = new System.Drawing.Point(501, 123);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(89, 34);
@@ -251,6 +251,7 @@ namespace WorkTrackerAPP
             // 
             // cmbTipoUsuario
             // 
+            this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoUsuario.FormattingEnabled = true;
             this.cmbTipoUsuario.Location = new System.Drawing.Point(487, 197);
             this.cmbTipoUsuario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -326,11 +327,23 @@ namespace WorkTrackerAPP
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(301, 123);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(96, 34);
+            this.btnNuevo.TabIndex = 38;
+            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // CreacionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 365);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label8);
@@ -402,5 +415,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }
