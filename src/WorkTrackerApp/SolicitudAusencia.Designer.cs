@@ -47,6 +47,7 @@ namespace WorkTrackerAPP
             this.cbxTipoAusencia.Name = "cbxTipoAusencia";
             this.cbxTipoAusencia.Size = new System.Drawing.Size(121, 25);
             this.cbxTipoAusencia.TabIndex = 81;
+            this.cbxTipoAusencia.SelectedIndexChanged += new System.EventHandler(this.cbxTipoAusencia_SelectedIndexChanged);
             // 
             // label1
             // 

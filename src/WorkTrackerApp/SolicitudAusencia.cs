@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IO.Swagger.Api;
+using IO.Swagger.Model;
 
 namespace WorkTrackerAPP
 {
@@ -21,5 +23,17 @@ namespace WorkTrackerAPP
         {
 
         }
+
+        private void cbxTipoAusencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        //no se como crearla conexion a tipoAusencias
+       /* private void CargarTipoAusencias()
+        {
+            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var absenseTypes = apiclient.A
+
+        }*/
     }
 }
