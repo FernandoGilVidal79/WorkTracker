@@ -49,12 +49,17 @@ namespace WorkTrackerAPP
             }
 
         }
-        //no se como crearla conexion a tipoAusencias
-        /* private void CargarTipoAusencias()
-         {
-             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-             var absenseTypes = apiclient.A
 
-         }*/
+        private void SolicitudAusencia_Load(object sender, EventArgs e)
+        {
+
+        }
+        //no se como crearla conexion a tipoAusencias
+         //private void CargarTipoAusencias()
+         //{
+         //    var apiclient = new AbsensesApi ("http://worktracker-001-site1.atempurl.com/");
+          
+
+         //}
     }
 }

@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using WorkTrackerAPI.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -42,6 +44,16 @@ namespace WorkTrackerAPI.Controllers
 
             return listAbsenses;
 
+        }
+
+        [HttpGet("GetAbsensesTypes")]
+        [ProducesResponseType(typeof(IEnumerable<AbsenseType>), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetAbsensesTypes")]
+        public IEnumerable<AbsenseType> GetAbsensesTypes()
+        {
+            IEnumerable<AbsenseType> listAbsensesType = null;
+            listAbsensesType = SimpleCRUD.GetList<AbsenseType>(db);
+            return listAbsensesType;
         }
 
         // POST api/<AbsensesController>
