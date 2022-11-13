@@ -17,6 +17,7 @@ namespace WorkTrackerAPP
         public SolicitudAusencia()
         {
             InitializeComponent();
+            CargarTipoAusencias();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -55,11 +56,13 @@ namespace WorkTrackerAPP
 
         }
         //no se como crearla conexion a tipoAusencias
-         //private void CargarTipoAusencias()
-         //{
-         //    var apiclient = new AbsensesApi ("http://worktracker-001-site1.atempurl.com/");
-          
-
-         //}
+        private void CargarTipoAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            var absensesTypes = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
+            cmbTipoAusencia.DisplayMember = "Description";
+            cmbTipoAusencia.ValueMember = "IdUserType";
+            cmbTipoAusencia.DataSource = absensesTypes;
+        }
     }
 }
