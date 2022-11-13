@@ -23,7 +23,9 @@ namespace WorkTrackerAPP
 
         private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form Frm = new Form();
+            // Form Frm = new Form();
+            pnlFichar.Controls.Clear();
+            Fichar Frm = new Fichar();
             Frm.TopLevel = false;
             pnlFichar.Controls.Add(Frm);
             Frm.Show();
@@ -37,6 +39,15 @@ namespace WorkTrackerAPP
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            SolicitudAusencia FrmAusencia = new SolicitudAusencia();
+            FrmAusencia.TopLevel = false;
+            pnlFichar.Controls.Add(FrmAusencia);
+            FrmAusencia.Show();
         }
     }
 }

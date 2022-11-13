@@ -74,7 +74,7 @@ namespace WorkTrackerAPP
             this.salirToolStripMenuItem});
             this.mstrpPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mstrpPrincipal.Name = "mstrpPrincipal";
-            this.mstrpPrincipal.Size = new System.Drawing.Size(968, 32);
+            this.mstrpPrincipal.Size = new System.Drawing.Size(968, 34);
             this.mstrpPrincipal.TabIndex = 8;
             this.mstrpPrincipal.Text = "menuPrincipal";
             // 
@@ -82,7 +82,7 @@ namespace WorkTrackerAPP
             // 
             this.ficharToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.ficharToolStripMenuItem.Name = "ficharToolStripMenuItem";
-            this.ficharToolStripMenuItem.Size = new System.Drawing.Size(61, 28);
+            this.ficharToolStripMenuItem.Size = new System.Drawing.Size(76, 30);
             this.ficharToolStripMenuItem.Text = "Fichar";
             this.ficharToolStripMenuItem.Click += new System.EventHandler(this.ficharToolStripMenuItem_Click);
             // 
@@ -90,35 +90,36 @@ namespace WorkTrackerAPP
             // 
             this.calendarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(91, 28);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(115, 30);
             this.calendarioToolStripMenuItem.Text = "Calendario";
             // 
             // solicitudesToolStripMenuItem
             // 
             this.solicitudesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
-            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(91, 28);
+            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(113, 30);
             this.solicitudesToolStripMenuItem.Text = "Solicitudes";
+            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
             // 
             // situaciónToolStripMenuItem
             // 
             this.situaciónToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.situaciónToolStripMenuItem.Name = "situaciónToolStripMenuItem";
-            this.situaciónToolStripMenuItem.Size = new System.Drawing.Size(83, 28);
+            this.situaciónToolStripMenuItem.Size = new System.Drawing.Size(102, 30);
             this.situaciónToolStripMenuItem.Text = "Situación";
             // 
             // informesToolStripMenuItem
             // 
             this.informesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
-            this.informesToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
+            this.informesToolStripMenuItem.Size = new System.Drawing.Size(101, 30);
             this.informesToolStripMenuItem.Text = "Informes";
             // 
             // aprobacionesToolStripMenuItem
             // 
             this.aprobacionesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.aprobacionesToolStripMenuItem.Name = "aprobacionesToolStripMenuItem";
-            this.aprobacionesToolStripMenuItem.Size = new System.Drawing.Size(111, 28);
+            this.aprobacionesToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.aprobacionesToolStripMenuItem.Text = "Aprobaciones";
             // 
             // salirToolStripMenuItem
@@ -129,7 +130,7 @@ namespace WorkTrackerAPP
             this.salirToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.salirToolStripMenuItem.Image = global::WorkTrackerAPP.Properties.Resources.Salir_Rojo;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(38, 30);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
@@ -143,9 +144,9 @@ namespace WorkTrackerAPP
             this.pnlFichar.Controls.Add(this.btnDescanso1);
             this.pnlFichar.Controls.Add(this.btnComida);
             this.pnlFichar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFichar.Location = new System.Drawing.Point(0, 32);
+            this.pnlFichar.Location = new System.Drawing.Point(0, 34);
             this.pnlFichar.Name = "pnlFichar";
-            this.pnlFichar.Size = new System.Drawing.Size(968, 473);
+            this.pnlFichar.Size = new System.Drawing.Size(968, 471);
             this.pnlFichar.TabIndex = 9;
             this.pnlFichar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -203,15 +204,15 @@ namespace WorkTrackerAPP
             this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 480);
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 473);
             this.lgnStripResult.Name = "lgnStripResult";
-            this.lgnStripResult.Size = new System.Drawing.Size(968, 25);
+            this.lgnStripResult.Size = new System.Drawing.Size(968, 32);
             this.lgnStripResult.TabIndex = 39;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(147, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(186, 26);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // pcBoxLogo
@@ -234,7 +235,7 @@ namespace WorkTrackerAPP
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblFecha.Location = new System.Drawing.Point(564, 39);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(63, 20);
+            this.lblFecha.Size = new System.Drawing.Size(78, 25);
             this.lblFecha.TabIndex = 45;
             this.lblFecha.Text = "aaaaaa";
             // 
@@ -244,7 +245,7 @@ namespace WorkTrackerAPP
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.lblHora.Location = new System.Drawing.Point(384, 26);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(141, 37);
+            this.lblHora.Size = new System.Drawing.Size(172, 46);
             this.lblHora.TabIndex = 44;
             this.lblHora.Text = "aaaaaas";
             // 
@@ -256,14 +257,14 @@ namespace WorkTrackerAPP
             this.pnlBanner.Controls.Add(this.lblFecha);
             this.pnlBanner.Controls.Add(this.lblHora);
             this.pnlBanner.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBanner.Location = new System.Drawing.Point(0, 32);
+            this.pnlBanner.Location = new System.Drawing.Point(0, 34);
             this.pnlBanner.Name = "pnlBanner";
             this.pnlBanner.Size = new System.Drawing.Size(968, 70);
             this.pnlBanner.TabIndex = 40;
             // 
             // MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 505);
             this.Controls.Add(this.pnlBanner);

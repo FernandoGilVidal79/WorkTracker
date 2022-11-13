@@ -41,54 +41,55 @@ namespace WorkTrackerAPP
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pcBoxReloj = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxReloj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnJornada
             // 
-            this.btnJornada.Location = new System.Drawing.Point(59, 127);
+            this.btnJornada.Location = new System.Drawing.Point(52, 102);
+            this.btnJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(117, 32);
+            this.btnJornada.Size = new System.Drawing.Size(104, 26);
             this.btnJornada.TabIndex = 35;
             this.btnJornada.Text = "Jornada";
             this.btnJornada.UseVisualStyleBackColor = true;
             // 
             // btnComida
             // 
-            this.btnComida.Location = new System.Drawing.Point(59, 178);
+            this.btnComida.Location = new System.Drawing.Point(52, 142);
+            this.btnComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnComida.Name = "btnComida";
-            this.btnComida.Size = new System.Drawing.Size(117, 32);
+            this.btnComida.Size = new System.Drawing.Size(104, 26);
             this.btnComida.TabIndex = 36;
             this.btnComida.Text = "Comida";
             this.btnComida.UseVisualStyleBackColor = true;
             // 
             // btnDescanso1
             // 
-            this.btnDescanso1.Location = new System.Drawing.Point(59, 237);
+            this.btnDescanso1.Location = new System.Drawing.Point(52, 190);
+            this.btnDescanso1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDescanso1.Name = "btnDescanso1";
-            this.btnDescanso1.Size = new System.Drawing.Size(117, 32);
+            this.btnDescanso1.Size = new System.Drawing.Size(104, 26);
             this.btnDescanso1.TabIndex = 37;
             this.btnDescanso1.Text = "Descanso 1";
             this.btnDescanso1.UseVisualStyleBackColor = true;
             // 
             // btnDescanso2
             // 
-            this.btnDescanso2.Location = new System.Drawing.Point(59, 293);
+            this.btnDescanso2.Location = new System.Drawing.Point(52, 234);
+            this.btnDescanso2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDescanso2.Name = "btnDescanso2";
-            this.btnDescanso2.Size = new System.Drawing.Size(117, 32);
+            this.btnDescanso2.Size = new System.Drawing.Size(104, 26);
             this.btnDescanso2.TabIndex = 38;
             this.btnDescanso2.Text = "Descanso 2";
             this.btnDescanso2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(714, 214);
+            this.button1.Location = new System.Drawing.Point(635, 171);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 42);
+            this.button1.Size = new System.Drawing.Size(73, 34);
             this.button1.TabIndex = 39;
             this.button1.Text = "FICHAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -101,25 +102,26 @@ namespace WorkTrackerAPP
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.lblHora.Location = new System.Drawing.Point(386, 95);
+            this.lblHora.Location = new System.Drawing.Point(343, 76);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(0, 37);
+            this.lblHora.Size = new System.Drawing.Size(0, 46);
             this.lblHora.TabIndex = 40;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblFecha.Location = new System.Drawing.Point(681, 108);
+            this.lblFecha.Location = new System.Drawing.Point(605, 86);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(0, 20);
+            this.lblFecha.Size = new System.Drawing.Size(0, 25);
             this.lblFecha.TabIndex = 41;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(538, 523);
+            this.btnOk.Location = new System.Drawing.Point(635, 240);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(87, 34);
+            this.btnOk.Size = new System.Drawing.Size(77, 27);
             this.btnOk.TabIndex = 42;
             this.btnOk.Text = "OK";
             this.btnOk.UseMnemonic = false;
@@ -127,9 +129,10 @@ namespace WorkTrackerAPP
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(322, 523);
+            this.btnCancel.Location = new System.Drawing.Point(635, 209);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 34);
+            this.btnCancel.Size = new System.Drawing.Size(77, 27);
             this.btnCancel.TabIndex = 43;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseMnemonic = false;
@@ -138,38 +141,18 @@ namespace WorkTrackerAPP
             // pcBoxReloj
             // 
             this.pcBoxReloj.Image = global::WorkTrackerAPP.Properties.Resources.reloj;
-            this.pcBoxReloj.Location = new System.Drawing.Point(322, 159);
+            this.pcBoxReloj.Location = new System.Drawing.Point(286, 127);
+            this.pcBoxReloj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcBoxReloj.Name = "pcBoxReloj";
-            this.pcBoxReloj.Size = new System.Drawing.Size(303, 309);
+            this.pcBoxReloj.Size = new System.Drawing.Size(269, 247);
             this.pcBoxReloj.TabIndex = 44;
             this.pcBoxReloj.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WorkTrackerAPP.Properties.Resources.Salir_Rojo;
-            this.pictureBox2.Location = new System.Drawing.Point(929, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 34;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WorkTrackerAPP.Properties.Resources.Nombre;
-            this.pictureBox1.Location = new System.Drawing.Point(297, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(439, 51);
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            // 
             // Fichar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 617);
+            this.ClientSize = new System.Drawing.Size(950, 424);
             this.Controls.Add(this.pcBoxReloj);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -180,23 +163,17 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.btnDescanso1);
             this.Controls.Add(this.btnComida);
             this.Controls.Add(this.btnJornada);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxReloj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnJornada;
         private System.Windows.Forms.Button btnComida;
         private System.Windows.Forms.Button btnDescanso1;
