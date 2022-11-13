@@ -1,13 +1,5 @@
 ﻿using IO.Swagger.Api;
-using IO.Swagger.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -43,7 +35,7 @@ namespace WorkTrackerAPP
             //Validamos los campos
             var validar = ValidarCampos(txtUsuario, txtContrasena);
             //En caso de que la validación sea correcta obtenemos el usuario
-            if(validar)
+            if (validar)
             {
                 
                 //Llamamos a al api para obtener el usuario
@@ -54,7 +46,7 @@ namespace WorkTrackerAPP
                 var user = users;
                 if(user != null)
                 {
-                    UserSession.user = user;
+                    UserSession.User = user;
                     Helper.MensajeOk("Bienvenido " + user.Email, "Correcto");
                     this.Hide();
                     MenuPrincipal frmMenuPrincipal  = new MenuPrincipal();
@@ -75,5 +67,13 @@ namespace WorkTrackerAPP
 
         }
 
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+            /*
+             * Datos Mock
+             */
+            this.txtUsuario.Text = "f@gmail.com";
+            this.txtContrasena.Text = "3456";
+        }
     }
 }

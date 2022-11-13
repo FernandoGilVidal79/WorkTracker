@@ -17,7 +17,7 @@ namespace WorkTrackerAPP
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
-            Console.WriteLine(UserSession.user);
+            Console.WriteLine(UserSession.User);
             mostrarMensajeBienvenida();
         }
         public void mostrarMensajeBienvenida()
@@ -26,15 +26,15 @@ namespace WorkTrackerAPP
             var mensaje = "";
             if(int.Parse(hora) >= 5 && int.Parse(hora) < 12)
             {
-                mensaje = "¡Buenos días " + UserSession.user.UserName + "!";
+                mensaje = "¡Buenos días " + UserSession.User.UserName + "!";
             }
             if (int.Parse(hora) >= 12 && int.Parse(hora) < 21)
             {
-                mensaje = "¡Buenas tardes " + UserSession.user.UserName + "!";
+                mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
             }
             if (int.Parse(hora) >= 21 && int.Parse(hora) < 5)
             {
-                mensaje = "¡Buenas noches " + UserSession.user.UserName + "!";
+                mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
             }
             lblBienvenida.Text = mensaje;
         }

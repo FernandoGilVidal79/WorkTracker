@@ -41,16 +41,16 @@ namespace WorkTrackerAPP
         
         private void LimpiarCampos()
         {
-            txtApellido1.Text = "";
-            txtApellido2.Text = "";
-            txtContrasena.Text = "";
-            txtDepartamento.Text = "";
-            txtDepartamento.Text = "";
-            txtEmail.Text = "";
-            txtNombre.Text = "";
-            txtNumEmpleado.Text = "";
-            txtNumVacaciones.Text = "";
-            txtTelefono.Text = "";
+            txtApellido1.Text       = "";
+            txtApellido2.Text       = "";
+            txtContrasena.Text      = "";
+            txtDepartamento.Text    = "";
+            txtDepartamento.Text    = "";
+            txtEmail.Text           = "";
+            txtNombre.Text          = "";
+            txtNumEmpleado.Text     = "";
+            txtNumVacaciones.Text   = "";
+            txtTelefono.Text        = "";
 
         }
 
@@ -102,7 +102,7 @@ namespace WorkTrackerAPP
         {
             try
             {
-                var user = new IO.Swagger.Model.Users();
+                var user = new Users();
                 
                
                 user.Department = txtDepartamento.Text;

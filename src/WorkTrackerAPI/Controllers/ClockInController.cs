@@ -42,7 +42,7 @@ namespace WorkTrackerAPI.Controllers
             List<Clockin> listClockIn = null;
             try
             {
-                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id}");
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > CURDATE() ");
             }
 
             catch(Exception ex)

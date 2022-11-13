@@ -76,10 +76,11 @@
             this.pnlLogin.Controls.Add(this.pcBoxLogo);
             this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLogin.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(989, 682);
             this.pnlLogin.TabIndex = 39;
+            this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
             // 
             // btnIniciarSesion
             // 
@@ -164,7 +165,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcBoxLogo.Image = global::WorkTrackerAPP.Properties.Resources.Logo;
             this.pcBoxLogo.Location = new System.Drawing.Point(395, 8);
-            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pcBoxLogo.MaximumSize = new System.Drawing.Size(215, 205);
             this.pcBoxLogo.Name = "pcBoxLogo";
             this.pcBoxLogo.Size = new System.Drawing.Size(215, 205);
