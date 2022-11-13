@@ -78,7 +78,7 @@ namespace WorkTrackerAPI.Controllers
             List<Users> users = null;
             try
             {
-                users = (List<Users>)SimpleCRUD.GetList<Users>(db, $"where UserName = '{userName}' and password = '{password}'");
+                users = (List<Users>)SimpleCRUD.GetList<Users>(db, $"where email = '{userName}' and password = '{password}'");
 
 
                 if (users.Count() > 0)
