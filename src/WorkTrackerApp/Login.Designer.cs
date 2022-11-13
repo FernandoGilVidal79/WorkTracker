@@ -80,7 +80,6 @@
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(989, 682);
             this.pnlLogin.TabIndex = 39;
-            this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
             // 
             // btnIniciarSesion
             // 

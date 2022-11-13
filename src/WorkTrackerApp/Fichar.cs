@@ -15,18 +15,17 @@ namespace WorkTrackerAPP
         public Fichar()
         {
             InitializeComponent();
-            timer1.Enabled = true;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToString("hh:mm tt");
-            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            
         }
 
         private void Fichar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnJornada_Click(object sender, EventArgs e)
+        {
+            btnJornada.Text = "Salida";
         }
     }
 }

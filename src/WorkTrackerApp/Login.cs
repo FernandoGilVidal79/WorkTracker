@@ -45,35 +45,35 @@ namespace WorkTrackerAPP
             //En caso de que la validación sea correcta obtenemos el usuario
             if(validar)
             {
+                
                 //Llamamos a al api para obtener el usuario
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-                var users = apiclient.ApiUserLoginGetWithHttpInfo(txtUsuario.Text, txtContrasena.Text);
+                var users = apiclient.ApiUserLoginGet(txtUsuario.Text, txtContrasena.Text);
 
                 //Comprobamos que el usuario existe, en caso de existir entra en al APP, en caso contrario muestra un mensaje
-                var user = users.Data;
+                var user = users;
                 if(user != null)
                 {
-                    Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
+                    UserSession.user = user;
+                    Helper.MensajeOk("Bienvenido " + user.Email, "Correcto");
                     this.Hide();
                     MenuPrincipal frmMenuPrincipal  = new MenuPrincipal();
                     frmMenuPrincipal.ShowDialog();
                     this.Close();
 
-                } else
+                } 
+                else
                 {
                     Helper.MensajeError("El usuario NO existe", "Error");
                 }
 
-            } else
+            } 
+            else
             {
                 Helper.MensajeError("Ocurrió un error en la validación", "Error");
             }
 
         }
 
-        private void pnlLogin_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
