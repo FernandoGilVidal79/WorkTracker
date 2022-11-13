@@ -31,7 +31,7 @@ namespace WorkTrackerAPP
         {
             this.cbxTipoAusencia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.mCalendar = new System.Windows.Forms.MonthCalendar();
             this.tbxDesde = new System.Windows.Forms.TextBox();
             this.tbxHasta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,11 +60,12 @@ namespace WorkTrackerAPP
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // monthCalendar1
+            // mCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(545, 112);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 83;
+            this.mCalendar.Location = new System.Drawing.Point(545, 112);
+            this.mCalendar.Name = "mCalendar";
+            this.mCalendar.TabIndex = 83;
+            this.mCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // tbxDesde
             // 
@@ -123,7 +124,7 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxHasta);
             this.Controls.Add(this.tbxDesde);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.mCalendar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxTipoAusencia);
             this.Name = "SolicitudAusencia";
@@ -136,7 +137,7 @@ namespace WorkTrackerAPP
         #endregion
         private System.Windows.Forms.ComboBox cbxTipoAusencia;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar mCalendar;
         private System.Windows.Forms.TextBox tbxDesde;
         private System.Windows.Forms.TextBox tbxHasta;
         private System.Windows.Forms.Label label2;

@@ -28,12 +28,33 @@ namespace WorkTrackerAPP
         {
 
         }
-        //no se como crearla conexion a tipoAusencias
-       /* private void CargarTipoAusencias()
-        {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-            var absenseTypes = apiclient.A
 
-        }*/
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            {
+                if (tbxDesde.Text.Length == 0)
+                {
+                    tbxDesde.Text = mCalendar.SelectionStart.ToString();
+                }
+                else if (tbxHasta.Text.Length != 0)
+                {
+                    tbxDesde.Text = mCalendar.SelectionStart.ToString();
+                    tbxHasta.Clear();
+                }
+                else
+                {
+                    tbxHasta.Text = mCalendar.SelectionEnd.ToString();
+                }
+
+            }
+
+        }
+        //no se como crearla conexion a tipoAusencias
+        /* private void CargarTipoAusencias()
+         {
+             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+             var absenseTypes = apiclient.A
+
+         }*/
     }
 }
