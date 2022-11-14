@@ -49,9 +49,25 @@ namespace WorkTrackerAPP
                     UserSession.User = user;
                     Helper.MensajeOk("Bienvenido " + user.Email, "Correcto");
                     this.Hide();
-                    MenuPrincipal frmMenuPrincipal  = new MenuPrincipal();
-                    frmMenuPrincipal.ShowDialog();
-                    this.Close();
+                    //Obtenemos el id del usuario
+                    if(user.UserTypeId == 1)
+                    {
+                        MenuPrincipalAdmin frmMenuPrincipal = new MenuPrincipalAdmin();
+                        frmMenuPrincipal.ShowDialog();
+                        this.Close();
+                    }
+                    else if(user.UserTypeId == 2)
+                    {
+                        MenuPrincipalRRHH frmMenuPrincipal = new MenuPrincipalRRHH();
+                        frmMenuPrincipal.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
+                        frmMenuPrincipal.ShowDialog();
+                        this.Close();
+                    }
 
                 } 
                 else
@@ -72,8 +88,8 @@ namespace WorkTrackerAPP
             /*
              * Datos Mock
              */
-            this.txtUsuario.Text = "f@gmail.com";
-            this.txtContrasena.Text = "3456";
+            this.txtUsuario.Text = "mariano@superman.com";
+            this.txtContrasena.Text = "Mariano";
         }
     }
 }

@@ -129,7 +129,7 @@ namespace WorkTrackerAPP
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error creando el usuario";
+                toolStripStatusLabel1.Text = "Error creando el usuario"+ex;
             }
          }
 

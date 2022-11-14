@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class MenuPrincipalAdmin : Form
+    public partial class MenuPrincipalRRHH : Form
     {
-        public MenuPrincipalAdmin()
+        public MenuPrincipalRRHH()
         {
             InitializeComponent();
             Helper.mensajeBienvenida(lblBienvenida);
@@ -22,22 +22,7 @@ namespace WorkTrackerAPP
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("D");
         }
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuPrincipalAdmin_Load(object sender, EventArgs e)
+        private void MenuPrincipalRRHH_Load(object sender, EventArgs e)
         {
 
         }

@@ -8,7 +8,7 @@ namespace WorkTrackerAPP
         public MenuPrincipal()
         {
             InitializeComponent();
-            tmrHora.Enabled = true;
+            TmrHora.Enabled = true;
             pnlFichar.Controls.Clear();
             Fichar Frm = new Fichar();
             Frm.TopLevel = false;
@@ -18,27 +18,9 @@ namespace WorkTrackerAPP
             pnlFichar.Tag = Frm;
             Frm.Show();
             Console.WriteLine(UserSession.User);
-            mostrarMensajeBienvenida();
+            Helper.mensajeBienvenida(lblBienvenida);
         }
-        public void mostrarMensajeBienvenida()
-        {
-            var hora = DateTime.Now.ToString("HH");
-            var mensaje = "";
-            if(int.Parse(hora) >= 5 && int.Parse(hora) < 12)
-            {
-                mensaje = "¡Buenos días " + UserSession.User.UserName + "!";
-            }
-            if (int.Parse(hora) >= 12 && int.Parse(hora) < 21)
-            {
-                mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
-            }
-            if (int.Parse(hora) >= 21 && int.Parse(hora) < 5)
-            {
-                mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
-            }
-            lblBienvenida.Text = mensaje;
-        }
-        private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FicharToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             pnlFichar.Controls.Clear();
@@ -52,13 +34,13 @@ namespace WorkTrackerAPP
 
         }
 
-        private void tmrHora_Tick(object sender, EventArgs e)
+        private void TmrHora_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("D");
         }
 
-        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
             SolicitudAusencia FrmAusencia = new SolicitudAusencia();
@@ -70,9 +52,5 @@ namespace WorkTrackerAPP
             FrmAusencia.Show();
         }
 
-        private void lblFecha_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
