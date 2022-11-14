@@ -18,7 +18,7 @@ namespace WorkTrackerAPP
             pnlFichar.Tag = Frm;
             Frm.Show();
             Console.WriteLine(UserSession.User);
-            Helper.mensajeBienvenida(lblBienvenida);
+            Helper.MensajeBienvenida(lblBienvenida);
         }
         private void FicharToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -36,8 +36,7 @@ namespace WorkTrackerAPP
 
         private void TmrHora_Tick(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToString("HH:mm:ss tt");
-            lblFecha.Text = DateTime.Now.ToString("D");
+            Helper.MostrarHora(lblHora, lblFecha);
         }
 
         private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)

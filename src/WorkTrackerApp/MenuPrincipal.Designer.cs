@@ -62,6 +62,7 @@ namespace WorkTrackerAPP
             // 
             this.mstrpPrincipal.BackColor = System.Drawing.Color.Silver;
             this.mstrpPrincipal.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mstrpPrincipal.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mstrpPrincipal.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mstrpPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FicharToolStripMenuItem,
@@ -208,9 +209,8 @@ namespace WorkTrackerAPP
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblFecha.Location = new System.Drawing.Point(711, 40);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(395, 29);
+            this.lblFecha.Size = new System.Drawing.Size(0, 29);
             this.lblFecha.TabIndex = 45;
-            this.lblFecha.Text = "Domingo, 13 de noviembre de 2022";
             // 
             // lblHora
             // 
@@ -219,9 +219,8 @@ namespace WorkTrackerAPP
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblHora.Location = new System.Drawing.Point(711, 10);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(103, 29);
+            this.lblHora.Size = new System.Drawing.Size(0, 29);
             this.lblHora.TabIndex = 44;
-            this.lblHora.Text = "12:34:00";
             // 
             // pnlBanner
             // 

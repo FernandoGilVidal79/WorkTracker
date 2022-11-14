@@ -27,7 +27,7 @@ namespace WorkTrackerAPP
         /*
          * Mensaje de bienvenida
          */
-        public static void mensajeBienvenida(Label lblBienvenida)
+        public static void MensajeBienvenida(Label lblBienvenida)
         {
             var hora = DateTime.Now.ToString("HH");
             var mensaje = "";
@@ -44,6 +44,11 @@ namespace WorkTrackerAPP
                 mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
             }
             lblBienvenida.Text = mensaje;
+        }
+        public static void MostrarHora(Label hora, Label fecha)
+        {
+            hora.Text = DateTime.Now.ToString("HH:mm:ss tt");
+            fecha.Text = DateTime.Now.ToString("D");
         }
     }
 }

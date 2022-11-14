@@ -15,14 +15,19 @@ namespace WorkTrackerAPP
         public MenuPrincipalRRHH()
         {
             InitializeComponent();
-            Helper.mensajeBienvenida(lblBienvenida);
+            TmrHora.Enabled = true;
+            Helper.MensajeBienvenida(lblBienvenida);
         }
         private void TmrHora_Tick(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToString("HH:mm:ss tt");
-            lblFecha.Text = DateTime.Now.ToString("D");
+            Helper.MostrarHora(lblHora, lblFecha);
         }
         private void MenuPrincipalRRHH_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlFichar_Paint(object sender, PaintEventArgs e)
         {
 
         }
