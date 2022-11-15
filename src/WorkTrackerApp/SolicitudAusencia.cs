@@ -17,6 +17,11 @@ namespace WorkTrackerAPP
         public SolicitudAusencia()
         {
             InitializeComponent();
+           
+        }
+
+        private void SolicitudAusencia_Load(object sender, EventArgs e)
+        {
             CargarTipoAusencias();
         }
 
@@ -27,7 +32,7 @@ namespace WorkTrackerAPP
 
         private void cbxTipoAusencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+         
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -51,18 +56,37 @@ namespace WorkTrackerAPP
 
         }
 
-        private void SolicitudAusencia_Load(object sender, EventArgs e)
-        {
-
-        }
-        //no se como crearla conexion a tipoAusencias
+       
         private void CargarTipoAusencias()
         {
             var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
             var absensesTypes = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
             cmbTipoAusencia.DisplayMember = "Description";
-            cmbTipoAusencia.ValueMember = "IdUserType";
+            cmbTipoAusencia.ValueMember = "IdAbsenseType";
             cmbTipoAusencia.DataSource = absensesTypes;
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var absenses = new Absenses();
+
+                absenses.StartDate = DateTime.Parse(tbxDesde.Text);
+                absenses.FinishDate = DateTime.Parse(tbxHasta.Text);
+                absenses.Status = false;
+                absenses.UserId = UserSession.User.IdUser;
+                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue; 
+
+                var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                toolStripStatusLabel1.Text = "Ausencia grabada";
+                
+            }
+            catch (Exception ex)
+            {
+                toolStripStatusLabel1.Text = "Error al guardar la ausencia" + ex;
+            }
         }
     }
 }

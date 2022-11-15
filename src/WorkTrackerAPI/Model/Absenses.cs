@@ -6,6 +6,8 @@ namespace WorkTrackerAPI.Model
 {
     public class Absenses
     {
+        [Key]
+        [IgnoreInsert]
         public int IdAbsenses { get; set; }
 
         public DateTime StartDate { get; set; }
