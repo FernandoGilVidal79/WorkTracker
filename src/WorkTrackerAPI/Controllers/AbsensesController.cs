@@ -39,10 +39,10 @@ namespace WorkTrackerAPI.Controllers
 
             catch (Exception ex)
             {
-                return null;
+                throw ;
             }
 
-            return listAbsenses;
+            return (IEnumerable<Absenses>)Ok(listAbsenses);
 
         }
 
@@ -51,8 +51,7 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("GetAbsensesTypes")]
         public IEnumerable<AbsenseType> GetAbsensesTypes()
         {
-            IEnumerable<AbsenseType> listAbsensesType = null;
-            listAbsensesType = SimpleCRUD.GetList<AbsenseType>(db);
+            IEnumerable<AbsenseType> listAbsensesType = db.GetList<AbsenseType>();
             return listAbsensesType;
         }
 
@@ -75,7 +74,15 @@ namespace WorkTrackerAPI.Controllers
         [HttpPut("CreateAbsense")]
         public void Put( [FromBody] Absenses absense)
         {
-            SimpleCRUD.Insert(db, absense);
+            try
+            {
+
+                SimpleCRUD.Insert(db, absense);
+            }
+            catch 
+            {
+                throw;
+            }
         }
 
         // DELETE api/<AbsensesController>/5
