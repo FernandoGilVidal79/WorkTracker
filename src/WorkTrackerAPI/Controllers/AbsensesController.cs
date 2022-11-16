@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,11 +17,11 @@ namespace WorkTrackerAPI.Controllers
     [ApiController]
     public class AbsensesController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILoggerManager _logger;
         private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
         private MySqlConnection db;
 
-        public AbsensesController(ILogger<UserController> logger)
+        public AbsensesController(ILoggerManager logger)
         {
             _logger = logger;
             db = new MySqlConnection(connection);
@@ -39,7 +40,7 @@ namespace WorkTrackerAPI.Controllers
 
             catch (Exception ex)
             {
-                throw ;
+                _logger.LogError(ex.Message);
             }
 
             return (IEnumerable<Absenses>)Ok(listAbsenses);
@@ -79,9 +80,9 @@ namespace WorkTrackerAPI.Controllers
 
                 SimpleCRUD.Insert(db, absense);
             }
-            catch 
+            catch (Exception ex)
             {
-                throw;
+                _logger.LogError(ex.Message);
             }
         }
 

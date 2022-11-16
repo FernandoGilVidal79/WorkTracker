@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 namespace WorkTrackerAPI.Controllers
@@ -15,11 +16,11 @@ namespace WorkTrackerAPI.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILoggerManager _logger;
         private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
         private MySqlConnection db;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILoggerManager logger)
         {
             _logger = logger;
             db = new MySqlConnection(connection);
@@ -88,7 +89,7 @@ namespace WorkTrackerAPI.Controllers
             }
             catch (Exception ex)
             {
-                return null;
+                _logger.LogError(ex.Message);
             }
 
             return null;
@@ -117,7 +118,15 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("CreateUser")]
         public void CreateUser([FromBody] Users user)
         {
-            SimpleCRUD.Insert(db, user);
+            try
+            {
+                SimpleCRUD.Insert(db, user);
+            }
+
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
         }
 
 

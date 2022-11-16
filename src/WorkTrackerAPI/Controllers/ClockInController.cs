@@ -26,7 +26,7 @@ namespace WorkTrackerAPI.Controllers
         {
             _logger = logger;
             db = new MySqlConnection(connection);
-            _logger.LogInfo("Application Started");
+            
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
@@ -51,11 +51,9 @@ namespace WorkTrackerAPI.Controllers
 
             catch(Exception ex)
             {
-                return null;
+                _logger.LogError(ex.Message);
             }
-
             return listClockIn;
-
         }
 
         // PUT api/<ClockInController>/5
@@ -66,9 +64,9 @@ namespace WorkTrackerAPI.Controllers
             {
                 SimpleCRUD.Insert(db, clockin);
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                _logger.LogError(ex.Message); 
             }
         }      
     }
