@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,33 +17,33 @@ namespace WorkTrackerAPI.Controllers
     [ApiController]
     public class AbsensesController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILoggerManager _logger;
         private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
         private MySqlConnection db;
 
-        public AbsensesController(ILogger<UserController> logger)
+        public AbsensesController(ILoggerManager logger)
         {
             _logger = logger;
             db = new MySqlConnection(connection);
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
-        // GET api/<ClockInController>/5
-        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IEnumerable<Absenses>), (int)HttpStatusCode.OK)]
+        [HttpGet("GetAbsensesByUserId/{id}")]
         public IEnumerable<Absenses> GetAbsensesByUserId(int id)
         {
             List<Absenses> listAbsenses = null;
             try
             {
-                listAbsenses = (List<Absenses>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id}");
+                listAbsenses = (List<Absenses>)SimpleCRUD.GetList<Absenses>(db, $"where userid = {id}");
             }
 
             catch (Exception ex)
             {
-                return null;
+                _logger.LogError(ex.Message);
             }
 
-            return listAbsenses;
+            return (IEnumerable<Absenses>)Ok(listAbsenses);
 
         }
 
@@ -51,8 +52,7 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("GetAbsensesTypes")]
         public IEnumerable<AbsenseType> GetAbsensesTypes()
         {
-            IEnumerable<AbsenseType> listAbsensesType = null;
-            listAbsensesType = SimpleCRUD.GetList<AbsenseType>(db);
+            IEnumerable<AbsenseType> listAbsensesType = db.GetList<AbsenseType>();
             return listAbsensesType;
         }
 
@@ -75,7 +75,15 @@ namespace WorkTrackerAPI.Controllers
         [HttpPut("CreateAbsense")]
         public void Put( [FromBody] Absenses absense)
         {
-            SimpleCRUD.Insert(db, absense);
+            try
+            {
+
+                SimpleCRUD.Insert(db, absense);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
         }
 
         // DELETE api/<AbsensesController>/5
