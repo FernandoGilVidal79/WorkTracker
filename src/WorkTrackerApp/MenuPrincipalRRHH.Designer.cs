@@ -39,6 +39,7 @@ namespace WorkTrackerAPP
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aprobacionestoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripCreacionUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBanner = new System.Windows.Forms.Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
@@ -53,7 +54,6 @@ namespace WorkTrackerAPP
             this.btnDescanso1 = new System.Windows.Forms.Button();
             this.btnComida = new System.Windows.Forms.Button();
             this.TmrHora = new System.Windows.Forms.Timer(this.components);
-            this.toolStripCreacionUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.mstrpPrincipal.SuspendLayout();
             this.pnlBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -87,6 +87,7 @@ namespace WorkTrackerAPP
             this.ficharToolStripMenuItem.Name = "ficharToolStripMenuItem";
             this.ficharToolStripMenuItem.Size = new System.Drawing.Size(76, 30);
             this.ficharToolStripMenuItem.Text = "Fichar";
+            this.ficharToolStripMenuItem.Click += new System.EventHandler(this.ficharToolStripMenuItem_Click);
             // 
             // calendarioToolStripMenuItem
             // 
@@ -137,6 +138,14 @@ namespace WorkTrackerAPP
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(38, 30);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // toolStripCreacionUsuario
+            // 
+            this.toolStripCreacionUsuario.ForeColor = System.Drawing.Color.DarkRed;
+            this.toolStripCreacionUsuario.Name = "toolStripCreacionUsuario";
+            this.toolStripCreacionUsuario.Size = new System.Drawing.Size(177, 30);
+            this.toolStripCreacionUsuario.Text = "Creación Usuarios";
+            this.toolStripCreacionUsuario.Click += new System.EventHandler(this.toolStripCreacionUsuario_Click);
             // 
             // pnlBanner
             // 
@@ -277,14 +286,6 @@ namespace WorkTrackerAPP
             // TmrHora
             // 
             this.TmrHora.Tick += new System.EventHandler(this.TmrHora_Tick);
-            // 
-            // toolStripCreacionUsuario
-            // 
-            this.toolStripCreacionUsuario.ForeColor = System.Drawing.Color.DarkRed;
-            this.toolStripCreacionUsuario.Name = "toolStripCreacionUsuario";
-            this.toolStripCreacionUsuario.Size = new System.Drawing.Size(177, 30);
-            this.toolStripCreacionUsuario.Text = "Creación Usuarios";
-            this.toolStripCreacionUsuario.Click += new System.EventHandler(this.toolStripCreacionUsuario_Click);
             // 
             // MenuPrincipalRRHH
             // 

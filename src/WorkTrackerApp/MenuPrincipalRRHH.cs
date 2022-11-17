@@ -89,5 +89,17 @@ namespace WorkTrackerAPP
             pnlFichar.Tag = FrmCreacion;
             FrmCreacion.Show();
         }
+
+        private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            Fichar Frm = new Fichar();
+            Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            Frm.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(Frm);
+            pnlFichar.Tag = Frm;
+            Frm.Show();
+        }
     }
 }
