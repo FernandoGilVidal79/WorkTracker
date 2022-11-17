@@ -8,9 +8,8 @@ namespace WorkTrackerAPP
 {
     public partial class Fichar : Form
     {
-        private const string Format = "yyyy-MM-dd";
+        private const string Format = "yyyy-MM-dd HH:mm:ss";
         public static Estados estado;
-        public ClockInApi apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
 
         public enum Estados
         {
@@ -33,6 +32,7 @@ namespace WorkTrackerAPP
 
         private void CargarFichajes(int id)
         {
+            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
 
             var userTypes = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
             UserSession.Fichajes = userTypes;
@@ -50,26 +50,27 @@ namespace WorkTrackerAPP
         private void HistoricoFichajes()
         {
             Console.WriteLine(UserSession.Fichajes);
-            lblHistorico.Text = UserSession.Fichajes.ToString();
         }
 
         private void Fichaje()
         {
             //Marcaje realizado
-            lblResumen.Text = "Fichaje Realizado";
+            
             var clockin = new Clockin();
-
             clockin.UserId = UserSession.User.IdUser;
-            clockin.Fecha = Convert.ToDateTime(DateTime.Now.ToString(Format));
-            clockin.StartHour = Convert.ToDateTime(DateTime.Now.ToString(Format));
+            clockin.Date = DateTime.Now;
+            clockin.StartHour = DateTime.Now;
+            //clockin.FinishHour;
             clockin.ClockinTypeId = 1;
+
+            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
             try
             {
 
-                apiclient.ApiClockInClockInPut(clockin);
+                lblResumen.Text = "Fichaje Realizado";
 
             }
-            catch (Exception ex)
+            catch (IO.Swagger.Client.ApiException ex)
             {
                 toolStripStatusLabel1.Text = "Error al fichar" + ex;
             }
@@ -145,6 +146,8 @@ namespace WorkTrackerAPP
 
         private void btnJornada_Click(object sender, EventArgs e)
         {
+            //Realizamos un fichaje
+            Fichaje();
             if (estado == Estados.Fuera)
             {
                 estado = Estados.Entrada;              
@@ -155,8 +158,7 @@ namespace WorkTrackerAPP
                 estado = Estados.Saliendo;
             }
             MaquinaEstados();
-            //Realizamos un fichaje
-            Fichaje();
+
         }
 
         private void btnComida_Click(object sender, EventArgs e)
