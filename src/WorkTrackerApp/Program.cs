@@ -16,8 +16,9 @@ namespace WorkTrackerAPP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+           // Application.Run(new CreacionUsuarios());
+          // Application.Run(new Situacion());
             Application.Run(new Login());
-            //Application.Run(new SolicitudAusencia());       
         }
     }
 }

@@ -58,7 +58,7 @@ namespace WorkTrackerAPP
         {
             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
             var userTypes = apiclient.ApiUserGetUserTypesGet();
-
+            
             cmbTipoUsuario.DisplayMember = "Description";
             cmbTipoUsuario.ValueMember = "IdUserType";
             cmbTipoUsuario.DataSource = userTypes;
@@ -76,6 +76,7 @@ namespace WorkTrackerAPP
                 if (user != null)
                 {
                     this.txtNumEmpleado.Text   = user.IdUser.ToString();
+                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
                     this.txtNombre.Text        = user.UserName;
                     this.txtEmail.Text         = user.Email;
                     this.txtApellido1.Text     = user.SurName1;
@@ -84,6 +85,7 @@ namespace WorkTrackerAPP
                     this.txtNumVacaciones.Text = user.NHollidays.ToString();
                     this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
                     this.txtDepartamento.Text  = user.Phone.ToString();
+                    SetStatusCombo((bool)user.Status);
                     edicion = true;
                     ActivarCampos(true);
                 }
@@ -98,19 +100,52 @@ namespace WorkTrackerAPP
             }
         }
 
+        private void SetStatusCombo(bool value)
+        {
+            if (value == true)
+            {
+                cmbStatus.SelectedItem = "Y";
+            }
+
+            else
+            {
+                cmbStatus.SelectedItem = "N";
+            }
+        }
+
+        private bool ComboStatusValor()
+        {
+            if ((string)cmbStatus.SelectedItem == "Y")
+            {
+                return true;
+            }
+
+            else if((string)cmbStatus.SelectedItem == "N")
+            {
+                return false;
+            }
+
+            return false;
+            //throw new Exception("No se ha seleccionado un valor");
+        }
+
+        
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            ComboStatusValor();
             try
             {
                 var user = new Users();
                 
                
                 user.Department = txtDepartamento.Text;
-                user.UserTypeId = 1;///cmbTipoUsuario.Items[cmbTipoUsuario.SelectedIndex];
+                user.UserTypeId = (int?)cmbTipoUsuario.SelectedValue;
                 user.UserName   = txtNombre.Text;
                 user.SurName1   = txtApellido1.Text;
                 user.SurName2   = txtApellido2.Text;
-                user.Status     = true;
+                user.Status     = ComboStatusValor();
                 user.Phone      = Int32.Parse(txtTelefono.Text);
                 user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
                 user.Email      = txtEmail.Text;
