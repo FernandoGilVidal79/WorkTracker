@@ -65,12 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AprobacionSolicitudes - Combo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AprobacionSolicitudes - Combo.Designer.cs">
-      <DependentUpon>AprobacionSolicitudes - Combo.cs</DependentUpon>
-    </Compile>
     <Compile Include="AprobacionSolicitudes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,9 +123,6 @@
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\UserSession.cs" />
-    <EmbeddedResource Include="AprobacionSolicitudes - Combo.resx">
-      <DependentUpon>AprobacionSolicitudes - Combo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AprobacionSolicitudes.resx">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </EmbeddedResource>

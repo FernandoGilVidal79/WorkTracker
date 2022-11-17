@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IO.Swagger.Api;
+using System;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -17,14 +11,34 @@ namespace WorkTrackerAPP
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void AprobacionSolicitudes_Combo_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void CargarComboUsuarios()
         {
+            var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var absensesTypes = apiUsers.ApiUserGetUsersGet();
+            cmbUsuarios.DisplayMember = "UserName";
+            cmbUsuarios.ValueMember = "IdUser";
+            cmbUsuarios.DataSource = absensesTypes;
+        }
 
+        private void AprobacionSolicitudes_Load(object sender, EventArgs e)
+        {
+            //CargarComboUsuarios();
+        }
+
+        private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var Combo = (ComboBox)sender;
+            if (Combo.SelectedIndex > -1)
+            {
+                var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                var absensesTypes = apiAbsenses.ApiAbsensesIdGet(6);
+            }
+         
         }
     }
 }

@@ -50,6 +50,7 @@ namespace WorkTrackerAPP
         private void HistoricoFichajes()
         {
             Console.WriteLine(UserSession.Fichajes);
+            lblHistorico.Text = UserSession.Fichajes.ToString();
         }
 
         private void Fichaje()

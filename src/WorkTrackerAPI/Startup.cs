@@ -1,16 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NLog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using WorkTrackerAPI.Extensions;
 
 namespace WorkTrackerAPI
 {
@@ -18,15 +15,17 @@ namespace WorkTrackerAPI
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
-        }
+            Configuration = configuration;      
+            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+        }   
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
+        {    
+            services.ConfigureNLogService();
+            services.AddControllers();     
             AddSwagger(services);
         }
 
@@ -37,7 +36,7 @@ namespace WorkTrackerAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseSwagger();

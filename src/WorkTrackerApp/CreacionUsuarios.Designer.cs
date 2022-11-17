@@ -53,13 +53,9 @@ namespace WorkTrackerAPP
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnNuevo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,27 +285,6 @@ namespace WorkTrackerAPP
             this.label8.TabIndex = 35;
             this.label8.Text = "Email";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WorkTrackerAPP.Properties.Resources.Salir_Rojo;
-            this.pictureBox2.Location = new System.Drawing.Point(628, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 32;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WorkTrackerAPP.Properties.Resources.Nombre;
-            this.pictureBox1.Location = new System.Drawing.Point(184, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 45);
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -320,6 +295,7 @@ namespace WorkTrackerAPP
             this.statusStrip1.Size = new System.Drawing.Size(700, 26);
             this.statusStrip1.TabIndex = 37;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabel1
             // 
@@ -349,8 +325,6 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.cmbTipoUsuario);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.txtNumVacaciones);
@@ -376,8 +350,6 @@ namespace WorkTrackerAPP
             this.Name = "CreacionUsuarios";
             this.Text = "U S U A R I O S";
             this.Load += new System.EventHandler(this.CreacionUsuarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -407,8 +379,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.TextBox txtNumVacaciones;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox cmbTipoUsuario;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.TextBox txtEmail;
