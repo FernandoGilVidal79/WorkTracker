@@ -83,6 +83,7 @@ namespace IO.Swagger.Model
         /// </summary>
         [DataMember(Name="userId", EmitDefaultValue=false)]
         public int? UserId { get; set; }
+        public DateTime Fecha { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -1,13 +1,16 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Model;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
     public partial class Fichar : Form
     {
-
+        private const string Format = "yyyy-MM-dd";
         public static Estados estado;
+        public ClockInApi apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
 
         public enum Estados
         {
@@ -24,13 +27,13 @@ namespace WorkTrackerAPP
         public Fichar()
         {
             InitializeComponent();
-
             
+
         }
 
         private void CargarFichajes(int id)
         {
-            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+
             var userTypes = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
             UserSession.Fichajes = userTypes;
             estado = Estados.Fuera;
@@ -44,12 +47,43 @@ namespace WorkTrackerAPP
 
         }
         
+        private void HistoricoFichajes()
+        {
+            Console.WriteLine(UserSession.Fichajes);
+            lblHistorico.Text = UserSession.Fichajes.ToString();
+        }
+
+        private void Fichaje()
+        {
+            //Marcaje realizado
+            lblResumen.Text = "Fichaje Realizado";
+            var clockin = new Clockin();
+
+            clockin.UserId = UserSession.User.IdUser;
+            clockin.Fecha = Convert.ToDateTime(DateTime.Now.ToString(Format));
+            clockin.StartHour = Convert.ToDateTime(DateTime.Now.ToString(Format));
+            clockin.ClockinTypeId = 1;
+            try
+            {
+
+                apiclient.ApiClockInClockInPut(clockin);
+
+            }
+            catch (Exception ex)
+            {
+                toolStripStatusLabel1.Text = "Error al fichar" + ex;
+            }
+            lblHistorico.Text = "Estado";
+
+            //Actualizar datos
+        }
 
         private void Fichar_Load(object sender, EventArgs e)
         {
             CargarFichajes((int)UserSession.User.IdUser);
             estado = 0;
             MaquinaEstados();
+            HistoricoFichajes();
         }
 
         private void MaquinaEstados()
@@ -121,6 +155,8 @@ namespace WorkTrackerAPP
                 estado = Estados.Saliendo;
             }
             MaquinaEstados();
+            //Realizamos un fichaje
+            Fichaje();
         }
 
         private void btnComida_Click(object sender, EventArgs e)
@@ -152,5 +188,6 @@ namespace WorkTrackerAPP
 
             MaquinaEstados();
         }
+
     }
 }

@@ -38,13 +38,6 @@ namespace WorkTrackerAPP
             this.situaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFichar = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDescanso2 = new System.Windows.Forms.Button();
-            this.btnJornada = new System.Windows.Forms.Button();
-            this.btnDescanso1 = new System.Windows.Forms.Button();
-            this.btnComida = new System.Windows.Forms.Button();
-            this.lgnStripResult = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TmrHora = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
@@ -52,8 +45,6 @@ namespace WorkTrackerAPP
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
             this.mstrpPrincipal.SuspendLayout();
-            this.pnlFichar.SuspendLayout();
-            this.lgnStripResult.SuspendLayout();
             this.pnlBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -122,81 +113,11 @@ namespace WorkTrackerAPP
             // 
             this.pnlFichar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlFichar.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlFichar.Controls.Add(this.button1);
-            this.pnlFichar.Controls.Add(this.btnDescanso2);
-            this.pnlFichar.Controls.Add(this.btnJornada);
-            this.pnlFichar.Controls.Add(this.btnDescanso1);
-            this.pnlFichar.Controls.Add(this.btnComida);
             this.pnlFichar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFichar.Location = new System.Drawing.Point(0, 39);
             this.pnlFichar.Name = "pnlFichar";
             this.pnlFichar.Size = new System.Drawing.Size(968, 466);
             this.pnlFichar.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(306, 179);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 42);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "FICHAR";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnDescanso2
-            // 
-            this.btnDescanso2.Location = new System.Drawing.Point(15, 235);
-            this.btnDescanso2.Name = "btnDescanso2";
-            this.btnDescanso2.Size = new System.Drawing.Size(117, 32);
-            this.btnDescanso2.TabIndex = 43;
-            this.btnDescanso2.Text = "Descanso 2";
-            this.btnDescanso2.UseVisualStyleBackColor = true;
-            // 
-            // btnJornada
-            // 
-            this.btnJornada.Location = new System.Drawing.Point(15, 69);
-            this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(117, 32);
-            this.btnJornada.TabIndex = 40;
-            this.btnJornada.Text = "Jornada";
-            this.btnJornada.UseVisualStyleBackColor = true;
-            // 
-            // btnDescanso1
-            // 
-            this.btnDescanso1.Location = new System.Drawing.Point(15, 179);
-            this.btnDescanso1.Name = "btnDescanso1";
-            this.btnDescanso1.Size = new System.Drawing.Size(117, 32);
-            this.btnDescanso1.TabIndex = 42;
-            this.btnDescanso1.Text = "Descanso 1";
-            this.btnDescanso1.UseVisualStyleBackColor = true;
-            // 
-            // btnComida
-            // 
-            this.btnComida.Location = new System.Drawing.Point(15, 120);
-            this.btnComida.Name = "btnComida";
-            this.btnComida.Size = new System.Drawing.Size(117, 32);
-            this.btnComida.TabIndex = 41;
-            this.btnComida.Text = "Comida";
-            this.btnComida.UseVisualStyleBackColor = true;
-            // 
-            // lgnStripResult
-            // 
-            this.lgnStripResult.BackColor = System.Drawing.Color.Silver;
-            this.lgnStripResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.lgnStripResult.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lgnStripResult.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 467);
-            this.lgnStripResult.Name = "lgnStripResult";
-            this.lgnStripResult.Size = new System.Drawing.Size(968, 38);
-            this.lgnStripResult.TabIndex = 39;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(218, 31);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // TmrHora
             // 
@@ -262,7 +183,6 @@ namespace WorkTrackerAPP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 505);
             this.Controls.Add(this.pnlBanner);
-            this.Controls.Add(this.lgnStripResult);
             this.Controls.Add(this.pnlFichar);
             this.Controls.Add(this.mstrpPrincipal);
             this.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,9 +194,6 @@ namespace WorkTrackerAPP
             this.Text = "Work Tracker";
             this.mstrpPrincipal.ResumeLayout(false);
             this.mstrpPrincipal.PerformLayout();
-            this.pnlFichar.ResumeLayout(false);
-            this.lgnStripResult.ResumeLayout(false);
-            this.lgnStripResult.PerformLayout();
             this.pnlBanner.ResumeLayout(false);
             this.pnlBanner.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).EndInit();
@@ -295,16 +212,9 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ToolStripMenuItem situaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel pnlFichar;
-        private System.Windows.Forms.StatusStrip lgnStripResult;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnDescanso2;
-        private System.Windows.Forms.Button btnJornada;
-        private System.Windows.Forms.Button btnDescanso1;
-        private System.Windows.Forms.Button btnComida;
         private System.Windows.Forms.Timer TmrHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlBanner;
         private System.Windows.Forms.Label lblBienvenida;
     }
