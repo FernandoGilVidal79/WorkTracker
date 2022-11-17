@@ -69,7 +69,7 @@ namespace WorkTrackerAPP
             this.label1.Location = new System.Drawing.Point(64, 120);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 17);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nº Empleado";
             // 
@@ -79,7 +79,7 @@ namespace WorkTrackerAPP
             this.label2.Location = new System.Drawing.Point(64, 144);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 17);
+            this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
@@ -89,7 +89,7 @@ namespace WorkTrackerAPP
             this.label3.Location = new System.Drawing.Point(62, 200);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nombre";
             // 
@@ -99,7 +99,7 @@ namespace WorkTrackerAPP
             this.label10.Location = new System.Drawing.Point(51, 229);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 17);
+            this.label10.Size = new System.Drawing.Size(63, 13);
             this.label10.TabIndex = 12;
             this.label10.Text = "Apellido 1";
             // 
@@ -109,7 +109,7 @@ namespace WorkTrackerAPP
             this.label9.Location = new System.Drawing.Point(51, 253);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 17);
+            this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Apellido 2";
             // 
@@ -119,7 +119,7 @@ namespace WorkTrackerAPP
             this.label7.Location = new System.Drawing.Point(59, 278);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Telefono";
             // 
@@ -129,7 +129,7 @@ namespace WorkTrackerAPP
             this.label4.Location = new System.Drawing.Point(405, 200);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 17);
+            this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "Tipo Usuario";
             // 
@@ -139,7 +139,7 @@ namespace WorkTrackerAPP
             this.label6.Location = new System.Drawing.Point(393, 232);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 17);
+            this.label6.Size = new System.Drawing.Size(89, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Departamento";
             // 
@@ -149,7 +149,7 @@ namespace WorkTrackerAPP
             this.label5.Location = new System.Drawing.Point(397, 261);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 17);
+            this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "N Vacaciones";
             // 
@@ -159,7 +159,7 @@ namespace WorkTrackerAPP
             this.label11.Location = new System.Drawing.Point(406, 286);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 17);
+            this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 18;
             this.label11.Text = "Activo (Y/N)";
             // 
@@ -168,7 +168,7 @@ namespace WorkTrackerAPP
             this.txtNumEmpleado.Location = new System.Drawing.Point(150, 120);
             this.txtNumEmpleado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNumEmpleado.Name = "txtNumEmpleado";
-            this.txtNumEmpleado.Size = new System.Drawing.Size(115, 24);
+            this.txtNumEmpleado.Size = new System.Drawing.Size(115, 21);
             this.txtNumEmpleado.TabIndex = 19;
             // 
             // txtContrasena
@@ -176,7 +176,7 @@ namespace WorkTrackerAPP
             this.txtContrasena.Location = new System.Drawing.Point(150, 144);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(115, 24);
+            this.txtContrasena.Size = new System.Drawing.Size(115, 21);
             this.txtContrasena.TabIndex = 20;
             // 
             // txtNombre
@@ -184,7 +184,7 @@ namespace WorkTrackerAPP
             this.txtNombre.Location = new System.Drawing.Point(133, 197);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(250, 24);
+            this.txtNombre.Size = new System.Drawing.Size(250, 21);
             this.txtNombre.TabIndex = 21;
             // 
             // txtApellido1
@@ -192,7 +192,7 @@ namespace WorkTrackerAPP
             this.txtApellido1.Location = new System.Drawing.Point(133, 226);
             this.txtApellido1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Size = new System.Drawing.Size(250, 24);
+            this.txtApellido1.Size = new System.Drawing.Size(250, 21);
             this.txtApellido1.TabIndex = 22;
             // 
             // txtApellido2
@@ -200,7 +200,7 @@ namespace WorkTrackerAPP
             this.txtApellido2.Location = new System.Drawing.Point(133, 253);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Size = new System.Drawing.Size(250, 24);
+            this.txtApellido2.Size = new System.Drawing.Size(250, 21);
             this.txtApellido2.TabIndex = 23;
             // 
             // txtTelefono
@@ -208,7 +208,7 @@ namespace WorkTrackerAPP
             this.txtTelefono.Location = new System.Drawing.Point(133, 278);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(142, 24);
+            this.txtTelefono.Size = new System.Drawing.Size(142, 21);
             this.txtTelefono.TabIndex = 24;
             // 
             // txtDepartamento
@@ -216,7 +216,7 @@ namespace WorkTrackerAPP
             this.txtDepartamento.Location = new System.Drawing.Point(501, 227);
             this.txtDepartamento.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.Size = new System.Drawing.Size(115, 24);
+            this.txtDepartamento.Size = new System.Drawing.Size(115, 21);
             this.txtDepartamento.TabIndex = 26;
             // 
             // txtNumVacaciones
@@ -224,7 +224,7 @@ namespace WorkTrackerAPP
             this.txtNumVacaciones.Location = new System.Drawing.Point(501, 254);
             this.txtNumVacaciones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNumVacaciones.Name = "txtNumVacaciones";
-            this.txtNumVacaciones.Size = new System.Drawing.Size(41, 24);
+            this.txtNumVacaciones.Size = new System.Drawing.Size(41, 21);
             this.txtNumVacaciones.TabIndex = 27;
             // 
             // btnConsultar
@@ -256,7 +256,7 @@ namespace WorkTrackerAPP
             this.cmbTipoUsuario.Location = new System.Drawing.Point(501, 196);
             this.cmbTipoUsuario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(115, 25);
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(115, 21);
             this.cmbTipoUsuario.TabIndex = 33;
             // 
             // cmbStatus
@@ -268,7 +268,7 @@ namespace WorkTrackerAPP
             this.cmbStatus.Location = new System.Drawing.Point(501, 283);
             this.cmbStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(41, 25);
+            this.cmbStatus.Size = new System.Drawing.Size(41, 21);
             this.cmbStatus.TabIndex = 34;
             // 
             // txtEmail
@@ -276,7 +276,7 @@ namespace WorkTrackerAPP
             this.txtEmail.Location = new System.Drawing.Point(133, 305);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(250, 24);
+            this.txtEmail.Size = new System.Drawing.Size(250, 21);
             this.txtEmail.TabIndex = 36;
             // 
             // label8
@@ -285,7 +285,7 @@ namespace WorkTrackerAPP
             this.label8.Location = new System.Drawing.Point(81, 308);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 35;
             this.label8.Text = "Email";
             // 
@@ -315,16 +315,17 @@ namespace WorkTrackerAPP
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 343);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(700, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(700, 22);
             this.statusStrip1.TabIndex = 37;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // btnNuevo
@@ -340,7 +341,7 @@ namespace WorkTrackerAPP
             // 
             // CreacionUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 365);
             this.Controls.Add(this.btnNuevo);

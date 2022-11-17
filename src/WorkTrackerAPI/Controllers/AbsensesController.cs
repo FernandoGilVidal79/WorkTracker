@@ -28,14 +28,14 @@ namespace WorkTrackerAPI.Controllers
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
-        // GET api/<ClockInController>/5
-        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IEnumerable<Absenses>), (int)HttpStatusCode.OK)]
+        [HttpGet("GetAbsensesByUserId/{id}")]
         public IEnumerable<Absenses> GetAbsensesByUserId(int id)
         {
             List<Absenses> listAbsenses = null;
             try
             {
-                listAbsenses = (List<Absenses>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id}");
+                listAbsenses = (List<Absenses>)SimpleCRUD.GetList<Absenses>(db, $"where userid = {id}");
             }
 
             catch (Exception ex)
