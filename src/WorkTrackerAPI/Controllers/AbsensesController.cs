@@ -43,7 +43,7 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
             }
 
-            return (IEnumerable<Absenses>)Ok(listAbsenses);
+            return listAbsenses;
 
         }
 
