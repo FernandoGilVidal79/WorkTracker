@@ -33,15 +33,15 @@ namespace IO.Swagger.Model
         /// Initializes a new instance of the <see cref="Clockin" /> class.
         /// </summary>
         /// <param name="idClockIn">idClockIn.</param>
-        /// <param name="fecha">fecha.</param>
+        /// <param name="date">date.</param>
         /// <param name="startHour">startHour.</param>
         /// <param name="finishHour">finishHour.</param>
         /// <param name="clockinTypeId">clockinTypeId.</param>
         /// <param name="userId">userId.</param>
-        public Clockin(int? idClockIn = default(int?), DateTime? fecha = default(DateTime?), DateTime? startHour = default(DateTime?), DateTime? finishHour = default(DateTime?), int? clockinTypeId = default(int?), int? userId = default(int?))
+        public Clockin(int? idClockIn = default(int?), DateTime? date = default(DateTime?), DateTime? startHour = default(DateTime?), DateTime? finishHour = default(DateTime?), int? clockinTypeId = default(int?), int? userId = default(int?))
         {
             this.IdClockIn = idClockIn;
-            this.Fecha = fecha;
+            this.Date = date;
             this.StartHour = startHour;
             this.FinishHour = finishHour;
             this.ClockinTypeId = clockinTypeId;
@@ -55,10 +55,10 @@ namespace IO.Swagger.Model
         public int? IdClockIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets Fecha
+        /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name="fecha", EmitDefaultValue=false)]
-        public DateTime? Fecha { get; set; }
+        [DataMember(Name="date", EmitDefaultValue=false)]
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Gets or Sets StartHour
@@ -93,7 +93,7 @@ namespace IO.Swagger.Model
             var sb = new StringBuilder();
             sb.Append("class Clockin {\n");
             sb.Append("  IdClockIn: ").Append(IdClockIn).Append("\n");
-            sb.Append("  Fecha: ").Append(Fecha).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  StartHour: ").Append(StartHour).Append("\n");
             sb.Append("  FinishHour: ").Append(FinishHour).Append("\n");
             sb.Append("  ClockinTypeId: ").Append(ClockinTypeId).Append("\n");
@@ -138,9 +138,9 @@ namespace IO.Swagger.Model
                     this.IdClockIn.Equals(input.IdClockIn))
                 ) && 
                 (
-                    this.Fecha == input.Fecha ||
-                    (this.Fecha != null &&
-                    this.Fecha.Equals(input.Fecha))
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
                 ) && 
                 (
                     this.StartHour == input.StartHour ||
@@ -175,8 +175,8 @@ namespace IO.Swagger.Model
                 int hashCode = 41;
                 if (this.IdClockIn != null)
                     hashCode = hashCode * 59 + this.IdClockIn.GetHashCode();
-                if (this.Fecha != null)
-                    hashCode = hashCode * 59 + this.Fecha.GetHashCode();
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
                 if (this.StartHour != null)
                     hashCode = hashCode * 59 + this.StartHour.GetHashCode();
                 if (this.FinishHour != null)
