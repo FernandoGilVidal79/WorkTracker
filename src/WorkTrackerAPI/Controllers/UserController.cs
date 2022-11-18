@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 namespace WorkTrackerAPI.Controllers
@@ -15,11 +16,11 @@ namespace WorkTrackerAPI.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILoggerManager _logger;
         private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
         private MySqlConnection db;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILoggerManager logger)
         {
             _logger = logger;
             db = new MySqlConnection(connection);
@@ -27,7 +28,7 @@ namespace WorkTrackerAPI.Controllers
         }
 
         [HttpGet("GetUsers")]
-        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Users>), (int)HttpStatusCode.OK)]
         [SwaggerOperation("GetUsers")]
         public IEnumerable<Users> GetUsers()
         { 
@@ -36,6 +37,15 @@ namespace WorkTrackerAPI.Controllers
             return listUser;
         }
 
+        [HttpGet("GetUserTypes")]
+        [ProducesResponseType(typeof(IEnumerable<UserType>), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetUserTypes")]
+        public IEnumerable<UserType> GetUserTypes()
+        {
+            IEnumerable<UserType> listUserType = null;
+            listUserType = SimpleCRUD.GetList<UserType>(db);
+            return listUserType;
+        }
 
         /// <summary>
         /// Metodo para obtener usuarios
@@ -69,7 +79,7 @@ namespace WorkTrackerAPI.Controllers
             List<Users> users = null;
             try
             {
-                users = (List<Users>)SimpleCRUD.GetList<Users>(db, $"where UserName = '{userName}' and password = '{password}'");
+                users = (List<Users>)SimpleCRUD.GetList<Users>(db, $"where email = '{userName}' and password = '{password}'");
 
 
                 if (users.Count() > 0)
@@ -79,7 +89,7 @@ namespace WorkTrackerAPI.Controllers
             }
             catch (Exception ex)
             {
-                return null;
+                _logger.LogError(ex.Message);
             }
 
             return null;
@@ -108,7 +118,15 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("CreateUser")]
         public void CreateUser([FromBody] Users user)
         {
-            SimpleCRUD.Insert(db, user);
+            try
+            {
+                SimpleCRUD.Insert(db, user);
+            }
+
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
         }
 
 

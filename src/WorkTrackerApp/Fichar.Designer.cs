@@ -29,165 +29,130 @@ namespace WorkTrackerAPP
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnJornada = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnDescanso = new System.Windows.Forms.Button();
             this.btnComida = new System.Windows.Forms.Button();
-            this.btnDescanso1 = new System.Windows.Forms.Button();
-            this.btnDescanso2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.pcBoxReloj = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcBoxReloj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnJornada = new System.Windows.Forms.Button();
+            this.lblHistorico = new System.Windows.Forms.Label();
+            this.lblResumen = new System.Windows.Forms.Label();
+            this.lgnStripResult = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.lgnStripResult.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnJornada
+            // splitContainer1
             // 
-            this.btnJornada.Location = new System.Drawing.Point(59, 127);
-            this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(117, 32);
-            this.btnJornada.TabIndex = 35;
-            this.btnJornada.Text = "Jornada";
-            this.btnJornada.UseVisualStyleBackColor = true;
+            this.splitContainer1.Location = new System.Drawing.Point(-1, 5);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnDescanso);
+            this.splitContainer1.Panel1.Controls.Add(this.btnComida);
+            this.splitContainer1.Panel1.Controls.Add(this.btnJornada);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
+            this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
+            this.splitContainer1.Size = new System.Drawing.Size(1065, 521);
+            this.splitContainer1.SplitterDistance = 353;
+            this.splitContainer1.TabIndex = 38;
+            // 
+            // btnDescanso
+            // 
+            this.btnDescanso.Location = new System.Drawing.Point(46, 221);
+            this.btnDescanso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDescanso.Name = "btnDescanso";
+            this.btnDescanso.Size = new System.Drawing.Size(117, 32);
+            this.btnDescanso.TabIndex = 40;
+            this.btnDescanso.Text = "Descanso";
+            this.btnDescanso.UseVisualStyleBackColor = true;
+            this.btnDescanso.Click += new System.EventHandler(this.btnDescanso_Click);
             // 
             // btnComida
             // 
-            this.btnComida.Location = new System.Drawing.Point(59, 178);
+            this.btnComida.Location = new System.Drawing.Point(46, 172);
+            this.btnComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnComida.Name = "btnComida";
             this.btnComida.Size = new System.Drawing.Size(117, 32);
-            this.btnComida.TabIndex = 36;
+            this.btnComida.TabIndex = 39;
             this.btnComida.Text = "Comida";
             this.btnComida.UseVisualStyleBackColor = true;
+            this.btnComida.Click += new System.EventHandler(this.btnComida_Click);
             // 
-            // btnDescanso1
+            // btnJornada
             // 
-            this.btnDescanso1.Location = new System.Drawing.Point(59, 237);
-            this.btnDescanso1.Name = "btnDescanso1";
-            this.btnDescanso1.Size = new System.Drawing.Size(117, 32);
-            this.btnDescanso1.TabIndex = 37;
-            this.btnDescanso1.Text = "Descanso 1";
-            this.btnDescanso1.UseVisualStyleBackColor = true;
+            this.btnJornada.Location = new System.Drawing.Point(46, 123);
+            this.btnJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnJornada.Name = "btnJornada";
+            this.btnJornada.Size = new System.Drawing.Size(117, 32);
+            this.btnJornada.TabIndex = 38;
+            this.btnJornada.Text = "Entrada";
+            this.btnJornada.UseVisualStyleBackColor = true;
+            this.btnJornada.Click += new System.EventHandler(this.btnJornada_Click);
             // 
-            // btnDescanso2
+            // lblHistorico
             // 
-            this.btnDescanso2.Location = new System.Drawing.Point(59, 293);
-            this.btnDescanso2.Name = "btnDescanso2";
-            this.btnDescanso2.Size = new System.Drawing.Size(117, 32);
-            this.btnDescanso2.TabIndex = 38;
-            this.btnDescanso2.Text = "Descanso 2";
-            this.btnDescanso2.UseVisualStyleBackColor = true;
+            this.lblHistorico.AutoSize = true;
+            this.lblHistorico.Location = new System.Drawing.Point(125, 156);
+            this.lblHistorico.Name = "lblHistorico";
+            this.lblHistorico.Size = new System.Drawing.Size(113, 20);
+            this.lblHistorico.TabIndex = 1;
+            this.lblHistorico.Text = "No hay Fichaje";
             // 
-            // button1
+            // lblResumen
             // 
-            this.button1.Location = new System.Drawing.Point(714, 214);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 42);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "FICHAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Location = new System.Drawing.Point(121, 80);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(71, 20);
+            this.lblResumen.TabIndex = 0;
+            this.lblResumen.Text = "Histórico";
             // 
-            // timer1
+            // lgnStripResult
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.lgnStripResult.BackColor = System.Drawing.Color.Silver;
+            this.lgnStripResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.lgnStripResult.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lgnStripResult.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 491);
+            this.lgnStripResult.Name = "lgnStripResult";
+            this.lgnStripResult.Size = new System.Drawing.Size(1070, 38);
+            this.lgnStripResult.TabIndex = 40;
             // 
-            // lblHora
+            // toolStripStatusLabel1
             // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.lblHora.Location = new System.Drawing.Point(386, 95);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(0, 37);
-            this.lblHora.TabIndex = 40;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblFecha.Location = new System.Drawing.Point(681, 108);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(0, 20);
-            this.lblFecha.TabIndex = 41;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(538, 523);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(87, 34);
-            this.btnOk.TabIndex = 42;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseMnemonic = false;
-            this.btnOk.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(322, 523);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 34);
-            this.btnCancel.TabIndex = 43;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseMnemonic = false;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // pcBoxReloj
-            // 
-            this.pcBoxReloj.Image = global::WorkTrackerAPP.Properties.Resources.reloj;
-            this.pcBoxReloj.Location = new System.Drawing.Point(322, 159);
-            this.pcBoxReloj.Name = "pcBoxReloj";
-            this.pcBoxReloj.Size = new System.Drawing.Size(303, 309);
-            this.pcBoxReloj.TabIndex = 44;
-            this.pcBoxReloj.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WorkTrackerAPP.Properties.Resources.Salir_Rojo;
-            this.pictureBox2.Location = new System.Drawing.Point(929, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 34;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WorkTrackerAPP.Properties.Resources.Nombre;
-            this.pictureBox1.Location = new System.Drawing.Point(297, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(439, 51);
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(218, 31);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Fichar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 617);
-            this.Controls.Add(this.pcBoxReloj);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.lblHora);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnDescanso2);
-            this.Controls.Add(this.btnDescanso1);
-            this.Controls.Add(this.btnComida);
-            this.Controls.Add(this.btnJornada);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1070, 529);
+            this.Controls.Add(this.lgnStripResult);
+            this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pcBoxReloj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.lgnStripResult.ResumeLayout(false);
+            this.lgnStripResult.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,18 +160,13 @@ namespace WorkTrackerAPP
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnJornada;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnDescanso;
         private System.Windows.Forms.Button btnComida;
-        private System.Windows.Forms.Button btnDescanso1;
-        private System.Windows.Forms.Button btnDescanso2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.PictureBox pcBoxReloj;
+        private System.Windows.Forms.Button btnJornada;
+        private System.Windows.Forms.Label lblResumen;
+        private System.Windows.Forms.Label lblHistorico;
+        private System.Windows.Forms.StatusStrip lgnStripResult;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

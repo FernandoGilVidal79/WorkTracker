@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class AprobacionSolicitudes___Combo : Form
+    public partial class Situacion : Form
     {
-        public AprobacionSolicitudes___Combo()
+        public Situacion()
         {
             InitializeComponent();
+        }
+
+        
+        
+
+        private void Situacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVacaciones_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

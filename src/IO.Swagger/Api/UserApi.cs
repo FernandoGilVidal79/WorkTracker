@@ -93,8 +93,8 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>bool?</returns>
-        bool? ApiUserGetUsersGet ();
+        /// <returns>List&lt;UserType&gt;</returns>
+        List<UserType> ApiUserGetUserTypesGet ();
 
         /// <summary>
         /// 
@@ -103,8 +103,27 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of bool?</returns>
-        ApiResponse<bool?> ApiUserGetUsersGetWithHttpInfo ();
+        /// <returns>ApiResponse of List&lt;UserType&gt;</returns>
+        ApiResponse<List<UserType>> ApiUserGetUserTypesGetWithHttpInfo ();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Users&gt;</returns>
+        List<Users> ApiUserGetUsersGet ();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Users&gt;</returns>
+        ApiResponse<List<Users>> ApiUserGetUsersGetWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
@@ -221,8 +240,8 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of bool?</returns>
-        System.Threading.Tasks.Task<bool?> ApiUserGetUsersGetAsync ();
+        /// <returns>Task of List&lt;UserType&gt;</returns>
+        System.Threading.Tasks.Task<List<UserType>> ApiUserGetUserTypesGetAsync ();
 
         /// <summary>
         /// 
@@ -231,8 +250,27 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetUsersGetAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (List&lt;UserType&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<UserType>>> ApiUserGetUserTypesGetAsyncWithHttpInfo ();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Users&gt;</returns>
+        System.Threading.Tasks.Task<List<Users>> ApiUserGetUsersGetAsync ();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Users&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Users>>> ApiUserGetUsersGetAsyncWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
@@ -803,10 +841,10 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>bool?</returns>
-        public bool? ApiUserGetUsersGet ()
+        /// <returns>List&lt;UserType&gt;</returns>
+        public List<UserType> ApiUserGetUserTypesGet ()
         {
-             ApiResponse<bool?> localVarResponse = ApiUserGetUsersGetWithHttpInfo();
+             ApiResponse<List<UserType>> localVarResponse = ApiUserGetUserTypesGetWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -814,8 +852,131 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of bool?</returns>
-        public ApiResponse< bool? > ApiUserGetUsersGetWithHttpInfo ()
+        /// <returns>ApiResponse of List&lt;UserType&gt;</returns>
+        public ApiResponse< List<UserType> > ApiUserGetUserTypesGetWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/User/GetUserTypes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiUserGetUserTypesGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<UserType>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (List<UserType>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<UserType>)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;UserType&gt;</returns>
+        public async System.Threading.Tasks.Task<List<UserType>> ApiUserGetUserTypesGetAsync ()
+        {
+             ApiResponse<List<UserType>> localVarResponse = await ApiUserGetUserTypesGetAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;UserType&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<UserType>>> ApiUserGetUserTypesGetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/User/GetUserTypes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiUserGetUserTypesGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<UserType>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (List<UserType>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<UserType>)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Users&gt;</returns>
+        public List<Users> ApiUserGetUsersGet ()
+        {
+             ApiResponse<List<Users>> localVarResponse = ApiUserGetUsersGetWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Users&gt;</returns>
+        public ApiResponse< List<Users> > ApiUserGetUsersGetWithHttpInfo ()
         {
 
             var localVarPath = "/api/User/GetUsers";
@@ -855,19 +1016,19 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<bool?>(localVarStatusCode,
+            return new ApiResponse<List<Users>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
+                (List<Users>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Users>)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of bool?</returns>
-        public async System.Threading.Tasks.Task<bool?> ApiUserGetUsersGetAsync ()
+        /// <returns>Task of List&lt;Users&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Users>> ApiUserGetUsersGetAsync ()
         {
-             ApiResponse<bool?> localVarResponse = await ApiUserGetUsersGetAsyncWithHttpInfo();
+             ApiResponse<List<Users>> localVarResponse = await ApiUserGetUsersGetAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -876,8 +1037,8 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (bool?)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<bool?>> ApiUserGetUsersGetAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (List&lt;Users&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<Users>>> ApiUserGetUsersGetAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/api/User/GetUsers";
@@ -917,9 +1078,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<bool?>(localVarStatusCode,
+            return new ApiResponse<List<Users>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
+                (List<Users>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Users>)));
         }
 
         /// <summary>

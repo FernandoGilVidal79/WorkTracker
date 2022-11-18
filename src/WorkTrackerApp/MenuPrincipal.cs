@@ -8,35 +8,59 @@ namespace WorkTrackerAPP
         public MenuPrincipal()
         {
             InitializeComponent();
-            timer1.Enabled = true;
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form Frm = new Form();
+            TmrHora.Enabled = true;
+            pnlFichar.Controls.Clear();
+            Fichar Frm = new Fichar();
             Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            Frm.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(Frm);
+            pnlFichar.Tag = Frm;
             Frm.Show();
+            Console.WriteLine(UserSession.User);
+            Helper.MensajeBienvenida(lblBienvenida);
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void FicharToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            pnlFichar.Controls.Clear();
+            Fichar Frm = new Fichar();
+            Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            Frm.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(Frm);
+            pnlFichar.Tag = Frm;
+            Frm.Show();
+
         }
-        private void timer1_Tick_1(object sender, EventArgs e)
+
+        private void TmrHora_Tick(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
-            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            Helper.MostrarHora(lblHora, lblFecha);
+        }
+
+        private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            SolicitudAusencia FrmAusencia = new SolicitudAusencia();
+            FrmAusencia.TopLevel = false;
+            FrmAusencia.FormBorderStyle = FormBorderStyle.None;
+            FrmAusencia.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(FrmAusencia);
+            pnlFichar.Tag = FrmAusencia;
+            FrmAusencia.Show();
+        }
+
+        private void situaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            Situacion FrmSituacion = new Situacion();
+            FrmSituacion.TopLevel = false;
+            FrmSituacion.FormBorderStyle = FormBorderStyle.None;
+            FrmSituacion.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(FrmSituacion);
+            pnlFichar.Tag = FrmSituacion;
+            FrmSituacion.Show();
         }
     }
 }

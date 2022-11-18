@@ -1,14 +1,7 @@
 ﻿using IO.Swagger.Api;
 using IO.Swagger.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -24,12 +17,51 @@ namespace WorkTrackerAPP
 
         private void CreacionUsuarios_Load(object sender, EventArgs e)
         {
-
+            ActivarCampos(false);
+            CargarTipoUsuarios();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ActivarCampos(bool status)
+        {
+            txtNumEmpleado.Enabled      = !status;
+            txtNombre.Enabled           = status;
+            txtApellido1.Enabled        = status;
+            txtApellido2.Enabled        = status;
+            txtContrasena.Enabled       = status;
+            txtDepartamento.Enabled     = status;
+            txtEmail.Enabled            = status;
+            txtTelefono.Enabled         = status;
+            txtNumVacaciones.Enabled    = status;
+        }
+        
+        private void LimpiarCampos()
+        {
+            txtApellido1.Text       = "";
+            txtApellido2.Text       = "";
+            txtContrasena.Text      = "";
+            txtDepartamento.Text    = "";
+            txtDepartamento.Text    = "";
+            txtEmail.Text           = "";
+            txtNombre.Text          = "";
+            txtNumEmpleado.Text     = "";
+            txtNumVacaciones.Text   = "";
+            txtTelefono.Text        = "";
+
+        }
+
+        private void CargarTipoUsuarios()
+        {
+            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var userTypes = apiclient.ApiUserGetUserTypesGet();
+            
+            cmbTipoUsuario.DisplayMember = "Description";
+            cmbTipoUsuario.ValueMember = "IdUserType";
+            cmbTipoUsuario.DataSource = userTypes;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -43,14 +75,19 @@ namespace WorkTrackerAPP
                 var user = users.FirstOrDefault();
                 if (user != null)
                 {
+                    this.txtNumEmpleado.Text   = user.IdUser.ToString();
+                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
                     this.txtNombre.Text        = user.UserName;
                     this.txtEmail.Text         = user.Email;
                     this.txtApellido1.Text     = user.SurName1;
                     this.txtApellido2.Text     = user.SurName2;
+                    this.txtTelefono.Text      = user.Phone.ToString();
                     this.txtNumVacaciones.Text = user.NHollidays.ToString();
                     this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
                     this.txtDepartamento.Text  = user.Phone.ToString();
+                    SetStatusCombo((bool)user.Status);
                     edicion = true;
+                    ActivarCampos(true);
                 }
                 else
                 {
@@ -63,32 +100,61 @@ namespace WorkTrackerAPP
             }
         }
 
-
-
-    
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void SetStatusCombo(bool value)
         {
+            if (value == true)
+            {
+                cmbStatus.SelectedItem = "Y";
+            }
 
+            else
+            {
+                cmbStatus.SelectedItem = "N";
+            }
         }
+
+        private bool ComboStatusValor()
+        {
+            if ((string)cmbStatus.SelectedItem == "Y")
+            {
+                return true;
+            }
+
+            else if((string)cmbStatus.SelectedItem == "N")
+            {
+                return false;
+            }
+
+            return false;
+            //throw new Exception("No se ha seleccionado un valor");
+        }
+
+        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            ComboStatusValor();
             try
             {
-                var user = new IO.Swagger.Model.Users();
+                var user = new Users();
+                
+               
                 user.Department = txtDepartamento.Text;
-                user.UserTypeId = 1;
-                user.UserName = txtNombre.Text;
-                user.SurName1 = txtApellido1.Text;
-                user.SurName2 = txtApellido2.Text;
-                user.Status = true;
+                user.UserTypeId = (int?)cmbTipoUsuario.SelectedValue;
+                user.UserName   = txtNombre.Text;
+                user.SurName1   = txtApellido1.Text;
+                user.SurName2   = txtApellido2.Text;
+                user.Status     = ComboStatusValor();
+                user.Phone      = Int32.Parse(txtTelefono.Text);
                 user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
-                user.Email = txtEmail.Text;
-                user.Password = txtContrasena.Text;
+                user.Email      = txtEmail.Text;
+                user.Password   = txtContrasena.Text;
+
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 if (edicion)
                 {
+                    user.IdUser = Int32.Parse(txtNumEmpleado.Text);
                     apiclient.ApiUserUpdateUserPost(user);
                 }
                 else
@@ -98,8 +164,21 @@ namespace WorkTrackerAPP
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error creando el usuario";
+                toolStripStatusLabel1.Text = "Error creando el usuario"+ex;
             }
          }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            ActivarCampos(true);
+            LimpiarCampos();
+            edicion = false;
+
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
