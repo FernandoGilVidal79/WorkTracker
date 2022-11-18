@@ -51,5 +51,16 @@ namespace WorkTrackerAPP
             FrmAusencia.Show();
         }
 
+        private void situaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            Situacion FrmSituacion = new Situacion();
+            FrmSituacion.TopLevel = false;
+            FrmSituacion.FormBorderStyle = FormBorderStyle.None;
+            FrmSituacion.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(FrmSituacion);
+            pnlFichar.Tag = FrmSituacion;
+            FrmSituacion.Show();
+        }
     }
 }
