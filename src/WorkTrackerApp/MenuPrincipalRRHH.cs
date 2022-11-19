@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class MenuPrincipalRRHH : Form
+    public partial class MenuPrincipalRRHH : Form, IForm
     {
         public MenuPrincipalRRHH()
         {
@@ -41,6 +41,12 @@ namespace WorkTrackerAPP
 
         }
 
+        public void MetodoPrueba()
+        {
+            MessageBox.Show("funciona");
+            this.toolMensajes.Text = "Esta funcionando";
+        }
+
         private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
@@ -68,7 +74,7 @@ namespace WorkTrackerAPP
         private void aprobacionestoolStripMenuItem1_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
-            AprobacionSolicitudes FrmAprobaciones = new AprobacionSolicitudes();
+            AprobacionSolicitudes FrmAprobaciones = new AprobacionSolicitudes(this);
             FrmAprobaciones.TopLevel = false;
             FrmAprobaciones.FormBorderStyle = FormBorderStyle.None;
             FrmAprobaciones.Dock = DockStyle.Fill;

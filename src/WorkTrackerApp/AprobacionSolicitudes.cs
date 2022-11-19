@@ -14,6 +14,15 @@ namespace WorkTrackerAPP
             InitializeComponent();
         }
 
+
+        private readonly IForm _form;
+        public AprobacionSolicitudes(IForm formPadre)
+        {
+            InitializeComponent();
+            _form = formPadre;
+        }
+
+
         private void AprobacionSolicitudes_Combo_Load(object sender, EventArgs e)
         {
 
@@ -32,6 +41,7 @@ namespace WorkTrackerAPP
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
+            _form.MetodoPrueba();
             CargarComboUsuarios();
         }
 

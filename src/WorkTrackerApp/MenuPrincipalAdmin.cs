@@ -41,5 +41,10 @@ namespace WorkTrackerAPP
         {
 
         }
+
+        private void pnlInformes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

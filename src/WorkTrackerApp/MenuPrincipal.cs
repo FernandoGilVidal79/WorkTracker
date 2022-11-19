@@ -62,5 +62,10 @@ namespace WorkTrackerAPP
             pnlFichar.Tag = FrmSituacion;
             FrmSituacion.Show();
         }
+
+        private void pnlFichar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

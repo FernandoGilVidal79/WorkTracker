@@ -84,6 +84,7 @@
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="IForm.cs" />
     <Compile Include="MenuPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
