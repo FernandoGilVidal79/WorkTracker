@@ -54,6 +54,7 @@ namespace WorkTrackerAPP
           
             var dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id", typeof(string)));
+
             dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
             dt.Columns.Add(new DataColumn("fff", typeof(bool)));
