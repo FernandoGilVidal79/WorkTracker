@@ -90,6 +90,7 @@ namespace WorkTrackerAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
 
             return null;
@@ -126,6 +127,7 @@ namespace WorkTrackerAPI.Controllers
             catch(Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
         }
 

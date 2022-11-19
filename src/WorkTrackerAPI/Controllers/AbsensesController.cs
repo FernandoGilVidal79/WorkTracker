@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Reflection.Metadata.Ecma335;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
@@ -41,10 +42,30 @@ namespace WorkTrackerAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
-
             return listAbsenses;
+        }
 
+        [HttpGet("ValidateAbsensesById{id}")]
+        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
+        public Absenses ValidateAbsensesById(int id)
+        {
+            try
+            {
+                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                if (absense != null) 
+                { 
+                    absense.Status = true;
+                    SimpleCRUD.Update<Absenses>(db, absense);
+                }
+                return absense; 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }       
         }
 
         [HttpGet("GetAbsensesTypes")]
@@ -83,6 +104,7 @@ namespace WorkTrackerAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
         }
 

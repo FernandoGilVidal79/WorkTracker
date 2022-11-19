@@ -52,6 +52,7 @@ namespace WorkTrackerAPI.Controllers
             catch(Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
             return listClockIn;
         }
@@ -66,7 +67,8 @@ namespace WorkTrackerAPI.Controllers
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex.Message); 
+                _logger.LogError(ex.Message);
+                throw;
             }
         }      
     }
