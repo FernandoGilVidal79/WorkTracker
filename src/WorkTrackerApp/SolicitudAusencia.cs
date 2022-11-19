@@ -75,26 +75,37 @@ namespace WorkTrackerAPP
         {
             try
             {
+                DateTime desde= DateTime.Parse(tbxDesde.Text);
+                DateTime hasta= DateTime.Parse(tbxHasta.Text);
                 var absenses = new Absenses();
-                
-                absenses.StartDate = DateTime.Parse(tbxDesde.Text);
-                absenses.FinishDate = DateTime.Parse(tbxHasta.Text);
+
+                absenses.StartDate = desde;
+                absenses.FinishDate = hasta;
                 absenses.Status = false;
                 absenses.UserId = UserSession.User.IdUser;
-                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue; 
+                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
 
-                var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
-                toolStripStatusLabel1.Text = "Ausencia grabada";
+                if (desde > hasta)
+                {
+                    MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
+                }
+                else
+                {
+                    var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                    apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                    MessageBox.Show("Ausencia grabada");
+                    toolStripStatusLabel1.Text = "Ausencia grabada";
 
-                cmbTipoAusencia.SelectedItem = null;
-                tbxDesde.Text = "";
-                tbxHasta.Text = "";
-                
+                    cmbTipoAusencia.SelectedItem = null;
+                    tbxDesde.Text = "";
+                    tbxHasta.Text = "";
+                    
+                }
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error al guardar la ausencia" + ex;
+                MessageBox.Show("Error al guardar, revise los datos");
+                toolStripStatusLabel1.Text = "Error al guardar la ausencia";
             }
         }
     }
