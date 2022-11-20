@@ -17,7 +17,7 @@ namespace WorkTrackerAPI
             GlobalDiagnosticsContext.Set("configDir", "\\Logs");
 
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
-            logger.Warn("console logging is great");
+            logger.Warn("Aplication Started");
             Console.WriteLine("log sent");
             CreateHostBuilder(args).Build().Run();
         }

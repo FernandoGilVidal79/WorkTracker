@@ -1,11 +1,8 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using WorkTrackerAPI.Infrastructure;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
