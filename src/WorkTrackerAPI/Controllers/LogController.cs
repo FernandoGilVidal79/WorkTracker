@@ -47,7 +47,7 @@ namespace WorkTrackerAPI.Controllers
         public IEnumerable<Log> GetLogsByDate(DateTime date)
         {
             IEnumerable<Log> listLogs = null;
-            listLogs = SimpleCRUD.GetList<Log>(db, $"where Date > {date} ");
+            listLogs = SimpleCRUD.GetList<Log>(db, $"where Logged > {date.ToShortDateString()} ");
             return listLogs;
         }
 

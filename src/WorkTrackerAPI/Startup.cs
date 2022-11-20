@@ -69,7 +69,7 @@ namespace WorkTrackerAPI
                     Contact = new OpenApiContact
                     {
                         Name = "WorkTracker S.L",
-                        Email = string.Empty,
+                        Email = "desarrollo@worktracker.com",
                         Url = new Uri("http://worktracker-001-site1.atempurl.com/"),
                     }
                 });

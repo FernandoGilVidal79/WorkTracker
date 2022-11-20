@@ -10,7 +10,7 @@ namespace WorkTrackerAPI.Model
     {
         [Key]
         [IgnoreInsert]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Application { get; set; }
         public DateTime Logged { get; set; }
         public string Level { get; set; }

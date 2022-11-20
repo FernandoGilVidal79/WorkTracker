@@ -1,12 +1,10 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Reflection.Metadata.Ecma335;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
