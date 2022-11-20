@@ -71,6 +71,7 @@
     <Compile Include="AprobacionSolicitudes.Designer.cs">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ausencia.cs" />
     <Compile Include="CreacionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>

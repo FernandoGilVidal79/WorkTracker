@@ -70,7 +70,7 @@ namespace WorkTrackerAPP
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Desea Continuar","", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?","", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 this.Close();
