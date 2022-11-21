@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WorkTrackerAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -61,6 +59,7 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 SimpleCRUD.Insert(db, clockin);
+                _logger.LogInfo($"Usuario {clockin.UserId} ha fichado {clockin.idClockIn}" );
             }
             catch(Exception ex)
             {

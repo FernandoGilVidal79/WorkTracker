@@ -22,6 +22,7 @@ namespace WorkTrackerAPI.Controllers
         public UserController(ILoggerManager logger)
         {
             _logger = logger;
+           
             db = new MySqlConnection(connection);
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
@@ -79,8 +80,6 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 users = (List<Users>)SimpleCRUD.GetList<Users>(db, $"where email = '{userName}' and password = '{password}'");
-
-
                 if (users.Count() > 0)
                 {
                     return users.FirstOrDefault();
@@ -99,21 +98,29 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("UpdateUser")]
         public void UpdateUser([FromBody] Users value)
         {
-          
-           var user = SimpleCRUD.Get<Users>(db, value.IdUser);
-            user.UserName    = value.UserName;
-            user.SurName1    = value.SurName1;
-            user.SurName2    = value.SurName2;
-            user.Status      = value.Status;
-            user.Email       = value.Email;
-            user.Department  = value.Department;
-            user.Phone       = value.Phone;
-            user.Password    = value.Password;
-            SimpleCRUD.Update<Users>(db, user);
+            try
+            {
+                var user = SimpleCRUD.Get<Users>(db, value.IdUser);
+                user.UserName = value.UserName;
+                user.SurName1 = value.SurName1;
+                user.SurName2 = value.SurName2;
+                user.Status = value.Status;
+                user.Email = value.Email;
+                user.Department = value.Department;
+                user.Phone = value.Phone;
+                user.Password = value.Password;
+                SimpleCRUD.Update<Users>(db, user);
+                _logger.LogInfo("Usuario actualizado correctamente. Id:" + user.IdUser);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
 
-        // PUT api/<ClockInController>/5
+ 
         [HttpPut("CreateUser")]
         [SwaggerOperation("CreateUser")]
         public void CreateUser([FromBody] Users user)
@@ -121,6 +128,7 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 SimpleCRUD.Insert(db, user);
+                _logger.LogInfo("Usuario creado correctamente. " + user.IdUser);
             }
 
             catch(Exception ex)

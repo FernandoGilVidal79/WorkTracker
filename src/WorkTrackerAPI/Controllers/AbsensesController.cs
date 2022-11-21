@@ -8,8 +8,6 @@ using System.Net;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WorkTrackerAPI.Controllers
 {
     [Route("api/[controller]")]
