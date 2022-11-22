@@ -41,7 +41,6 @@ namespace WorkTrackerAPP
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
-            _form.MetodoPrueba();
             CargarComboUsuarios();
         }
 
