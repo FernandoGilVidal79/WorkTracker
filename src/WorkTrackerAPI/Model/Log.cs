@@ -3,6 +3,9 @@ using System;
 
 namespace WorkTrackerAPI.Model
 {
+    /// <summary>
+    /// Log Model
+    /// </summary>
     public class Log
     {
         [Key]

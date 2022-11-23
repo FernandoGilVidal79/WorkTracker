@@ -4,6 +4,9 @@ using KeyAttribute = Dapper.KeyAttribute;
 
 namespace WorkTrackerAPI.Model
 {
+    /// <summary>
+    /// Absenses Model
+    /// </summary>
     public class Absenses
     {
         [Key]

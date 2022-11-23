@@ -9,7 +9,6 @@ namespace WorkTrackerAPI.Model
     {
         [Key]
         public int IdUserType { get; set; }
-
         public string Description { get; set; }
     }
 }
