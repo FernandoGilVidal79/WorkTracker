@@ -41,10 +41,28 @@ namespace WorkTrackerAPI.Controllers
             List<Clockin> listClockIn = null;
             try
             {
-                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} ");
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and  DATE_ADD( StartHour, INTERVAL -5 DAY )  < CURDATE() ");
             }
 
             catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            return listClockIn;
+        }
+
+        // GET api/<ClockInController>/5
+        [HttpGet("GetClockInsTodayByUserId/{id}")]
+        public IEnumerable<Clockin> GetClockInsTodayByUserId(int id)
+        {
+            List<Clockin> listClockIn = null;
+            try
+            {
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > CURDATE() ");
+            }
+
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 throw;
