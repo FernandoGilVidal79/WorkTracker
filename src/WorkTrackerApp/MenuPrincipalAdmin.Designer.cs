@@ -44,11 +44,14 @@ namespace WorkTrackerAPP
             this.lgnStripResult = new System.Windows.Forms.StatusStrip();
             this.toolStripMenuAdminStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.TmrHora = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.mstrpPrincipal.SuspendLayout();
             this.pnlBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
             this.pnlInformes.SuspendLayout();
             this.lgnStripResult.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mstrpPrincipal
@@ -182,11 +185,31 @@ namespace WorkTrackerAPP
             // 
             this.TmrHora.Tick += new System.EventHandler(this.TmrHora_Tick);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 102);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1260, 25);
+            this.toolStrip1.TabIndex = 43;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
             // MenuPrincipalAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 878);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlInformes);
             this.Controls.Add(this.pnlBanner);
             this.Controls.Add(this.mstrpPrincipal);
@@ -207,6 +230,8 @@ namespace WorkTrackerAPP
             this.pnlInformes.PerformLayout();
             this.lgnStripResult.ResumeLayout(false);
             this.lgnStripResult.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +252,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.StatusStrip lgnStripResult;
         private System.Windows.Forms.ToolStripStatusLabel toolStripMenuAdminStatus;
         private System.Windows.Forms.Timer TmrHora;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

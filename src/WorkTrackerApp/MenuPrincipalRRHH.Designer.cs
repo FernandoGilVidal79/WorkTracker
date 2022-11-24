@@ -145,7 +145,7 @@ namespace WorkTrackerAPP
             this.toolStripCreacionUsuario.ForeColor = System.Drawing.Color.DarkRed;
             this.toolStripCreacionUsuario.Name = "toolStripCreacionUsuario";
             this.toolStripCreacionUsuario.Size = new System.Drawing.Size(139, 28);
-            this.toolStripCreacionUsuario.Text = "Creación Usuarios";
+            this.toolStripCreacionUsuario.Text = "&Creación Usuarios";
             this.toolStripCreacionUsuario.Click += new System.EventHandler(this.ToolStripCreacionUsuario_Click);
             // 
             // pnlBanner

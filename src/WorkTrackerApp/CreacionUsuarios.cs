@@ -128,10 +128,8 @@ namespace WorkTrackerAPP
             //throw new Exception("No se ha seleccionado un valor");
         }
       
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             ComboStatusValor();
             try
             {
@@ -169,10 +167,16 @@ namespace WorkTrackerAPP
             ActivarCampos(true);
             LimpiarCampos();
             edicion = false;
-
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            ActivarCampos(true);
+            edicion = false;
+        }
+
+        private void jj(object sender, KeyPressEventArgs e)
         {
 
         }
