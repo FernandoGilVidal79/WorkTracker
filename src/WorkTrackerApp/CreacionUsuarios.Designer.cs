@@ -143,9 +143,9 @@ namespace WorkTrackerAPP
             this.label5.Location = new System.Drawing.Point(372, 164);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 17;
-            this.label5.Text = "N Vacaciones";
+            this.label5.Text = "Días Vacaciones";
             // 
             // label11
             // 
@@ -164,6 +164,7 @@ namespace WorkTrackerAPP
             this.txtNumEmpleado.Name = "txtNumEmpleado";
             this.txtNumEmpleado.Size = new System.Drawing.Size(115, 21);
             this.txtNumEmpleado.TabIndex = 0;
+            this.txtNumEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationNumber_KeyPress);
             // 
             // txtContrasena
             // 
@@ -194,7 +195,7 @@ namespace WorkTrackerAPP
             // 
             // txtApellido2
             // 
-            this.txtApellido2.Location = new System.Drawing.Point(94, 188);
+            this.txtApellido2.Location = new System.Drawing.Point(94, 193);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido2.MaxLength = 50;
             this.txtApellido2.Name = "txtApellido2";
@@ -206,12 +207,11 @@ namespace WorkTrackerAPP
             this.txtTelefono.Location = new System.Drawing.Point(472, 219);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTelefono.MaxLength = 12;
-            this.txtTelefono.Multiline = true;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(142, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(115, 21);
             this.txtTelefono.TabIndex = 24;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormHelper.ValidationNumber_KeyPress);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationNumber_KeyPress);
             // 
             // txtDepartamento
             // 
@@ -230,14 +230,14 @@ namespace WorkTrackerAPP
             this.txtNumVacaciones.Name = "txtNumVacaciones";
             this.txtNumVacaciones.Size = new System.Drawing.Size(41, 21);
             this.txtNumVacaciones.TabIndex = 27;
-            this.txtNumVacaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormHelper.ValidationNumber_KeyPress);
+            this.txtNumVacaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationNumber_KeyPress);
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(223, 27);
+            this.btnConsultar.Location = new System.Drawing.Point(223, 24);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(96, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(96, 21);
             this.btnConsultar.TabIndex = 1;
             this.btnConsultar.Text = "CONSULTAR";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -278,7 +278,7 @@ namespace WorkTrackerAPP
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(94, 222);
+            this.txtEmail.Location = new System.Drawing.Point(94, 227);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(250, 21);
