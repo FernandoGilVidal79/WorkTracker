@@ -89,10 +89,8 @@ namespace WorkTrackerAPP
             }
             
             dataGridView1.DataSource = dt;
-            DataGridViewCheckBoxColumn uninstallButtonColumn = new DataGridViewCheckBoxColumn();
-            uninstallButtonColumn.Name = "Validar";
-            uninstallButtonColumn.HeaderText = "Validar";
-        
+ 
+       
             
             //int columnIndex = dt.Columns.Count ;
             //if (dataGridView1.Columns["uninstall_column"] == null)
@@ -105,15 +103,12 @@ namespace WorkTrackerAPP
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
    
             foreach ( DataGridViewRow data in dataGridView1.Rows)
-            {
-          
-
+            {   
                 var cell = data.Cells[3];
-
                 if (cell.Value != null && (bool)cell.Value == true)
                 {
                     int id = int.Parse((string)data.Cells[0].Value);

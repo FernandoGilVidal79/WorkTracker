@@ -53,6 +53,7 @@ namespace WorkTrackerAPI.Controllers
                 if (absense != null) 
                 { 
                     absense.Aproved = true;
+                    absense.Denied  = false;
                     SimpleCRUD.Update<Absenses>(db, absense);
                 }
                 return absense; 
@@ -62,6 +63,28 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }       
+        }
+
+        [HttpGet("ValidateAbsensesById{id}")]
+        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
+        public Absenses DenegateAbsensesById(int id)
+        {
+            try
+            {
+                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                if (absense != null)
+                {
+                    absense.Aproved = false;
+                    absense.Denied  = true;
+                    SimpleCRUD.Update<Absenses>(db, absense);
+                }
+                return absense;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
         [HttpGet("GetAbsensesTypes")]
