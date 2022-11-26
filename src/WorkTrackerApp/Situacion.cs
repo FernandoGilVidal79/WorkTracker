@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace WorkTrackerAPP
 {
     public partial class Situacion : Form
@@ -13,6 +14,9 @@ namespace WorkTrackerAPP
         private List<Ausencia> ausencias;
         private List<AbsenseType> tiposAusencias;
         private int nVacaciones = 0;
+        private int diasRestantes = 0;
+
+        
         public Situacion()
         {
             InitializeComponent();
@@ -23,7 +27,8 @@ namespace WorkTrackerAPP
             ausencias = new List<Ausencia>();
             LeerTiposAusencias();
             LeerAusencias();
-         
+            cargarDiasPendientes();
+           
         }
 
         private void LeerTiposAusencias()
@@ -34,9 +39,13 @@ namespace WorkTrackerAPP
 
         private void LeerAusencias()
         {
+            
             var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
             var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
 
+            //rellenamos array con api ausencias con tipo ausencia, dias totales, dias en status 0, dias en status 1, dias en status 2
+            //List<int> idAusencias = new List<int>();
+            var absensesAgrupadas = absenses.GroupBy(x=> x.AbsensesTypeId);
             try
             {
                 int diasAprobados  = 0;
@@ -80,6 +89,7 @@ namespace WorkTrackerAPP
                 cx = 407;
                 dx = 522;
                 ex = 641;
+                int posArray = 0;
 
                 foreach (var ausencia in ausencias)
                 {
@@ -101,6 +111,12 @@ namespace WorkTrackerAPP
                     txtAprobados.BackColor = Color.White;
                     txtRechazados.BackColor = Color.White;
 
+                    //aquí el tipo esta mal,tiene que salir la descripcion.
+                    txbTipo.Text = ausenciaMostrada.Id.ToString();
+                    txbSolicitados.Text = ausenciaMostrada.DiasTotales.ToString();
+                    txbPendientes.Text = ausenciaMostrada.DiasTotales.ToString();
+                    txbAprobados.Text = ausenciaMostrada.DiasTotales.ToString();
+                    txbRechazados.Text = ausenciaMostrada.DiasTotales.ToString();
                     txtTipo.Size = new System.Drawing.Size(226, 22);
                     txtSolicitados.Size = new System.Drawing.Size(111, 22);
                     txtPendientes.Size = new System.Drawing.Size(111, 22);
@@ -125,31 +141,34 @@ namespace WorkTrackerAPP
                     Controls.Add(txtAprobados);
                     Controls.Add(txtRechazados);
                     y += 30;
-                    
+                    posArray += 1;
 
 
                 }
-
+                
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show("indice " + indiceIncidencias);          
             }
         }
 
-        public void MostrarAusencias(object sender, EventArgs e)
+
+        
+        private void cargarDiasPendientes()
         {
-
-                        //recorremos la colección para mostrar las incidencias de la clasificación elegida en el listbox
-            foreach (var ausencia in ausencias)
-
-            {
-              
-            }
-
-
-
+            /*var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString);
+            var user = users.FirstOrDefault();
+            diasRestantes = ((int)user.NHollidays - nVacaciones);
+            */
+            diasRestantes = ( nVacaciones);
+            txbVacaciones.Text = diasRestantes.ToString();
         }
+        
+
+
         private void lblVacaciones_Click(object sender, EventArgs e)
         {
 

@@ -51,6 +51,7 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -72,6 +73,12 @@
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </Compile>
     <Compile Include="Ausencia.cs" />
+    <Compile Include="Calendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendario.Designer.cs">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreacionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +93,12 @@
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="IForm.cs" />
+    <Compile Include="ListadoAusencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoAusencias.Designer.cs">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +147,17 @@
     <EmbeddedResource Include="AprobacionSolicitudes.resx">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calendario.resx">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreacionUsuarios.resx">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fichar.resx">
       <DependentUpon>Fichar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoAusencias.resx">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>

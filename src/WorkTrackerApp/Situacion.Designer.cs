@@ -32,7 +32,7 @@ namespace WorkTrackerAPP
             this.cmbAño = new System.Windows.Forms.ComboBox();
             this.labAño = new System.Windows.Forms.Label();
             this.lblSaldo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbVacaciones = new System.Windows.Forms.TextBox();
             this.lblSolicitados = new System.Windows.Forms.Label();
             this.lblPendientesAprobar = new System.Windows.Forms.Label();
             this.lblAprobados = new System.Windows.Forms.Label();
@@ -70,12 +70,12 @@ namespace WorkTrackerAPP
             this.lblSaldo.TabIndex = 87;
             this.lblSaldo.Text = "Vacaciones pendientes de disfrutar";
             // 
-            // textBox1
+            // txbVacaciones
             // 
-            this.textBox1.Location = new System.Drawing.Point(551, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 22);
-            this.textBox1.TabIndex = 88;
+            this.txbVacaciones.Location = new System.Drawing.Point(551, 92);
+            this.txbVacaciones.Name = "txbVacaciones";
+            this.txbVacaciones.Size = new System.Drawing.Size(71, 22);
+            this.txbVacaciones.TabIndex = 88;
             // 
             // lblSolicitados
             // 
@@ -138,7 +138,7 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.lblAprobados);
             this.Controls.Add(this.lblPendientesAprobar);
             this.Controls.Add(this.lblSolicitados);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbVacaciones);
             this.Controls.Add(this.lblSaldo);
             this.Controls.Add(this.labAño);
             this.Controls.Add(this.cmbAño);
@@ -155,7 +155,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ComboBox cmbAño;
         private System.Windows.Forms.Label labAño;
         private System.Windows.Forms.Label lblSaldo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbVacaciones;
         private System.Windows.Forms.Label lblSolicitados;
         private System.Windows.Forms.Label lblPendientesAprobar;
         private System.Windows.Forms.Label lblAprobados;
