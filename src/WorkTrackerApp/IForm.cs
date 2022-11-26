@@ -9,7 +9,8 @@ namespace WorkTrackerAPP
     public interface IForm
     {
 
-        void MetodoPrueba();
-    }
+        void MensajeBox(string texto);
 
+        void EnviarEstado(string estado);
+    }
 }

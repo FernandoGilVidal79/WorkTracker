@@ -3,8 +3,10 @@ using KeyAttribute = Dapper.KeyAttribute;
 
 namespace WorkTrackerAPI.Model
 {
+    /// <summary>
+    /// Users Model
+    /// </summary>
     public class Users
-
     {
         [Key]
         [IgnoreInsert]

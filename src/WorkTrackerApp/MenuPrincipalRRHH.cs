@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -20,7 +13,7 @@ namespace WorkTrackerAPP
             Fichar Frm = new Fichar();
             Frm.TopLevel = false;
             Frm.FormBorderStyle = FormBorderStyle.None;
-            Frm.Dock = DockStyle.Fill;
+            ///Frm.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
@@ -36,18 +29,7 @@ namespace WorkTrackerAPP
 
         }
 
-        private void pnlFichar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        public void MetodoPrueba()
-        {
-            MessageBox.Show("funciona");
-            this.toolMensajes.Text = "Esta funcionando";
-        }
-
-        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
             SolicitudAusencia FrmAusencia = new SolicitudAusencia();
@@ -59,7 +41,7 @@ namespace WorkTrackerAPP
             FrmAusencia.Show();
         }
 
-        private void situaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SituaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
             Situacion FrmSituacion = new Situacion();
@@ -71,7 +53,7 @@ namespace WorkTrackerAPP
             FrmSituacion.Show();
         }
 
-        private void aprobacionestoolStripMenuItem1_Click(object sender, EventArgs e)
+        private void AprobacionestoolStripMenuItem1_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
             AprobacionSolicitudes FrmAprobaciones = new AprobacionSolicitudes(this);
@@ -83,11 +65,11 @@ namespace WorkTrackerAPP
             FrmAprobaciones.Show();
         }
 
-        private void toolStripCreacionUsuario_Click(object sender, EventArgs e)
+        private void ToolStripCreacionUsuario_Click(object sender, EventArgs e)
         {
 
             pnlFichar.Controls.Clear(); 
-            CreacionUsuarios FrmCreacion = new CreacionUsuarios();
+            CreacionUsuarios FrmCreacion = new CreacionUsuarios(this);
             FrmCreacion.TopLevel = false;
             FrmCreacion.FormBorderStyle = FormBorderStyle.None;
             FrmCreacion.Dock = DockStyle.Fill;
@@ -96,7 +78,7 @@ namespace WorkTrackerAPP
             FrmCreacion.Show();
         }
 
-        private void ficharToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FicharToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
             Fichar Frm = new Fichar();
@@ -108,15 +90,29 @@ namespace WorkTrackerAPP
             Frm.Show();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?", "", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 this.Close();
                 this.Dispose();
-
             }
+        }     
+
+        void IForm.MensajeBox(string texto)
+        {
+            
+        }
+
+        void IForm.EnviarEstado(string estado)
+        {
+            this.toolStripMenuPrincipalStatus.Text = estado;
+        }
+
+        private void pnlFichar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

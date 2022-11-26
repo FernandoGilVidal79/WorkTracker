@@ -25,8 +25,8 @@ namespace WorkTrackerAPP
 
         private void Logs_Load(object sender, EventArgs e)
         {
-           // var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
-           // var absensesTypes = apiUsers.ApiUserGetUsersGet();
+            var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var absensesTypes = apiUsers.ApiUserGetUsersGet();
         }
     }
 }

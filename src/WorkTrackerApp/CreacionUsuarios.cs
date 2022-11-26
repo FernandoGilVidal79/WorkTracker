@@ -10,20 +10,19 @@ namespace WorkTrackerAPP
     {
 
         private bool edicion = false;
-        public CreacionUsuarios()
+        private readonly IForm _form;
+
+        public CreacionUsuarios (IForm form)
         {
+            _form = form;
             InitializeComponent();
         }
+
 
         private void CreacionUsuarios_Load(object sender, EventArgs e)
         {
             ActivarCampos(false);
             CargarTipoUsuarios();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ActivarCampos(bool status)
@@ -86,17 +85,18 @@ namespace WorkTrackerAPP
                     this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
                     this.txtDepartamento.Text  = user.Phone.ToString();
                     SetStatusCombo((bool)user.Status);
+                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
                     edicion = true;
                     ActivarCampos(true);
                 }
                 else
                 {
-                    this.toolStripStatusLabel1.Text = "Usuario no encontrado";
+                    _form.EnviarEstado("Usuario no encontrado");
                 }
             }
             else
             {
-                this.toolStripStatusLabel1.Text = "Introduzca un número de empleado";
+                _form.EnviarEstado("Mostrando Usuario");
             }
         }
 
@@ -106,7 +106,6 @@ namespace WorkTrackerAPP
             {
                 cmbStatus.SelectedItem = "Y";
             }
-
             else
             {
                 cmbStatus.SelectedItem = "N";
@@ -128,18 +127,13 @@ namespace WorkTrackerAPP
             return false;
             //throw new Exception("No se ha seleccionado un valor");
         }
-
-        
-
+      
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             ComboStatusValor();
             try
             {
-                var user = new Users();
-                
-               
+                var user = new Users();              
                 user.Department = txtDepartamento.Text;
                 user.UserTypeId = (int?)cmbTipoUsuario.SelectedValue;
                 user.UserName   = txtNombre.Text;
@@ -164,19 +158,25 @@ namespace WorkTrackerAPP
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error creando el usuario"+ex;
+               
             }
-         }
+        }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             ActivarCampos(true);
             LimpiarCampos();
             edicion = false;
-
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            ActivarCampos(true);
+            edicion = false;
+        }
+
+        private void jj(object sender, KeyPressEventArgs e)
         {
 
         }

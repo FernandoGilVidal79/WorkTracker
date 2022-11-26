@@ -90,6 +90,7 @@
     <Compile Include="Fichar.Designer.cs">
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHelper.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="IForm.cs" />
     <Compile Include="Logs.cs">

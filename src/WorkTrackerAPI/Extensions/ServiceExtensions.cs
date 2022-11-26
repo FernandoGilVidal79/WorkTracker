@@ -6,7 +6,6 @@ namespace WorkTrackerAPI.Extensions
 {
     public static class ServiceExtensions
     {
-
         public static void ConfigureNLogService(this IServiceCollection services)
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
