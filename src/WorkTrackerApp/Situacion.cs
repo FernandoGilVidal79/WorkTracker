@@ -60,7 +60,7 @@ namespace WorkTrackerAPP
 
                     foreach (var ausencia in ausenciaAgrupada)
                     {
-                        if (ausencia.Status == true)
+                        if (ausencia.Aproved == true)
                         {
                             diasAprobados += ((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays);
                         }

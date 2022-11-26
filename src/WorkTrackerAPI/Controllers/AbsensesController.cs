@@ -52,7 +52,7 @@ namespace WorkTrackerAPI.Controllers
                 var absense = SimpleCRUD.Get<Absenses>(db, id);
                 if (absense != null) 
                 { 
-                    absense.Status = true;
+                    absense.Aproved = true;
                     SimpleCRUD.Update<Absenses>(db, absense);
                 }
                 return absense; 
@@ -77,15 +77,13 @@ namespace WorkTrackerAPI.Controllers
         [HttpPost]
         public void Post([FromBody] Absenses value)
         {
-
             var absenses = SimpleCRUD.Get<Absenses>(db, value.IdAbsenses);
-            absenses.Status = value.Status;
+            absenses.Aproved = value.Aproved;
+            absenses.Denied = value.Denied;
             absenses.StartDate = value.StartDate;
             absenses.AbsensesTypeId = value.AbsensesTypeId;
             absenses.FinishDate = value.FinishDate;
-            SimpleCRUD.Update(db, absenses);
-                
-
+            SimpleCRUD.Update(db, absenses);         
         }
 
         // PUT api/<AbsensesController>/5
@@ -102,12 +100,6 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
-        }
-
-        // DELETE api/<AbsensesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

@@ -74,7 +74,8 @@ namespace WorkTrackerAPP
 
                 absenses.StartDate = desde;
                 absenses.FinishDate = hasta;
-                absenses.Status = false;
+                absenses.Aproved = false;
+                absenses.Denied = false;
                 absenses.UserId = UserSession.User.IdUser;
                 absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
 

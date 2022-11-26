@@ -83,7 +83,8 @@ namespace WorkTrackerAPP
                 dr[0] = absense.IdAbsenses;
                 dr[1] = absense.StartDate;
                 dr[2] = absense.FinishDate;
-                dr[3] = absense.Status;
+                dr[3] = absense.Aproved;
+                dr[4] = absense.Denied;
                 dt.Rows.Add(dr);
             }
             

@@ -69,7 +69,7 @@ namespace WorkTrackerAPI.Controllers
             List<Users> user = new List<Users>();
             user.Add(SimpleCRUD.Get<Users>(db, id));
             user.FirstOrDefault().Status = false;
-            SimpleCRUD.Update<Users>(db, user.First());
+            SimpleCRUD.Update(db, user.First());
             return true;
         }
         [HttpGet("Login")]
@@ -90,7 +90,6 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
-
             return null;
         }
 
@@ -119,8 +118,6 @@ namespace WorkTrackerAPI.Controllers
             }
         }
 
-
- 
         [HttpPut("CreateUser")]
         [SwaggerOperation("CreateUser")]
         public void CreateUser([FromBody] Users user)
