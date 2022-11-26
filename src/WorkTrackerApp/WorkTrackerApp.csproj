@@ -72,6 +72,12 @@
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </Compile>
     <Compile Include="Ausencia.cs" />
+    <Compile Include="Calendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendario.Designer.cs">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreacionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,7 +90,6 @@
     <Compile Include="Fichar.Designer.cs">
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHelper.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="IForm.cs" />
     <Compile Include="Logs.cs">
@@ -134,6 +139,9 @@
     <Compile Include="Helpers\UserSession.cs" />
     <EmbeddedResource Include="AprobacionSolicitudes.resx">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calendario.resx">
+      <DependentUpon>Calendario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreacionUsuarios.resx">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>

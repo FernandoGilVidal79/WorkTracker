@@ -79,5 +79,17 @@ namespace WorkTrackerAPP
             
             
         }
+
+        private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            Calendario FrmCalendario = new Calendario();
+            FrmCalendario.TopLevel = false;
+            FrmCalendario.FormBorderStyle = FormBorderStyle.None;
+            FrmCalendario.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(FrmCalendario);
+            pnlFichar.Tag = FrmCalendario;
+            FrmCalendario.Show();
+        }
     }
 }

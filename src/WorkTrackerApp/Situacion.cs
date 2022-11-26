@@ -1,123 +1,87 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Model;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WorkTrackerAPP
 {
     public partial class Situacion : Form
     {
-      private ArrayList ausencias;
-      private List<Ausencia> ausencia = new List<Ausencia>();
+        private List<Ausencia> ausencias;
+        private List<AbsenseType> tiposAusencias;
         private int nVacaciones = 0;
+        private int diasRestantes = 0;
+
+        
         public Situacion()
         {
             InitializeComponent();
-        }
-
-        
-        
+        }      
 
         private void Situacion_Load(object sender, EventArgs e)
         {
-          ausencias = new ArrayList();
+            ausencias = new List<Ausencia>();
+            LeerTiposAusencias();
             LeerAusencias();
+            cargarDiasPendientes();
            
+        }
+
+        private void LeerTiposAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            tiposAusencias = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
         private void LeerAusencias()
         {
+            
             var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
             var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
 
             //rellenamos array con api ausencias con tipo ausencia, dias totales, dias en status 0, dias en status 1, dias en status 2
-            List<int> idAusencias = new List<int>();
+            //List<int> idAusencias = new List<int>();
+            var absensesAgrupadas = absenses.GroupBy(x=> x.AbsensesTypeId);
             try
             {
-                //recorremos la api ausencias
-                foreach (var absense in absenses)
+                int diasAprobados  = 0;
+                int diasPendientes = 0;
+                int diasTotales    = 0;
+                var ausenciasAgrupadasByType =  absenses.GroupBy(x => x.AbsensesTypeId);
+
+                foreach (var ausenciaAgrupada in ausenciasAgrupadasByType)
                 {
+                    diasAprobados  = 0;
+                    diasPendientes = 0;
+                    diasTotales    = 0;
 
-                    Ausencia a = new Ausencia();
-
-                    DateTime diaInicio = (DateTime)absense.StartDate;
-                    DateTime diaFinal = (DateTime)absense.FinishDate;
-                    int dias = (diaInicio - diaFinal).Days;
-                    nVacaciones += dias;
-
-                   // if (!idAusencias.Contains((int)absense.AbsensesTypeId))
-                    if (!idAusencias.Contains((int)absense.IdAbsenses))
-                        {
-
-                        //  a.Id = (int)absense.AbsensesTypeId;
-                        a.Id = (int)absense.IdAbsenses;
-                        //rellenamos id ausencia para el control
-                        idAusencias.Add(a.Id);
-
-
-                        a.DiasTotales = dias;
-
-                        //rellenamos numero de pendientes
-                        if (absense.Status == false)
-                        {
-
-                            a.DiasPendientes = dias;
-                            a.DiasAprobados = 0;
-                            a.DiasRechazados = 0;
-                        }
-                        //rellenamos numero dias aprobados
-                        else if (absense.Status == true)
-                        {
-                            a.DiasPendientes = 0;
-                            a.DiasAprobados = dias;
-                            a.DiasRechazados = 0;
-
-                        }
-                        //rellenamos numeros rechazados para cuando este preparado
-                        else
-                        {
-                            a.DiasPendientes = 0;
-                            a.DiasAprobados = 0;
-                            a.DiasRechazados = dias;
-
-                        }
-
-                        ausencias.Add(a);
-                    }
-
-                    else
+                    foreach (var ausencia in ausenciaAgrupada)
                     {
-                       // int indice = ausencias.IndexOf((int)absense.AbsensesTypeId);
-                       int indice = ausencias.IndexOf((int)absense.IdAbsenses);
-                        a = (Ausencia)ausencias[indice];
-                        a.DiasTotales += dias;
-
-                        if (absense.Status == false)
+                        if (ausencia.Status == true)
                         {
-                            a.DiasPendientes += dias;
-                        }
-                        else if (absense.Status == true)
-                        {
-                            a.DiasAprobados += dias;
+                            diasAprobados += ((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays);
                         }
                         else
                         {
-                            a.DiasRechazados += dias;
-                        }
-                        //  volvemos a añadir a al sitio donde estaba con los valores modificados
-                        ausencias[indice] = a;
-
-
+                            diasPendientes += ((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays);
+                        }                                                     
                     }
-
+                    diasTotales = diasAprobados + diasPendientes;
+                    Ausencia ausenciaTipoPintar = new Ausencia
+                    {
+                        Id = ausenciaAgrupada.First().AbsensesTypeId.Value,
+                        DiasPendientes = diasPendientes,
+                        //a.DiasRechazados = diasRechazados;
+                        DiasTotales = diasTotales,
+                        DiasAprobados = diasAprobados
+                    };
+                    ausencias.Add(ausenciaTipoPintar);
                 }
+
                 
                 int ax, bx, cx, dx, ex, y;
                 ax = 51; y = 200;
@@ -125,73 +89,81 @@ namespace WorkTrackerAPP
                 cx = 407;
                 dx = 522;
                 ex = 641;
+                int posArray = 0;
 
                 foreach (var ausencia in ausencias)
                 {
-                    TextBox txbTipo = new TextBox();
-                    TextBox txbSolicitados = new TextBox();
-                    TextBox txbPendientes = new TextBox();
-                    TextBox txbAprobados = new TextBox();
-                    TextBox txbRechazados = new TextBox();
+                    TextBox txtTipo = new TextBox();
+                    TextBox txtSolicitados = new TextBox();
+                    TextBox txtPendientes = new TextBox();
+                    TextBox txtAprobados = new TextBox();
+                    TextBox txtRechazados = new TextBox();
 
-                    txbTipo.ReadOnly = true;
-                    txbSolicitados.ReadOnly = true;
-                    txbPendientes.ReadOnly = true;
-                    txbAprobados.ReadOnly = true;
-                    txbRechazados.ReadOnly = true;
+                    txtTipo.ReadOnly = true;
+                    txtSolicitados.ReadOnly = true;
+                    txtPendientes.ReadOnly = true;
+                    txtAprobados.ReadOnly = true;
+                    txtRechazados.ReadOnly = true;
 
-                    txbTipo.BackColor = Color.White;
-                    txbSolicitados.BackColor = Color.White;
-                    txbPendientes.BackColor = Color.White;
-                    txbAprobados.BackColor = Color.White;
-                    txbRechazados.BackColor = Color.White;
+                    txtTipo.BackColor = Color.White;
+                    txtSolicitados.BackColor = Color.White;
+                    txtPendientes.BackColor = Color.White;
+                    txtAprobados.BackColor = Color.White;
+                    txtRechazados.BackColor = Color.White;
 
-                    txbTipo.Size = new System.Drawing.Size(226, 22);
-                    txbSolicitados.Size = new System.Drawing.Size(111, 22);
-                    txbPendientes.Size = new System.Drawing.Size(111, 22);
-                    txbAprobados.Size = new System.Drawing.Size(111, 22);
-                    txbRechazados.Size = new System.Drawing.Size(111, 22);
 
-                    txbTipo.Location = new System.Drawing.Point(ax, y);
-                    txbSolicitados.Location = new System.Drawing.Point(bx, y);
-                    txbPendientes.Location = new System.Drawing.Point(cx, y);
-                    txbAprobados.Location = new System.Drawing.Point(dx, y);
-                    txbRechazados.Location = new System.Drawing.Point(ex, y);
+                    txtTipo.Size = new System.Drawing.Size(226, 22);
+                    txtSolicitados.Size = new System.Drawing.Size(111, 22);
+                    txtPendientes.Size = new System.Drawing.Size(111, 22);
+                    txtAprobados.Size = new System.Drawing.Size(111, 22);
+                    txtRechazados.Size = new System.Drawing.Size(111, 22);
 
-                    txbTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
+                    txtTipo.Location = new System.Drawing.Point(ax, y);
+                    txtSolicitados.Location = new System.Drawing.Point(bx, y);
+                    txtPendientes.Location = new System.Drawing.Point(cx, y);
+                    txtAprobados.Location = new System.Drawing.Point(dx, y);
+                    txtRechazados.Location = new System.Drawing.Point(ex, y);
 
-                    Controls.Add(txbTipo);
-                    Controls.Add(txbSolicitados);
-                    Controls.Add(txbPendientes);
-                    Controls.Add(txbAprobados);
-                    Controls.Add(txbRechazados);
-
+                    //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
+                    txtTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                    txtAprobados.Text = ausencia.DiasAprobados.ToString();
+                    txtRechazados.Text = ausencia.DiasRechazados.ToString();
+                    txtPendientes.Text = ausencia.DiasPendientes.ToString();
+                    txtSolicitados.Text = ausencia.DiasTotales.ToString();
+                    Controls.Add(txtTipo);
+                    Controls.Add(txtSolicitados);
+                    Controls.Add(txtPendientes);
+                    Controls.Add(txtAprobados);
+                    Controls.Add(txtRechazados);
                     y += 30;
-                    
+                    posArray += 1;
 
 
                 }
-
+                
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show("indice " + indiceIncidencias);          
             }
         }
 
-        public void MostrarAusencias(object sender, EventArgs e)
+
+        
+        private void cargarDiasPendientes()
         {
-
-                        //recorremos la colección para mostrar las incidencias de la clasificación elegida en el listbox
-            foreach (var ausencia in ausencias)
-
-            {
-              
-            }
-
-
-
+            /*var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString);
+            var user = users.FirstOrDefault();
+            diasRestantes = ((int)user.NHollidays - nVacaciones);
+            */
+            diasRestantes = ( nVacaciones);
+            txbVacaciones.Text = diasRestantes.ToString();
         }
+        
+
+
         private void lblVacaciones_Click(object sender, EventArgs e)
         {
 

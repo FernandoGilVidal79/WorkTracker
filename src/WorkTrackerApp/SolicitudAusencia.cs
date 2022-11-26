@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using IO.Swagger.Api;
+﻿using IO.Swagger.Api;
 using IO.Swagger.Model;
+using System;
+using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
@@ -107,6 +100,17 @@ namespace WorkTrackerAPP
                 MessageBox.Show("Error al guardar, revise los datos");
                 toolStripStatusLabel1.Text = "Error al guardar la ausencia";
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+            //FrmListaAusencia.TopLevel = false;
+            //FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+            //FrmListaAusencia.Dock = DockStyle.Fill;
+            //pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+            //pnlListadoAusencias.Tag = FrmListaAusencia;
+            //FrmListaAusencia.Show();
         }
     }
 }

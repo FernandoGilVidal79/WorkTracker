@@ -11,7 +11,11 @@ Contact: desarrollo@worktracker.com
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{DCE43A51-8477-478A-B686-0905C23B1574}</ProjectGuid>
+=======
+    <ProjectGuid>{80CC53CB-FE2A-43D0-86B2-4934A405127E}</ProjectGuid>
+>>>>>>> 32108a15800a7a7662013ca6fa3c040fefe56637
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>
