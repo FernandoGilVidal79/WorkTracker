@@ -18,7 +18,6 @@ namespace WorkTrackerAPP
             InitializeComponent();
         }
 
-
         private void CreacionUsuarios_Load(object sender, EventArgs e)
         {
             ActivarCampos(false);
@@ -146,17 +145,19 @@ namespace WorkTrackerAPP
             ComboStatusValor();
             try
             {
-                var user = new Users();              
-                user.Department = txtDepartamento.Text;
-                user.UserTypeId = (int?)cmbTipoUsuario.SelectedValue;
-                user.UserName   = txtNombre.Text;
-                user.SurName1   = txtApellido1.Text;
-                user.SurName2   = txtApellido2.Text;
-                user.Status     = ComboStatusValor();
-                user.Phone      = Int32.Parse(txtTelefono.Text);
-                user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
-                user.Email      = txtEmail.Text;
-                user.Password   = txtContrasena.Text;
+                var user = new Users
+                {
+                    Department = txtDepartamento.Text,
+                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
+                    UserName = txtNombre.Text,
+                    SurName1 = txtApellido1.Text,
+                    SurName2 = txtApellido2.Text,
+                    Status = ComboStatusValor(),
+                    Phone = Int32.Parse(txtTelefono.Text),
+                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
+                    Email = txtEmail.Text,
+                    Password = txtContrasena.Text
+                };
 
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 if (edicion)
