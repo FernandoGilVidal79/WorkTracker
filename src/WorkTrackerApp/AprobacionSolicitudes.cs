@@ -3,6 +3,7 @@ using IO.Swagger.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -35,8 +36,6 @@ namespace WorkTrackerAPP
             cmbUsuarios.DisplayMember = "UserName";
             cmbUsuarios.ValueMember = "IdUser";
             cmbUsuarios.DataSource = absensesTypes;
-
-
         }
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
@@ -51,12 +50,20 @@ namespace WorkTrackerAPP
             {
                 var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
                 var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet((int)Combo.SelectedValue);              
-                CargarCombo(absenses);
+                CargarDatosGrid(absenses);
+
+                var apiUser = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                var user = apiUser.ApiUserGetUserByIdIdGet(Combo.SelectedValue.ToString());
+
+                if (user != null)
+                {
+                    lblUsuario.Text = user.First().UserName + " " + user.First().SurName1;
+                }
             }
          
         }
 
-        private void CargarCombo(List<Absenses> absenses)
+        private void CargarDatosGrid(List<Absenses> absenses)
         {
 
             dataGridView1.Columns.Clear();
@@ -66,7 +73,8 @@ namespace WorkTrackerAPP
 
             dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
-            dt.Columns.Add(new DataColumn("fff", typeof(bool)));
+            dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
+            dt.Columns.Add(new DataColumn("Denegar", typeof(bool)));
             //dt.Columns.Add(new DataColumn("Uninstall", typeof(System.Windows.Forms.Button)));
 
             foreach (var absense in absenses)

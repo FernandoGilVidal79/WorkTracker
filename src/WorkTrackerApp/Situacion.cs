@@ -15,7 +15,6 @@ namespace WorkTrackerAPP
         private List<AbsenseType> tiposAusencias;
         private int nVacaciones = 0;
         private int diasRestantes = 0;
-
         
         public Situacion()
         {
