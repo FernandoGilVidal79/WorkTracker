@@ -111,12 +111,7 @@ namespace WorkTrackerAPP
                     txtAprobados.BackColor = Color.White;
                     txtRechazados.BackColor = Color.White;
 
-                    //aquí el tipo esta mal,tiene que salir la descripcion.
-                    txbTipo.Text = ausenciaMostrada.Id.ToString();
-                    txbSolicitados.Text = ausenciaMostrada.DiasTotales.ToString();
-                    txbPendientes.Text = ausenciaMostrada.DiasTotales.ToString();
-                    txbAprobados.Text = ausenciaMostrada.DiasTotales.ToString();
-                    txbRechazados.Text = ausenciaMostrada.DiasTotales.ToString();
+
                     txtTipo.Size = new System.Drawing.Size(226, 22);
                     txtSolicitados.Size = new System.Drawing.Size(111, 22);
                     txtPendientes.Size = new System.Drawing.Size(111, 22);
@@ -129,7 +124,7 @@ namespace WorkTrackerAPP
                     txtAprobados.Location = new System.Drawing.Point(dx, y);
                     txtRechazados.Location = new System.Drawing.Point(ex, y);
 
-                    txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
+                    //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
                     txtTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
                     txtAprobados.Text = ausencia.DiasAprobados.ToString();
                     txtRechazados.Text = ausencia.DiasRechazados.ToString();
