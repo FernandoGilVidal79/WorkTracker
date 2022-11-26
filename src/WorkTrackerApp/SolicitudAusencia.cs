@@ -108,5 +108,16 @@ namespace WorkTrackerAPP
                 toolStripStatusLabel1.Text = "Error al guardar la ausencia";
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+            FrmListaAusencia.TopLevel = false;
+            FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+            FrmListaAusencia.Dock = DockStyle.Fill;
+            pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+            pnlListadoAusencias.Tag = FrmListaAusencia;
+            FrmListaAusencia.Show();
+        }
     }
 }
