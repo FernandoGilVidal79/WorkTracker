@@ -46,7 +46,9 @@ namespace WorkTrackerAPP
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(-1, 5);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -59,8 +61,8 @@ namespace WorkTrackerAPP
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
             this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
-            this.splitContainer1.Size = new System.Drawing.Size(1065, 521);
-            this.splitContainer1.SplitterDistance = 353;
+            this.splitContainer1.Size = new System.Drawing.Size(1070, 529);
+            this.splitContainer1.SplitterDistance = 345;
             this.splitContainer1.TabIndex = 38;
             // 
             // btnDescanso
@@ -111,15 +113,17 @@ namespace WorkTrackerAPP
             this.lblResumen.AutoSize = true;
             this.lblResumen.Location = new System.Drawing.Point(121, 80);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(71, 20);
+            this.lblResumen.Size = new System.Drawing.Size(177, 20);
             this.lblResumen.TabIndex = 0;
-            this.lblResumen.Text = "Histórico";
+            this.lblResumen.Text = "Resumen de la semana";
             // 
             // lgnStripResult
             // 
+            this.lgnStripResult.AllowMerge = false;
             this.lgnStripResult.BackColor = System.Drawing.Color.Silver;
             this.lgnStripResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.lgnStripResult.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lgnStripResult.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.lgnStripResult.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
@@ -127,6 +131,7 @@ namespace WorkTrackerAPP
             this.lgnStripResult.Location = new System.Drawing.Point(0, 491);
             this.lgnStripResult.Name = "lgnStripResult";
             this.lgnStripResult.Size = new System.Drawing.Size(1070, 38);
+            this.lgnStripResult.SizingGrip = false;
             this.lgnStripResult.TabIndex = 40;
             // 
             // toolStripStatusLabel1
