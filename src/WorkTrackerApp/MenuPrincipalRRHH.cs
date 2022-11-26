@@ -17,7 +17,6 @@ namespace WorkTrackerAPP
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
-            Console.WriteLine(UserSession.User);
             Helper.MensajeBienvenida(lblBienvenida);
         }
         private void TmrHora_Tick(object sender, EventArgs e)
