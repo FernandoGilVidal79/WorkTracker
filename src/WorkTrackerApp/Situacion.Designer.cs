@@ -38,6 +38,7 @@ namespace WorkTrackerAPP
             this.lblAprobados = new System.Windows.Forms.Label();
             this.lblTipoAusencia = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAplicar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbAño
@@ -128,11 +129,25 @@ namespace WorkTrackerAPP
             this.label1.TabIndex = 97;
             this.label1.Text = "Días rechazados";
             // 
+            // btnAplicar
+            // 
+            this.btnAplicar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicar.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAplicar.Location = new System.Drawing.Point(655, 44);
+            this.btnAplicar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(112, 43);
+            this.btnAplicar.TabIndex = 98;
+            this.btnAplicar.Text = "APLICAR";
+            this.btnAplicar.UseVisualStyleBackColor = true;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
+            // 
             // Situacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTipoAusencia);
             this.Controls.Add(this.lblAprobados);
@@ -161,5 +176,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label lblAprobados;
         private System.Windows.Forms.Label lblTipoAusencia;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAplicar;
     }
 }
