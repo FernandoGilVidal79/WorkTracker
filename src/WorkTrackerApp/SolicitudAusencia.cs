@@ -105,13 +105,13 @@ namespace WorkTrackerAPP
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            //ListadoAusencias FrmListaAusencia = new ListadoAusencias();
-            //FrmListaAusencia.TopLevel = false;
-            //FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
-            //FrmListaAusencia.Dock = DockStyle.Fill;
-            //pnlListadoAusencias.Controls.Add(FrmListaAusencia);
-            //pnlListadoAusencias.Tag = FrmListaAusencia;
-            //FrmListaAusencia.Show();
+            ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+            FrmListaAusencia.TopLevel = false;
+            FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+            FrmListaAusencia.Dock = DockStyle.Fill;
+            pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+            pnlListadoAusencias.Tag = FrmListaAusencia;
+            FrmListaAusencia.Show();
         }
     }
 }
