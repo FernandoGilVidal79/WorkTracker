@@ -92,6 +92,12 @@
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="IForm.cs" />
+    <Compile Include="ListadoAusencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoAusencias.Designer.cs">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fichar.resx">
       <DependentUpon>Fichar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoAusencias.resx">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>
