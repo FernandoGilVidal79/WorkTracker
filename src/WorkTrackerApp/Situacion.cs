@@ -204,6 +204,7 @@ namespace WorkTrackerAPP
             var user = users.FirstOrDefault();
             diasRestantes = ((int)user.NHollidays - nVacaciones);
             txbVacaciones.Text = diasRestantes.ToString();
+            nVacaciones = 0;
 
         }
 
