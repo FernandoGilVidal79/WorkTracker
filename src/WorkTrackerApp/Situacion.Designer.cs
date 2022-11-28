@@ -33,11 +33,12 @@ namespace WorkTrackerAPP
             this.labAño = new System.Windows.Forms.Label();
             this.lblSaldo = new System.Windows.Forms.Label();
             this.txbVacaciones = new System.Windows.Forms.TextBox();
-            this.lblSolicitados = new System.Windows.Forms.Label();
-            this.lblPendientesAprobar = new System.Windows.Forms.Label();
-            this.lblAprobados = new System.Windows.Forms.Label();
-            this.lblTipoAusencia = new System.Windows.Forms.Label();
+            this.btnAplicar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblAprobados = new System.Windows.Forms.Label();
+            this.lblPendientesAprobar = new System.Windows.Forms.Label();
+            this.lblSolicitados = new System.Windows.Forms.Label();
+            this.lblTipoAusencia = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbAño
@@ -77,6 +78,49 @@ namespace WorkTrackerAPP
             this.txbVacaciones.Size = new System.Drawing.Size(71, 22);
             this.txbVacaciones.TabIndex = 88;
             // 
+            // btnAplicar
+            // 
+            this.btnAplicar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicar.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAplicar.Location = new System.Drawing.Point(655, 44);
+            this.btnAplicar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(112, 43);
+            this.btnAplicar.TabIndex = 98;
+            this.btnAplicar.Text = "APLICAR";
+            this.btnAplicar.UseVisualStyleBackColor = true;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(594, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 22);
+            this.label1.TabIndex = 97;
+            this.label1.Text = "Días rechazados";
+            // 
+            // lblAprobados
+            // 
+            this.lblAprobados.AutoSize = true;
+            this.lblAprobados.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAprobados.Location = new System.Drawing.Point(484, 146);
+            this.lblAprobados.Name = "lblAprobados";
+            this.lblAprobados.Size = new System.Drawing.Size(115, 22);
+            this.lblAprobados.TabIndex = 91;
+            this.lblAprobados.Text = "Días aprobados";
+            // 
+            // lblPendientesAprobar
+            // 
+            this.lblPendientesAprobar.AutoSize = true;
+            this.lblPendientesAprobar.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendientesAprobar.Location = new System.Drawing.Point(357, 146);
+            this.lblPendientesAprobar.Name = "lblPendientesAprobar";
+            this.lblPendientesAprobar.Size = new System.Drawing.Size(129, 22);
+            this.lblPendientesAprobar.TabIndex = 90;
+            this.lblPendientesAprobar.Text = "Días para aprobar";
+            // 
             // lblSolicitados
             // 
             this.lblSolicitados.AutoSize = true;
@@ -86,26 +130,6 @@ namespace WorkTrackerAPP
             this.lblSolicitados.Size = new System.Drawing.Size(115, 22);
             this.lblSolicitados.TabIndex = 89;
             this.lblSolicitados.Text = "Días solicitados";
-            // 
-            // lblPendientesAprobar
-            // 
-            this.lblPendientesAprobar.AutoSize = true;
-            this.lblPendientesAprobar.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendientesAprobar.Location = new System.Drawing.Point(366, 146);
-            this.lblPendientesAprobar.Name = "lblPendientesAprobar";
-            this.lblPendientesAprobar.Size = new System.Drawing.Size(129, 22);
-            this.lblPendientesAprobar.TabIndex = 90;
-            this.lblPendientesAprobar.Text = "Días para aprobar";
-            // 
-            // lblAprobados
-            // 
-            this.lblAprobados.AutoSize = true;
-            this.lblAprobados.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAprobados.Location = new System.Drawing.Point(501, 146);
-            this.lblAprobados.Name = "lblAprobados";
-            this.lblAprobados.Size = new System.Drawing.Size(115, 22);
-            this.lblAprobados.TabIndex = 91;
-            this.lblAprobados.Text = "Días aprobados";
             // 
             // lblTipoAusencia
             // 
@@ -118,21 +142,12 @@ namespace WorkTrackerAPP
             this.lblTipoAusencia.Text = "Tipo Ausencia";
             this.lblTipoAusencia.Click += new System.EventHandler(this.lblVacaciones_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(613, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 22);
-            this.label1.TabIndex = 97;
-            this.label1.Text = "Días rechazados";
-            // 
             // Situacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTipoAusencia);
             this.Controls.Add(this.lblAprobados);
@@ -156,10 +171,11 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label labAño;
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.TextBox txbVacaciones;
-        private System.Windows.Forms.Label lblSolicitados;
-        private System.Windows.Forms.Label lblPendientesAprobar;
-        private System.Windows.Forms.Label lblAprobados;
-        private System.Windows.Forms.Label lblTipoAusencia;
+        private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAprobados;
+        private System.Windows.Forms.Label lblPendientesAprobar;
+        private System.Windows.Forms.Label lblSolicitados;
+        private System.Windows.Forms.Label lblTipoAusencia;
     }
 }

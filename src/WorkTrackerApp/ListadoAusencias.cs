@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace WorkTrackerAPP
         }
 
         private void ListadoAusencias_Load(object sender, EventArgs e)
+
         {
 
             LeerAusencias();
@@ -26,9 +28,18 @@ namespace WorkTrackerAPP
 
         private void LeerAusencias()
         {
+            string year = DateTime.Today.Year.ToString();
+            string fechaInicioTexto = "01/01/" + year;
+            String fechaFinTexto = "31/12/" + year;
+            string format = "dd/MM/yyyy";
+            DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
+            DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
 
             var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
             var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
+
+            var absensesAgrupadas = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin);
+
 
             try
             {
@@ -41,12 +52,13 @@ namespace WorkTrackerAPP
                 ex = 641;
                 int posArray = 0;
 
-                foreach (var absense in absenses)
+                foreach (var absense in absensesAgrupadas)
                 {
                     TextBox txbTipo = new TextBox();
                     TextBox txbDesde = new TextBox();
                     TextBox txbHasta = new TextBox();
 
+                    //txbTipo.Font = new fontSize
 
                     txbTipo.ReadOnly = true;
                     txbDesde.ReadOnly = true;
@@ -65,8 +77,8 @@ namespace WorkTrackerAPP
                     txbDesde.Location = new System.Drawing.Point(bx, y);
                     txbHasta.Location = new System.Drawing.Point(cx, y);
 
-                    //aquí el tipo esta mal,tiene que salir la descripcion.
-                    txbTipo.Text = absense.IdAbsenses.ToString();
+                    //aquí el tipo esta mal,tiene que salir la descripcion. ausenciaAgrupada.First().AbsensesTypeId.Value,
+                    txbTipo.Text = absensesAgrupadas.First().AbsensesTypeId.Value.ToString();
                     txbDesde.Text = absense.StartDate.ToString();
                     txbHasta.Text = absense.FinishDate.ToString();
 
