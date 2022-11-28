@@ -59,6 +59,7 @@ namespace WorkTrackerAPP
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
             this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
             this.splitContainer1.Size = new System.Drawing.Size(1070, 529);
@@ -101,7 +102,7 @@ namespace WorkTrackerAPP
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(125, 156);
+            this.lblHistorico.Location = new System.Drawing.Point(86, 96);
             this.lblHistorico.Name = "lblHistorico";
             this.lblHistorico.Size = new System.Drawing.Size(113, 20);
             this.lblHistorico.TabIndex = 1;
@@ -111,7 +112,7 @@ namespace WorkTrackerAPP
             // 
             this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(121, 80);
+            this.lblResumen.Location = new System.Drawing.Point(86, 43);
             this.lblResumen.Name = "lblResumen";
             this.lblResumen.Size = new System.Drawing.Size(177, 20);
             this.lblResumen.TabIndex = 0;

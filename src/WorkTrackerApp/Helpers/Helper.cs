@@ -39,7 +39,7 @@ namespace WorkTrackerAPP
             {
                 mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
             }
-            if (int.Parse(hora) >= 21 && int.Parse(hora) < 5)
+            if (int.Parse(hora) >= 21 || int.Parse(hora) < 5)
             {
                 mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
             }
