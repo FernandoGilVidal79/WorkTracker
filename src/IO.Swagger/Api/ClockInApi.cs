@@ -107,6 +107,27 @@ namespace IO.Swagger.Api
         /// <param name="id"></param>
         /// <returns>ApiResponse of List&lt;Clockin&gt;</returns>
         ApiResponse<List<Clockin>> ApiClockInGetClockInsTodayByUserIdIdGetWithHttpInfo (int? id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns></returns>
+        void ApiClockInUpdateClockInPost (Clockin body = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ApiClockInUpdateClockInPostWithHttpInfo (Clockin body = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -193,6 +214,27 @@ namespace IO.Swagger.Api
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (List&lt;Clockin&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Clockin>>> ApiClockInGetClockInsTodayByUserIdIdGetAsyncWithHttpInfo (int? id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ApiClockInUpdateClockInPostAsync (Clockin body = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ApiClockInUpdateClockInPostAsyncWithHttpInfo (Clockin body = null);
         #endregion Asynchronous Operations
     }
 
@@ -848,6 +890,147 @@ namespace IO.Swagger.Api
             return new ApiResponse<List<Clockin>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (List<Clockin>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Clockin>)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns></returns>
+        public void ApiClockInUpdateClockInPost (Clockin body = null)
+        {
+             ApiClockInUpdateClockInPostWithHttpInfo(body);
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ApiClockInUpdateClockInPostWithHttpInfo (Clockin body = null)
+        {
+
+            var localVarPath = "/api/ClockIn/UpdateClockIn";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiClockInUpdateClockInPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ApiClockInUpdateClockInPostAsync (Clockin body = null)
+        {
+             await ApiClockInUpdateClockInPostAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ApiClockInUpdateClockInPostAsyncWithHttpInfo (Clockin body = null)
+        {
+
+            var localVarPath = "/api/ClockIn/UpdateClockIn";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiClockInUpdateClockInPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
     }

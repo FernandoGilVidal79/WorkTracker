@@ -108,7 +108,7 @@ namespace WorkTrackerAPI.Controllers
                 user.Department = value.Department;
                 user.Phone = value.Phone;
                 user.Password = value.Password;
-                SimpleCRUD.Update<Users>(db, user);
+                SimpleCRUD.Update(db, user);
                 _logger.LogInfo("Usuario actualizado correctamente. Id:" + user.IdUser);
             }
             catch(Exception ex)

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using WorkTrackerAPI.Infrastructure.Contracts;
@@ -23,6 +24,7 @@ namespace WorkTrackerAPI.Controllers
             db = new MySqlConnection(connection);
             
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
+            
         }
 
         // GET: api/<ClockInController>
@@ -84,6 +86,27 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
-        }      
+        }
+
+        [HttpPost("UpdateClockIn")]
+        [SwaggerOperation("UpdateClockIn")]
+        public void UpdateClockIn([FromBody] Clockin clockin)
+        {
+            try
+            {
+                var clockinUpdated = SimpleCRUD.Get<Clockin>(db, clockin.idClockIn);
+                clockinUpdated.StartHour = clockin.StartHour;
+                clockinUpdated.FinishHour = clockin.FinishHour;
+                clockinUpdated.Date = clockin.Date;
+                SimpleCRUD.Update(db, clockin);
+               
+                _logger.LogInfo("Fichaje actualizado correctamente. Id: " + clockin.idClockIn);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
     }
 }

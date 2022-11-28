@@ -113,7 +113,7 @@ namespace WorkTrackerAPP
                 {
                     int id = int.Parse((string)data.Cells[0].Value);
                     var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                    var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdidGet(id);
+                    var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
                 }
             }
         }

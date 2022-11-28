@@ -43,7 +43,7 @@ namespace WorkTrackerAPI.Controllers
             return listAbsenses;
         }
 
-        [HttpGet("ValidateAbsensesById{id}")]
+        [HttpGet("ValidateAbsensesById/{id}")]
         [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
         public Absenses ValidateAbsensesById(int id)
         {
@@ -65,7 +65,7 @@ namespace WorkTrackerAPI.Controllers
             }       
         }
 
-        [HttpGet("ValidateAbsensesById{id}")]
+        [HttpGet("DenegateAbsensesById/{id}")]
         [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
         public Absenses DenegateAbsensesById(int id)
         {
@@ -109,13 +109,11 @@ namespace WorkTrackerAPI.Controllers
             SimpleCRUD.Update(db, absenses);         
         }
 
-        // PUT api/<AbsensesController>/5
         [HttpPut("CreateAbsense")]
-        public void Put( [FromBody] Absenses absense)
+        public void Put([FromBody] Absenses absense)
         {
             try
             {
-
                 SimpleCRUD.Insert(db, absense);
             }
             catch (Exception ex)

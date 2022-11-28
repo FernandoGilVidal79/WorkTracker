@@ -52,6 +52,27 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <returns>Absenses</returns>
+        Absenses ApiAbsensesDenegateAbsensesByIdIdGet (int? id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Absenses</returns>
+        ApiResponse<Absenses> ApiAbsensesDenegateAbsensesByIdIdGetWithHttpInfo (int? id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
         /// <returns>List&lt;Absenses&gt;</returns>
         List<Absenses> ApiAbsensesGetAbsensesByUserIdIdGet (int? id);
 
@@ -114,7 +135,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Absenses</returns>
-        Absenses ApiAbsensesValidateAbsensesByIdidGet (int? id);
+        Absenses ApiAbsensesValidateAbsensesByIdIdGet (int? id);
 
         /// <summary>
         /// 
@@ -125,7 +146,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Absenses</returns>
-        ApiResponse<Absenses> ApiAbsensesValidateAbsensesByIdidGetWithHttpInfo (int? id);
+        ApiResponse<Absenses> ApiAbsensesValidateAbsensesByIdIdGetWithHttpInfo (int? id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -149,6 +170,27 @@ namespace IO.Swagger.Api
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ApiAbsensesCreateAbsensePutAsyncWithHttpInfo (Absenses body = null);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of Absenses</returns>
+        System.Threading.Tasks.Task<Absenses> ApiAbsensesDenegateAbsensesByIdIdGetAsync (int? id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse (Absenses)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesDenegateAbsensesByIdIdGetAsyncWithHttpInfo (int? id);
         /// <summary>
         /// 
         /// </summary>
@@ -219,7 +261,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of Absenses</returns>
-        System.Threading.Tasks.Task<Absenses> ApiAbsensesValidateAbsensesByIdidGetAsync (int? id);
+        System.Threading.Tasks.Task<Absenses> ApiAbsensesValidateAbsensesByIdIdGetAsync (int? id);
 
         /// <summary>
         /// 
@@ -230,7 +272,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (Absenses)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesValidateAbsensesByIdidGetAsyncWithHttpInfo (int? id);
+        System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesValidateAbsensesByIdIdGetAsyncWithHttpInfo (int? id);
         #endregion Asynchronous Operations
     }
 
@@ -481,6 +523,141 @@ namespace IO.Swagger.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Absenses</returns>
+        public Absenses ApiAbsensesDenegateAbsensesByIdIdGet (int? id)
+        {
+             ApiResponse<Absenses> localVarResponse = ApiAbsensesDenegateAbsensesByIdIdGetWithHttpInfo(id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Absenses</returns>
+        public ApiResponse< Absenses > ApiAbsensesDenegateAbsensesByIdIdGetWithHttpInfo (int? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesDenegateAbsensesByIdIdGet");
+
+            var localVarPath = "/api/Absenses/DenegateAbsensesById/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiAbsensesDenegateAbsensesByIdIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Absenses>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Absenses) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Absenses)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of Absenses</returns>
+        public async System.Threading.Tasks.Task<Absenses> ApiAbsensesDenegateAbsensesByIdIdGetAsync (int? id)
+        {
+             ApiResponse<Absenses> localVarResponse = await ApiAbsensesDenegateAbsensesByIdIdGetAsyncWithHttpInfo(id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse (Absenses)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesDenegateAbsensesByIdIdGetAsyncWithHttpInfo (int? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesDenegateAbsensesByIdIdGet");
+
+            var localVarPath = "/api/Absenses/DenegateAbsensesById/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ApiAbsensesDenegateAbsensesByIdIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Absenses>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Absenses) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Absenses)));
         }
 
         /// <summary>
@@ -888,9 +1065,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Absenses</returns>
-        public Absenses ApiAbsensesValidateAbsensesByIdidGet (int? id)
+        public Absenses ApiAbsensesValidateAbsensesByIdIdGet (int? id)
         {
-             ApiResponse<Absenses> localVarResponse = ApiAbsensesValidateAbsensesByIdidGetWithHttpInfo(id);
+             ApiResponse<Absenses> localVarResponse = ApiAbsensesValidateAbsensesByIdIdGetWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -900,13 +1077,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Absenses</returns>
-        public ApiResponse< Absenses > ApiAbsensesValidateAbsensesByIdidGetWithHttpInfo (int? id)
+        public ApiResponse< Absenses > ApiAbsensesValidateAbsensesByIdIdGetWithHttpInfo (int? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesValidateAbsensesByIdidGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesValidateAbsensesByIdIdGet");
 
-            var localVarPath = "/api/Absenses/ValidateAbsensesById{id}";
+            var localVarPath = "/api/Absenses/ValidateAbsensesById/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -940,7 +1117,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiAbsensesValidateAbsensesByIdidGet", localVarResponse);
+                Exception exception = ExceptionFactory("ApiAbsensesValidateAbsensesByIdIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -955,9 +1132,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of Absenses</returns>
-        public async System.Threading.Tasks.Task<Absenses> ApiAbsensesValidateAbsensesByIdidGetAsync (int? id)
+        public async System.Threading.Tasks.Task<Absenses> ApiAbsensesValidateAbsensesByIdIdGetAsync (int? id)
         {
-             ApiResponse<Absenses> localVarResponse = await ApiAbsensesValidateAbsensesByIdidGetAsyncWithHttpInfo(id);
+             ApiResponse<Absenses> localVarResponse = await ApiAbsensesValidateAbsensesByIdIdGetAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -968,13 +1145,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (Absenses)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesValidateAbsensesByIdidGetAsyncWithHttpInfo (int? id)
+        public async System.Threading.Tasks.Task<ApiResponse<Absenses>> ApiAbsensesValidateAbsensesByIdIdGetAsyncWithHttpInfo (int? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesValidateAbsensesByIdidGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling AbsensesApi->ApiAbsensesValidateAbsensesByIdIdGet");
 
-            var localVarPath = "/api/Absenses/ValidateAbsensesById{id}";
+            var localVarPath = "/api/Absenses/ValidateAbsensesById/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1008,7 +1185,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ApiAbsensesValidateAbsensesByIdidGet", localVarResponse);
+                Exception exception = ExceptionFactory("ApiAbsensesValidateAbsensesByIdIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
