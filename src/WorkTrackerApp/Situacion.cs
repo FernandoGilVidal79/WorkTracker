@@ -46,23 +46,27 @@ namespace WorkTrackerAPP
                 string format = "dd/MM/yyyy";
                 DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
                 DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
-
+                int diasAprobados = 0;
+                int diasPendientes = 0;
+                int diasTotales = 0;
+                int diasRechazados = 0;
+                nVacaciones = 0;
 
                 var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
                 var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
                 // var absensesAgrupadasYear = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin);
 
                 
-                var absensesAgrupadas = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin).GroupBy(x => x.AbsensesTypeId);
+              //  var absensesAgrupadas = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin).GroupBy(x => x.AbsensesTypeId);
 
                 try
                     {
                         
-                        int diasAprobados = 0;
-                        int diasPendientes = 0;
-                        int diasTotales = 0;
-                        int diasRechazados = 0;
-                        var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin).GroupBy(x => x.AbsensesTypeId);
+                        //int diasAprobados = 0;
+                        //int diasPendientes = 0;
+                       // int diasTotales = 0;
+                       // int diasRechazados = 0;
+                        var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin).GroupBy(x => x.AbsensesTypeId);
 
                         foreach (var ausenciaAgrupada in ausenciasAgrupadasByType)
                         {
