@@ -13,59 +13,50 @@ namespace WorkTrackerAPP
     public partial class Situacion : Form
     {
         private List<Ausencia> ausencias;
-        private List<AbsenseType> tiposAusencias;
         private int nVacaciones = 0;
         private int diasRestantes = 0;
-        
+        private int borrado = 0;
+
         public Situacion()
         {
             InitializeComponent();
-        }      
+        }
 
         private void Situacion_Load(object sender, EventArgs e)
         {
-            ausencias = new List<Ausencia>();
-            LeerTiposAusencias();
+            
             CargarAnio();
-          
-           
-        }
-
-        private void LeerTiposAusencias()
-        {
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-            tiposAusencias = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
         private void LeerAusencias()
         {
-            try
+            ausencias = new List<Ausencia>();
+            if (borrado == 0)
             {
-                string fechaInicioTexto = "01/01/" + cmbAño.SelectedItem.ToString();
-                String fechaFinTexto = "31/12/" + cmbAño.SelectedItem.ToString();
-                string format = "dd/MM/yyyy";
-                DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
-                DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
-                int diasAprobados = 0;
-                int diasPendientes = 0;
-                int diasTotales = 0;
-                int diasRechazados = 0;
-                nVacaciones = 0;
 
-                var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
-                // var absensesAgrupadasYear = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin);
+                if (cmbAño.SelectedIndex >= 0)
 
-                
-              //  var absensesAgrupadas = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin).GroupBy(x => x.AbsensesTypeId);
+                {
+                    string fechaInicioTexto = "01/01/" + cmbAño.SelectedItem.ToString();
+                    String fechaFinTexto = "31/12/" + cmbAño.SelectedItem.ToString();
+                    string format = "dd/MM/yyyy";
+                    DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
+                    DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
+                    int diasAprobados = 0;
+                    int diasPendientes = 0;
+                    int diasTotales = 0;
+                    int diasRechazados = 0;
+                    nVacaciones = 0;
+                    lblAnio.Text = cmbAño.SelectedItem.ToString();
+                    borrado++;
 
-                try
+
+                    var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                    var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
+
+                    try
                     {
-                        
-                        //int diasAprobados = 0;
-                        //int diasPendientes = 0;
-                       // int diasTotales = 0;
-                       // int diasRechazados = 0;
+
                         var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin).GroupBy(x => x.AbsensesTypeId);
 
                         foreach (var ausenciaAgrupada in ausenciasAgrupadasByType)
@@ -113,67 +104,64 @@ namespace WorkTrackerAPP
                             ausencias.Add(ausenciaTipoPintar);
                         }
 
+                        foreach (var ausencia in ausencias)
 
-                        int ax, bx, cx, dx, ex, y;
-                        ax = 51; y = 200;
-                        bx = 289;
-                        cx = 407;
-                        dx = 522;
-                        ex = 641;
-                        int posArray = 0;
-
-                    foreach (var ausencia in ausencias)
                         {
+                            switch (ausencia.Id)
                             {
-                                TextBox txtTipo = new TextBox();
-                                TextBox txtSolicitados = new TextBox();
-                                TextBox txtPendientes = new TextBox();
-                                TextBox txtAprobados = new TextBox();
-                                TextBox txtRechazados = new TextBox();
-
-                                txtTipo.ReadOnly = true;
-                                txtSolicitados.ReadOnly = true;
-                                txtPendientes.ReadOnly = true;
-                                txtAprobados.ReadOnly = true;
-                                txtRechazados.ReadOnly = true;
-
-                                txtTipo.BackColor = Color.White;
-                                txtSolicitados.BackColor = Color.White;
-                                txtPendientes.BackColor = Color.White;
-                                txtAprobados.BackColor = Color.White;
-                                txtRechazados.BackColor = Color.White;
-
-
-                                txtTipo.Size = new System.Drawing.Size(226, 22);
-                                txtSolicitados.Size = new System.Drawing.Size(111, 22);
-                                txtPendientes.Size = new System.Drawing.Size(111, 22);
-                                txtAprobados.Size = new System.Drawing.Size(111, 22);
-                                txtRechazados.Size = new System.Drawing.Size(111, 22);
-
-                                txtTipo.Location = new System.Drawing.Point(ax, y);
-                                txtSolicitados.Location = new System.Drawing.Point(bx, y);
-                                txtPendientes.Location = new System.Drawing.Point(cx, y);
-                                txtAprobados.Location = new System.Drawing.Point(dx, y);
-                                txtRechazados.Location = new System.Drawing.Point(ex, y);
-
-                                //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
-                                txtTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
-                                txtAprobados.Text = ausencia.DiasAprobados.ToString();
-                                txtRechazados.Text = ausencia.DiasRechazados.ToString();
-                                txtPendientes.Text = ausencia.DiasPendientes.ToString();
-                                txtSolicitados.Text = ausencia.DiasTotales.ToString();
-                                Controls.Add(txtTipo);
-                                Controls.Add(txtSolicitados);
-                                Controls.Add(txtPendientes);
-                                Controls.Add(txtAprobados);
-                                Controls.Add(txtRechazados);
-                                y += 30;
-                                posArray += 1;
-
-
-
+                                case 1:
+                                    // txtTipo1.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados1.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados1.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes1.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados1.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 2:
+                                    //txtTipo2.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados2.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados2.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes2.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados2.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 3:
+                                    //txtTipo3.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados3.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados3.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes3.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados3.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 4:
+                                    //txtTipo4.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados4.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados4.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes4.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados4.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 5:
+                                    //txtTipo5.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados5.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados5.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes5.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados5.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 6:
+                                    //txtTipo6.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados6.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados6.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes6.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados6.Text = ausencia.DiasTotales.ToString();
+                                    break;
+                                case 7:
+                                    //txtTipo7.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.Id).Description;
+                                    txtAprobados7.Text = ausencia.DiasAprobados.ToString();
+                                    txtRechazados7.Text = ausencia.DiasRechazados.ToString();
+                                    txtPendientes7.Text = ausencia.DiasPendientes.ToString();
+                                    txtSolicitados7.Text = ausencia.DiasTotales.ToString();
+                                    break;
                             }
+
                         }
+
                     }
 
                     catch (Exception e)
@@ -181,27 +169,34 @@ namespace WorkTrackerAPP
                         MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         // MessageBox.Show("indice " + indiceIncidencias);          
                     }
-                
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione año");
+                }
             }
-            catch (Exception exc)
-            { 
-                MessageBox.Show("Selecciona un año");
-            }
-        }
-        
-        /*Metodo para eliminar los textBox
-         
-        private void eliminarTxt()
-        {
-            foreach (TextBox t in txtTipo)
+            else
             {
-                this.Controls.Remove(t);
-                t.Dispose();
+                MessageBox.Show("Por favor limpie la pantalla");
             }
-        }
-        */
 
-        private void cargarDiasPendientes()
+        }
+
+        private void EliminarValorTxt(Control control)
+        {
+            foreach (var txt in control.Controls)
+            {
+                if (txt is TextBox)
+                {
+                    
+                    ((TextBox)txt).Clear();
+                }
+
+            }
+            lblAnio.Text = "";
+            borrado = 0;
+        }
+        private void CargarDiasPendientes()
         {
             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
             var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
@@ -220,8 +215,9 @@ namespace WorkTrackerAPP
         private void btnAplicar_Click(object sender, EventArgs e)
         {
             LeerAusencias();
-            txbVacaciones.Clear();
-            cargarDiasPendientes();
+            CargarDiasPendientes();
+            cmbAño.SelectedIndex = -1;
+
         }
 
         private void CargarAnio()
@@ -262,5 +258,10 @@ namespace WorkTrackerAPP
 
         }
 
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            EliminarValorTxt(this);
+        }
     }
 }
