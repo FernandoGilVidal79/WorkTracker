@@ -1,4 +1,5 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace WorkTrackerAPP
 {
     public partial class ListadoAusencias : Form
     {
+        private List<Ausencia> ausencias;
+        private List<AbsenseType> tiposAusencias;
+       
         public ListadoAusencias()
         {
             InitializeComponent();
@@ -22,12 +26,22 @@ namespace WorkTrackerAPP
         private void ListadoAusencias_Load(object sender, EventArgs e)
 
         {
-
+            ausencias = new List<Ausencia>();
+            LeerTiposAusencias();
             LeerAusencias();
+            
+
+        }
+
+        private void LeerTiposAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            tiposAusencias = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
         private void LeerAusencias()
         {
+
             string year = DateTime.Today.Year.ToString();
             string fechaInicioTexto = "01/01/" + year;
             String fechaFinTexto = "31/12/" + year;
@@ -38,27 +52,19 @@ namespace WorkTrackerAPP
             var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
             var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
 
-            var absensesAgrupadas = absenses.Where(x => x.StartDate > fechaInicio && x.StartDate < fechaFin);
-
-
+            int y;
+            y = 50;
+                       
             try
             {
+                var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin);
 
-                int ax, bx, cx, dx, ex, y;
-                ax = 51; y = 200;
-                bx = 289;
-                cx = 407;
-                dx = 522;
-                ex = 641;
-                int posArray = 0;
-
-                foreach (var absense in absensesAgrupadas)
+                foreach (var ausencia in ausenciasAgrupadasByType)
                 {
+
                     TextBox txbTipo = new TextBox();
                     TextBox txbDesde = new TextBox();
                     TextBox txbHasta = new TextBox();
-
-                    //txbTipo.Font = new fontSize
 
                     txbTipo.ReadOnly = true;
                     txbDesde.ReadOnly = true;
@@ -68,36 +74,50 @@ namespace WorkTrackerAPP
                     txbDesde.BackColor = Color.White;
                     txbHasta.BackColor = Color.White;
 
-                    txbTipo.Size = new System.Drawing.Size(226, 22);
-                    txbDesde.Size = new System.Drawing.Size(111, 22);
-                    txbHasta.Size = new System.Drawing.Size(111, 22);
+                    txbTipo.Size = new System.Drawing.Size(125, 15);
+                    txbDesde.Size = new System.Drawing.Size(80, 15);
+                    txbHasta.Size = new System.Drawing.Size(80, 15);
+
+                    //txbTipo.Font = new System.Drawing.Font(Tempus Sans ITC; 10,2pt)
+                    
+                    txbTipo.Location = new System.Drawing.Point(0, y);
+                    txbDesde.Location = new System.Drawing.Point(135, y);
+                    txbHasta.Location = new System.Drawing.Point(225, y);
+
+                    txbTipo.AutoSize = true;
+                    txbDesde.AutoSize = true;
+                    txbHasta.AutoSize = true;
 
 
-                    txbTipo.Location = new System.Drawing.Point(ax, y);
-                    txbDesde.Location = new System.Drawing.Point(bx, y);
-                    txbHasta.Location = new System.Drawing.Point(cx, y);
-
-                    //aquí el tipo esta mal,tiene que salir la descripcion. ausenciaAgrupada.First().AbsensesTypeId.Value,
-                    txbTipo.Text = absensesAgrupadas.First().AbsensesTypeId.Value.ToString();
-                    txbDesde.Text = absense.StartDate.ToString();
-                    txbHasta.Text = absense.FinishDate.ToString();
+                    //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
+                    txbTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.AbsensesTypeId).Description;
+                    txbDesde.Text = ausencia.StartDate.ToString();
+                    txbHasta.Text = ausencia.FinishDate.ToString();
 
                     Controls.Add(txbTipo);
                     Controls.Add(txbDesde);
                     Controls.Add(txbHasta);
-
-                    y += 30;
-                    posArray += 1;
-
-
+                    y += 25;
+                    
                 }
-
             }
+
             catch (Exception e)
             {
                 MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // MessageBox.Show("indice " + indiceIncidencias);          
             }
+
+
         }
+
+
+        private void diseñotxt(TextBox name, int size)
+        {
+            name.ReadOnly = true;
+            name.BackColor = Color.White;
+            name.Size = new System.Drawing.Size(size, 10);
+        }
+
     }
 }
