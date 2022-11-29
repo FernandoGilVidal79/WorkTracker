@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IO.Swagger.Api;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -143,7 +144,7 @@ namespace WorkTrackerAPP
                     DataRow dr = dt.NewRow();
 
                     //hace 7 columnas una por cada dia
-                    for (int diaSemana = 0; diaSemana < 7; diaSemana++)
+                    for (int diaSemana = 0; diaSemana < 6; diaSemana++)
 
                     {
                         int posicion = diaSemana + 2;
@@ -175,9 +176,9 @@ namespace WorkTrackerAPP
             return dt;
         }
 
-        public void PoderMeses()
-        {
-
+        public void PintarMeses()
+        {            
+                         
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = RellenarMeses(1);
             dataGridView2.Columns.Clear();
@@ -208,7 +209,13 @@ namespace WorkTrackerAPP
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            PoderMeses();
+            PintarMeses();
+           MarcarFestivos();
+        }
+
+        private void Calendario_Load_1(object sender, EventArgs e)
+        {
+
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -226,6 +233,76 @@ namespace WorkTrackerAPP
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+        private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
+        {
+            for (int i = 0; i < datagridView.Rows.Count; i++)
+            {
+                for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
+                {
+                    int valueCell = 0;
+                    int.TryParse(datagridView.Rows[i].Cells[j].Value?.ToString(), out valueCell);
+
+
+                    if (valueCell == festive)
+                    {
+                        datagridView.Rows[i].Cells[j].Style.BackColor = Color.OrangeRed;
+                    }
+                }
+            }
+        }
+
+        private void MarcarFestivos()
+        {
+            var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
+            var festives = apiclient.ApiCalendarGetFestiveByYearYearGet(2022);
+
+            foreach( var festive in festives)
+            {
+               
+                switch (festive.Month)
+                {
+                    case 1:
+                        MarcarFestivosGrid(ref dataGridView1, festive.Day.Value);
+                        break;
+                    case 2:
+                        MarcarFestivosGrid(ref dataGridView2, festive.Day.Value);
+                        break;
+                    case 3:
+                        MarcarFestivosGrid(ref dataGridView3, festive.Day.Value);
+                        break;
+                    case 4:
+                        MarcarFestivosGrid(ref dataGridView4, festive.Day.Value);
+                        break;
+                    case 5:
+                        MarcarFestivosGrid(ref dataGridView5, festive.Day.Value);
+                        break;
+                    case 6:
+                        MarcarFestivosGrid(ref dataGridView6, festive.Day.Value);
+                        break;
+                    case 7:
+                        MarcarFestivosGrid(ref dataGridView7, festive.Day.Value);
+                        break;
+                    case 8:
+                        MarcarFestivosGrid(ref dataGridView8, festive.Day.Value);
+                        break;
+                    case 9:
+                        MarcarFestivosGrid(ref dataGridView9, festive.Day.Value);
+                        break;
+                    case 10:
+                        MarcarFestivosGrid(ref dataGridView10, festive.Day.Value);
+                        break;
+                    case 11:
+                        MarcarFestivosGrid(ref dataGridView11, festive.Day.Value);
+                        break;
+                    case 12:
+                        MarcarFestivosGrid(ref dataGridView12, festive.Day.Value);
+                        break;
+
+                }
+            }
         }
 
     }
