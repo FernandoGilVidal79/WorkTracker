@@ -46,29 +46,37 @@ namespace WorkTrackerAPP
                 var user = users;
                 if(user != null)
                 {
-                    UserSession.User = user;
-                    Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
-                    this.Hide();
-                    //Obtenemos el id del usuario
-                    if(user.UserTypeId == 1)
+                    if (user.Status == true)
                     {
-                        MenuPrincipalAdmin frmMenuPrincipal = new MenuPrincipalAdmin();
-                        frmMenuPrincipal.ShowDialog();
-                        this.Close();
-                    }
-                    else if(user.UserTypeId == 2)
-                    {
-                        MenuPrincipalRRHH frmMenuPrincipal = new MenuPrincipalRRHH();
-                        frmMenuPrincipal.ShowDialog();
-                        this.Close();
+
+
+                        UserSession.User = user;
+                        Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
+                        this.Hide();
+                        //Obtenemos el id del usuario
+                        if (user.UserTypeId == 1)
+                        {
+                            MenuPrincipalAdmin frmMenuPrincipal = new MenuPrincipalAdmin();
+                            frmMenuPrincipal.ShowDialog();
+                            this.Close();
+                        }
+                        else if (user.UserTypeId == 2)
+                        {
+                            MenuPrincipalRRHH frmMenuPrincipal = new MenuPrincipalRRHH();
+                            frmMenuPrincipal.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
+                            frmMenuPrincipal.ShowDialog();
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
-                        frmMenuPrincipal.ShowDialog();
-                        this.Close();
+                        MessageBox.Show("Usuario en estado de baja, pruebe otro usuario.");
                     }
-
                 } 
                 else
                 {
@@ -88,8 +96,8 @@ namespace WorkTrackerAPP
             /*
              * Datos Mock
              */
-            this.txtUsuario.Text = "mariano@superman.com";
-            this.txtContrasena.Text = "Mariano";
+            //this.txtUsuario.Text = "mariano@superman.com";
+            //this.txtContrasena.Text = "Mariano";
         }
     }
 }
