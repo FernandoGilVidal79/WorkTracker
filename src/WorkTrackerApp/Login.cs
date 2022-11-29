@@ -37,7 +37,6 @@ namespace WorkTrackerAPP
             //En caso de que la validación sea correcta obtenemos el usuario
             if (validar)
             {
-                
                 //Llamamos a al api para obtener el usuario
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 var users = apiclient.ApiUserLoginGet(txtUsuario.Text, txtContrasena.Text);
@@ -48,29 +47,40 @@ namespace WorkTrackerAPP
                 {
                     if (user.Status == true)
                     {
-
-
                         UserSession.User = user;
-                        Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
-                        this.Hide();
-                        //Obtenemos el id del usuario
-                        if (user.UserTypeId == 1)
+                        if (txtContrasena.Text.Equals(user.UserName))
                         {
-                            MenuPrincipalAdmin frmMenuPrincipal = new MenuPrincipalAdmin();
-                            frmMenuPrincipal.ShowDialog();
-                            this.Close();
-                        }
-                        else if (user.UserTypeId == 2)
-                        {
-                            MenuPrincipalRRHH frmMenuPrincipal = new MenuPrincipalRRHH();
-                            frmMenuPrincipal.ShowDialog();
-                            this.Close();
+                            
+                            txtContrasena.Clear();
+                            Helper.MensajeOk("Por favor cambie la contraseña ", "OK");
+                            ResetLogin frmResetLogin = new ResetLogin();
+                            frmResetLogin.ShowDialog();
+                            
                         }
                         else
                         {
-                            MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
-                            frmMenuPrincipal.ShowDialog();
-                            this.Close();
+                            //UserSession.User = user;
+                            Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
+                            this.Hide();
+                            //Obtenemos el id del usuario
+                            if (user.UserTypeId == 1)
+                            {
+                                MenuPrincipalAdmin frmMenuPrincipal = new MenuPrincipalAdmin();
+                                frmMenuPrincipal.ShowDialog();
+                                this.Close();
+                            }
+                            else if (user.UserTypeId == 2)
+                            {
+                                MenuPrincipalRRHH frmMenuPrincipal = new MenuPrincipalRRHH();
+                                frmMenuPrincipal.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
+                                frmMenuPrincipal.ShowDialog();
+                                this.Close();
+                            }
                         }
                     }
                     else
