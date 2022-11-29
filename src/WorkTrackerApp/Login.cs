@@ -32,6 +32,12 @@ namespace WorkTrackerAPP
        
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+            LoginExecute();
+
+        }
+
+        private void LoginExecute()
+        {
             //Validamos los campos
             var validar = ValidarCampos(txtUsuario, txtContrasena);
             //En caso de que la validación sea correcta obtenemos el usuario
@@ -43,19 +49,19 @@ namespace WorkTrackerAPP
 
                 //Comprobamos que el usuario existe, en caso de existir entra en al APP, en caso contrario muestra un mensaje
                 var user = users;
-                if(user != null)
+                if (user != null)
                 {
                     if (user.Status == true)
                     {
                         UserSession.User = user;
                         if (txtContrasena.Text.Equals(user.UserName))
                         {
-                            
+
                             txtContrasena.Clear();
                             Helper.MensajeOk("Por favor cambie la contraseña ", "OK");
                             ResetLogin frmResetLogin = new ResetLogin();
                             frmResetLogin.ShowDialog();
-                            
+
                         }
                         else
                         {
@@ -87,18 +93,17 @@ namespace WorkTrackerAPP
                     {
                         MessageBox.Show("Usuario en estado de baja, pruebe otro usuario.");
                     }
-                } 
+                }
                 else
                 {
                     Helper.MensajeError("El usuario NO existe", "Error");
                 }
 
-            } 
+            }
             else
             {
                 Helper.MensajeError("Ocurrió un error en la validación", "Error");
             }
-
         }
 
         private void pnlLogin_Paint(object sender, PaintEventArgs e)
@@ -106,8 +111,17 @@ namespace WorkTrackerAPP
             /*
              * Datos Mock
              */
-            //this.txtUsuario.Text = "mariano@superman.com";
-            //this.txtContrasena.Text = "Mariano";
+            this.txtUsuario.Text = "mariano@superman.com";
+            this.txtContrasena.Text = "Worktracker@1";
+        }
+
+        private void ValidateEnterPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                LoginExecute();
+            }      
         }
     }
 }

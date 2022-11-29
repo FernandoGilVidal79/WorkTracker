@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -10,7 +11,7 @@ namespace WorkTrackerAPP
         public int IndicePrimerosDia, UlmitoDias;
         public int FechMin = 1583;
         public int FechMax = 3210;
-        
+
 
 
         public Calendario()
@@ -24,8 +25,9 @@ namespace WorkTrackerAPP
         }
 
         private int EsBisiesto(int anio)
-        { int SS = 0; //siglo
-            int AA =0; //año
+        {
+            int SS = 0; //siglo
+            int AA = 0; //año
             int Bisiesto = 0;
             SS = anio / 100;
             AA = anio - SS * 100;
@@ -33,19 +35,19 @@ namespace WorkTrackerAPP
             int numerodefor = AA % 4;
             int divisor = AA;
             int resto = 0;
-            for(int i=0;i<= numerodefor; i++)
+            for (int i = 0; i <= numerodefor; i++)
             {
                 resto = AA - 4;
                 AA = resto;
             }
-            
-            if ((divisor >= 0)&(resto ==  0 )) 
+
+            if ((divisor >= 0) & (resto == 0))
             {
                 Bisiesto = 1;
             }
 
             return Bisiesto;
-            
+
         }
 
         private int NumeroDiasHastaFinesMese(int Anio, int mese)
@@ -71,10 +73,10 @@ namespace WorkTrackerAPP
             }
             return ndias;
         }
-       
+
         private int IndiceDelDia(int anio, int nMes)
         {
-            int X= 0;
+            int X = 0;
             DateTime dat;
             try
             {
@@ -130,12 +132,12 @@ namespace WorkTrackerAPP
             dt.Columns.Add(new DataColumn("Do", typeof(int)));
 
 
-            if (largoMes < hastaMes + 1)
+            if (largoMes <= hastaMes)
             {
                 int primerDia = IndiceDelDia(int.Parse(txbAnio.Text), mesRellenamos);
 
                 //hace 5 lineas una por cada semana
-                for (int nSemanas = 0; nSemanas < 5; nSemanas++)
+                for (int nSemanas = 0; nSemanas < 6; nSemanas++)
 
                 {
                     DataRow dr = dt.NewRow();
@@ -145,15 +147,19 @@ namespace WorkTrackerAPP
 
                     {
                         int posicion = diaSemana + 2;
-
-
                         if (primerDia < posicion)
                         {
-                            dr[diaSemana] = largoMes;
-                            
-                            largoMes++;
+                            if (largoMes <= hastaMes)
+                            {
+                                dr[diaSemana] = largoMes;
+                                largoMes++;
+                            }
+                            else
+                            {
+                                break;
+                            }
                         }
-                       if(largoMes > hastaMes)
+                        if (largoMes > hastaMes)
                         {
                             break;
                         }
@@ -170,10 +176,10 @@ namespace WorkTrackerAPP
         }
 
         public void PoderMeses()
-        {            
-                         
+        {
+
             dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = RellenarMeses(1); 
+            dataGridView1.DataSource = RellenarMeses(1);
             dataGridView2.Columns.Clear();
             dataGridView2.DataSource = RellenarMeses(2);
             dataGridView3.Columns.Clear();
@@ -198,11 +204,23 @@ namespace WorkTrackerAPP
             dataGridView12.DataSource = RellenarMeses(12);
 
         }
-   
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             PoderMeses();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var i = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
+            if (i == DialogResult.Yes)
+            {
+               DataGridView vvv =  (DataGridView)sender;
+               //int index =  vvv.SelectedCells.
+            }
+            string vv = "";
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -211,5 +229,5 @@ namespace WorkTrackerAPP
         }
 
     }
-    
+
 }
