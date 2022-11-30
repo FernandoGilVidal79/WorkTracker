@@ -13,6 +13,7 @@ namespace WorkTrackerAPP
     public partial class Situacion : Form
     {
         private List<Ausencia> ausencias;
+        private List<DateTime> festivos;
         private int nVacaciones = 0;
         private int diasRestantes = 0;
         private int borrado = 0;
@@ -26,6 +27,7 @@ namespace WorkTrackerAPP
         {
             
             CargarAnio();
+            
         }
 
         private void LeerAusencias()
@@ -73,23 +75,27 @@ namespace WorkTrackerAPP
                                 {
                                     if (ausencia.Denied == true)
                                     {
-                                        diasRechazados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
-
+                                        
+                                        //diasRechazados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                        diasRechazados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
                                     }
                                     else
                                     {
-                                        diasAprobados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
-
+                                        //diasAprobados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                        diasAprobados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
                                         if (ausencia.AbsensesTypeId == 1)
                                         {
-                                            nVacaciones += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                           // nVacaciones += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                           nVacaciones += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
+
                                         }
 
                                     }
                                 }
                                 else
                                 {
-                                    diasPendientes += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                    //diasPendientes += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
+                                    diasPendientes += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
                                 }
                             }
                             diasTotales = diasAprobados + diasPendientes + diasRechazados;
@@ -207,6 +213,20 @@ namespace WorkTrackerAPP
 
         }
 
+        private void CargarFestivos()
+        {
+            DateTime fechaDateTime;
+            festivos = new List<DateTime>();
+          
+            var apicalendar = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
+            var calendar = apicalendar.ApiCalendarGetFestiveByYearYearGet(int.Parse(cmbAño.SelectedItem.ToString()));
+            foreach (var fecha in calendar)
+            {
+                fechaDateTime = new DateTime((int)fecha.Year, (int)fecha.Month, (int)fecha.Day);
+                festivos.Add(fechaDateTime);
+            }
+        }
+
         private void lblVacaciones_Click(object sender, EventArgs e)
         {
 
@@ -214,6 +234,7 @@ namespace WorkTrackerAPP
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
+            CargarFestivos();
             LeerAusencias();
             CargarDiasPendientes();
             cmbAño.SelectedIndex = -1;
@@ -262,6 +283,34 @@ namespace WorkTrackerAPP
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             EliminarValorTxt(this);
+            
+        }
+
+        public int DiasSinFestivos(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
+        {
+            int count = 0;
+            for (DateTime index = startDate; index <= endDate; index = index.AddDays(1))
+            {
+                if (excludeWeekends && index.DayOfWeek != DayOfWeek.Sunday && index.DayOfWeek != DayOfWeek.Saturday)
+                {
+                    bool excluded = false; ;
+                    for (int i = 0; i < excludeDates.Count; i++)
+                    {
+                        if (index.Date.CompareTo(excludeDates[i].Date) == 0)
+                        {
+                            excluded = true;
+                            break;
+                        }
+                    }
+
+                    if (!excluded)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            return count;
         }
     }
 }
