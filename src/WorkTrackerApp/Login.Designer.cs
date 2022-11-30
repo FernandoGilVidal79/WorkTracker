@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lgnStripResult = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -38,6 +39,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.lgnStripResult.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -52,17 +54,17 @@
             this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 810);
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 814);
             this.lgnStripResult.Name = "lgnStripResult";
             this.lgnStripResult.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.lgnStripResult.Size = new System.Drawing.Size(1319, 31);
+            this.lgnStripResult.Size = new System.Drawing.Size(1319, 25);
             this.lgnStripResult.TabIndex = 38;
             this.lgnStripResult.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(147, 26);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(147, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // pnlLogin
@@ -176,6 +178,11 @@
             this.pcBoxLogo.TabIndex = 6;
             this.pcBoxLogo.TabStop = false;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,6 +218,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pcBoxLogo;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

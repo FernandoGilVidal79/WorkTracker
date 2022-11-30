@@ -38,6 +38,40 @@ namespace WorkTrackerAPP
             InitializeComponent();
         }
 
+        private void CargarFichajesHoy()
+        {
+            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var userClockIn = apiclient.ApiClockInGetClockInsTodayByUserIdIdGet((int)UserSession.User.IdUser);
+            UserSession.FichajesHoy = userClockIn;
+        }
+
+        private Estados GetEstadosByFichajes()
+        {
+            var fichajesActuales = UserSession.FichajesHoy;
+            Estados estado;
+            if (!fichajesActuales.Any(x => x.ClockinTypeId == 1))
+            {
+                return Estados.Fuera;
+            }
+            else if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour != null))
+            {
+                return Estados.Saliendo;
+            }
+            else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
+            {
+                return Estados.Comiendo;
+            }
+            else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour != null))
+            {
+                estado = Estados.Comido;
+            }
+            if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
+            {
+                estado = Estados.Descansado;
+            }
+            return Estados.Entrada;
+        }
+
         private void CargarFichajes(int id)
         {
 
@@ -45,7 +79,7 @@ namespace WorkTrackerAPP
             var userTypes = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
             var ultimoFichaje = userTypes.Last();
             var ffechaUltimoFichaje = Convert.ToDateTime(ultimoFichaje.Date).ToString(Format);
-            var ffechaActual = Convert.ToDateTime(DateTime.Now).ToString(Format);            
+            var ffechaActual = Convert.ToDateTime(DateTime.Now).ToString(Format);
             UserSession.Fichajes = userTypes;
             try
             {
@@ -57,7 +91,7 @@ namespace WorkTrackerAPP
                     }
                     else
                     {
-                        lblResumen.Text = "Jornada de hoy: "+ffechaActual.ToString();
+                        lblResumen.Text = "Jornada de hoy: " + ffechaActual.ToString();
 
                         switch (ultimoFichaje.ClockinTypeId)
                         {
@@ -68,12 +102,12 @@ namespace WorkTrackerAPP
                                     lblHistorico.Text = "Hora de entrada: " + hora.ToString();
                                     estado = Estados.Entrada;
                                 }
-                                else 
+                                else
                                 {
                                     var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
                                     lblHistorico.Text = "Hora de salida: " + hora.ToString();
                                     estado = Estados.Fuera;
-                                }                                
+                                }
                                 break;
 
                             case 2:
@@ -116,14 +150,14 @@ namespace WorkTrackerAPP
 
                     }
                 }
-                    
+
                 else
                     lblHistorico.Text = "No hay fichajes registrados aún";
 
             }
             catch (IO.Swagger.Client.ApiException ex)
             {
-                toolStripStatusLabel1.Text = "Error al Obtener el usuario" + ex;
+               // toolStripStatusLabel1.Text = "Error al Obtener el usuario" + ex;
             }
 
         }
@@ -133,31 +167,31 @@ namespace WorkTrackerAPP
         {
             lblHistorico.Text = "";
             int contadorFichajes = 0;
-                 for (int i = UserSession.Fichajes.Count-1; i > 0 ; i--)
+            for (int i = UserSession.Fichajes.Count - 1; i > 0; i--)
             {
                 //Helper.MensajeError(i.ToString(), "error");
                 //if(i == UserSession.Fichajes.Count - 5)
                 //{
-                    
-                    if (UserSession.Fichajes[i].Date != UserSession.Fichajes[i - 1].Date)
-                    {
-                        if(UserSession.Fichajes[i].ClockinTypeId == 1)
-                        {
-                            //Helper.MensajeError("Contador Fichajes" + contadorFichajes, "Error");
-                            var ffecha = Convert.ToDateTime(UserSession.Fichajes[10].Date).ToString(Format);
-                            Console.WriteLine(UserSession.Fichajes[i]);
-                            lblHistorico.Text += "ID; " + UserSession.Fichajes[i].ClockinTypeId;
-                            lblHistorico.Text += "\n";
-                            lblHistorico.Text += "Fecha: " + ffecha;
-                            lblHistorico.Text += "\n";
-                            lblHistorico.Text += "Hora de entrada:" + UserSession.Fichajes[i].StartHour;
-                            lblHistorico.Text += "\n";
-                            lblHistorico.Text += "Hora de salida: " + UserSession.Fichajes[i].FinishHour;
-                            lblHistorico.Text += "\n-------------------------------------------------\n";
-                            //contadorFichajes++;
-                        }
 
+                if (UserSession.Fichajes[i].Date != UserSession.Fichajes[i - 1].Date)
+                {
+                    if (UserSession.Fichajes[i].ClockinTypeId == 1)
+                    {
+                        //Helper.MensajeError("Contador Fichajes" + contadorFichajes, "Error");
+                        var ffecha = Convert.ToDateTime(UserSession.Fichajes[10].Date).ToString(Format);
+                        Console.WriteLine(UserSession.Fichajes[i]);
+                        lblHistorico.Text += "ID; " + UserSession.Fichajes[i].ClockinTypeId;
+                        lblHistorico.Text += "\n";
+                        lblHistorico.Text += "Fecha: " + ffecha;
+                        lblHistorico.Text += "\n";
+                        lblHistorico.Text += "Hora de entrada:" + UserSession.Fichajes[i].StartHour;
+                        lblHistorico.Text += "\n";
+                        lblHistorico.Text += "Hora de salida: " + UserSession.Fichajes[i].FinishHour;
+                        lblHistorico.Text += "\n-------------------------------------------------\n";
+                        //contadorFichajes++;
                     }
+
+                }
                 contadorFichajes++;
 
                 //}
@@ -170,8 +204,6 @@ namespace WorkTrackerAPP
 
         private void Fichaje()
         {
-
-            
             //Declaramos las variables
             var clockin = new Clockin();
             clockin.UserId = UserSession.User.IdUser;
@@ -181,110 +213,94 @@ namespace WorkTrackerAPP
             try
             {
                 //Realizar un marcaje por estado
-                if (estado.ToString() == "Entrada")
+                if (estado == Estados.Entrada)
                 {
-
                     clockin.ClockinTypeId = 1;
-                    clockin.StartHour = DateTime.Now; 
+                    clockin.StartHour = DateTime.Now;
                     clockin.FinishHour = null;
                     apiclient.ApiClockInClockInPut(clockin);
-
                 }
-                if (estado.ToString() == "Saliendo")
+                else if (estado == Estados.Saliendo)
                 {
-
-                    clockin.ClockinTypeId = 1;
-                    clockin.StartHour = null;
-                    clockin.FinishHour =  DateTime.Now;
-                    apiclient.ApiClockInClockInPut(clockin);
-
+                    var fichaje = UserSession.FichajesHoy.First(x => x.ClockinTypeId == 1);
+                    fichaje.FinishHour = DateTime.Now;
+                    apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                if (estado.ToString() == "Comiendo")
-                {
 
+                else if (estado == Estados.Comiendo)
+                {
                     clockin.ClockinTypeId = 2;
                     clockin.StartHour = DateTime.Now;
                     clockin.FinishHour = null;
                     apiclient.ApiClockInClockInPut(clockin);
-                    estadoComida = EstadoComida.Comiendo;
-                    MaquinaEstadoComida();
 
                 }
-                if (estado.ToString() == "Comido")
+                if (estado == Estados.Comido)
                 {
-
-                    clockin.ClockinTypeId = 2;
-                    clockin.StartHour = null;
-                    clockin.FinishHour =  DateTime.Now;
-                    apiclient.ApiClockInClockInPut(clockin);
-                    estadoComida = EstadoComida.Comido;
-                    MaquinaEstadoComida();
+                    var fichaje = UserSession.FichajesHoy.First(x => x.ClockinTypeId == 2);
+                    fichaje.FinishHour = DateTime.Now;
+                    apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                if (estado.ToString() == "Descansando")
+                if (estado == Estados.Descansando)
                 {
-
                     clockin.ClockinTypeId = 3;
-                    clockin.StartHour = DateTime.Now; 
+                    clockin.StartHour = DateTime.Now;
                     clockin.FinishHour = null;
                     apiclient.ApiClockInClockInPut(clockin);
-
                 }
-                if (estado.ToString() == "Descansado")
+                if (estado == Estados.Descansado)
                 {
-
-                    clockin.ClockinTypeId = 3;
-                    clockin.StartHour = null;
-                    clockin.FinishHour =  DateTime.Now;
-                    apiclient.ApiClockInClockInPut(clockin);
-
+                    var fichaje = UserSession.FichajesHoy.First(x => x.ClockinTypeId == 3);
+                    clockin.FinishHour = DateTime.Now;
+                    apiclient.ApiClockInClockInPut(fichaje);
                 }
+                CargarFichajesHoy();
 
             }
             catch (IO.Swagger.Client.ApiException ex)
             {
-                toolStripStatusLabel1.Text = "Error al fichar" + ex;
+               // toolStripStatusLabel1.Text = "Error al fichar" + ex;
             }
 
         }
 
         private void Fichar_Load(object sender, EventArgs e)
         {
-            
+
             CargarFichajes((int)UserSession.User.IdUser);
+            CargarFichajesHoy();
+            estado = GetEstadosByFichajes();
             //estado = 0;
             MaquinaEstados();
             MaquinaEstadoComida();
+            
 
         }
 
         private void MaquinaEstados()
         {
-
             switch (estado)
             {
-                
                 /// Estado Inicial de un usuario cuando todavía no ha hecho ningún fichaje en el día
                 case Estados.Fuera:
                     btnJornada.Enabled = true;
                     btnJornada.Text = "Entrada";
-                    /*btnComida.Enabled = false;
-                    btnComida.Text = "Comida";*/
+                    btnComida.Enabled = false;
+                    btnComida.Text = "Comida";
                     btnDescanso.Enabled = false;
                     btnDescanso.Text = "Descanso";
-                    Fichaje();
                     break;
                 case Estados.Entrada:
                     btnJornada.Enabled = true;
                     btnJornada.Text = "Salida";
-                    /*if (contadorComida == 1)
+                    if (contadorComida == 1)
                         btnComida.Enabled = false;
                     else
                         btnComida.Enabled = true;
-                    btnComida.Text = "Comida";*/
+                    btnComida.Text = "Comida";
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Descanso";
                     estadoComida = EstadoComida.SinComer;
-                    Fichaje();
                     break;
                 case Estados.Comiendo:
                     btnJornada.Enabled = false;
@@ -293,7 +309,7 @@ namespace WorkTrackerAPP
                     estadoComida = EstadoComida.SinComer;
                     btnDescanso.Enabled = false;
                     btnDescanso.Text = "Descanso";
-                    Fichaje();
+
                     break;
                 case Estados.Comido:
                     btnJornada.Enabled = true;
@@ -302,37 +318,39 @@ namespace WorkTrackerAPP
                     estadoComida = EstadoComida.Comido;
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Descanso";
-                    Fichaje();                    
+
                     break;
                 case Estados.Descansando:
                     btnJornada.Enabled = false;
                     btnJornada.Text = "Salida";
-                    /*btnComida.Enabled = false;
-                    btnComida.Text = "Comida";*/
+                    btnComida.Enabled = false;
+                    btnComida.Text = "Comida";
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Volver Descanso";
-                    Fichaje();
+
                     break;
                 case Estados.Descansado:
                     btnJornada.Enabled = true;
                     btnJornada.Text = "Salida";
-                    /*if (contadorComida == 1)
+                    if (contadorComida == 1)
                         btnComida.Enabled = false;
-                    btnComida.Text = "Comida";*/
+                    btnComida.Text = "Comida";
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Descanso";
-                    Fichaje();
+
                     break;
                 case Estados.Saliendo:
                     btnJornada.Enabled = false;
                     btnJornada.Text = "Entrada";
-                    /*btnComida.Enabled = false;
-                    btnComida.Text = "Comida";*/
+                    btnComida.Enabled = false;
+                    btnComida.Text = "Comida";
                     btnDescanso.Enabled = false;
                     btnDescanso.Text = "Descanso";
-                    Fichaje();
+
                     break;
+
             }
+
         }
 
         private void MaquinaEstadoComida()
@@ -373,6 +391,7 @@ namespace WorkTrackerAPP
                 estado = Estados.Saliendo;
             }
             MaquinaEstados();
+            Fichaje();
             //MaquinaEstadoComida();
 
         }
@@ -389,8 +408,9 @@ namespace WorkTrackerAPP
             {
                 estado = Estados.Comido;
             }
-            MaquinaEstados();            
-            
+            MaquinaEstados();
+            Fichaje();
+
         }
 
         private void btnDescanso_Click(object sender, EventArgs e)
@@ -402,10 +422,15 @@ namespace WorkTrackerAPP
             }
             else if (estado == Estados.Descansando)
             {
-                estado = Estados.Descansado; 
+                estado = Estados.Descansado;
             }
             MaquinaEstados();
+            Fichaje();
         }
 
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace WorkTrackerAPP
         public static Users User { get; set; }
 
         public static List<Clockin> Fichajes { get; set; }
+
+        public static List<Clockin> FichajesHoy { get; set; }
     }
 }
