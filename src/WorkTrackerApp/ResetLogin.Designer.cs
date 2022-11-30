@@ -35,6 +35,8 @@ namespace WorkTrackerAPP
             this.lblContraseniaNueva = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
+            this.txtContraseniaNueva2 = new System.Windows.Forms.TextBox();
+            this.lblContraseniaNueva2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@ namespace WorkTrackerAPP
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(157, 143);
+            this.lblContrasenia.Location = new System.Drawing.Point(157, 140);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(116, 17);
             this.lblContrasenia.TabIndex = 3;
@@ -74,7 +76,7 @@ namespace WorkTrackerAPP
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(337, 240);
+            this.btnActualizar.Location = new System.Drawing.Point(341, 279);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 36);
             this.btnActualizar.TabIndex = 6;
@@ -97,11 +99,30 @@ namespace WorkTrackerAPP
             this.pcBoxLogo.TabIndex = 7;
             this.pcBoxLogo.TabStop = false;
             // 
+            // txtContraseniaNueva2
+            // 
+            this.txtContraseniaNueva2.Location = new System.Drawing.Point(292, 220);
+            this.txtContraseniaNueva2.Name = "txtContraseniaNueva2";
+            this.txtContraseniaNueva2.PasswordChar = '*';
+            this.txtContraseniaNueva2.Size = new System.Drawing.Size(232, 22);
+            this.txtContraseniaNueva2.TabIndex = 2;
+            // 
+            // lblContraseniaNueva2
+            // 
+            this.lblContraseniaNueva2.AutoSize = true;
+            this.lblContraseniaNueva2.Location = new System.Drawing.Point(157, 220);
+            this.lblContraseniaNueva2.Name = "lblContraseniaNueva2";
+            this.lblContraseniaNueva2.Size = new System.Drawing.Size(126, 17);
+            this.lblContraseniaNueva2.TabIndex = 9;
+            this.lblContraseniaNueva2.Text = "Repita Contraseña";
+            // 
             // ResetLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblContraseniaNueva2);
+            this.Controls.Add(this.txtContraseniaNueva2);
             this.Controls.Add(this.pcBoxLogo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lblContraseniaNueva);
@@ -125,5 +146,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label lblContraseniaNueva;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.PictureBox pcBoxLogo;
+        private System.Windows.Forms.TextBox txtContraseniaNueva2;
+        private System.Windows.Forms.Label lblContraseniaNueva2;
     }
 }

@@ -10,11 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WorkTrackerAPP
 {
     public partial class ResetLogin : Form
     {
-        
+
         public ResetLogin()
         {
             InitializeComponent();
@@ -42,12 +43,12 @@ namespace WorkTrackerAPP
             {
                 return false;
             }
-                        
+
         }
 
         private bool AlgoritmoContraseñaSegura(string password)
         {
-           bool mayuscula = false, minuscula = false, numero = false, carespecial = false;
+            bool mayuscula = false, minuscula = false, numero = false, carespecial = false;
             for (int i = 0; i < password.Length; i++)
             {
                 if (Char.IsUpper(password, i))
@@ -76,7 +77,7 @@ namespace WorkTrackerAPP
 
         private bool ConfirmarContrasenia(string password2)
         {
-            if (password2.Equals(txtContraseniaNueva))
+            if (password2.Equals(txtContraseniaNueva.Text))
             {
                 return true;
             }
@@ -85,7 +86,7 @@ namespace WorkTrackerAPP
                 return false;
             }
         }
-    
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -93,11 +94,15 @@ namespace WorkTrackerAPP
             {
                 if (AlgoritmoContraseñaSegura(txtContraseniaNueva.Text))
                 {
+                    if (ConfirmarContrasenia(txtContraseniaNueva2.Text))
+                    {
                         var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                         var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
                         var user = users.FirstOrDefault();
                         try
                         {
+                            String psw = Encriptado.GetSHA256(txtContraseniaNueva2.Text);
+
                             var usuario = new Users
                             {
                                 IdUser = user.IdUser,
@@ -110,9 +115,9 @@ namespace WorkTrackerAPP
                                 Phone = user.Phone,
                                 NHollidays = user.NHollidays,
                                 Email = user.Email,
-                                Password = txtContraseniaNueva.Text
+                                Password = psw
                             };
-                        UserSession.User.Password = txtContraseniaNueva.Text;
+                            UserSession.User.Password = txtContraseniaNueva.Text;
                             apiclient.ApiUserUpdateUserPost(usuario);
                             MessageBox.Show("Contraseña modificada correctamente.");
                             this.Close();
@@ -123,15 +128,16 @@ namespace WorkTrackerAPP
                             MessageBox.Show("Error al guardar, contacte con RRHH");
                         }
 
-                    
-                
-                }
-                else { MessageBox.Show("La Contraseña no cumple con los requisitos"); }
 
+                        
+                    }
+                    else { MessageBox.Show("Las contraseñas no coinciden"); }
+                }
+                else { MessageBox.Show("La contraseña no cumple con los requisitos"); }
             }
             else { MessageBox.Show("La contraseña actual no coincide con la del sistema"); }
 
-            
+
         }
     }
 }
