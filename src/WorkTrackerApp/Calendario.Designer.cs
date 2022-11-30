@@ -180,6 +180,7 @@ namespace WorkTrackerAPP
             // txbAnio
             // 
             this.txbAnio.Location = new System.Drawing.Point(817, 54);
+            this.txbAnio.MaxLength = 4;
             this.txbAnio.Multiline = true;
             this.txbAnio.Name = "txbAnio";
             this.txbAnio.Size = new System.Drawing.Size(120, 28);
@@ -247,6 +248,7 @@ namespace WorkTrackerAPP
             this.dataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView12.Size = new System.Drawing.Size(181, 119);
             this.dataGridView12.TabIndex = 4;
+            this.dataGridView12.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn78
             // 
@@ -323,6 +325,7 @@ namespace WorkTrackerAPP
             this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView11.Size = new System.Drawing.Size(181, 119);
             this.dataGridView11.TabIndex = 4;
+            this.dataGridView11.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn71
             // 
@@ -399,6 +402,7 @@ namespace WorkTrackerAPP
             this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView10.Size = new System.Drawing.Size(181, 119);
             this.dataGridView10.TabIndex = 4;
+            this.dataGridView10.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn64
             // 
@@ -475,6 +479,7 @@ namespace WorkTrackerAPP
             this.dataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView9.Size = new System.Drawing.Size(181, 119);
             this.dataGridView9.TabIndex = 4;
+            this.dataGridView9.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn57
             // 
@@ -551,6 +556,7 @@ namespace WorkTrackerAPP
             this.dataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView8.Size = new System.Drawing.Size(184, 119);
             this.dataGridView8.TabIndex = 4;
+            this.dataGridView8.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn50
             // 
@@ -627,6 +633,7 @@ namespace WorkTrackerAPP
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView7.Size = new System.Drawing.Size(181, 119);
             this.dataGridView7.TabIndex = 4;
+            this.dataGridView7.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn43
             // 
@@ -703,6 +710,7 @@ namespace WorkTrackerAPP
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView6.Size = new System.Drawing.Size(181, 119);
             this.dataGridView6.TabIndex = 4;
+            this.dataGridView6.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn36
             // 
@@ -779,6 +787,7 @@ namespace WorkTrackerAPP
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView5.Size = new System.Drawing.Size(181, 119);
             this.dataGridView5.TabIndex = 4;
+            this.dataGridView5.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn29
             // 
@@ -855,6 +864,7 @@ namespace WorkTrackerAPP
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView4.Size = new System.Drawing.Size(186, 119);
             this.dataGridView4.TabIndex = 4;
+            this.dataGridView4.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn22
             // 
@@ -931,6 +941,7 @@ namespace WorkTrackerAPP
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView3.Size = new System.Drawing.Size(181, 119);
             this.dataGridView3.TabIndex = 4;
+            this.dataGridView3.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -1007,6 +1018,7 @@ namespace WorkTrackerAPP
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView2.Size = new System.Drawing.Size(181, 119);
             this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1083,6 +1095,7 @@ namespace WorkTrackerAPP
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(181, 119);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn8
             // 

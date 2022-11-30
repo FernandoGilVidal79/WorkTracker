@@ -182,5 +182,7 @@ namespace IO.Swagger.Model
         {
             yield break;
         }
+
+        
     }
 }

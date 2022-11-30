@@ -1,4 +1,5 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Model;
 using System;
 using System.Data;
 using System.Drawing;
@@ -12,9 +13,6 @@ namespace WorkTrackerAPP
         public int IndicePrimerosDia, UlmitoDias;
         public int FechMin = 1583;
         public int FechMax = 3210;
-
-
-
         public Calendario()
         {
             InitializeComponent();
@@ -144,7 +142,7 @@ namespace WorkTrackerAPP
                     DataRow dr = dt.NewRow();
 
                     //hace 7 columnas una por cada dia
-                    for (int diaSemana = 0; diaSemana < 6; diaSemana++)
+                    for (int diaSemana = 0; diaSemana < 7; diaSemana++)
 
                     {
                         int posicion = diaSemana + 2;
@@ -210,7 +208,7 @@ namespace WorkTrackerAPP
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             PintarMeses();
-           MarcarFestivos();
+            MarcarFestivos();
         }
 
         private void Calendario_Load_1(object sender, EventArgs e)
@@ -218,13 +216,35 @@ namespace WorkTrackerAPP
 
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private TextBox GetTxbAnio()
         {
-            var i = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
-            if (i == DialogResult.Yes)
+            return txbAnio;
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
+            if (messageResult == DialogResult.Yes)
             {
-               DataGridView vvv =  (DataGridView)sender;
-               //int index =  vvv.SelectedCells.
+                DataGridView dataGrid =  (DataGridView)sender;
+                var index = dataGrid.Name.Replace("dataGridView", "");
+                int month = int.Parse(index);
+
+                var  i = dataGrid.SelectedCells;
+                int day = (int)i[0].Value;
+
+
+                var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
+                var calendar = new Calendar()
+                {
+                    Day = day,
+                    Month = month,
+                    Year = int.Parse(txbAnio.Text),
+                    Festive = true
+                };
+                apiclient.ApiCalendarCreateFestivePut(calendar);
+                MarcarFestivos();
+                //int index =  vvv.SelectedCells.
             }
             string vv = "";
 
@@ -235,7 +255,6 @@ namespace WorkTrackerAPP
 
         }
 
-
         private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
         {
             for (int i = 0; i < datagridView.Rows.Count; i++)
@@ -244,15 +263,13 @@ namespace WorkTrackerAPP
                 {
                     int valueCell = 0;
                     int.TryParse(datagridView.Rows[i].Cells[j].Value?.ToString(), out valueCell);
-
-
                     if (valueCell == festive)
                     {
                         datagridView.Rows[i].Cells[j].Style.BackColor = Color.OrangeRed;
                     }
                 }
             }
-        }
+        } 
 
         private void MarcarFestivos()
         {
