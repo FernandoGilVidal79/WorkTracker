@@ -84,6 +84,7 @@
     <Compile Include="CreacionUsuarios.Designer.cs">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Encriptado.cs" />
     <Compile Include="Fichar.cs">
       <SubType>Form</SubType>
     </Compile>
