@@ -79,7 +79,7 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 SimpleCRUD.Insert(db, clockin);
-                _logger.LogInfo($"Usuario {clockin.UserId} ha fichado {clockin.idClockIn}" );
+                _logger.LogInfo($"Usuario {clockin.UserId} ha fichado {clockin.idClockIn} , Fichaje: {clockin.ClockinTypeId}" );
             }
             catch(Exception ex)
             {
@@ -100,7 +100,7 @@ namespace WorkTrackerAPI.Controllers
                 clockinUpdated.Date = clockin.Date;
                 SimpleCRUD.Update(db, clockin);
                
-                _logger.LogInfo("Fichaje actualizado correctamente. Id: " + clockin.idClockIn);
+                _logger.LogInfo($"Usuario {clockin.UserId} ha actualizado el fichaje {clockin.idClockIn}, Fichaje: {clockin.ClockinTypeId} ");
             }
             catch (Exception ex)
             {
