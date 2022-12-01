@@ -46,7 +46,7 @@ namespace WorkTrackerAPP
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -60,16 +60,18 @@ namespace WorkTrackerAPP
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
             this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
-            this.splitContainer1.Size = new System.Drawing.Size(951, 423);
-            this.splitContainer1.SplitterDistance = 306;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(713, 344);
+            this.splitContainer1.SplitterDistance = 229;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 38;
             // 
             // btnDescanso
             // 
-            this.btnDescanso.Location = new System.Drawing.Point(41, 217);
-            this.btnDescanso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDescanso.Location = new System.Drawing.Point(31, 177);
+            this.btnDescanso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDescanso.Name = "btnDescanso";
-            this.btnDescanso.Size = new System.Drawing.Size(215, 57);
+            this.btnDescanso.Size = new System.Drawing.Size(161, 46);
             this.btnDescanso.TabIndex = 40;
             this.btnDescanso.Text = "Descanso";
             this.btnDescanso.UseVisualStyleBackColor = true;
@@ -77,10 +79,10 @@ namespace WorkTrackerAPP
             // 
             // btnComida
             // 
-            this.btnComida.Location = new System.Drawing.Point(41, 138);
-            this.btnComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnComida.Location = new System.Drawing.Point(31, 112);
+            this.btnComida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComida.Name = "btnComida";
-            this.btnComida.Size = new System.Drawing.Size(215, 60);
+            this.btnComida.Size = new System.Drawing.Size(161, 49);
             this.btnComida.TabIndex = 39;
             this.btnComida.Text = "Comida";
             this.btnComida.UseVisualStyleBackColor = true;
@@ -88,10 +90,10 @@ namespace WorkTrackerAPP
             // 
             // btnJornada
             // 
-            this.btnJornada.Location = new System.Drawing.Point(41, 66);
-            this.btnJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnJornada.Location = new System.Drawing.Point(31, 54);
+            this.btnJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(215, 58);
+            this.btnJornada.Size = new System.Drawing.Size(161, 47);
             this.btnJornada.TabIndex = 38;
             this.btnJornada.Text = "Entrada";
             this.btnJornada.UseVisualStyleBackColor = true;
@@ -100,9 +102,10 @@ namespace WorkTrackerAPP
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(76, 77);
+            this.lblHistorico.Location = new System.Drawing.Point(57, 63);
+            this.lblHistorico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHistorico.Name = "lblHistorico";
-            this.lblHistorico.Size = new System.Drawing.Size(97, 16);
+            this.lblHistorico.Size = new System.Drawing.Size(78, 13);
             this.lblHistorico.TabIndex = 1;
             this.lblHistorico.Text = "No hay Fichaje";
             // 
@@ -110,19 +113,20 @@ namespace WorkTrackerAPP
             // 
             this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(76, 34);
+            this.lblResumen.Location = new System.Drawing.Point(57, 28);
+            this.lblResumen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(150, 16);
+            this.lblResumen.Size = new System.Drawing.Size(118, 13);
             this.lblResumen.TabIndex = 0;
             this.lblResumen.Text = "Resumen de la semana";
             // 
             // Fichar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 423);
+            this.ClientSize = new System.Drawing.Size(713, 344);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);

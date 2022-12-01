@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -17,7 +14,7 @@ namespace WorkTrackerAPP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new CreacionUsuarios());
-          // Application.Run(new Situacion());
+           // Application.Run(new Situacion());
             Application.Run(new Login());
         }
     }

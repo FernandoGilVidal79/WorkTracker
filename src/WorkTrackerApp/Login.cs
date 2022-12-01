@@ -93,7 +93,7 @@ namespace WorkTrackerAPP
                     var user2 = usersSinEncriptar;
                     UserSession.User = user2;
 
-                    if (txtContrasena.Text.Equals(user2.UserName))
+                    if ((user2!= null) && txtContrasena.Text.Equals(user2.UserName))
                     {
                         txtContrasena.Clear();
                         Helper.MensajeOk("Por favor cambie la contraseña ", "OK");
@@ -118,8 +118,8 @@ namespace WorkTrackerAPP
                 /*
                  * Datos Mock
                  */
-                this.txtUsuario.Text = "mariano@superman.com";
-                this.txtContrasena.Text = "Worktracker@1";
+                //this.txtUsuario.Text = "mariano@superman.com";
+                //this.txtContrasena.Text = "Worktracker@1";
             }
 
             private void ValidateEnterPress(object sender, KeyPressEventArgs e)
