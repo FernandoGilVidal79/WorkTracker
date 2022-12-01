@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger", "IO.Swagger\IO
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{210515AB-1FA9-42AB-9E45-E7E5F6EFB8A5}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\OneDrive\Documentos\Proyecto\Cancelar Rojo.png = ..\..\..\..\..\OneDrive\Documentos\Proyecto\Cancelar Rojo.png
+		..\..\..\..\..\OneDrive\Documentos\Proyecto\CancelarRojo.png = ..\..\..\..\..\OneDrive\Documentos\Proyecto\CancelarRojo.png
 		WorkTrackerApp\ListadoAusencias.cs = WorkTrackerApp\ListadoAusencias.cs
 		WorkTrackerApp\ListadoAusencias.Designer.cs = WorkTrackerApp\ListadoAusencias.Designer.cs
 		WorkTrackerApp\ListadoAusencias.resx = WorkTrackerApp\ListadoAusencias.resx
