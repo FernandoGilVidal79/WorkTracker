@@ -61,7 +61,6 @@ namespace WorkTrackerAPP
 
                 foreach (var ausencia in ausenciasAgrupadasByType)
                 {
-
                     TextBox txbTipo = new TextBox();
                     TextBox txbDesde = new TextBox();
                     TextBox txbHasta = new TextBox();
@@ -75,14 +74,14 @@ namespace WorkTrackerAPP
                     txbHasta.BackColor = Color.White;
 
                     txbTipo.Size = new System.Drawing.Size(125, 15);
-                    txbDesde.Size = new System.Drawing.Size(80, 15);
-                    txbHasta.Size = new System.Drawing.Size(80, 15);
+                   // txbDesde.Size = new System.Drawing.Size(80, 15);
+                   // txbHasta.Size = new System.Drawing.Size(80, 15);
 
                     //txbTipo.Font = new System.Drawing.Font(Tempus Sans ITC; 10,2pt)
                     
                     txbTipo.Location = new System.Drawing.Point(0, y);
                     txbDesde.Location = new System.Drawing.Point(135, y);
-                    txbHasta.Location = new System.Drawing.Point(225, y);
+                    txbHasta.Location = new System.Drawing.Point(240, y);
 
                     txbTipo.AutoSize = true;
                     txbDesde.AutoSize = true;
@@ -91,13 +90,13 @@ namespace WorkTrackerAPP
 
                     //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
                     txbTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.AbsensesTypeId).Description;
-                    txbDesde.Text = ausencia.StartDate.ToString();
-                    txbHasta.Text = ausencia.FinishDate.ToString();
+                    txbDesde.Text = ((DateTime)ausencia.StartDate).ToShortDateString();
+                    txbHasta.Text = ((DateTime)ausencia.FinishDate).ToShortDateString();
 
                     Controls.Add(txbTipo);
                     Controls.Add(txbDesde);
                     Controls.Add(txbHasta);
-                    y += 25;
+                    y += 35;
                     
                 }
             }

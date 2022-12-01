@@ -79,6 +79,7 @@ namespace WorkTrackerAPP
             // 
             // cmbAño
             // 
+            this.cmbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAño.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAño.FormattingEnabled = true;
             this.cmbAño.Location = new System.Drawing.Point(551, 55);
@@ -111,6 +112,7 @@ namespace WorkTrackerAPP
             // 
             this.txbVacaciones.Location = new System.Drawing.Point(551, 92);
             this.txbVacaciones.Name = "txbVacaciones";
+            this.txbVacaciones.ReadOnly = true;
             this.txbVacaciones.Size = new System.Drawing.Size(71, 22);
             this.txbVacaciones.TabIndex = 88;
             // 
@@ -171,6 +173,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados1.Location = new System.Drawing.Point(249, 181);
             this.txtSolicitados1.Name = "txtSolicitados1";
+            this.txtSolicitados1.ReadOnly = true;
             this.txtSolicitados1.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados1.TabIndex = 106;
             // 
@@ -178,6 +181,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados6.Location = new System.Drawing.Point(249, 321);
             this.txtSolicitados6.Name = "txtSolicitados6";
+            this.txtSolicitados6.ReadOnly = true;
             this.txtSolicitados6.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados6.TabIndex = 107;
             // 
@@ -185,6 +189,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados5.Location = new System.Drawing.Point(249, 293);
             this.txtSolicitados5.Name = "txtSolicitados5";
+            this.txtSolicitados5.ReadOnly = true;
             this.txtSolicitados5.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados5.TabIndex = 108;
             // 
@@ -192,6 +197,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados4.Location = new System.Drawing.Point(249, 265);
             this.txtSolicitados4.Name = "txtSolicitados4";
+            this.txtSolicitados4.ReadOnly = true;
             this.txtSolicitados4.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados4.TabIndex = 109;
             // 
@@ -199,6 +205,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados3.Location = new System.Drawing.Point(249, 237);
             this.txtSolicitados3.Name = "txtSolicitados3";
+            this.txtSolicitados3.ReadOnly = true;
             this.txtSolicitados3.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados3.TabIndex = 110;
             // 
@@ -206,6 +213,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados2.Location = new System.Drawing.Point(249, 209);
             this.txtSolicitados2.Name = "txtSolicitados2";
+            this.txtSolicitados2.ReadOnly = true;
             this.txtSolicitados2.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados2.TabIndex = 111;
             // 
@@ -213,6 +221,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes3.Location = new System.Drawing.Point(366, 237);
             this.txtPendientes3.Name = "txtPendientes3";
+            this.txtPendientes3.ReadOnly = true;
             this.txtPendientes3.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes3.TabIndex = 112;
             // 
@@ -220,6 +229,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes4.Location = new System.Drawing.Point(366, 265);
             this.txtPendientes4.Name = "txtPendientes4";
+            this.txtPendientes4.ReadOnly = true;
             this.txtPendientes4.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes4.TabIndex = 113;
             // 
@@ -227,6 +237,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes2.Location = new System.Drawing.Point(366, 209);
             this.txtPendientes2.Name = "txtPendientes2";
+            this.txtPendientes2.ReadOnly = true;
             this.txtPendientes2.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes2.TabIndex = 114;
             // 
@@ -234,6 +245,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes1.Location = new System.Drawing.Point(366, 181);
             this.txtPendientes1.Name = "txtPendientes1";
+            this.txtPendientes1.ReadOnly = true;
             this.txtPendientes1.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes1.TabIndex = 115;
             // 
@@ -241,6 +253,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes5.Location = new System.Drawing.Point(366, 293);
             this.txtPendientes5.Name = "txtPendientes5";
+            this.txtPendientes5.ReadOnly = true;
             this.txtPendientes5.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes5.TabIndex = 116;
             // 
@@ -248,6 +261,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes6.Location = new System.Drawing.Point(366, 321);
             this.txtPendientes6.Name = "txtPendientes6";
+            this.txtPendientes6.ReadOnly = true;
             this.txtPendientes6.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes6.TabIndex = 117;
             // 
@@ -255,6 +269,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados1.Location = new System.Drawing.Point(483, 181);
             this.txtAprobados1.Name = "txtAprobados1";
+            this.txtAprobados1.ReadOnly = true;
             this.txtAprobados1.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados1.TabIndex = 118;
             // 
@@ -262,6 +277,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados2.Location = new System.Drawing.Point(483, 209);
             this.txtAprobados2.Name = "txtAprobados2";
+            this.txtAprobados2.ReadOnly = true;
             this.txtAprobados2.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados2.TabIndex = 119;
             // 
@@ -269,6 +285,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados3.Location = new System.Drawing.Point(483, 237);
             this.txtAprobados3.Name = "txtAprobados3";
+            this.txtAprobados3.ReadOnly = true;
             this.txtAprobados3.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados3.TabIndex = 120;
             // 
@@ -276,6 +293,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados4.Location = new System.Drawing.Point(483, 265);
             this.txtAprobados4.Name = "txtAprobados4";
+            this.txtAprobados4.ReadOnly = true;
             this.txtAprobados4.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados4.TabIndex = 121;
             // 
@@ -283,6 +301,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados5.Location = new System.Drawing.Point(483, 293);
             this.txtAprobados5.Name = "txtAprobados5";
+            this.txtAprobados5.ReadOnly = true;
             this.txtAprobados5.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados5.TabIndex = 122;
             // 
@@ -290,6 +309,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados6.Location = new System.Drawing.Point(483, 321);
             this.txtAprobados6.Name = "txtAprobados6";
+            this.txtAprobados6.ReadOnly = true;
             this.txtAprobados6.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados6.TabIndex = 123;
             // 
@@ -297,6 +317,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados1.Location = new System.Drawing.Point(598, 181);
             this.txtRechazados1.Name = "txtRechazados1";
+            this.txtRechazados1.ReadOnly = true;
             this.txtRechazados1.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados1.TabIndex = 124;
             // 
@@ -304,6 +325,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados2.Location = new System.Drawing.Point(598, 209);
             this.txtRechazados2.Name = "txtRechazados2";
+            this.txtRechazados2.ReadOnly = true;
             this.txtRechazados2.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados2.TabIndex = 125;
             // 
@@ -311,6 +333,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados3.Location = new System.Drawing.Point(598, 237);
             this.txtRechazados3.Name = "txtRechazados3";
+            this.txtRechazados3.ReadOnly = true;
             this.txtRechazados3.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados3.TabIndex = 126;
             // 
@@ -318,6 +341,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados4.Location = new System.Drawing.Point(598, 265);
             this.txtRechazados4.Name = "txtRechazados4";
+            this.txtRechazados4.ReadOnly = true;
             this.txtRechazados4.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados4.TabIndex = 127;
             // 
@@ -325,6 +349,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados5.Location = new System.Drawing.Point(598, 293);
             this.txtRechazados5.Name = "txtRechazados5";
+            this.txtRechazados5.ReadOnly = true;
             this.txtRechazados5.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados5.TabIndex = 128;
             // 
@@ -332,6 +357,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados6.Location = new System.Drawing.Point(598, 321);
             this.txtRechazados6.Name = "txtRechazados6";
+            this.txtRechazados6.ReadOnly = true;
             this.txtRechazados6.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados6.TabIndex = 129;
             // 
@@ -339,6 +365,7 @@ namespace WorkTrackerAPP
             // 
             this.txtAprobados7.Location = new System.Drawing.Point(483, 349);
             this.txtAprobados7.Name = "txtAprobados7";
+            this.txtAprobados7.ReadOnly = true;
             this.txtAprobados7.Size = new System.Drawing.Size(111, 22);
             this.txtAprobados7.TabIndex = 132;
             // 
@@ -346,6 +373,7 @@ namespace WorkTrackerAPP
             // 
             this.txtPendientes7.Location = new System.Drawing.Point(366, 349);
             this.txtPendientes7.Name = "txtPendientes7";
+            this.txtPendientes7.ReadOnly = true;
             this.txtPendientes7.Size = new System.Drawing.Size(111, 22);
             this.txtPendientes7.TabIndex = 133;
             // 
@@ -353,6 +381,7 @@ namespace WorkTrackerAPP
             // 
             this.txtSolicitados7.Location = new System.Drawing.Point(247, 349);
             this.txtSolicitados7.Name = "txtSolicitados7";
+            this.txtSolicitados7.ReadOnly = true;
             this.txtSolicitados7.Size = new System.Drawing.Size(111, 22);
             this.txtSolicitados7.TabIndex = 134;
             // 
@@ -360,6 +389,7 @@ namespace WorkTrackerAPP
             // 
             this.txtRechazados7.Location = new System.Drawing.Point(598, 350);
             this.txtRechazados7.Name = "txtRechazados7";
+            this.txtRechazados7.ReadOnly = true;
             this.txtRechazados7.Size = new System.Drawing.Size(111, 22);
             this.txtRechazados7.TabIndex = 135;
             // 

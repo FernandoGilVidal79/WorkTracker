@@ -45,6 +45,7 @@ namespace WorkTrackerAPP
             // 
             // cmbTipoAusencia
             // 
+            this.cmbTipoAusencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAusencia.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoAusencia.FormattingEnabled = true;
             this.cmbTipoAusencia.Location = new System.Drawing.Point(99, 166);
@@ -78,6 +79,7 @@ namespace WorkTrackerAPP
             this.tbxDesde.Location = new System.Drawing.Point(245, 166);
             this.tbxDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxDesde.Name = "tbxDesde";
+            this.tbxDesde.ReadOnly = true;
             this.tbxDesde.Size = new System.Drawing.Size(100, 25);
             this.tbxDesde.TabIndex = 84;
             // 
@@ -87,6 +89,7 @@ namespace WorkTrackerAPP
             this.tbxHasta.Location = new System.Drawing.Point(375, 166);
             this.tbxHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxHasta.Name = "tbxHasta";
+            this.tbxHasta.ReadOnly = true;
             this.tbxHasta.Size = new System.Drawing.Size(100, 25);
             this.tbxHasta.TabIndex = 85;
             // 
@@ -141,9 +144,9 @@ namespace WorkTrackerAPP
             // 
             // pnlListadoAusencias
             // 
-            this.pnlListadoAusencias.Location = new System.Drawing.Point(777, 12);
+            this.pnlListadoAusencias.Location = new System.Drawing.Point(777, 39);
             this.pnlListadoAusencias.Name = "pnlListadoAusencias";
-            this.pnlListadoAusencias.Size = new System.Drawing.Size(309, 411);
+            this.pnlListadoAusencias.Size = new System.Drawing.Size(309, 384);
             this.pnlListadoAusencias.TabIndex = 91;
             this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
