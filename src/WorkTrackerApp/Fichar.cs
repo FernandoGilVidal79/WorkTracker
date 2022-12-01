@@ -82,7 +82,7 @@ namespace WorkTrackerAPP
             {
                 var ultimoFichaje = fichajesUsuario.Last();
                 var ffechaUltimoFichaje = Convert.ToDateTime(ultimoFichaje.Date).ToString(Format);
-                var ffechaActual = Convert.ToDateTime(DateTime.Now).ToString(Format);
+                var ffechaActual = Convert.ToDateTime(DateTime.UtcNow).ToString(Format);
                 UserSession.Fichajes = fichajesUsuario;
                 try
                 {
@@ -101,13 +101,13 @@ namespace WorkTrackerAPP
                                 case 1:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Entrada;
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Fuera;
                                     }
@@ -116,14 +116,14 @@ namespace WorkTrackerAPP
                                 case 2:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Comiendo;
 
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Comido;
 
@@ -133,13 +133,13 @@ namespace WorkTrackerAPP
                                 case 3:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Descansando;
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.Now).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
                                         lblHistorico.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Descansado;
                                     }
@@ -211,7 +211,7 @@ namespace WorkTrackerAPP
             //Declaramos las variables
             var clockin = new Clockin();
             clockin.UserId = UserSession.User.IdUser;
-            clockin.Date = DateTime.Now;
+            clockin.Date = DateTime.UtcNow;
             var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
 
             try
