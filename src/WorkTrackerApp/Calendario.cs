@@ -257,6 +257,7 @@ namespace WorkTrackerAPP
 
         private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
         {
+           /*
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
                 for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
@@ -264,7 +265,8 @@ namespace WorkTrackerAPP
                     datagridView.Rows[i].Cells[j].Style.BackColor = Color.White;             
                 }
             }
-
+           */
+            for 
 
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
@@ -283,51 +285,52 @@ namespace WorkTrackerAPP
         private void MarcarFestivos()
         {
             var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
-            var festives = apiclient.ApiCalendarGetFestiveByYearYearGet(2022);
+            var festives = apiclient.ApiCalendarGetFestiveByYearYearGet(int.Parse(txbAnio.Text));
 
             foreach( var festive in festives)
             {
                
-                switch (festive.Month)
-                {
-                    case 1:
-                        MarcarFestivosGrid(ref dataGridView1, festive.Day.Value);
-                        break;
-                    case 2:
-                        MarcarFestivosGrid(ref dataGridView2, festive.Day.Value);
-                        break;
-                    case 3:
-                        MarcarFestivosGrid(ref dataGridView3, festive.Day.Value);
-                        break;
-                    case 4:
-                        MarcarFestivosGrid(ref dataGridView4, festive.Day.Value);
-                        break;
-                    case 5:
-                        MarcarFestivosGrid(ref dataGridView5, festive.Day.Value);
-                        break;
-                    case 6:
-                        MarcarFestivosGrid(ref dataGridView6, festive.Day.Value);
-                        break;
-                    case 7:
-                        MarcarFestivosGrid(ref dataGridView7, festive.Day.Value);
-                        break;
-                    case 8:
-                        MarcarFestivosGrid(ref dataGridView8, festive.Day.Value);
-                        break;
-                    case 9:
-                        MarcarFestivosGrid(ref dataGridView9, festive.Day.Value);
-                        break;
-                    case 10:
-                        MarcarFestivosGrid(ref dataGridView10, festive.Day.Value);
-                        break;
-                    case 11:
-                        MarcarFestivosGrid(ref dataGridView11, festive.Day.Value);
-                        break;
-                    case 12:
-                        MarcarFestivosGrid(ref dataGridView12, festive.Day.Value);
-                        break;
-
-                }
+                    switch (festive.Month)
+                    {
+                        case 1:
+                            MarcarFestivosGrid(ref dataGridView1, festive.Day.Value);
+                            break;
+                        case 2:
+                            MarcarFestivosGrid(ref dataGridView2, festive.Day.Value);
+                            break;
+                        case 3:
+                            MarcarFestivosGrid(ref dataGridView3, festive.Day.Value);
+                            break;
+                        case 4:
+                            MarcarFestivosGrid(ref dataGridView4, festive.Day.Value);
+                            break;
+                        case 5:
+                            MarcarFestivosGrid(ref dataGridView5, festive.Day.Value);
+                            break;
+                        case 6:
+                            MarcarFestivosGrid(ref dataGridView6, festive.Day.Value);
+                            break;
+                        case 7:
+                            MarcarFestivosGrid(ref dataGridView7, festive.Day.Value);
+                            break;
+                        case 8:
+                            MarcarFestivosGrid(ref dataGridView8, festive.Day.Value);
+                            break;
+                        case 9:
+                            MarcarFestivosGrid(ref dataGridView9, festive.Day.Value);
+                            break;
+                        case 10:
+                            MarcarFestivosGrid(ref dataGridView10, festive.Day.Value);
+                            break;
+                        case 11:
+                            MarcarFestivosGrid(ref dataGridView11, festive.Day.Value);
+                            break;
+                        case 12:
+                            MarcarFestivosGrid(ref dataGridView12, festive.Day.Value);
+                            break;
+                    }
+                    
+               
             }
         }
 
