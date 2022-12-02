@@ -55,7 +55,7 @@ namespace WorkTrackerAPI.Controllers
                     absense.Aproved = true;
                     absense.Denied  = false;
                     SimpleCRUD.Update<Absenses>(db, absense);
-                    _logger.LogInfo($"{userId} -- Valida la ausencia {id}");
+                    _logger.LogInfo($"-- Valida la ausencia {id}");
                 }
                 return absense; 
             }

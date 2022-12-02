@@ -10,6 +10,8 @@ namespace WorkTrackerAPP
 {
     public partial class AprobacionSolicitudes : Form
     {
+
+        private static List<Absenses> absensesType;
         public AprobacionSolicitudes()
         {
             InitializeComponent();
@@ -36,6 +38,12 @@ namespace WorkTrackerAPP
             cmbUsuarios.DisplayMember = "UserName";
             cmbUsuarios.ValueMember = "IdUser";
             cmbUsuarios.DataSource = absensesTypes;
+        }
+
+        private void CargarTiposAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            var absensesType = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
@@ -80,6 +88,7 @@ namespace WorkTrackerAPP
             foreach (var absense in absenses)
             {
                 DataRow dr = dt.NewRow();
+
                 dr[0] = absense.IdAbsenses;
                 dr[1] = absense.StartDate;
                 dr[2] = absense.FinishDate;

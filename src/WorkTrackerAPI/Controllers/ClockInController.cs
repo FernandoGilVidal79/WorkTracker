@@ -61,7 +61,7 @@ namespace WorkTrackerAPI.Controllers
             List<Clockin> listClockIn = null;
             try
             {
-                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > CURDATE() ");
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > DATE_ADD(NOW(), INTERVAL 9 HOUR) ");
             }
 
             catch (Exception ex)
