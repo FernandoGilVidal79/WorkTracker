@@ -115,12 +115,16 @@ namespace WorkTrackerAPP
 
             private void pnlLogin_Paint(object sender, PaintEventArgs e)
             {
-                /*
-                 * Datos Mock
-                 */
-                //this.txtUsuario.Text = "mariano@superman.com";
-                //this.txtContrasena.Text = "Worktracker@1";
-            }
+            /*
+             * Datos Mock
+             */
+
+            this.txtUsuario.Text = "mariano@superman.com";
+            this.txtContrasena.Text = "Worktracker@1";
+
+            //this.txtUsuario.Text = "a";
+            //this.txtContrasena.Text = "W=rktracker2";
+        }
 
             private void ValidateEnterPress(object sender, KeyPressEventArgs e)
             {

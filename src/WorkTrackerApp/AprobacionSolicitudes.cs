@@ -10,6 +10,8 @@ namespace WorkTrackerAPP
 {
     public partial class AprobacionSolicitudes : Form
     {
+
+        private static List<AbsenseType> absensesType;
         public AprobacionSolicitudes()
         {
             InitializeComponent();
@@ -38,9 +40,16 @@ namespace WorkTrackerAPP
             cmbUsuarios.DataSource = absensesTypes;
         }
 
+        private void CargarTiposAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            absensesType = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
+        }
+
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
             CargarComboUsuarios();
+            CargarTiposAusencias();
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,7 +79,7 @@ namespace WorkTrackerAPP
           
             var dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id", typeof(string)));
-
+            dt.Columns.Add(new DataColumn("Tipo", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
             dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
@@ -80,11 +89,13 @@ namespace WorkTrackerAPP
             foreach (var absense in absenses)
             {
                 DataRow dr = dt.NewRow();
+
                 dr[0] = absense.IdAbsenses;
-                dr[1] = absense.StartDate;
-                dr[2] = absense.FinishDate;
-                dr[3] = absense.Aproved;
-                dr[4] = absense.Denied;
+                dr[1] = absensesType.First(x => x.IdAbsenseType == absense.AbsensesTypeId).Description;
+                dr[2] = absense.StartDate;
+                dr[3] = absense.FinishDate;
+                dr[4] = absense.Aproved;
+                dr[5] = absense.Denied;
                 dt.Rows.Add(dr);
             }
             
