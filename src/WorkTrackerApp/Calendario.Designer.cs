@@ -30,7 +30,6 @@ namespace WorkTrackerAPP
         private void InitializeComponent()
         {
             this.lblAnio = new System.Windows.Forms.Label();
-            this.txbAnio = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -141,6 +140,7 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txbAnio = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
@@ -166,31 +166,25 @@ namespace WorkTrackerAPP
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txbAnio)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAnio
             // 
             this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(853, 34);
+            this.lblAnio.Location = new System.Drawing.Point(640, 28);
+            this.lblAnio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(36, 16);
+            this.lblAnio.Size = new System.Drawing.Size(30, 13);
             this.lblAnio.TabIndex = 0;
             this.lblAnio.Text = "AÑO";
             // 
-            // txbAnio
-            // 
-            this.txbAnio.Location = new System.Drawing.Point(817, 54);
-            this.txbAnio.MaxLength = 4;
-            this.txbAnio.Multiline = true;
-            this.txbAnio.Name = "txbAnio";
-            this.txbAnio.Size = new System.Drawing.Size(120, 28);
-            this.txbAnio.TabIndex = 1;
-            // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(817, 88);
+            this.btnActualizar.Location = new System.Drawing.Point(613, 72);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 36);
+            this.btnActualizar.Size = new System.Drawing.Size(90, 29);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -210,17 +204,20 @@ namespace WorkTrackerAPP
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(-3, 1);
+            this.panel1.Location = new System.Drawing.Point(-2, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 427);
+            this.panel1.Size = new System.Drawing.Size(598, 347);
             this.panel1.TabIndex = 3;
             // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.dataGridView12);
-            this.groupBox12.Location = new System.Drawing.Point(600, 295);
+            this.groupBox12.Location = new System.Drawing.Point(450, 240);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(187, 140);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox12.Size = new System.Drawing.Size(140, 114);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Diciembre";
@@ -238,15 +235,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn83,
             this.dataGridViewTextBoxColumn84});
             this.dataGridView12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView12.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView12.Location = new System.Drawing.Point(2, 15);
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView12.RowHeadersVisible = false;
             this.dataGridView12.RowHeadersWidth = 51;
             this.dataGridView12.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView12.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView12.Size = new System.Drawing.Size(136, 97);
             this.dataGridView12.TabIndex = 4;
             this.dataGridView12.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -295,9 +291,11 @@ namespace WorkTrackerAPP
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.dataGridView11);
-            this.groupBox11.Location = new System.Drawing.Point(407, 295);
+            this.groupBox11.Location = new System.Drawing.Point(305, 240);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(187, 140);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox11.Size = new System.Drawing.Size(140, 114);
             this.groupBox11.TabIndex = 17;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Noviembre";
@@ -315,15 +313,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn76,
             this.dataGridViewTextBoxColumn77});
             this.dataGridView11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView11.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView11.Location = new System.Drawing.Point(2, 15);
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView11.RowHeadersVisible = false;
             this.dataGridView11.RowHeadersWidth = 51;
             this.dataGridView11.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView11.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView11.Size = new System.Drawing.Size(136, 97);
             this.dataGridView11.TabIndex = 4;
             this.dataGridView11.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -372,9 +369,11 @@ namespace WorkTrackerAPP
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.dataGridView10);
-            this.groupBox10.Location = new System.Drawing.Point(212, 295);
+            this.groupBox10.Location = new System.Drawing.Point(159, 240);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(187, 140);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox10.Size = new System.Drawing.Size(140, 114);
             this.groupBox10.TabIndex = 17;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Octubre";
@@ -392,15 +391,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn69,
             this.dataGridViewTextBoxColumn70});
             this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView10.Location = new System.Drawing.Point(2, 15);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView10.RowHeadersVisible = false;
             this.dataGridView10.RowHeadersWidth = 51;
             this.dataGridView10.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView10.Size = new System.Drawing.Size(136, 97);
             this.dataGridView10.TabIndex = 4;
             this.dataGridView10.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -449,9 +447,11 @@ namespace WorkTrackerAPP
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.dataGridView9);
-            this.groupBox9.Location = new System.Drawing.Point(21, 293);
+            this.groupBox9.Location = new System.Drawing.Point(16, 238);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(187, 140);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Size = new System.Drawing.Size(140, 114);
             this.groupBox9.TabIndex = 17;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Septiembre";
@@ -469,15 +469,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn62,
             this.dataGridViewTextBoxColumn63});
             this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView9.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView9.Location = new System.Drawing.Point(2, 15);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView9.RowHeadersVisible = false;
             this.dataGridView9.RowHeadersWidth = 51;
             this.dataGridView9.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView9.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView9.Size = new System.Drawing.Size(136, 97);
             this.dataGridView9.TabIndex = 4;
             this.dataGridView9.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -526,9 +525,11 @@ namespace WorkTrackerAPP
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.dataGridView8);
-            this.groupBox8.Location = new System.Drawing.Point(597, 149);
+            this.groupBox8.Location = new System.Drawing.Point(448, 121);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(190, 140);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Size = new System.Drawing.Size(142, 114);
             this.groupBox8.TabIndex = 17;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Agosto";
@@ -546,15 +547,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn55,
             this.dataGridViewTextBoxColumn56});
             this.dataGridView8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView8.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView8.Location = new System.Drawing.Point(2, 15);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView8.RowHeadersVisible = false;
             this.dataGridView8.RowHeadersWidth = 51;
             this.dataGridView8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView8.Size = new System.Drawing.Size(184, 119);
+            this.dataGridView8.Size = new System.Drawing.Size(138, 97);
             this.dataGridView8.TabIndex = 4;
             this.dataGridView8.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -603,9 +603,11 @@ namespace WorkTrackerAPP
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dataGridView7);
-            this.groupBox7.Location = new System.Drawing.Point(404, 149);
+            this.groupBox7.Location = new System.Drawing.Point(303, 121);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(187, 140);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Size = new System.Drawing.Size(140, 114);
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Julio";
@@ -623,15 +625,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn48,
             this.dataGridViewTextBoxColumn49});
             this.dataGridView7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView7.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView7.Location = new System.Drawing.Point(2, 15);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.RowHeadersWidth = 51;
             this.dataGridView7.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView7.Size = new System.Drawing.Size(136, 97);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -680,9 +681,11 @@ namespace WorkTrackerAPP
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dataGridView6);
-            this.groupBox6.Location = new System.Drawing.Point(211, 149);
+            this.groupBox6.Location = new System.Drawing.Point(158, 121);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(187, 140);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Size = new System.Drawing.Size(140, 114);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Junio";
@@ -700,15 +703,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn41,
             this.dataGridViewTextBoxColumn42});
             this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView6.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView6.Location = new System.Drawing.Point(2, 15);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.RowHeadersWidth = 51;
             this.dataGridView6.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView6.Size = new System.Drawing.Size(136, 97);
             this.dataGridView6.TabIndex = 4;
             this.dataGridView6.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -757,9 +759,11 @@ namespace WorkTrackerAPP
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridView5);
-            this.groupBox5.Location = new System.Drawing.Point(18, 149);
+            this.groupBox5.Location = new System.Drawing.Point(14, 121);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(187, 140);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(140, 114);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mayo";
@@ -777,15 +781,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35});
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView5.Location = new System.Drawing.Point(2, 15);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.RowHeadersWidth = 51;
             this.dataGridView5.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView5.Size = new System.Drawing.Size(136, 97);
             this.dataGridView5.TabIndex = 4;
             this.dataGridView5.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -834,9 +837,11 @@ namespace WorkTrackerAPP
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView4);
-            this.groupBox4.Location = new System.Drawing.Point(592, 3);
+            this.groupBox4.Location = new System.Drawing.Point(444, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(192, 140);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(144, 114);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Abril";
@@ -854,15 +859,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28});
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView4.Location = new System.Drawing.Point(2, 15);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(186, 119);
+            this.dataGridView4.Size = new System.Drawing.Size(140, 97);
             this.dataGridView4.TabIndex = 4;
             this.dataGridView4.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -911,9 +915,11 @@ namespace WorkTrackerAPP
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Location = new System.Drawing.Point(401, 3);
+            this.groupBox3.Location = new System.Drawing.Point(301, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(187, 140);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(140, 114);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Marzo";
@@ -931,15 +937,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21});
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Location = new System.Drawing.Point(2, 15);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView3.Size = new System.Drawing.Size(136, 97);
             this.dataGridView3.TabIndex = 4;
             this.dataGridView3.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -988,9 +993,11 @@ namespace WorkTrackerAPP
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(208, 3);
+            this.groupBox2.Location = new System.Drawing.Point(156, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(187, 140);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(140, 114);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Febrero";
@@ -1008,15 +1015,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Location = new System.Drawing.Point(2, 15);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView2.Size = new System.Drawing.Size(136, 97);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -1065,9 +1071,11 @@ namespace WorkTrackerAPP
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 3);
+            this.groupBox1.Location = new System.Drawing.Point(11, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 140);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(140, 114);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enero";
@@ -1085,15 +1093,14 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 15);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView1.Size = new System.Drawing.Size(136, 97);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -1139,15 +1146,38 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
+            // txbAnio
+            // 
+            this.txbAnio.Location = new System.Drawing.Point(613, 47);
+            this.txbAnio.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.txbAnio.Minimum = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            this.txbAnio.Name = "txbAnio";
+            this.txbAnio.Size = new System.Drawing.Size(90, 20);
+            this.txbAnio.TabIndex = 4;
+            this.txbAnio.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
             // Calendario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 461);
+            this.ClientSize = new System.Drawing.Size(799, 375);
+            this.Controls.Add(this.txbAnio);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.txbAnio);
             this.Controls.Add(this.lblAnio);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Calendario";
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Calendario_Load_1);
@@ -1176,6 +1206,7 @@ namespace WorkTrackerAPP
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txbAnio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1184,7 +1215,6 @@ namespace WorkTrackerAPP
         #endregion
 
         private System.Windows.Forms.Label lblAnio;
-        private System.Windows.Forms.TextBox txbAnio;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.DataGridView dataGridView1;
@@ -1295,5 +1325,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.NumericUpDown txbAnio;
     }
 }

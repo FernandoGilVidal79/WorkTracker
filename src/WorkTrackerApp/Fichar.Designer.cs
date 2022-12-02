@@ -46,7 +46,7 @@ namespace WorkTrackerAPP
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -54,6 +54,7 @@ namespace WorkTrackerAPP
             this.splitContainer1.Panel1.Controls.Add(this.btnDescanso);
             this.splitContainer1.Panel1.Controls.Add(this.btnComida);
             this.splitContainer1.Panel1.Controls.Add(this.btnJornada);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -69,7 +70,7 @@ namespace WorkTrackerAPP
             // btnDescanso
             // 
             this.btnDescanso.Location = new System.Drawing.Point(31, 177);
-            this.btnDescanso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDescanso.Margin = new System.Windows.Forms.Padding(2);
             this.btnDescanso.Name = "btnDescanso";
             this.btnDescanso.Size = new System.Drawing.Size(161, 46);
             this.btnDescanso.TabIndex = 40;
@@ -80,7 +81,7 @@ namespace WorkTrackerAPP
             // btnComida
             // 
             this.btnComida.Location = new System.Drawing.Point(31, 112);
-            this.btnComida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnComida.Margin = new System.Windows.Forms.Padding(2);
             this.btnComida.Name = "btnComida";
             this.btnComida.Size = new System.Drawing.Size(161, 49);
             this.btnComida.TabIndex = 39;
@@ -91,7 +92,7 @@ namespace WorkTrackerAPP
             // btnJornada
             // 
             this.btnJornada.Location = new System.Drawing.Point(31, 54);
-            this.btnJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJornada.Margin = new System.Windows.Forms.Padding(2);
             this.btnJornada.Name = "btnJornada";
             this.btnJornada.Size = new System.Drawing.Size(161, 47);
             this.btnJornada.TabIndex = 38;
@@ -126,7 +127,7 @@ namespace WorkTrackerAPP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 344);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);

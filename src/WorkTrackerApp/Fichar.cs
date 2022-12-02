@@ -220,7 +220,7 @@ namespace WorkTrackerAPP
                 if (estado == Estados.Entrada)
                 {
                     clockin.ClockinTypeId = 1;
-                    clockin.StartHour = DateTime.UtcNow;
+                    clockin.StartHour = DateTime.UtcNow.AddHours(1);
                     clockin.FinishHour = null;
                     apiclient.ApiClockInClockInPut(clockin);
                 }
@@ -254,7 +254,7 @@ namespace WorkTrackerAPP
                 {
                     var fichaje = UserSession.FichajesHoy.First(x => x.ClockinTypeId == 3);
                     clockin.FinishHour = DateTime.UtcNow;
-                    apiclient.ApiClockInClockInPut(fichaje);
+                    apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
                 CargarFichajesHoy();
 
@@ -306,7 +306,7 @@ namespace WorkTrackerAPP
                     btnJornada.Enabled = false;
                     btnJornada.Text = "Salida";
                     estado = Estados.Comiendo;
-                    estadoComida = EstadoComida.SinComer;
+                    btnComida.Text = "Comiendo";
                     btnDescanso.Enabled = false;
                     btnDescanso.Text = "Descanso";
                     break;
@@ -314,23 +314,24 @@ namespace WorkTrackerAPP
                     btnJornada.Enabled = true;
                     btnJornada.Text = "Salida";
                     estado = Estados.Comido;
-                    estadoComida = EstadoComida.Comido;
+                    btnComida.Text = "Comida Completada";
+                    contadorComida = 1;
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Descanso";
-                    break;
-                case Estados.Descansando:
-                    btnJornada.Enabled = false;
-                    btnJornada.Text = "Salida";
-                    btnComida.Enabled = false;
-                    btnComida.Text = "Comida";
-                    btnDescanso.Enabled = true;
-                    btnDescanso.Text = "Volver Descanso";
                     break;
                 case Estados.Descansado:
                     btnJornada.Enabled = true;
                     btnJornada.Text = "Salida";
+                    btnComida.Enabled = false;
                     if (contadorComida == 1)
-                        btnComida.Enabled = false;
+                    {
+                        btnComida.Text = "Comida Completada";
+                    }
+                    else
+                    {
+                        btnComida.Text = "Comida";
+                    }
+
                     btnComida.Text = "Comida";
                     btnDescanso.Enabled = true;
                     btnDescanso.Text = "Descanso";
@@ -429,6 +430,11 @@ namespace WorkTrackerAPP
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

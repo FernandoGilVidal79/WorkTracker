@@ -164,13 +164,13 @@ namespace WorkTrackerAPP
                 {
                     user.IdUser = Int32.Parse(txtNumEmpleado.Text);
                     apiclient.ApiUserUpdateUserPost(user);
-                    _form.MensajeBox("Usuario modificado correctamente");
+                    Helper.MensajeOk("Usuario modificado correctamente", "Modificacion de Usuario");
                 }
                 else
                 {
                     apiclient.ApiUserCreateUserPut(user);
                     LimpiarCampos();
-                    _form.MensajeBox("Usuario Creado correctamente");
+                    Helper.MensajeOk("Usuario Creado correctamente", "Creación de Usuario");
 
 
                 }

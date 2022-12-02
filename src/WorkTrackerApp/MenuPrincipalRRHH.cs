@@ -99,10 +99,7 @@ namespace WorkTrackerAPP
             }
         }     
 
-        void IForm.MensajeBox(string texto)
-        {
-            
-        }
+       
 
         void IForm.EnviarEstado(string estado)
         {
