@@ -101,7 +101,9 @@ namespace WorkTrackerAPP
                         var user = users.FirstOrDefault();
                         try
                         {
-                            String psw = Encriptado.GetSHA256(txtContraseniaNueva2.Text);
+                            String pswMail = user.Email;
+                            String pswMailUsuario = txtContraseniaNueva.Text + pswMail.Substring(0, pswMail.IndexOf("@"));
+                            String psw = Encriptado.GetSHA256(pswMailUsuario);
 
                             var usuario = new Users
                             {

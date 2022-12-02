@@ -46,7 +46,10 @@ namespace WorkTrackerAPP
             if (validar)
             {
                 //encriptamos la contraseña que meten en el login
-                string psw = Encriptado.GetSHA256(txtContrasena.Text);
+                String pswMail = txtUsuario.Text;
+                String pswMailUsuario = txtContrasena.Text + pswMail.Substring(0, pswMail.IndexOf("@"));
+
+                string psw = Encriptado.GetSHA256(pswMailUsuario);
 
                 //Llamamos a al api para obtener el usuario
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
