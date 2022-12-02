@@ -35,18 +35,18 @@ namespace WorkTrackerAPP
             this.btnJornada = new System.Windows.Forms.Button();
             this.lblHistorico = new System.Windows.Forms.Label();
             this.lblResumen = new System.Windows.Forms.Label();
-            this.lgnStripResult = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.lgnStripResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(-1, 5);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -57,18 +57,21 @@ namespace WorkTrackerAPP
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
             this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
-            this.splitContainer1.Size = new System.Drawing.Size(1065, 521);
-            this.splitContainer1.SplitterDistance = 353;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(713, 344);
+            this.splitContainer1.SplitterDistance = 229;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 38;
             // 
             // btnDescanso
             // 
-            this.btnDescanso.Location = new System.Drawing.Point(46, 221);
-            this.btnDescanso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDescanso.Location = new System.Drawing.Point(31, 177);
+            this.btnDescanso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDescanso.Name = "btnDescanso";
-            this.btnDescanso.Size = new System.Drawing.Size(117, 32);
+            this.btnDescanso.Size = new System.Drawing.Size(161, 46);
             this.btnDescanso.TabIndex = 40;
             this.btnDescanso.Text = "Descanso";
             this.btnDescanso.UseVisualStyleBackColor = true;
@@ -76,10 +79,10 @@ namespace WorkTrackerAPP
             // 
             // btnComida
             // 
-            this.btnComida.Location = new System.Drawing.Point(46, 172);
-            this.btnComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnComida.Location = new System.Drawing.Point(31, 112);
+            this.btnComida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComida.Name = "btnComida";
-            this.btnComida.Size = new System.Drawing.Size(117, 32);
+            this.btnComida.Size = new System.Drawing.Size(161, 49);
             this.btnComida.TabIndex = 39;
             this.btnComida.Text = "Comida";
             this.btnComida.UseVisualStyleBackColor = true;
@@ -87,10 +90,10 @@ namespace WorkTrackerAPP
             // 
             // btnJornada
             // 
-            this.btnJornada.Location = new System.Drawing.Point(46, 123);
-            this.btnJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnJornada.Location = new System.Drawing.Point(31, 54);
+            this.btnJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(117, 32);
+            this.btnJornada.Size = new System.Drawing.Size(161, 47);
             this.btnJornada.TabIndex = 38;
             this.btnJornada.Text = "Entrada";
             this.btnJornada.UseVisualStyleBackColor = true;
@@ -99,9 +102,10 @@ namespace WorkTrackerAPP
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(125, 156);
+            this.lblHistorico.Location = new System.Drawing.Point(57, 63);
+            this.lblHistorico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHistorico.Name = "lblHistorico";
-            this.lblHistorico.Size = new System.Drawing.Size(113, 20);
+            this.lblHistorico.Size = new System.Drawing.Size(78, 13);
             this.lblHistorico.TabIndex = 1;
             this.lblHistorico.Text = "No hay Fichaje";
             // 
@@ -109,40 +113,20 @@ namespace WorkTrackerAPP
             // 
             this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(121, 80);
+            this.lblResumen.Location = new System.Drawing.Point(57, 28);
+            this.lblResumen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(71, 20);
+            this.lblResumen.Size = new System.Drawing.Size(118, 13);
             this.lblResumen.TabIndex = 0;
-            this.lblResumen.Text = "Histórico";
-            // 
-            // lgnStripResult
-            // 
-            this.lgnStripResult.BackColor = System.Drawing.Color.Silver;
-            this.lgnStripResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.lgnStripResult.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lgnStripResult.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 491);
-            this.lgnStripResult.Name = "lgnStripResult";
-            this.lgnStripResult.Size = new System.Drawing.Size(1070, 38);
-            this.lgnStripResult.TabIndex = 40;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(218, 31);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.lblResumen.Text = "Resumen de la semana";
             // 
             // Fichar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 529);
-            this.Controls.Add(this.lgnStripResult);
+            this.ClientSize = new System.Drawing.Size(713, 344);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);
@@ -151,10 +135,7 @@ namespace WorkTrackerAPP
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.lgnStripResult.ResumeLayout(false);
-            this.lgnStripResult.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -166,7 +147,5 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Button btnJornada;
         private System.Windows.Forms.Label lblResumen;
         private System.Windows.Forms.Label lblHistorico;
-        private System.Windows.Forms.StatusStrip lgnStripResult;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

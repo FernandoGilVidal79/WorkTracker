@@ -10,8 +10,11 @@ namespace WorkTrackerAPP
     {
 
         private bool edicion = false;
-        public CreacionUsuarios()
+        private readonly IForm _form;
+
+        public CreacionUsuarios (IForm form)
         {
+            _form = form;
             InitializeComponent();
         }
 
@@ -19,11 +22,7 @@ namespace WorkTrackerAPP
         {
             ActivarCampos(false);
             CargarTipoUsuarios();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
+            ActivarBotones(true);
         }
 
         private void ActivarCampos(bool status)
@@ -37,6 +36,16 @@ namespace WorkTrackerAPP
             txtEmail.Enabled            = status;
             txtTelefono.Enabled         = status;
             txtNumVacaciones.Enabled    = status;
+            cmbStatus.Enabled           = status;
+            cmbTipoUsuario.Enabled      = status;
+        }
+
+        private void ActivarBotones(bool status)
+        {
+            btnAnular.Enabled = !status;
+            btnGuardar.Enabled = !status;
+            btnConsultar.Enabled = status;      
+            btnNuevo.Enabled = status;
         }
         
         private void LimpiarCampos()
@@ -86,18 +95,21 @@ namespace WorkTrackerAPP
                     this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
                     this.txtDepartamento.Text  = user.Phone.ToString();
                     SetStatusCombo((bool)user.Status);
+                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
                     edicion = true;
                     ActivarCampos(true);
+                    ActivarBotones(false);
                 }
                 else
                 {
-                    this.toolStripStatusLabel1.Text = "Usuario no encontrado";
+                    _form.EnviarEstado("Usuario no encontrado");
                 }
             }
             else
             {
-                this.toolStripStatusLabel1.Text = "Introduzca un número de empleado";
+                _form.EnviarEstado("Falta el Id Usuario");
             }
+
         }
 
         private void SetStatusCombo(bool value)
@@ -106,7 +118,6 @@ namespace WorkTrackerAPP
             {
                 cmbStatus.SelectedItem = "Y";
             }
-
             else
             {
                 cmbStatus.SelectedItem = "N";
@@ -128,57 +139,72 @@ namespace WorkTrackerAPP
             return false;
             //throw new Exception("No se ha seleccionado un valor");
         }
-
-        
-
+      
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             ComboStatusValor();
             try
             {
-                var user = new Users();
-                
-               
-                user.Department = txtDepartamento.Text;
-                user.UserTypeId = (int?)cmbTipoUsuario.SelectedValue;
-                user.UserName   = txtNombre.Text;
-                user.SurName1   = txtApellido1.Text;
-                user.SurName2   = txtApellido2.Text;
-                user.Status     = ComboStatusValor();
-                user.Phone      = Int32.Parse(txtTelefono.Text);
-                user.NHollidays = Int32.Parse(txtNumVacaciones.Text);
-                user.Email      = txtEmail.Text;
-                user.Password   = txtContrasena.Text;
+                var user = new Users
+                {
+                    Department = txtDepartamento.Text,
+                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
+                    UserName = txtNombre.Text,
+                    SurName1 = txtApellido1.Text,
+                    SurName2 = txtApellido2.Text,
+                    Status = ComboStatusValor(),
+                    Phone = Int32.Parse(txtTelefono.Text),
+                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
+                    Email = txtEmail.Text,
+                    Password = txtContrasena.Text
+                };
 
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 if (edicion)
                 {
                     user.IdUser = Int32.Parse(txtNumEmpleado.Text);
                     apiclient.ApiUserUpdateUserPost(user);
+                    _form.MensajeBox("Usuario modificado correctamente");
                 }
                 else
                 {
                     apiclient.ApiUserCreateUserPut(user);
+                    LimpiarCampos();
+                    _form.MensajeBox("Usuario Creado correctamente");
+
+
                 }
+
+                _form.EnviarEstado("Guardado correctamente");
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error creando el usuario"+ex;
+                _form.EnviarEstado("Error al guardar el usuario");
             }
-         }
+        }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             ActivarCampos(true);
+            ActivarBotones(false);
             LimpiarCampos();
             edicion = false;
-
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnAnular_Click(object sender, EventArgs e)
         {
+            LimpiarCampos();
+            ActivarCampos(false);
+            ActivarBotones(true);
+            edicion = false;
+        }
 
+        private void ValidationNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

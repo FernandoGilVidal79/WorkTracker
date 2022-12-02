@@ -5,7 +5,7 @@ WorkTracker v1
 WorkTracker API
 
 OpenAPI spec version: v1
-
+Contact: desarrollo@worktracker.com
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>

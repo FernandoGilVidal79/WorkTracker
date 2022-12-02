@@ -29,7 +29,7 @@ namespace WorkTrackerAPP
          */
         public static void MensajeBienvenida(Label lblBienvenida)
         {
-            var hora = DateTime.Now.ToString("HH");
+            var hora = DateTime.UtcNow.ToString("HH");
             var mensaje = "";
             if (int.Parse(hora) >= 5 && int.Parse(hora) < 12)
             {
@@ -39,7 +39,7 @@ namespace WorkTrackerAPP
             {
                 mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
             }
-            if (int.Parse(hora) >= 21 && int.Parse(hora) < 5)
+            if (int.Parse(hora) >= 21 || int.Parse(hora) < 5)
             {
                 mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
             }
@@ -47,8 +47,8 @@ namespace WorkTrackerAPP
         }
         public static void MostrarHora(Label hora, Label fecha)
         {
-            hora.Text = DateTime.Now.ToString("HH:mm:ss tt");
-            fecha.Text = DateTime.Now.ToString("D");
+            hora.Text = DateTime.UtcNow.ToString("HH:mm:ss tt");
+            fecha.Text = DateTime.UtcNow.ToString("D");
         }
     }
 }

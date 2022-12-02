@@ -39,11 +39,13 @@ namespace WorkTrackerAPP
             this.btnGrabar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pnlListadoAusencias = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbTipoAusencia
             // 
+            this.cmbTipoAusencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAusencia.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoAusencia.FormattingEnabled = true;
             this.cmbTipoAusencia.Location = new System.Drawing.Point(99, 166);
@@ -77,6 +79,7 @@ namespace WorkTrackerAPP
             this.tbxDesde.Location = new System.Drawing.Point(245, 166);
             this.tbxDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxDesde.Name = "tbxDesde";
+            this.tbxDesde.ReadOnly = true;
             this.tbxDesde.Size = new System.Drawing.Size(100, 25);
             this.tbxDesde.TabIndex = 84;
             // 
@@ -86,6 +89,7 @@ namespace WorkTrackerAPP
             this.tbxHasta.Location = new System.Drawing.Point(375, 166);
             this.tbxHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxHasta.Name = "tbxHasta";
+            this.tbxHasta.ReadOnly = true;
             this.tbxHasta.Size = new System.Drawing.Size(100, 25);
             this.tbxHasta.TabIndex = 85;
             // 
@@ -127,22 +131,31 @@ namespace WorkTrackerAPP
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 399);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 401);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(949, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1086, 22);
             this.statusStrip1.TabIndex = 90;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 18);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
+            // 
+            // pnlListadoAusencias
+            // 
+            this.pnlListadoAusencias.Location = new System.Drawing.Point(777, 39);
+            this.pnlListadoAusencias.Name = "pnlListadoAusencias";
+            this.pnlListadoAusencias.Size = new System.Drawing.Size(309, 384);
+            this.pnlListadoAusencias.TabIndex = 91;
+            this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // SolicitudAusencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 423);
+            this.ClientSize = new System.Drawing.Size(1086, 423);
+            this.Controls.Add(this.pnlListadoAusencias);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.label3);
@@ -174,5 +187,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Panel pnlListadoAusencias;
     }
 }

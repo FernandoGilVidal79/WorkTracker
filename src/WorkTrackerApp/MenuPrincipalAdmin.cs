@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -39,6 +32,23 @@ namespace WorkTrackerAPP
 
         private void MenuPrincipalAdmin_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void pnlInformes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?", "", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    this.Close();
+                    this.Dispose();
+
+                }
 
         }
     }

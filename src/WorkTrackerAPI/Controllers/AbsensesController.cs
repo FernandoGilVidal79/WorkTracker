@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -8,8 +7,6 @@ using System.Collections.Generic;
 using System.Net;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WorkTrackerAPI.Controllers
 {
@@ -41,10 +38,54 @@ namespace WorkTrackerAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
-
             return listAbsenses;
+        }
 
+        [HttpGet("ValidateAbsensesById/{id}")]
+        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
+        public Absenses ValidateAbsensesById(int id)
+        {
+            try
+            {
+                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                if (absense != null) 
+                { 
+                    absense.Aproved = true;
+                    absense.Denied  = false;
+                    SimpleCRUD.Update<Absenses>(db, absense);
+                    _logger.LogInfo($"-- Valida la ausencia {id}");
+                }
+                return absense; 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }       
+        }
+
+        [HttpGet("DenegateAbsensesById/{id}")]
+        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
+        public Absenses DenegateAbsensesById(int id)
+        {
+            try
+            {
+                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                if (absense != null)
+                {
+                    absense.Aproved = false;
+                    absense.Denied  = true;
+                    SimpleCRUD.Update<Absenses>(db, absense);
+                }
+                return absense;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
         [HttpGet("GetAbsensesTypes")]
@@ -60,36 +101,27 @@ namespace WorkTrackerAPI.Controllers
         [HttpPost]
         public void Post([FromBody] Absenses value)
         {
-
             var absenses = SimpleCRUD.Get<Absenses>(db, value.IdAbsenses);
-            absenses.Status = value.Status;
+            absenses.Aproved = value.Aproved;
+            absenses.Denied = value.Denied;
             absenses.StartDate = value.StartDate;
             absenses.AbsensesTypeId = value.AbsensesTypeId;
             absenses.FinishDate = value.FinishDate;
-            SimpleCRUD.Update(db, absenses);
-                
-
+            SimpleCRUD.Update(db, absenses);         
         }
 
-        // PUT api/<AbsensesController>/5
         [HttpPut("CreateAbsense")]
-        public void Put( [FromBody] Absenses absense)
+        public void Put([FromBody] Absenses absense)
         {
             try
             {
-
                 SimpleCRUD.Insert(db, absense);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
             }
-        }
-
-        // DELETE api/<AbsensesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

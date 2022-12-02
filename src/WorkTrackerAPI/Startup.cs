@@ -20,7 +20,6 @@ namespace WorkTrackerAPI
         }   
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {    
@@ -69,7 +68,7 @@ namespace WorkTrackerAPI
                     Contact = new OpenApiContact
                     {
                         Name = "WorkTracker S.L",
-                        Email = string.Empty,
+                        Email = "desarrollo@worktracker.com",
                         Url = new Uri("http://worktracker-001-site1.atempurl.com/"),
                     }
                 });

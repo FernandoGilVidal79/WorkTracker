@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lgnStripResult = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -38,6 +39,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.lgnStripResult.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -52,9 +54,10 @@
             this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 658);
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 814);
             this.lgnStripResult.Name = "lgnStripResult";
-            this.lgnStripResult.Size = new System.Drawing.Size(989, 25);
+            this.lgnStripResult.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.lgnStripResult.Size = new System.Drawing.Size(1319, 25);
             this.lgnStripResult.TabIndex = 38;
             this.lgnStripResult.Visible = false;
             // 
@@ -76,9 +79,9 @@
             this.pnlLogin.Controls.Add(this.pcBoxLogo);
             this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLogin.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(989, 682);
+            this.pnlLogin.Size = new System.Drawing.Size(1319, 839);
             this.pnlLogin.TabIndex = 39;
             this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
             // 
@@ -91,12 +94,12 @@
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(353, 503);
-            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnIniciarSesion.MaximumSize = new System.Drawing.Size(306, 49);
-            this.btnIniciarSesion.MinimumSize = new System.Drawing.Size(306, 49);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(471, 619);
+            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnIniciarSesion.MaximumSize = new System.Drawing.Size(408, 60);
+            this.btnIniciarSesion.MinimumSize = new System.Drawing.Size(408, 60);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(306, 49);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(408, 60);
             this.btnIniciarSesion.TabIndex = 11;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -109,13 +112,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContrasena.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(353, 417);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtContrasena.MaximumSize = new System.Drawing.Size(306, 39);
+            this.txtContrasena.Location = new System.Drawing.Point(471, 513);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtContrasena.MaximumSize = new System.Drawing.Size(407, 39);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(306, 28);
+            this.txtContrasena.Size = new System.Drawing.Size(407, 28);
             this.txtContrasena.TabIndex = 10;
+            this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateEnterPress);
             // 
             // label2
             // 
@@ -124,8 +128,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(454, 381);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(605, 469);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 9;
@@ -138,11 +142,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsuario.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(353, 309);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtUsuario.MaximumSize = new System.Drawing.Size(306, 39);
+            this.txtUsuario.Location = new System.Drawing.Point(471, 380);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtUsuario.MaximumSize = new System.Drawing.Size(407, 39);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(306, 28);
+            this.txtUsuario.Size = new System.Drawing.Size(407, 28);
             this.txtUsuario.TabIndex = 8;
             // 
             // label1
@@ -152,7 +156,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(465, 271);
+            this.label1.Location = new System.Drawing.Point(620, 334);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 7;
@@ -164,27 +169,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcBoxLogo.Image = global::WorkTrackerAPP.Properties.Resources.Logo;
-            this.pcBoxLogo.Location = new System.Drawing.Point(395, 8);
-            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(215, 205);
+            this.pcBoxLogo.Location = new System.Drawing.Point(527, 10);
+            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(287, 252);
             this.pcBoxLogo.Name = "pcBoxLogo";
-            this.pcBoxLogo.Size = new System.Drawing.Size(215, 205);
+            this.pcBoxLogo.Size = new System.Drawing.Size(287, 252);
             this.pcBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcBoxLogo.TabIndex = 6;
             this.pcBoxLogo.TabStop = false;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(989, 682);
+            this.ClientSize = new System.Drawing.Size(1319, 839);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.lgnStripResult);
             this.ForeColor = System.Drawing.Color.DarkRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Work Tracker";
             this.lgnStripResult.ResumeLayout(false);
@@ -207,6 +218,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pcBoxLogo;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

@@ -17,7 +17,6 @@ namespace WorkTrackerAPP
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
-            Console.WriteLine(UserSession.User);
             Helper.MensajeBienvenida(lblBienvenida);
         }
         private void FicharToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,6 +60,36 @@ namespace WorkTrackerAPP
             pnlFichar.Controls.Add(FrmSituacion);
             pnlFichar.Tag = FrmSituacion;
             FrmSituacion.Show();
+        }
+
+        private void pnlFichar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?","", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                this.Close();
+                this.Dispose();
+
+            }
+            
+            
+        }
+
+        private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlFichar.Controls.Clear();
+            Calendario FrmCalendario = new Calendario();
+            FrmCalendario.TopLevel = false;
+            FrmCalendario.FormBorderStyle = FormBorderStyle.None;
+            FrmCalendario.Dock = DockStyle.Fill;
+            pnlFichar.Controls.Add(FrmCalendario);
+            pnlFichar.Tag = FrmCalendario;
+            FrmCalendario.Show();
         }
     }
 }

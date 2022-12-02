@@ -3,16 +3,28 @@ using IO.Swagger.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
     public partial class AprobacionSolicitudes : Form
     {
+
+        private static List<AbsenseType> absensesType;
         public AprobacionSolicitudes()
         {
             InitializeComponent();
         }
+
+
+        private readonly IForm _form;
+        public AprobacionSolicitudes(IForm formPadre)
+        {
+            InitializeComponent();
+            _form = formPadre;
+        }
+
 
         private void AprobacionSolicitudes_Combo_Load(object sender, EventArgs e)
         {
@@ -26,13 +38,18 @@ namespace WorkTrackerAPP
             cmbUsuarios.DisplayMember = "UserName";
             cmbUsuarios.ValueMember = "IdUser";
             cmbUsuarios.DataSource = absensesTypes;
+        }
 
-
+        private void CargarTiposAusencias()
+        {
+            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            absensesType = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
             CargarComboUsuarios();
+            CargarTiposAusencias();
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,61 +58,73 @@ namespace WorkTrackerAPP
             if (Combo.SelectedIndex > -1)
             {
                 var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet((int)Combo.SelectedValue);
+                var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet((int)Combo.SelectedValue);              
+                CargarDatosGrid(absenses);
 
+                var apiUser = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                var user = apiUser.ApiUserGetUserByIdIdGet(Combo.SelectedValue.ToString());
 
-                //dataGridView1.AutoGenerateColumns = true;
-                CargarCombo(absenses);
-                //dataGridView1.DataSource = absensesTypes;
+                if (user != null)
+                {
+                    lblUsuario.Text = user.First().UserName + " " + user.First().SurName1;
+                }
             }
          
         }
 
-        private void CargarCombo(List<Absenses> absenses)
+        private void CargarDatosGrid(List<Absenses> absenses)
         {
 
             dataGridView1.Columns.Clear();
           
             var dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id", typeof(string)));
+            dt.Columns.Add(new DataColumn("Tipo", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(string)));
             dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
+            dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
+            dt.Columns.Add(new DataColumn("Denegar", typeof(bool)));
             //dt.Columns.Add(new DataColumn("Uninstall", typeof(System.Windows.Forms.Button)));
 
             foreach (var absense in absenses)
             {
                 DataRow dr = dt.NewRow();
+
                 dr[0] = absense.IdAbsenses;
-                dr[1] = absense.StartDate;
-                dr[2] = absense.FinishDate;
+                dr[1] = absensesType.First(x => x.IdAbsenseType == absense.AbsensesTypeId).Description;
+                dr[2] = absense.StartDate;
+                dr[3] = absense.FinishDate;
+                dr[4] = absense.Aproved;
+                dr[5] = absense.Denied;
                 dt.Rows.Add(dr);
             }
             
             dataGridView1.DataSource = dt;
-            DataGridViewCheckBoxColumn uninstallButtonColumn = new DataGridViewCheckBoxColumn();
-            uninstallButtonColumn.Name = "Validar";
-            uninstallButtonColumn.HeaderText = "Validar";
-        
+ 
+       
             
-            int columnIndex = dt.Columns.Count ;
-            if (dataGridView1.Columns["uninstall_column"] == null)
-            {
-                dataGridView1.Columns.Insert(columnIndex, uninstallButtonColumn);
-            }
+            //int columnIndex = dt.Columns.Count ;
+            //if (dataGridView1.Columns["uninstall_column"] == null)
+            //{
+            //    var i = dataGridView1.Columns["uninstall_column"];
+         
+            //}
 
             dataGridView1.Columns[0].Visible = false;
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
+   
             foreach ( DataGridViewRow data in dataGridView1.Rows)
-            {
+            {   
                 var cell = data.Cells[3];
-
                 if (cell.Value != null && (bool)cell.Value == true)
                 {
-                    int id = Int32.Parse((string)data.Cells[0].Value);
+                    int id = int.Parse((string)data.Cells[0].Value);
+                    var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                    var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
                 }
             }
         }

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using IO.Swagger.Api;
+﻿using IO.Swagger.Api;
 using IO.Swagger.Model;
+using System;
+using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
@@ -75,27 +68,50 @@ namespace WorkTrackerAPP
         {
             try
             {
+                DateTime desde= DateTime.Parse(tbxDesde.Text);
+                DateTime hasta= DateTime.Parse(tbxHasta.Text);
                 var absenses = new Absenses();
-                
-                absenses.StartDate = DateTime.Parse(tbxDesde.Text);
-                absenses.FinishDate = DateTime.Parse(tbxHasta.Text);
-                absenses.Status = false;
+
+                absenses.StartDate = desde;
+                absenses.FinishDate = hasta;
+                absenses.Aproved = false;
+                absenses.Denied = false;
                 absenses.UserId = UserSession.User.IdUser;
-                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue; 
+                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
 
-                var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
-                toolStripStatusLabel1.Text = "Ausencia grabada";
+                if (desde > hasta)
+                {
+                    MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
+                }
+                else
+                {
+                    var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                    apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                    MessageBox.Show("Ausencia grabada");
+                    toolStripStatusLabel1.Text = "Ausencia grabada";
 
-                cmbTipoAusencia.SelectedItem = null;
-                tbxDesde.Text = "";
-                tbxHasta.Text = "";
-                
+                    cmbTipoAusencia.SelectedItem = null;
+                    tbxDesde.Text = "";
+                    tbxHasta.Text = "";
+                    
+                }
             }
             catch (Exception ex)
             {
-                toolStripStatusLabel1.Text = "Error al guardar la ausencia" + ex;
+                MessageBox.Show("Error al guardar, revise los datos");
+                toolStripStatusLabel1.Text = "Error al guardar la ausencia";
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+            FrmListaAusencia.TopLevel = false;
+            FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+            FrmListaAusencia.Dock = DockStyle.Fill;
+            pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+            pnlListadoAusencias.Tag = FrmListaAusencia;
+            FrmListaAusencia.Show();
         }
     }
 }

@@ -1,15 +1,11 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using WorkTrackerAPI.Infrastructure;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WorkTrackerAPI.Controllers
 {
@@ -28,6 +24,7 @@ namespace WorkTrackerAPI.Controllers
             db = new MySqlConnection(connection);
             
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
+            
         }
 
         // GET: api/<ClockInController>
@@ -46,12 +43,31 @@ namespace WorkTrackerAPI.Controllers
             List<Clockin> listClockIn = null;
             try
             {
-                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > CURDATE() ");
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and  DATE_ADD( StartHour, INTERVAL -5 DAY )  < CURDATE() ");
             }
 
             catch(Exception ex)
             {
                 _logger.LogError(ex.Message);
+                throw;
+            }
+            return listClockIn;
+        }
+
+        // GET api/<ClockInController>/5
+        [HttpGet("GetClockInsTodayByUserId/{id}")]
+        public IEnumerable<Clockin> GetClockInsTodayByUserId(int id)
+        {
+            List<Clockin> listClockIn = null;
+            try
+            {
+                listClockIn = (List<Clockin>)SimpleCRUD.GetList<Clockin>(db, $"where userid = {id} and StartHour > DATE_ADD(NOW(), INTERVAL 9 HOUR) ");
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
             }
             return listClockIn;
         }
@@ -63,11 +79,34 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 SimpleCRUD.Insert(db, clockin);
+                _logger.LogInfo($"Usuario {clockin.UserId} ha fichado {clockin.idClockIn} , Fichaje: {clockin.ClockinTypeId}" );
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex.Message); 
+                _logger.LogError(ex.Message);
+                throw;
             }
-        }      
+        }
+
+        [HttpPost("UpdateClockIn")]
+        [SwaggerOperation("UpdateClockIn")]
+        public void UpdateClockIn([FromBody] Clockin clockin)
+        {
+            try
+            {
+                var clockinUpdated = SimpleCRUD.Get<Clockin>(db, clockin.idClockIn);
+                clockinUpdated.StartHour = clockin.StartHour;
+                clockinUpdated.FinishHour = clockin.FinishHour;
+                clockinUpdated.Date = clockin.Date;
+                SimpleCRUD.Update(db, clockin);
+               
+                _logger.LogInfo($"Usuario {clockin.UserId} ha actualizado el fichaje {clockin.idClockIn}, Fichaje: {clockin.ClockinTypeId} ");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
     }
 }

@@ -71,12 +71,20 @@
     <Compile Include="AprobacionSolicitudes.Designer.cs">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ausencia.cs" />
+    <Compile Include="Calendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendario.Designer.cs">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreacionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreacionUsuarios.Designer.cs">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Encriptado.cs" />
     <Compile Include="Fichar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +92,19 @@
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="IForm.cs" />
+    <Compile Include="ListadoAusencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoAusencias.Designer.cs">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +131,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetLogin.Designer.cs">
+      <DependentUpon>ResetLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Situacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +153,20 @@
     <EmbeddedResource Include="AprobacionSolicitudes.resx">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calendario.resx">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreacionUsuarios.resx">
       <DependentUpon>CreacionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fichar.resx">
       <DependentUpon>Fichar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoAusencias.resx">
+      <DependentUpon>ListadoAusencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalAdmin.resx">
       <DependentUpon>MenuPrincipalAdmin.cs</DependentUpon>
@@ -154,6 +190,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResetLogin.resx">
+      <DependentUpon>ResetLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Situacion.resx">
       <DependentUpon>Situacion.cs</DependentUpon>
     </EmbeddedResource>
