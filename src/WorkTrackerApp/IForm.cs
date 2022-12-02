@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace WorkTrackerAPP
 {
     public interface IForm
-    {
-
-        void MensajeBox(string texto);
+    {       
 
         void EnviarEstado(string estado);
     }

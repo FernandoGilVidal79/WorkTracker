@@ -216,10 +216,10 @@ namespace WorkTrackerAPP
 
         }
 
-        private TextBox GetTxbAnio()
-        {
-            return txbAnio;
-        }
+        //private TextBox GetTxbAnio()
+        //{
+        //    return txbAnio.Value;
+        //}
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -257,6 +257,15 @@ namespace WorkTrackerAPP
 
         private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
         {
+            for (int i = 0; i < datagridView.Rows.Count; i++)
+            {
+                for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
+                {
+                    datagridView.Rows[i].Cells[j].Style.BackColor = Color.White;             
+                }
+            }
+
+
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
                 for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
