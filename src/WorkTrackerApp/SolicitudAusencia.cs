@@ -34,16 +34,16 @@ namespace WorkTrackerAPP
             {
                 if (tbxDesde.Text.Length == 0)
                 {
-                    tbxDesde.Text = mCalendar.SelectionStart.ToString();
+                    tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
                 }
                 else if (tbxHasta.Text.Length != 0)
                 {
-                    tbxDesde.Text = mCalendar.SelectionStart.ToString();
+                    tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
                     tbxHasta.Clear();
                 }
                 else
                 {
-                    tbxHasta.Text = mCalendar.SelectionEnd.ToString();
+                    tbxHasta.Text = mCalendar.SelectionEnd.ToShortDateString();
                 }
 
             }

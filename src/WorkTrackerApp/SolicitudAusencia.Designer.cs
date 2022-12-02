@@ -79,7 +79,6 @@ namespace WorkTrackerAPP
             this.tbxDesde.Location = new System.Drawing.Point(245, 166);
             this.tbxDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.ReadOnly = true;
             this.tbxDesde.Size = new System.Drawing.Size(100, 25);
             this.tbxDesde.TabIndex = 84;
             // 
@@ -89,7 +88,6 @@ namespace WorkTrackerAPP
             this.tbxHasta.Location = new System.Drawing.Point(375, 166);
             this.tbxHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxHasta.Name = "tbxHasta";
-            this.tbxHasta.ReadOnly = true;
             this.tbxHasta.Size = new System.Drawing.Size(100, 25);
             this.tbxHasta.TabIndex = 85;
             // 

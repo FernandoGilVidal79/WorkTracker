@@ -150,6 +150,7 @@
       <DependentUpon>SolicitudAusencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\UserSession.cs" />
+    <Compile Include="Validar.cs" />
     <EmbeddedResource Include="AprobacionSolicitudes.resx">
       <DependentUpon>AprobacionSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
