@@ -91,7 +91,7 @@ namespace WorkTrackerAPP
                 DataRow dr = dt.NewRow();
 
                 dr[0] = absense.IdAbsenses;
-                dr[1] = absensesType.First(x => x.IdAbsenseType == absense.AbsensesTypeId);
+                dr[1] = absensesType.First(x => x.IdAbsenseType == absense.AbsensesTypeId).Description;
                 dr[2] = absense.StartDate;
                 dr[3] = absense.FinishDate;
                 dr[4] = absense.Aproved;
