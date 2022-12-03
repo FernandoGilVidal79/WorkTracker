@@ -266,7 +266,7 @@ namespace WorkTrackerAPP
                 }
             }
            */
-            for 
+            
 
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
