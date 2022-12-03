@@ -91,6 +91,24 @@
     <Compile Include="Fichar.Designer.cs">
       <DependentUpon>Fichar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BtnCancelar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\BtnCancelar.Designer.cs">
+      <DependentUpon>BtnCancelar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BtnGrabar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\BtnGrabar.Designer.cs">
+      <DependentUpon>BtnGrabar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Component1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Component1.Designer.cs">
+      <DependentUpon>Component1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="IForm.cs" />
     <Compile Include="ListadoAusencias.cs">
@@ -162,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fichar.resx">
       <DependentUpon>Fichar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\BtnGrabar.resx">
+      <DependentUpon>BtnGrabar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoAusencias.resx">
       <DependentUpon>ListadoAusencias.cs</DependentUpon>
