@@ -142,9 +142,9 @@ namespace WorkTrackerAPP
             // 
             // pnlListadoAusencias
             // 
-            this.pnlListadoAusencias.Location = new System.Drawing.Point(777, 39);
+            this.pnlListadoAusencias.Location = new System.Drawing.Point(764, 39);
             this.pnlListadoAusencias.Name = "pnlListadoAusencias";
-            this.pnlListadoAusencias.Size = new System.Drawing.Size(309, 384);
+            this.pnlListadoAusencias.Size = new System.Drawing.Size(322, 384);
             this.pnlListadoAusencias.TabIndex = 91;
             this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 

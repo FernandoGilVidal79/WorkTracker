@@ -77,24 +77,45 @@ namespace WorkTrackerAPP
                 absenses.Aproved = false;
                 absenses.Denied = false;
                 absenses.UserId = UserSession.User.IdUser;
-                absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
-
-                if (desde > hasta)
+                if (cmbTipoAusencia.SelectedValue != null)
                 {
-                    MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
+                    absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
+                    if (desde > hasta)
+                    {
+                        MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
+                    }
+                    else
+                    {
+                        var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                        MessageBox.Show("Ausencia grabada");
+                        toolStripStatusLabel1.Text = "Ausencia grabada";
+
+                        cmbTipoAusencia.SelectedItem = null;
+                        tbxDesde.Text = "";
+                        tbxHasta.Text = "";
+
+                        pnlListadoAusencias.Controls.Clear();
+                        ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+                        FrmListaAusencia.TopLevel = false;
+                        FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+                        FrmListaAusencia.Dock = DockStyle.Fill;
+                        pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+                        pnlListadoAusencias.Tag = FrmListaAusencia;
+                        FrmListaAusencia.Show();
+
+                    }
                 }
-                else
+                else            
+               
                 {
-                    var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                    apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
-                    MessageBox.Show("Ausencia grabada");
-                    toolStripStatusLabel1.Text = "Ausencia grabada";
-
-                    cmbTipoAusencia.SelectedItem = null;
-                    tbxDesde.Text = "";
-                    tbxHasta.Text = "";
+                    MessageBox.Show("Introduzca el tipo de ausencia");
+                    tbxDesde.Clear();
+                    tbxHasta.Clear();
                     
                 }
+
+                
             }
             catch (Exception ex)
             {

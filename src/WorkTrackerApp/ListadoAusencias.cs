@@ -53,7 +53,7 @@ namespace WorkTrackerAPP
             var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
 
             int y;
-            y = 50;
+            y = 25;
                        
             try
             {
