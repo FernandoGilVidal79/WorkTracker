@@ -134,5 +134,72 @@ namespace WorkTrackerAPP
             pnlListadoAusencias.Tag = FrmListaAusencia;
             FrmListaAusencia.Show();
         }
+
+        private void btnGrabar1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime desde = DateTime.Parse(tbxDesde.Text);
+                DateTime hasta = DateTime.Parse(tbxHasta.Text);
+                var absenses = new Absenses();
+
+                absenses.StartDate = desde;
+                absenses.FinishDate = hasta;
+                absenses.Aproved = false;
+                absenses.Denied = false;
+                absenses.UserId = UserSession.User.IdUser;
+                if (cmbTipoAusencia.SelectedValue != null)
+                {
+                    absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
+                    if (desde > hasta)
+                    {
+                        MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
+                    }
+                    else
+                    {
+                        var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                        MessageBox.Show("Ausencia grabada");
+                        toolStripStatusLabel1.Text = "Ausencia grabada";
+
+                        cmbTipoAusencia.SelectedItem = null;
+                        tbxDesde.Text = "";
+                        tbxHasta.Text = "";
+
+                        pnlListadoAusencias.Controls.Clear();
+                        ListadoAusencias FrmListaAusencia = new ListadoAusencias();
+                        FrmListaAusencia.TopLevel = false;
+                        FrmListaAusencia.FormBorderStyle = FormBorderStyle.None;
+                        FrmListaAusencia.Dock = DockStyle.Fill;
+                        pnlListadoAusencias.Controls.Add(FrmListaAusencia);
+                        pnlListadoAusencias.Tag = FrmListaAusencia;
+                        FrmListaAusencia.Show();
+
+                    }
+                }
+                else
+
+                {
+                    MessageBox.Show("Introduzca el tipo de ausencia");
+                    tbxDesde.Clear();
+                    tbxHasta.Clear();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar, revise los datos");
+                toolStripStatusLabel1.Text = "Error al guardar la ausencia";
+            }
+        }
+
+        private void btnCancelar1_Click(object sender, EventArgs e)
+        {
+            cmbTipoAusencia.SelectedIndex = -1;
+            tbxDesde.Clear();
+            tbxHasta.Clear();
+        }
     }
 }

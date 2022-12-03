@@ -36,10 +36,11 @@ namespace WorkTrackerAPP
             this.tbxHasta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnGrabar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlListadoAusencias = new System.Windows.Forms.Panel();
+            this.btnCancelar1 = new WorkTrackerAPP.Helpers.BtnCancelar();
+            this.btnGrabar1 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,19 +112,6 @@ namespace WorkTrackerAPP
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
             // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnGrabar.Location = new System.Drawing.Point(364, 302);
-            this.btnGrabar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(100, 43);
-            this.btnGrabar.TabIndex = 88;
-            this.btnGrabar.Text = "GRABAR";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -148,14 +136,45 @@ namespace WorkTrackerAPP
             this.pnlListadoAusencias.TabIndex = 91;
             this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnCancelar1
+            // 
+            this.btnCancelar1.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar1.FlatAppearance.BorderSize = 0;
+            this.btnCancelar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar1.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar1.Location = new System.Drawing.Point(99, 12);
+            this.btnCancelar1.Name = "btnCancelar1";
+            this.btnCancelar1.Size = new System.Drawing.Size(100, 35);
+            this.btnCancelar1.TabIndex = 93;
+            this.btnCancelar1.Text = "CANCELAR";
+            this.btnCancelar1.UseVisualStyleBackColor = false;
+            this.btnCancelar1.Click += new System.EventHandler(this.btnCancelar1_Click);
+            // 
+            // btnGrabar1
+            // 
+            this.btnGrabar1.BackColor = System.Drawing.Color.Green;
+            this.btnGrabar1.FlatAppearance.BorderSize = 0;
+            this.btnGrabar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar1.ForeColor = System.Drawing.Color.Black;
+            this.btnGrabar1.Location = new System.Drawing.Point(13, 13);
+            this.btnGrabar1.Name = "btnGrabar1";
+            this.btnGrabar1.Size = new System.Drawing.Size(75, 35);
+            this.btnGrabar1.TabIndex = 92;
+            this.btnGrabar1.Text = "GRABAR";
+            this.btnGrabar1.UseVisualStyleBackColor = false;
+            this.btnGrabar1.Click += new System.EventHandler(this.btnGrabar1_Click);
+            // 
             // SolicitudAusencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 423);
+            this.Controls.Add(this.btnCancelar1);
+            this.Controls.Add(this.btnGrabar1);
             this.Controls.Add(this.pnlListadoAusencias);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxHasta);
@@ -182,9 +201,10 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.TextBox tbxHasta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel pnlListadoAusencias;
+        private Helpers.BtnGrabar btnGrabar1;
+        private Helpers.BtnCancelar btnCancelar1;
     }
 }
