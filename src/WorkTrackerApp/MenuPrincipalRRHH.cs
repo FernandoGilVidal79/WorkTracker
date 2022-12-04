@@ -106,6 +106,12 @@ namespace WorkTrackerAPP
             this.toolStripMenuPrincipalStatus.Text = estado;
         }
 
+        int IForm.EnviarValue(int value)
+        {
+            this.toolStripProgressBar1.Value = value;
+            return this.toolStripProgressBar1.Value;
+        }
+
         private void pnlFichar_Paint(object sender, PaintEventArgs e)
         {
 
@@ -114,7 +120,7 @@ namespace WorkTrackerAPP
         private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
-            Calendario FrmCalendario = new Calendario();
+            Calendario FrmCalendario = new Calendario(this);
             FrmCalendario.TopLevel = false;
             FrmCalendario.FormBorderStyle = FormBorderStyle.None;
             FrmCalendario.Dock = DockStyle.Fill;

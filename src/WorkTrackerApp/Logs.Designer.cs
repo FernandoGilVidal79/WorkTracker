@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dgvLogs = new System.Windows.Forms.DataGridView();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +43,28 @@
             this.dgvLogs.RowHeadersWidth = 62;
             this.dgvLogs.Size = new System.Drawing.Size(1164, 522);
             this.dgvLogs.TabIndex = 0;
-            this.dgvLogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Info",
+            "Error",
+            "Warn"});
+            this.cmbTipo.Location = new System.Drawing.Point(105, 39);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(158, 24);
+            this.cmbTipo.TabIndex = 1;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tipo";
             // 
             // Logs
             // 
@@ -56,11 +79,14 @@
             this.Load += new System.EventHandler(this.Logs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvLogs;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label1;
     }
 }

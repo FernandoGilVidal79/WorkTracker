@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : Form, IForm
     {
         public MenuPrincipal()
         {
@@ -83,13 +83,25 @@ namespace WorkTrackerAPP
         private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
-            Calendario FrmCalendario = new Calendario();
+            Calendario FrmCalendario = new Calendario(this);
             FrmCalendario.TopLevel = false;
             FrmCalendario.FormBorderStyle = FormBorderStyle.None;
             FrmCalendario.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmCalendario);
             pnlFichar.Tag = FrmCalendario;
             FrmCalendario.Show();
+        }
+
+        void IForm.EnviarEstado(string estado)
+        {
+            this.toolStripMenuAdminStatus.Text = estado;
+        }
+
+        int IForm.EnviarValue(int value)
+        {
+            this.toolStripProgressBar1.Value = value;
+            System.Threading.Thread.Sleep(1000);
+            return this.toolStripProgressBar1.Value;
         }
     }
 }

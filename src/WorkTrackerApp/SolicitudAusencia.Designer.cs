@@ -143,7 +143,7 @@ namespace WorkTrackerAPP
             this.btnCancelar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar1.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar1.Location = new System.Drawing.Point(99, 13);
+            this.btnCancelar1.Location = new System.Drawing.Point(119, 13);
             this.btnCancelar1.Name = "btnCancelar1";
             this.btnCancelar1.Size = new System.Drawing.Size(100, 35);
             this.btnCancelar1.TabIndex = 93;
@@ -160,7 +160,7 @@ namespace WorkTrackerAPP
             this.btnGrabar1.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar1.Location = new System.Drawing.Point(13, 13);
             this.btnGrabar1.Name = "btnGrabar1";
-            this.btnGrabar1.Size = new System.Drawing.Size(75, 35);
+            this.btnGrabar1.Size = new System.Drawing.Size(100, 35);
             this.btnGrabar1.TabIndex = 92;
             this.btnGrabar1.Text = "GRABAR";
             this.btnGrabar1.UseVisualStyleBackColor = false;
