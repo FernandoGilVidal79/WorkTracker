@@ -171,21 +171,34 @@ namespace WorkTrackerAPP
         {
             lblHistorico.Text = "";
             int contadorFichajes = 0;
-            for (int i = UserSession.Fichajes.Count - 1; i > 0; i--)
+            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(UserSession.User.IdUser);
+            Console.WriteLine(UserSession.Fichajes);
+
+            foreach (var _data in UserSession.Fichajes.Skip(Math.Max(0, UserSession.Fichajes.Count() - 5)).Reverse())
+            {
+                var ffecha = Convert.ToDateTime(_data.Date).ToString(Format);
+                Console.WriteLine(UserSession.Fichajes);
+                lblHistorico.Text += "Fecha: " + ffecha;
+                lblHistorico.Text += "\n";
+                lblHistorico.Text += "Hora de entrada:" + _data.StartHour;
+                lblHistorico.Text += "\n";
+                lblHistorico.Text += "Hora de salida: " + _data.FinishHour;
+                lblHistorico.Text += "\n-------------------------------------------------\n";
+            }
+            /*for (int i = UserSession.Fichajes.Count - 1; i > 0; i--)
             {
                 //Helper.MensajeError(i.ToString(), "error");
-                //if(i == UserSession.Fichajes.Count - 5)
-                //{
-
-                if (UserSession.Fichajes[i].Date != UserSession.Fichajes[i - 1].Date)
+                if(i == UserSession.Fichajes.Count)
                 {
+
+                //if (UserSession.Fichajes[i].Date != UserSession.Fichajes[i - 1].Date)
+                //{
                     if (UserSession.Fichajes[i].ClockinTypeId == 1)
                     {
                         //Helper.MensajeError("Contador Fichajes" + contadorFichajes, "Error");
-                        var ffecha = Convert.ToDateTime(UserSession.Fichajes[10].Date).ToString(Format);
+                        var ffecha = Convert.ToDateTime(UserSession.Fichajes[i].Date).ToString(Format);
                         Console.WriteLine(UserSession.Fichajes[i]);
-                        lblHistorico.Text += "ID; " + UserSession.Fichajes[i].ClockinTypeId;
-                        lblHistorico.Text += "\n";
                         lblHistorico.Text += "Fecha: " + ffecha;
                         lblHistorico.Text += "\n";
                         lblHistorico.Text += "Hora de entrada:" + UserSession.Fichajes[i].StartHour;
@@ -195,13 +208,13 @@ namespace WorkTrackerAPP
                         //contadorFichajes++;
                     }
 
-                }
+                //}
                 contadorFichajes++;
 
-                //}
+                }
 
 
-            }
+            }*/
 
         }
 
