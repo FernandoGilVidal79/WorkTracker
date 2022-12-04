@@ -48,6 +48,8 @@ namespace WorkTrackerAPP
             this.TmrHora = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripMenuPrincipalStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.mstrpPrincipal.SuspendLayout();
             this.pnlBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -210,17 +212,30 @@ namespace WorkTrackerAPP
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuPrincipalStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 731);
+            this.toolStripMenuPrincipalStatus,
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 727);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1591, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1591, 26);
             this.statusStrip1.TabIndex = 43;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripMenuPrincipalStatus
             // 
             this.toolStripMenuPrincipalStatus.Name = "toolStripMenuPrincipalStatus";
-            this.toolStripMenuPrincipalStatus.Size = new System.Drawing.Size(0, 16);
+            this.toolStripMenuPrincipalStatus.Size = new System.Drawing.Size(0, 20);
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 18);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // MenuPrincipalRRHH
             // 
@@ -270,5 +285,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ToolStripMenuItem toolStripCreacionUsuario;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripMenuPrincipalStatus;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

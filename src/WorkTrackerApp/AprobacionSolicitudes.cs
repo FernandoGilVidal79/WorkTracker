@@ -116,17 +116,44 @@ namespace WorkTrackerAPP
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-   
+            int index = 0;
+            int increment = 100 / dataGridView1.Rows.Count;
+
             foreach ( DataGridViewRow data in dataGridView1.Rows)
-            {   
-                var cell = data.Cells[3];
-                if (cell.Value != null && (bool)cell.Value == true)
+            {
+                _form.EnviarValue(index);
+                var cellAprobacion = data.Cells[4];
+                var cellDenegacion = data.Cells[5];
+                if (cellAprobacion.Value == null)
+                    break;
+
+                if ((bool)cellAprobacion?.Value == true && (bool)cellDenegacion?.Value == true) 
                 {
-                    int id = int.Parse((string)data.Cells[0].Value);
-                    var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                    var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
+                    _form.EnviarEstado("No se puede dar de alta la validación");
+                    Helper.MensajeError("No se puede seleccionar Validación y Denegación", "Error");
+                    break;
                 }
+                else {
+                    if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
+                    {
+                        int id = int.Parse((string)data.Cells[0].Value);
+                        var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
+                    }
+
+                    if (cellDenegacion.Value != null && (bool)cellDenegacion.Value == true)
+                    {
+                        int id = int.Parse((string)data.Cells[0].Value);
+                        var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        var absenses = apiAbsenses.ApiAbsensesDenegateAbsensesByIdIdGet(id);
+                    }
+                }
+                index =  index  + increment;
+               
             }
+            _form.EnviarValue(0);
         }
+
+        
     }
 }
