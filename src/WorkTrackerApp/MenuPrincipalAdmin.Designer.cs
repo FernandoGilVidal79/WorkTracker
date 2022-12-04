@@ -57,8 +57,9 @@ namespace WorkTrackerAPP
             // 
             // mstrpPrincipal
             // 
-            this.mstrpPrincipal.BackColor = System.Drawing.Color.Silver;
+            this.mstrpPrincipal.BackColor = System.Drawing.Color.Gainsboro;
             this.mstrpPrincipal.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mstrpPrincipal.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mstrpPrincipal.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mstrpPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calendarioToolStripMenuItem,
@@ -92,7 +93,7 @@ namespace WorkTrackerAPP
             // pnlBanner
             // 
             this.pnlBanner.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlBanner.BackColor = System.Drawing.Color.White;
+            this.pnlBanner.BackColor = System.Drawing.SystemColors.Window;
             this.pnlBanner.Controls.Add(this.lblBienvenida);
             this.pnlBanner.Controls.Add(this.pcBoxLogo);
             this.pnlBanner.Controls.Add(this.lblFecha);
@@ -128,6 +129,7 @@ namespace WorkTrackerAPP
             this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblFecha.ForeColor = System.Drawing.Color.DimGray;
             this.lblFecha.Location = new System.Drawing.Point(1334, 40);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(0, 25);
@@ -138,6 +140,7 @@ namespace WorkTrackerAPP
             this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblHora.ForeColor = System.Drawing.Color.DimGray;
             this.lblHora.Location = new System.Drawing.Point(1334, 10);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(0, 25);
@@ -145,7 +148,7 @@ namespace WorkTrackerAPP
             // 
             // pnlInformes
             // 
-            this.pnlInformes.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlInformes.BackColor = System.Drawing.SystemColors.Window;
             this.pnlInformes.Controls.Add(this.lgnStripResult);
             this.pnlInformes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlInformes.Location = new System.Drawing.Point(0, 104);
@@ -186,7 +189,7 @@ namespace WorkTrackerAPP
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 104);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1591, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1591, 38);
             this.toolStrip1.TabIndex = 43;
             this.toolStrip1.Text = "toolStrip1";
             // 

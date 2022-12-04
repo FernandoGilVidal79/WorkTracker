@@ -196,7 +196,7 @@ namespace WorkTrackerAPP
             this.btnActualizar.Location = new System.Drawing.Point(932, 57);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 36);
+            this.btnActualizar.Size = new System.Drawing.Size(135, 45);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -1331,7 +1331,7 @@ namespace WorkTrackerAPP
             0,
             0});
             this.txbAnio.Name = "txbAnio";
-            this.txbAnio.Size = new System.Drawing.Size(120, 22);
+            this.txbAnio.Size = new System.Drawing.Size(135, 26);
             this.txbAnio.TabIndex = 4;
             this.txbAnio.Value = new decimal(new int[] {
             2021,
@@ -1350,7 +1350,7 @@ namespace WorkTrackerAPP
             // 
             // Calendario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 549);
             this.Controls.Add(this.txbAnio);

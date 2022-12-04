@@ -37,11 +37,11 @@
             // dgvLogs
             // 
             this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLogs.Location = new System.Drawing.Point(13, 124);
-            this.dgvLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLogs.Location = new System.Drawing.Point(18, 152);
+            this.dgvLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvLogs.Name = "dgvLogs";
-            this.dgvLogs.RowHeadersWidth = 51;
-            this.dgvLogs.Size = new System.Drawing.Size(1035, 417);
+            this.dgvLogs.RowHeadersWidth = 62;
+            this.dgvLogs.Size = new System.Drawing.Size(1164, 522);
             this.dgvLogs.TabIndex = 0;
             // 
             // cmbTipo
@@ -68,13 +68,12 @@
             // 
             // Logs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbTipo);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.dgvLogs);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Logs";
             this.Text = "Logs";
             this.Load += new System.EventHandler(this.Logs_Load);

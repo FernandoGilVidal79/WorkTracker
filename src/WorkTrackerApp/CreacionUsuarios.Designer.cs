@@ -320,7 +320,8 @@ namespace WorkTrackerAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 365);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(700, 365);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtEmail);
