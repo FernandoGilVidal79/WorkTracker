@@ -15,7 +15,7 @@ namespace WorkTrackerAPP.Helpers
     {
         private int borderSize = 0;
         private int borderRadius = 40;
-        private Color borderColor = Color.DarkRed;
+        private Color borderColor = Color.Black;
 
         public BtnCancelar()
         {
@@ -24,8 +24,8 @@ namespace WorkTrackerAPP.Helpers
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(100, 35);
-            this.BackColor = Color.Red;
-            this.ForeColor = Color.Black;
+            this.BackColor = Color.Silver;
+            this.ForeColor = Color.Red;
 
 
         }

@@ -138,12 +138,12 @@ namespace WorkTrackerAPP
             // 
             // btnCancelar1
             // 
-            this.btnCancelar1.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar1.BackColor = System.Drawing.Color.Silver;
             this.btnCancelar1.FlatAppearance.BorderSize = 0;
             this.btnCancelar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar1.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar1.Location = new System.Drawing.Point(99, 12);
+            this.btnCancelar1.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelar1.Location = new System.Drawing.Point(99, 13);
             this.btnCancelar1.Name = "btnCancelar1";
             this.btnCancelar1.Size = new System.Drawing.Size(100, 35);
             this.btnCancelar1.TabIndex = 93;
@@ -153,11 +153,11 @@ namespace WorkTrackerAPP
             // 
             // btnGrabar1
             // 
-            this.btnGrabar1.BackColor = System.Drawing.Color.Green;
+            this.btnGrabar1.BackColor = System.Drawing.Color.Silver;
             this.btnGrabar1.FlatAppearance.BorderSize = 0;
             this.btnGrabar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar1.ForeColor = System.Drawing.Color.Black;
+            this.btnGrabar1.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar1.Location = new System.Drawing.Point(13, 13);
             this.btnGrabar1.Name = "btnGrabar1";
             this.btnGrabar1.Size = new System.Drawing.Size(75, 35);
@@ -170,6 +170,7 @@ namespace WorkTrackerAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1086, 423);
             this.Controls.Add(this.btnCancelar1);
             this.Controls.Add(this.btnGrabar1);

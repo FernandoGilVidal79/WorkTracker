@@ -15,7 +15,7 @@ namespace WorkTrackerAPP.Helpers
     {
         private int borderSize = 0;
         private int borderRadius = 40;
-        private Color borderColor = Color.DarkGreen;
+        private Color borderColor = Color.DarkOliveGreen;
 
         public BtnGrabar()
         {
@@ -24,8 +24,8 @@ namespace WorkTrackerAPP.Helpers
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(75,35);
-            this.BackColor = Color.Green;
-            this.ForeColor = Color.Black;
+            this.BackColor = Color.Silver;
+            this.ForeColor = Color.DarkOliveGreen;
             
 
         }
