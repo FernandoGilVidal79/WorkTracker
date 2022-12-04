@@ -23,7 +23,7 @@ namespace WorkTrackerAPP.Helpers
             //poner aqui la imagen
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
-            this.Size = new Size(75,35);
+            this.Size = new Size(100,35);
             this.BackColor = Color.Silver;
             this.ForeColor = Color.DarkOliveGreen;
             
@@ -90,8 +90,6 @@ namespace WorkTrackerAPP.Helpers
         {
             if (this.DesignMode)
                 this.Invalidate();
-        }
-
-       
+        }     
     }
 }
