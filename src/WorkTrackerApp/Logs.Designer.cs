@@ -35,18 +35,22 @@
             // dgvLogs
             // 
             this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLogs.Location = new System.Drawing.Point(12, 99);
+            this.dgvLogs.Location = new System.Drawing.Point(18, 152);
+            this.dgvLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvLogs.Name = "dgvLogs";
-            this.dgvLogs.Size = new System.Drawing.Size(776, 339);
+            this.dgvLogs.RowHeadersWidth = 62;
+            this.dgvLogs.Size = new System.Drawing.Size(1164, 522);
             this.dgvLogs.TabIndex = 0;
             this.dgvLogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Logs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.dgvLogs);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Logs";
             this.Text = "Logs";
             this.Load += new System.EventHandler(this.Logs_Load);

@@ -41,29 +41,28 @@ namespace WorkTrackerAPP
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 14);
+            this.label1.Location = new System.Drawing.Point(52, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 90;
             this.label1.Text = "Empleado";
             // 
             // cmbUsuarios
             // 
             this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(105, 11);
-            this.cmbUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUsuarios.Location = new System.Drawing.Point(158, 17);
             this.cmbUsuarios.Name = "cmbUsuarios";
-            this.cmbUsuarios.Size = new System.Drawing.Size(112, 21);
+            this.cmbUsuarios.Size = new System.Drawing.Size(166, 28);
             this.cmbUsuarios.TabIndex = 101;
             this.cmbUsuarios.SelectedIndexChanged += new System.EventHandler(this.cmbUsuarios_SelectedIndexChanged);
             // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnGuardar.Location = new System.Drawing.Point(499, 170);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Location = new System.Drawing.Point(748, 262);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(76, 34);
+            this.btnGuardar.Size = new System.Drawing.Size(114, 52);
             this.btnGuardar.TabIndex = 102;
             this.btnGuardar.Text = "GRABAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -74,37 +73,42 @@ namespace WorkTrackerAPP
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id});
-            this.dataGridView1.Location = new System.Drawing.Point(38, 37);
+            this.dataGridView1.Location = new System.Drawing.Point(57, 57);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(537, 128);
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(806, 197);
             this.dataGridView1.TabIndex = 103;
             // 
             // Id
             // 
             this.Id.Frozen = true;
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 150;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(241, 14);
+            this.lblUsuario.Location = new System.Drawing.Point(362, 22);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(0, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(0, 20);
             this.lblUsuario.TabIndex = 104;
             // 
             // AprobacionSolicitudes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(900, 563);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cmbUsuarios);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AprobacionSolicitudes";
             this.Text = "AprobacionSolicitudes";
             this.Load += new System.EventHandler(this.AprobacionSolicitudes_Load);

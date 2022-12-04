@@ -82,19 +82,19 @@ namespace WorkTrackerAPP
             this.cmbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAño.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAño.FormattingEnabled = true;
-            this.cmbAño.Location = new System.Drawing.Point(551, 55);
+            this.cmbAño.Location = new System.Drawing.Point(620, 69);
             this.cmbAño.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAño.Name = "cmbAño";
-            this.cmbAño.Size = new System.Drawing.Size(71, 25);
+            this.cmbAño.Size = new System.Drawing.Size(79, 28);
             this.cmbAño.TabIndex = 82;
             // 
             // labAño
             // 
             this.labAño.AutoSize = true;
             this.labAño.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labAño.Location = new System.Drawing.Point(484, 55);
+            this.labAño.Location = new System.Drawing.Point(544, 69);
             this.labAño.Name = "labAño";
-            this.labAño.Size = new System.Drawing.Size(43, 22);
+            this.labAño.Size = new System.Drawing.Size(52, 27);
             this.labAño.TabIndex = 83;
             this.labAño.Text = "Año";
             // 
@@ -102,28 +102,29 @@ namespace WorkTrackerAPP
             // 
             this.lblSaldo.AutoSize = true;
             this.lblSaldo.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldo.Location = new System.Drawing.Point(274, 92);
+            this.lblSaldo.Location = new System.Drawing.Point(308, 115);
             this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(253, 22);
+            this.lblSaldo.Size = new System.Drawing.Size(311, 27);
             this.lblSaldo.TabIndex = 87;
             this.lblSaldo.Text = "Vacaciones pendientes de disfrutar";
             // 
             // txbVacaciones
             // 
-            this.txbVacaciones.Location = new System.Drawing.Point(551, 92);
+            this.txbVacaciones.Location = new System.Drawing.Point(620, 115);
+            this.txbVacaciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbVacaciones.Name = "txbVacaciones";
             this.txbVacaciones.ReadOnly = true;
-            this.txbVacaciones.Size = new System.Drawing.Size(71, 22);
+            this.txbVacaciones.Size = new System.Drawing.Size(79, 26);
             this.txbVacaciones.TabIndex = 88;
             // 
             // btnAplicar
             // 
             this.btnAplicar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAplicar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnAplicar.Location = new System.Drawing.Point(655, 81);
+            this.btnAplicar.Location = new System.Drawing.Point(737, 101);
             this.btnAplicar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAplicar.Name = "btnAplicar";
-            this.btnAplicar.Size = new System.Drawing.Size(112, 43);
+            this.btnAplicar.Size = new System.Drawing.Size(126, 54);
             this.btnAplicar.TabIndex = 98;
             this.btnAplicar.Text = "APLICAR";
             this.btnAplicar.UseVisualStyleBackColor = true;
@@ -133,9 +134,9 @@ namespace WorkTrackerAPP
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(594, 146);
+            this.label1.Location = new System.Drawing.Point(668, 182);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 22);
+            this.label1.Size = new System.Drawing.Size(146, 27);
             this.label1.TabIndex = 97;
             this.label1.Text = "Días rechazados";
             // 
@@ -143,9 +144,9 @@ namespace WorkTrackerAPP
             // 
             this.lblAprobados.AutoSize = true;
             this.lblAprobados.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAprobados.Location = new System.Drawing.Point(484, 146);
+            this.lblAprobados.Location = new System.Drawing.Point(544, 182);
             this.lblAprobados.Name = "lblAprobados";
-            this.lblAprobados.Size = new System.Drawing.Size(115, 22);
+            this.lblAprobados.Size = new System.Drawing.Size(141, 27);
             this.lblAprobados.TabIndex = 91;
             this.lblAprobados.Text = "Días aprobados";
             // 
@@ -153,9 +154,9 @@ namespace WorkTrackerAPP
             // 
             this.lblPendientesAprobar.AutoSize = true;
             this.lblPendientesAprobar.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendientesAprobar.Location = new System.Drawing.Point(357, 146);
+            this.lblPendientesAprobar.Location = new System.Drawing.Point(402, 182);
             this.lblPendientesAprobar.Name = "lblPendientesAprobar";
-            this.lblPendientesAprobar.Size = new System.Drawing.Size(129, 22);
+            this.lblPendientesAprobar.Size = new System.Drawing.Size(159, 27);
             this.lblPendientesAprobar.TabIndex = 90;
             this.lblPendientesAprobar.Text = "Días para aprobar";
             // 
@@ -163,243 +164,271 @@ namespace WorkTrackerAPP
             // 
             this.lblSolicitados.AutoSize = true;
             this.lblSolicitados.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSolicitados.Location = new System.Drawing.Point(245, 146);
+            this.lblSolicitados.Location = new System.Drawing.Point(276, 182);
             this.lblSolicitados.Name = "lblSolicitados";
-            this.lblSolicitados.Size = new System.Drawing.Size(115, 22);
+            this.lblSolicitados.Size = new System.Drawing.Size(141, 27);
             this.lblSolicitados.TabIndex = 89;
             this.lblSolicitados.Text = "Días solicitados";
             // 
             // txtSolicitados1
             // 
-            this.txtSolicitados1.Location = new System.Drawing.Point(249, 181);
+            this.txtSolicitados1.Location = new System.Drawing.Point(280, 226);
+            this.txtSolicitados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados1.Name = "txtSolicitados1";
             this.txtSolicitados1.ReadOnly = true;
-            this.txtSolicitados1.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados1.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados1.TabIndex = 106;
             // 
             // txtSolicitados6
             // 
-            this.txtSolicitados6.Location = new System.Drawing.Point(249, 321);
+            this.txtSolicitados6.Location = new System.Drawing.Point(280, 401);
+            this.txtSolicitados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados6.Name = "txtSolicitados6";
             this.txtSolicitados6.ReadOnly = true;
-            this.txtSolicitados6.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados6.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados6.TabIndex = 107;
             // 
             // txtSolicitados5
             // 
-            this.txtSolicitados5.Location = new System.Drawing.Point(249, 293);
+            this.txtSolicitados5.Location = new System.Drawing.Point(280, 366);
+            this.txtSolicitados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados5.Name = "txtSolicitados5";
             this.txtSolicitados5.ReadOnly = true;
-            this.txtSolicitados5.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados5.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados5.TabIndex = 108;
             // 
             // txtSolicitados4
             // 
-            this.txtSolicitados4.Location = new System.Drawing.Point(249, 265);
+            this.txtSolicitados4.Location = new System.Drawing.Point(280, 331);
+            this.txtSolicitados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados4.Name = "txtSolicitados4";
             this.txtSolicitados4.ReadOnly = true;
-            this.txtSolicitados4.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados4.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados4.TabIndex = 109;
             // 
             // txtSolicitados3
             // 
-            this.txtSolicitados3.Location = new System.Drawing.Point(249, 237);
+            this.txtSolicitados3.Location = new System.Drawing.Point(280, 296);
+            this.txtSolicitados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados3.Name = "txtSolicitados3";
             this.txtSolicitados3.ReadOnly = true;
-            this.txtSolicitados3.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados3.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados3.TabIndex = 110;
             // 
             // txtSolicitados2
             // 
-            this.txtSolicitados2.Location = new System.Drawing.Point(249, 209);
+            this.txtSolicitados2.Location = new System.Drawing.Point(280, 261);
+            this.txtSolicitados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados2.Name = "txtSolicitados2";
             this.txtSolicitados2.ReadOnly = true;
-            this.txtSolicitados2.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados2.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados2.TabIndex = 111;
             // 
             // txtPendientes3
             // 
-            this.txtPendientes3.Location = new System.Drawing.Point(366, 237);
+            this.txtPendientes3.Location = new System.Drawing.Point(412, 296);
+            this.txtPendientes3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes3.Name = "txtPendientes3";
             this.txtPendientes3.ReadOnly = true;
-            this.txtPendientes3.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes3.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes3.TabIndex = 112;
             // 
             // txtPendientes4
             // 
-            this.txtPendientes4.Location = new System.Drawing.Point(366, 265);
+            this.txtPendientes4.Location = new System.Drawing.Point(412, 331);
+            this.txtPendientes4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes4.Name = "txtPendientes4";
             this.txtPendientes4.ReadOnly = true;
-            this.txtPendientes4.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes4.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes4.TabIndex = 113;
             // 
             // txtPendientes2
             // 
-            this.txtPendientes2.Location = new System.Drawing.Point(366, 209);
+            this.txtPendientes2.Location = new System.Drawing.Point(412, 261);
+            this.txtPendientes2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes2.Name = "txtPendientes2";
             this.txtPendientes2.ReadOnly = true;
-            this.txtPendientes2.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes2.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes2.TabIndex = 114;
             // 
             // txtPendientes1
             // 
-            this.txtPendientes1.Location = new System.Drawing.Point(366, 181);
+            this.txtPendientes1.Location = new System.Drawing.Point(412, 226);
+            this.txtPendientes1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes1.Name = "txtPendientes1";
             this.txtPendientes1.ReadOnly = true;
-            this.txtPendientes1.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes1.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes1.TabIndex = 115;
             // 
             // txtPendientes5
             // 
-            this.txtPendientes5.Location = new System.Drawing.Point(366, 293);
+            this.txtPendientes5.Location = new System.Drawing.Point(412, 366);
+            this.txtPendientes5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes5.Name = "txtPendientes5";
             this.txtPendientes5.ReadOnly = true;
-            this.txtPendientes5.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes5.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes5.TabIndex = 116;
             // 
             // txtPendientes6
             // 
-            this.txtPendientes6.Location = new System.Drawing.Point(366, 321);
+            this.txtPendientes6.Location = new System.Drawing.Point(412, 401);
+            this.txtPendientes6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes6.Name = "txtPendientes6";
             this.txtPendientes6.ReadOnly = true;
-            this.txtPendientes6.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes6.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes6.TabIndex = 117;
             // 
             // txtAprobados1
             // 
-            this.txtAprobados1.Location = new System.Drawing.Point(483, 181);
+            this.txtAprobados1.Location = new System.Drawing.Point(543, 226);
+            this.txtAprobados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados1.Name = "txtAprobados1";
             this.txtAprobados1.ReadOnly = true;
-            this.txtAprobados1.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados1.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados1.TabIndex = 118;
             // 
             // txtAprobados2
             // 
-            this.txtAprobados2.Location = new System.Drawing.Point(483, 209);
+            this.txtAprobados2.Location = new System.Drawing.Point(543, 261);
+            this.txtAprobados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados2.Name = "txtAprobados2";
             this.txtAprobados2.ReadOnly = true;
-            this.txtAprobados2.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados2.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados2.TabIndex = 119;
             // 
             // txtAprobados3
             // 
-            this.txtAprobados3.Location = new System.Drawing.Point(483, 237);
+            this.txtAprobados3.Location = new System.Drawing.Point(543, 296);
+            this.txtAprobados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados3.Name = "txtAprobados3";
             this.txtAprobados3.ReadOnly = true;
-            this.txtAprobados3.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados3.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados3.TabIndex = 120;
             // 
             // txtAprobados4
             // 
-            this.txtAprobados4.Location = new System.Drawing.Point(483, 265);
+            this.txtAprobados4.Location = new System.Drawing.Point(543, 331);
+            this.txtAprobados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados4.Name = "txtAprobados4";
             this.txtAprobados4.ReadOnly = true;
-            this.txtAprobados4.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados4.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados4.TabIndex = 121;
             // 
             // txtAprobados5
             // 
-            this.txtAprobados5.Location = new System.Drawing.Point(483, 293);
+            this.txtAprobados5.Location = new System.Drawing.Point(543, 366);
+            this.txtAprobados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados5.Name = "txtAprobados5";
             this.txtAprobados5.ReadOnly = true;
-            this.txtAprobados5.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados5.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados5.TabIndex = 122;
             // 
             // txtAprobados6
             // 
-            this.txtAprobados6.Location = new System.Drawing.Point(483, 321);
+            this.txtAprobados6.Location = new System.Drawing.Point(543, 401);
+            this.txtAprobados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados6.Name = "txtAprobados6";
             this.txtAprobados6.ReadOnly = true;
-            this.txtAprobados6.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados6.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados6.TabIndex = 123;
             // 
             // txtRechazados1
             // 
-            this.txtRechazados1.Location = new System.Drawing.Point(598, 181);
+            this.txtRechazados1.Location = new System.Drawing.Point(673, 226);
+            this.txtRechazados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados1.Name = "txtRechazados1";
             this.txtRechazados1.ReadOnly = true;
-            this.txtRechazados1.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados1.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados1.TabIndex = 124;
             // 
             // txtRechazados2
             // 
-            this.txtRechazados2.Location = new System.Drawing.Point(598, 209);
+            this.txtRechazados2.Location = new System.Drawing.Point(673, 261);
+            this.txtRechazados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados2.Name = "txtRechazados2";
             this.txtRechazados2.ReadOnly = true;
-            this.txtRechazados2.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados2.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados2.TabIndex = 125;
             // 
             // txtRechazados3
             // 
-            this.txtRechazados3.Location = new System.Drawing.Point(598, 237);
+            this.txtRechazados3.Location = new System.Drawing.Point(673, 296);
+            this.txtRechazados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados3.Name = "txtRechazados3";
             this.txtRechazados3.ReadOnly = true;
-            this.txtRechazados3.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados3.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados3.TabIndex = 126;
             // 
             // txtRechazados4
             // 
-            this.txtRechazados4.Location = new System.Drawing.Point(598, 265);
+            this.txtRechazados4.Location = new System.Drawing.Point(673, 331);
+            this.txtRechazados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados4.Name = "txtRechazados4";
             this.txtRechazados4.ReadOnly = true;
-            this.txtRechazados4.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados4.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados4.TabIndex = 127;
             // 
             // txtRechazados5
             // 
-            this.txtRechazados5.Location = new System.Drawing.Point(598, 293);
+            this.txtRechazados5.Location = new System.Drawing.Point(673, 366);
+            this.txtRechazados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados5.Name = "txtRechazados5";
             this.txtRechazados5.ReadOnly = true;
-            this.txtRechazados5.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados5.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados5.TabIndex = 128;
             // 
             // txtRechazados6
             // 
-            this.txtRechazados6.Location = new System.Drawing.Point(598, 321);
+            this.txtRechazados6.Location = new System.Drawing.Point(673, 401);
+            this.txtRechazados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados6.Name = "txtRechazados6";
             this.txtRechazados6.ReadOnly = true;
-            this.txtRechazados6.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados6.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados6.TabIndex = 129;
             // 
             // txtAprobados7
             // 
-            this.txtAprobados7.Location = new System.Drawing.Point(483, 349);
+            this.txtAprobados7.Location = new System.Drawing.Point(543, 436);
+            this.txtAprobados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados7.Name = "txtAprobados7";
             this.txtAprobados7.ReadOnly = true;
-            this.txtAprobados7.Size = new System.Drawing.Size(111, 22);
+            this.txtAprobados7.Size = new System.Drawing.Size(124, 26);
             this.txtAprobados7.TabIndex = 132;
             // 
             // txtPendientes7
             // 
-            this.txtPendientes7.Location = new System.Drawing.Point(366, 349);
+            this.txtPendientes7.Location = new System.Drawing.Point(412, 436);
+            this.txtPendientes7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes7.Name = "txtPendientes7";
             this.txtPendientes7.ReadOnly = true;
-            this.txtPendientes7.Size = new System.Drawing.Size(111, 22);
+            this.txtPendientes7.Size = new System.Drawing.Size(124, 26);
             this.txtPendientes7.TabIndex = 133;
             // 
             // txtSolicitados7
             // 
-            this.txtSolicitados7.Location = new System.Drawing.Point(247, 349);
+            this.txtSolicitados7.Location = new System.Drawing.Point(278, 436);
+            this.txtSolicitados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados7.Name = "txtSolicitados7";
             this.txtSolicitados7.ReadOnly = true;
-            this.txtSolicitados7.Size = new System.Drawing.Size(111, 22);
+            this.txtSolicitados7.Size = new System.Drawing.Size(124, 26);
             this.txtSolicitados7.TabIndex = 134;
             // 
             // txtRechazados7
             // 
-            this.txtRechazados7.Location = new System.Drawing.Point(598, 350);
+            this.txtRechazados7.Location = new System.Drawing.Point(673, 438);
+            this.txtRechazados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados7.Name = "txtRechazados7";
             this.txtRechazados7.ReadOnly = true;
-            this.txtRechazados7.Size = new System.Drawing.Size(111, 22);
+            this.txtRechazados7.Size = new System.Drawing.Size(124, 26);
             this.txtRechazados7.TabIndex = 135;
             // 
             // lblTipoAusencia
             // 
             this.lblTipoAusencia.AutoSize = true;
             this.lblTipoAusencia.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoAusencia.Location = new System.Drawing.Point(116, 181);
+            this.lblTipoAusencia.Location = new System.Drawing.Point(130, 226);
             this.lblTipoAusencia.Name = "lblTipoAusencia";
-            this.lblTipoAusencia.Size = new System.Drawing.Size(87, 22);
+            this.lblTipoAusencia.Size = new System.Drawing.Size(108, 27);
             this.lblTipoAusencia.TabIndex = 95;
             this.lblTipoAusencia.Text = "Vacaciones";
             this.lblTipoAusencia.Click += new System.EventHandler(this.lblVacaciones_Click);
@@ -408,9 +437,9 @@ namespace WorkTrackerAPP
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 209);
+            this.label2.Location = new System.Drawing.Point(130, 261);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 22);
+            this.label2.Size = new System.Drawing.Size(114, 27);
             this.label2.TabIndex = 136;
             this.label2.Text = "Baja Médica";
             // 
@@ -418,9 +447,9 @@ namespace WorkTrackerAPP
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(116, 237);
+            this.label3.Location = new System.Drawing.Point(130, 296);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 22);
+            this.label3.Size = new System.Drawing.Size(127, 27);
             this.label3.TabIndex = 137;
             this.label3.Text = "Visita Médica";
             // 
@@ -428,9 +457,9 @@ namespace WorkTrackerAPP
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(116, 265);
+            this.label4.Location = new System.Drawing.Point(130, 331);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 22);
+            this.label4.Size = new System.Drawing.Size(118, 27);
             this.label4.TabIndex = 138;
             this.label4.Text = "Matrimonio";
             // 
@@ -438,9 +467,9 @@ namespace WorkTrackerAPP
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 293);
+            this.label5.Location = new System.Drawing.Point(130, 366);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 22);
+            this.label5.Size = new System.Drawing.Size(93, 27);
             this.label5.TabIndex = 139;
             this.label5.Text = "Mudanza";
             // 
@@ -448,9 +477,9 @@ namespace WorkTrackerAPP
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(116, 321);
+            this.label6.Location = new System.Drawing.Point(130, 401);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 22);
+            this.label6.Size = new System.Drawing.Size(166, 27);
             this.label6.TabIndex = 140;
             this.label6.Text = "Nacimiento Hij@";
             // 
@@ -458,9 +487,9 @@ namespace WorkTrackerAPP
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(116, 349);
+            this.label7.Location = new System.Drawing.Point(130, 436);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(135, 27);
             this.label7.TabIndex = 141;
             this.label7.Text = "Deber Público";
             // 
@@ -468,19 +497,19 @@ namespace WorkTrackerAPP
             // 
             this.lblAnio.AutoSize = true;
             this.lblAnio.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnio.Location = new System.Drawing.Point(116, 146);
+            this.lblAnio.Location = new System.Drawing.Point(130, 182);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(0, 22);
+            this.lblAnio.Size = new System.Drawing.Size(0, 27);
             this.lblAnio.TabIndex = 142;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnLimpiar.Location = new System.Drawing.Point(655, 34);
+            this.btnLimpiar.Location = new System.Drawing.Point(737, 42);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(112, 43);
+            this.btnLimpiar.Size = new System.Drawing.Size(126, 54);
             this.btnLimpiar.TabIndex = 143;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -488,9 +517,10 @@ namespace WorkTrackerAPP
             // 
             // Situacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(900, 562);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.label7);
@@ -537,6 +567,7 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.lblSaldo);
             this.Controls.Add(this.labAño);
             this.Controls.Add(this.cmbAño);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Situacion";
             this.Text = "Situacion";
             this.Load += new System.EventHandler(this.Situacion_Load);
