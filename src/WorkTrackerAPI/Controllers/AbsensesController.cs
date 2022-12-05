@@ -1,10 +1,12 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using WorkTrackerAPI.Infrastructure;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
@@ -15,11 +17,12 @@ namespace WorkTrackerAPI.Controllers
     public class AbsensesController : ControllerBase
     {
         private readonly ILoggerManager _logger;
-        private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
+        private string connection;
         private MySqlConnection db;
 
-        public AbsensesController(ILoggerManager logger)
+        public AbsensesController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
+            connection = connectionStrings.Value.connectionString;
             _logger = logger;
             db = new MySqlConnection(connection);
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
@@ -39,6 +42,10 @@ namespace WorkTrackerAPI.Controllers
             {
                 _logger.LogError(ex.Message);
                 throw;
+            }
+            finally
+            {
+                db.Close();
             }
             return listAbsenses;
         }
@@ -63,7 +70,11 @@ namespace WorkTrackerAPI.Controllers
             {
                 _logger.LogError(ex.Message);
                 throw;
-            }       
+            }
+            finally
+            {
+                db.Close();
+            }
         }
 
         [HttpGet("DenegateAbsensesById/{id}")]
@@ -86,6 +97,10 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
+            finally
+            {
+                db.Close();
+            }
         }
 
         [HttpGet("GetAbsensesTypes")]
@@ -93,7 +108,20 @@ namespace WorkTrackerAPI.Controllers
         [SwaggerOperation("GetAbsensesTypes")]
         public IEnumerable<AbsenseType> GetAbsensesTypes()
         {
-            IEnumerable<AbsenseType> listAbsensesType = db.GetList<AbsenseType>();
+            IEnumerable<AbsenseType> listAbsensesType = null;
+            try
+            {
+                listAbsensesType = db.GetList<AbsenseType>();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
             return listAbsensesType;
         }
 
@@ -101,13 +129,25 @@ namespace WorkTrackerAPI.Controllers
         [HttpPost]
         public void Post([FromBody] Absenses value)
         {
-            var absenses = SimpleCRUD.Get<Absenses>(db, value.IdAbsenses);
-            absenses.Aproved = value.Aproved;
-            absenses.Denied = value.Denied;
-            absenses.StartDate = value.StartDate;
-            absenses.AbsensesTypeId = value.AbsensesTypeId;
-            absenses.FinishDate = value.FinishDate;
-            SimpleCRUD.Update(db, absenses);         
+            try
+            {
+                var absenses = SimpleCRUD.Get<Absenses>(db, value.IdAbsenses);
+                absenses.Aproved = value.Aproved;
+                absenses.Denied = value.Denied;
+                absenses.StartDate = value.StartDate;
+                absenses.AbsensesTypeId = value.AbsensesTypeId;
+                absenses.FinishDate = value.FinishDate;
+                SimpleCRUD.Update(db, absenses);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
         }
 
         [HttpPut("CreateAbsense")]
@@ -121,6 +161,10 @@ namespace WorkTrackerAPI.Controllers
             {
                 _logger.LogError(ex.Message);
                 throw;
+            }
+            finally 
+            { 
+                db.Close(); 
             }
         }
     }

@@ -1,42 +1,71 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
+using WorkTrackerAPI.Infrastructure;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 namespace WorkTrackerAPI.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ClockInController : ControllerBase
     {
       
-        private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
+        private string connection;
         private MySqlConnection db;
         private readonly ILoggerManager _logger;
 
-        public ClockInController(ILoggerManager logger)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="connectionStrings"></param>
+        public ClockInController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
+            connection = connectionStrings.Value.connectionString;
             _logger = logger;
-            db = new MySqlConnection(connection);
-            
-            SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
-            
+            db = new MySqlConnection(connection);    
+            SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);     
         }
 
-        // GET: api/<ClockInController>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetClockInById/{id}")]
         public Clockin GetClockInById(int id)
         {
             Clockin clockIn = null;
-            clockIn = SimpleCRUD.Get<Clockin>(db, id);    
+            try
+            {
+                clockIn = SimpleCRUD.Get<Clockin>(db, id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
             return clockIn;
         }
 
-        // GET api/<ClockInController>/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetClockInsByUserId/{id}")]
         public IEnumerable<Clockin> GetClockInsByUserId(int id)
         {
@@ -51,10 +80,18 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
+            finally
+            {
+                db.Close();
+            }
             return listClockIn;
         }
 
-        // GET api/<ClockInController>/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetClockInsTodayByUserId/{id}")]
         public IEnumerable<Clockin> GetClockInsTodayByUserId(int id)
         {
@@ -69,10 +106,17 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
+            finally
+            {
+                db.Close();
+            }
             return listClockIn;
         }
 
-        // PUT api/<ClockInController>/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clockin"></param>
         [HttpPut("ClockIn")]
         public void Put([FromBody] Clockin clockin)
         {
@@ -86,8 +130,17 @@ namespace WorkTrackerAPI.Controllers
                 _logger.LogError(ex.Message);
                 throw;
             }
+            finally
+            {
+                db.Close();
+            }
+
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clockin"></param>
         [HttpPost("UpdateClockIn")]
         [SwaggerOperation("UpdateClockIn")]
         public void UpdateClockIn([FromBody] Clockin clockin)
@@ -98,14 +151,17 @@ namespace WorkTrackerAPI.Controllers
                 clockinUpdated.StartHour = clockin.StartHour;
                 clockinUpdated.FinishHour = clockin.FinishHour;
                 clockinUpdated.Date = clockin.Date;
-                SimpleCRUD.Update(db, clockin);
-               
+                SimpleCRUD.Update(db, clockin);              
                 _logger.LogInfo($"Usuario {clockin.UserId} ha actualizado el fichaje {clockin.idClockIn}, Fichaje: {clockin.ClockinTypeId} ");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 throw;
+            }
+            finally
+            {
+                db.Close();
             }
         }
     }

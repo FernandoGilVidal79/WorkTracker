@@ -1,33 +1,46 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using WorkTrackerAPI.Infrastructure;
 using WorkTrackerAPI.Infrastructure.Contracts;
 using WorkTrackerAPI.Model;
 
 
 namespace WorkTrackerAPI.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/log")]
     [ApiController]
     public class LogController : ControllerBase
     {
-
-        private string connection = @"Server = MYSQL5042.site4now.net; Database=db_a8e1b8_worktra;Uid=a8e1b8_worktra;Pwd=worktracker1";
+        private string connection;
         private MySqlConnection db;
         private readonly ILoggerManager _logger;
 
-        public LogController(ILoggerManager logger)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="connectionStrings"></param>
+        public LogController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
+            connection = connectionStrings.Value.connectionString;
             _logger = logger;
             db = new MySqlConnection(connection);
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
-        // GET: api/<LogController>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetLogs")]
         [ProducesResponseType(typeof(IEnumerable<Log>), (int)HttpStatusCode.OK)]
         [SwaggerOperation("GetLogs")]
@@ -38,39 +51,32 @@ namespace WorkTrackerAPI.Controllers
             return listLogs;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         [HttpGet("GetLogsByDate")]
         [ProducesResponseType(typeof(IEnumerable<Log>), (int)HttpStatusCode.OK)]
         [SwaggerOperation("GetLogsByDate")]
         public IEnumerable<Log> GetLogsByDate(DateTime date)
         {
             IEnumerable<Log> listLogs = null;
-            listLogs = SimpleCRUD.GetList<Log>(db, $"where Logged > {date.ToShortDateString()} ");
+            try
+            {
+                listLogs = SimpleCRUD.GetList<Log>(db, $"where Logged > {date.ToShortDateString()} ");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
             return listLogs;
         }
 
-        // GET api/<LogController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<LogController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<LogController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<LogController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

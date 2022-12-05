@@ -154,6 +154,23 @@ namespace WorkTrackerAPP
             }
         }
 
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            ActivarCampos(false);
+            ActivarBotones(true);
+            edicion = false;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            ActivarCampos(true);
+            ActivarBotones(false);
+            LimpiarCampos();
+            edicion = false;
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
@@ -189,22 +206,6 @@ namespace WorkTrackerAPP
             {
                 _form.EnviarEstado("Falta el Id Usuario");
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            ActivarCampos(false);
-            ActivarBotones(true);
-            edicion = false;
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            ActivarCampos(true);
-            ActivarBotones(false);
-            LimpiarCampos();
-            edicion = false;
         }
     }
 }
