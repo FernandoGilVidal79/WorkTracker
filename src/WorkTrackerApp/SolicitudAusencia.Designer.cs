@@ -39,76 +39,82 @@ namespace WorkTrackerAPP
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlListadoAusencias = new System.Windows.Forms.Panel();
-            this.btnCancelar1 = new WorkTrackerAPP.Helpers.BtnCancelar();
-            this.btnGrabar1 = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGrabar2 = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.btnGrabar3 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbTipoAusencia
             // 
             this.cmbTipoAusencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoAusencia.Font = new System.Drawing.Font("Tempus Sans ITC", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoAusencia.Font = new System.Drawing.Font("Verdana", 12F);
             this.cmbTipoAusencia.FormattingEnabled = true;
-            this.cmbTipoAusencia.Location = new System.Drawing.Point(99, 166);
-            this.cmbTipoAusencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbTipoAusencia.Location = new System.Drawing.Point(48, 250);
+            this.cmbTipoAusencia.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cmbTipoAusencia.Name = "cmbTipoAusencia";
-            this.cmbTipoAusencia.Size = new System.Drawing.Size(121, 25);
+            this.cmbTipoAusencia.Size = new System.Drawing.Size(194, 33);
             this.cmbTipoAusencia.TabIndex = 81;
             this.cmbTipoAusencia.SelectedIndexChanged += new System.EventHandler(this.cbxTipoAusencia_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 142);
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F);
+            this.label1.Location = new System.Drawing.Point(43, 222);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 22);
+            this.label1.Size = new System.Drawing.Size(151, 25);
             this.label1.TabIndex = 82;
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // mCalendar
             // 
-            this.mCalendar.Location = new System.Drawing.Point(545, 112);
+            this.mCalendar.Location = new System.Drawing.Point(633, 163);
+            this.mCalendar.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.mCalendar.Name = "mCalendar";
             this.mCalendar.TabIndex = 83;
             this.mCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // tbxDesde
             // 
-            this.tbxDesde.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F);
-            this.tbxDesde.Location = new System.Drawing.Point(245, 166);
-            this.tbxDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxDesde.Font = new System.Drawing.Font("Verdana", 12F);
+            this.tbxDesde.Location = new System.Drawing.Point(266, 251);
+            this.tbxDesde.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(100, 25);
+            this.tbxDesde.Size = new System.Drawing.Size(160, 32);
             this.tbxDesde.TabIndex = 84;
             // 
             // tbxHasta
             // 
-            this.tbxHasta.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F);
-            this.tbxHasta.Location = new System.Drawing.Point(375, 166);
-            this.tbxHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxHasta.Font = new System.Drawing.Font("Verdana", 12F);
+            this.tbxHasta.Location = new System.Drawing.Point(453, 251);
+            this.tbxHasta.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxHasta.Name = "tbxHasta";
-            this.tbxHasta.Size = new System.Drawing.Size(100, 25);
+            this.tbxHasta.Size = new System.Drawing.Size(160, 32);
             this.tbxHasta.TabIndex = 85;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 142);
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F);
+            this.label2.Location = new System.Drawing.Point(261, 222);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 22);
+            this.label2.Size = new System.Drawing.Size(139, 25);
             this.label2.TabIndex = 86;
             this.label2.Text = "Fecha Desde";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(371, 142);
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F);
+            this.label3.Location = new System.Drawing.Point(448, 222);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 22);
+            this.label3.Size = new System.Drawing.Size(135, 25);
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
             // 
@@ -117,9 +123,10 @@ namespace WorkTrackerAPP
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 401);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 580);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1086, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 23, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1573, 22);
             this.statusStrip1.TabIndex = 90;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -130,50 +137,60 @@ namespace WorkTrackerAPP
             // 
             // pnlListadoAusencias
             // 
-            this.pnlListadoAusencias.Location = new System.Drawing.Point(764, 39);
+            this.pnlListadoAusencias.Location = new System.Drawing.Point(1008, 85);
+            this.pnlListadoAusencias.Margin = new System.Windows.Forms.Padding(5);
             this.pnlListadoAusencias.Name = "pnlListadoAusencias";
-            this.pnlListadoAusencias.Size = new System.Drawing.Size(322, 384);
+            this.pnlListadoAusencias.Size = new System.Drawing.Size(409, 580);
             this.pnlListadoAusencias.TabIndex = 91;
             this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnCancelar1
+            // groupBox1
             // 
-            this.btnCancelar1.BackColor = System.Drawing.Color.Silver;
-            this.btnCancelar1.FlatAppearance.BorderSize = 0;
-            this.btnCancelar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar1.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar1.Location = new System.Drawing.Point(119, 13);
-            this.btnCancelar1.Name = "btnCancelar1";
-            this.btnCancelar1.Size = new System.Drawing.Size(100, 35);
-            this.btnCancelar1.TabIndex = 93;
-            this.btnCancelar1.Text = "CANCELAR";
-            this.btnCancelar1.UseVisualStyleBackColor = false;
-            this.btnCancelar1.Click += new System.EventHandler(this.btnCancelar1_Click);
+            this.groupBox1.Controls.Add(this.btnGrabar2);
+            this.groupBox1.Controls.Add(this.btnGrabar3);
+            this.groupBox1.Location = new System.Drawing.Point(1366, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(130, 71);
+            this.groupBox1.TabIndex = 94;
+            this.groupBox1.TabStop = false;
             // 
-            // btnGrabar1
+            // btnGrabar2
             // 
-            this.btnGrabar1.BackColor = System.Drawing.Color.Silver;
-            this.btnGrabar1.FlatAppearance.BorderSize = 0;
-            this.btnGrabar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrabar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar1.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnGrabar1.Location = new System.Drawing.Point(13, 13);
-            this.btnGrabar1.Name = "btnGrabar1";
-            this.btnGrabar1.Size = new System.Drawing.Size(100, 35);
-            this.btnGrabar1.TabIndex = 92;
-            this.btnGrabar1.Text = "GRABAR";
-            this.btnGrabar1.UseVisualStyleBackColor = false;
-            this.btnGrabar1.Click += new System.EventHandler(this.btnGrabar1_Click);
+            this.btnGrabar2.BackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar2.FlatAppearance.BorderSize = 0;
+            this.btnGrabar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnGrabar2.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
+            this.btnGrabar2.Location = new System.Drawing.Point(8, 16);
+            this.btnGrabar2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnGrabar2.Name = "btnGrabar2";
+            this.btnGrabar2.Size = new System.Drawing.Size(58, 48);
+            this.btnGrabar2.TabIndex = 47;
+            this.btnGrabar2.UseVisualStyleBackColor = false;
+            this.btnGrabar2.Click += new System.EventHandler(this.btnGrabar2_Click);
+            // 
+            // btnGrabar3
+            // 
+            this.btnGrabar3.BackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar3.FlatAppearance.BorderSize = 0;
+            this.btnGrabar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar3.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnGrabar3.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
+            this.btnGrabar3.Location = new System.Drawing.Point(76, 17);
+            this.btnGrabar3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnGrabar3.Name = "btnGrabar3";
+            this.btnGrabar3.Size = new System.Drawing.Size(47, 47);
+            this.btnGrabar3.TabIndex = 46;
+            this.btnGrabar3.UseVisualStyleBackColor = false;
+            this.btnGrabar3.Click += new System.EventHandler(this.btnGrabar3_Click);
             // 
             // SolicitudAusencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1086, 423);
-            this.Controls.Add(this.btnCancelar1);
-            this.Controls.Add(this.btnGrabar1);
+            this.ClientSize = new System.Drawing.Size(1573, 602);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlListadoAusencias);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label3);
@@ -183,12 +200,14 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.mCalendar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTipoAusencia);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Name = "SolicitudAusencia";
             this.Text = "SolicitudAusencia";
             this.Load += new System.EventHandler(this.SolicitudAusencia_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +224,8 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel pnlListadoAusencias;
-        private Helpers.BtnGrabar btnGrabar1;
-        private Helpers.BtnCancelar btnCancelar1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Helpers.BtnGrabar btnGrabar2;
+        private Helpers.BtnGrabar btnGrabar3;
     }
 }

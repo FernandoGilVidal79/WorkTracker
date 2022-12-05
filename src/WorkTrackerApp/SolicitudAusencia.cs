@@ -135,7 +135,13 @@ namespace WorkTrackerAPP
             FrmListaAusencia.Show();
         }
 
-        private void btnGrabar1_Click(object sender, EventArgs e)
+        
+            private void btnCancelar1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnGrabar2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -193,9 +199,10 @@ namespace WorkTrackerAPP
                 MessageBox.Show("Error al guardar, revise los datos");
                 toolStripStatusLabel1.Text = "Error al guardar la ausencia";
             }
-        }
+        
+    }
 
-        private void btnCancelar1_Click(object sender, EventArgs e)
+        private void btnGrabar3_Click(object sender, EventArgs e)
         {
             cmbTipoAusencia.SelectedIndex = -1;
             tbxDesde.Clear();
