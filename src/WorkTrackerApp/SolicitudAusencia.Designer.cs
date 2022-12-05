@@ -161,7 +161,7 @@ namespace WorkTrackerAPP
             this.btnGrabar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabar2.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar2.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
-            this.btnGrabar2.Location = new System.Drawing.Point(8, 16);
+            this.btnGrabar2.Location = new System.Drawing.Point(8, 17);
             this.btnGrabar2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGrabar2.Name = "btnGrabar2";
             this.btnGrabar2.Size = new System.Drawing.Size(58, 48);
