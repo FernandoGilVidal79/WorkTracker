@@ -53,16 +53,18 @@ namespace WorkTrackerAPP
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.component11 = new WorkTrackerAPP.Helpers.Component1(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnGrabar2 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnGrabar1 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnNuevo = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnBuscar = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 47);
+            this.label1.Location = new System.Drawing.Point(22, 129);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 18);
@@ -161,7 +163,7 @@ namespace WorkTrackerAPP
             // 
             // txtNumEmpleado
             // 
-            this.txtNumEmpleado.Location = new System.Drawing.Point(185, 42);
+            this.txtNumEmpleado.Location = new System.Drawing.Point(152, 126);
             this.txtNumEmpleado.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtNumEmpleado.Name = "txtNumEmpleado";
             this.txtNumEmpleado.Size = new System.Drawing.Size(232, 27);
@@ -274,6 +276,17 @@ namespace WorkTrackerAPP
             this.label8.TabIndex = 35;
             this.label8.Text = "Email";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnGrabar2);
+            this.groupBox1.Controls.Add(this.btnGrabar1);
+            this.groupBox1.Controls.Add(this.btnNuevo);
+            this.groupBox1.Location = new System.Drawing.Point(1486, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(174, 71);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            // 
             // btnGrabar2
             // 
             this.btnGrabar2.BackColor = System.Drawing.Color.Transparent;
@@ -281,11 +294,11 @@ namespace WorkTrackerAPP
             this.btnGrabar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabar2.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar2.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
-            this.btnGrabar2.Location = new System.Drawing.Point(533, 36);
+            this.btnGrabar2.Location = new System.Drawing.Point(8, 16);
             this.btnGrabar2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGrabar2.Name = "btnGrabar2";
             this.btnGrabar2.Size = new System.Drawing.Size(58, 48);
-            this.btnGrabar2.TabIndex = 43;
+            this.btnGrabar2.TabIndex = 47;
             this.btnGrabar2.UseVisualStyleBackColor = false;
             // 
             // btnGrabar1
@@ -295,11 +308,11 @@ namespace WorkTrackerAPP
             this.btnGrabar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabar1.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar1.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
-            this.btnGrabar1.Location = new System.Drawing.Point(650, 37);
+            this.btnGrabar1.Location = new System.Drawing.Point(125, 17);
             this.btnGrabar1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGrabar1.Name = "btnGrabar1";
             this.btnGrabar1.Size = new System.Drawing.Size(47, 47);
-            this.btnGrabar1.TabIndex = 42;
+            this.btnGrabar1.TabIndex = 46;
             this.btnGrabar1.UseVisualStyleBackColor = false;
             // 
             // btnNuevo
@@ -309,12 +322,13 @@ namespace WorkTrackerAPP
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnNuevo.Image = global::WorkTrackerAPP.Properties.Resources.add1;
-            this.btnNuevo.Location = new System.Drawing.Point(583, 36);
+            this.btnNuevo.Location = new System.Drawing.Point(61, 16);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(77, 47);
-            this.btnNuevo.TabIndex = 41;
+            this.btnNuevo.Size = new System.Drawing.Size(66, 47);
+            this.btnNuevo.TabIndex = 45;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnBuscar
             // 
@@ -323,13 +337,12 @@ namespace WorkTrackerAPP
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnBuscar.Image = global::WorkTrackerAPP.Properties.Resources.search_alt;
-            this.btnBuscar.Location = new System.Drawing.Point(463, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(392, 115);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(77, 47);
-            this.btnBuscar.TabIndex = 40;
+            this.btnBuscar.Size = new System.Drawing.Size(72, 47);
+            this.btnBuscar.TabIndex = 45;
             this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Usuarios
             // 
@@ -337,10 +350,8 @@ namespace WorkTrackerAPP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1672, 623);
-            this.Controls.Add(this.btnGrabar2);
-            this.Controls.Add(this.btnGrabar1);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbStatus);
@@ -368,6 +379,7 @@ namespace WorkTrackerAPP
             this.Name = "Usuarios";
             this.Text = "U S U A R I O S";
             this.Load += new System.EventHandler(this.CreacionUsuarios_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,10 +409,11 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label8;
-        private Helpers.BtnGrabar btnBuscar;
         private Helpers.Component1 component11;
-        private Helpers.BtnGrabar btnNuevo;
-        private Helpers.BtnGrabar btnGrabar1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private Helpers.BtnGrabar btnGrabar2;
+        private Helpers.BtnGrabar btnGrabar1;
+        private Helpers.BtnGrabar btnNuevo;
+        private Helpers.BtnGrabar btnBuscar;
     }
 }
