@@ -12,7 +12,7 @@ namespace WorkTrackerAPI.Model
         [IgnoreInsert]
         public int IdUser { get; set; }
 
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         public string SurName1 { get; set; }
 

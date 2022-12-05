@@ -100,7 +100,7 @@ namespace WorkTrackerAPI.Controllers
             try
             {
                 var user = SimpleCRUD.Get<Users>(db, value.IdUser);
-                user.UserName = value.UserName;
+                user.Name = value.Name;
                 user.SurName1 = value.SurName1;
                 user.SurName2 = value.SurName2;
                 user.Status = value.Status;

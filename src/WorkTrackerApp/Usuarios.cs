@@ -110,7 +110,7 @@ namespace WorkTrackerAPP
                 {
                     Department = txtDepartamento.Text,
                     UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
-                    UserName = txtNombre.Text,
+                    Name = txtNombre.Text,
                     SurName1 = txtApellido1.Text,
                     SurName2 = txtApellido2.Text,
                     Status = ComboStatusValor(),
@@ -180,7 +180,7 @@ namespace WorkTrackerAPP
                 {
                     this.txtNumEmpleado.Text = user.IdUser.ToString();
                     cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
-                    this.txtNombre.Text = user.UserName;
+                    this.txtNombre.Text = user.Name;
                     this.txtEmail.Text = user.Email;
                     this.txtApellido1.Text = user.SurName1;
                     this.txtApellido2.Text = user.SurName2;

@@ -253,8 +253,7 @@ namespace WorkTrackerAPP
                 {
                     Day = day,
                     Month = month,
-                    Year = int.Parse(txbAnio.Text),
-                    Festive = true
+                    Year = int.Parse(txbAnio.Text)
                 };
                 apiclient.ApiCalendarCreateFestivePut(calendar);
                 MarcarFestivos();

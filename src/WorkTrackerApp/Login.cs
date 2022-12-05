@@ -62,7 +62,7 @@ namespace WorkTrackerAPP
                     if (user.Status == true)
                     {
                         UserSession.User = user;
-                        Helper.MensajeOk("Bienvenido " + user.UserName, "Correcto");
+                        Helper.MensajeOk("Bienvenido " + user.Name, "Correcto");
                         this.Hide();
                         //Obtenemos el id del usuario
                         if (user.UserTypeId == 1)
@@ -96,7 +96,7 @@ namespace WorkTrackerAPP
                     var user2 = usersSinEncriptar;
                     UserSession.User = user2;
 
-                    if ((user2!= null) && txtContrasena.Text.Equals(user2.UserName))
+                    if ((user2!= null) && txtContrasena.Text.Equals(user2.Name))
                     {
                         txtContrasena.Clear();
                         Helper.MensajeOk("Por favor cambie la contraseña ", "OK");

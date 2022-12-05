@@ -110,7 +110,7 @@ namespace WorkTrackerAPP
                                 IdUser = user.IdUser,
                                 Department = user.Department,
                                 UserTypeId = user.UserTypeId,
-                                UserName = user.UserName,
+                                Name = user.Name,
                                 SurName1 = user.SurName1,
                                 SurName2 = user.SurName2,
                                 Status = user.Status,

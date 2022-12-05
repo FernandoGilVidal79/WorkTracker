@@ -66,7 +66,7 @@ namespace WorkTrackerAPP
 
                 if (user != null)
                 {
-                    lblUsuario.Text = user.First().UserName + " " + user.First().SurName1;
+                    lblUsuario.Text = user.First().Name + " " + user.First().SurName1;
                 }
             }
          

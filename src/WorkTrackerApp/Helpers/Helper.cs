@@ -33,15 +33,15 @@ namespace WorkTrackerAPP
             var mensaje = "";
             if (int.Parse(hora) >= 5 && int.Parse(hora) < 12)
             {
-                mensaje = "¡Buenos días " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenos días " + UserSession.User.Name + "!";
             }
             if (int.Parse(hora) >= 12 && int.Parse(hora) < 21)
             {
-                mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenas tardes " + UserSession.User.Name + "!";
             }
             if (int.Parse(hora) >= 21 || int.Parse(hora) < 5)
             {
-                mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenas noches " + UserSession.User.Name + "!";
             }
             lblBienvenida.Text = mensaje;
         }
