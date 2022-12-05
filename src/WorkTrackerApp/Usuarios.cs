@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class CreacionUsuarios : Form
+    public partial class Usuarios : Form
     {
 
         private bool edicion = false;
         private readonly IForm _form;
 
-        public CreacionUsuarios (IForm form)
+        public Usuarios (IForm form)
         {
             _form = form;
             InitializeComponent();
@@ -42,9 +42,9 @@ namespace WorkTrackerAPP
 
         private void ActivarBotones(bool status)
         {
-            btnAnular.Enabled = !status;
-            btnGuardar.Enabled = !status;
-            btnConsultar.Enabled = status;      
+            //btnAnular.Enabled = !status;
+            //btnGuardar.Enabled = !status;
+            //btnConsultar.Enabled = status;      
             btnNuevo.Enabled = status;
         }
         
@@ -72,46 +72,7 @@ namespace WorkTrackerAPP
             cmbTipoUsuario.ValueMember = "IdUserType";
             cmbTipoUsuario.DataSource = userTypes;
         }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-          
-            if (txtNumEmpleado.Text != string.Empty)
-            {
-                var users = apiclient.ApiUserGetUserByIdIdGet(txtNumEmpleado.Text);
-                var user = users.FirstOrDefault();
-                if (user != null)
-                {
-                    this.txtNumEmpleado.Text   = user.IdUser.ToString();
-                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
-                    this.txtNombre.Text        = user.UserName;
-                    this.txtEmail.Text         = user.Email;
-                    this.txtApellido1.Text     = user.SurName1;
-                    this.txtApellido2.Text     = user.SurName2;
-                    this.txtTelefono.Text      = user.Phone.ToString();
-                    this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                    this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
-                    this.txtDepartamento.Text  = user.Phone.ToString();
-                    SetStatusCombo((bool)user.Status);
-                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
-                    edicion = true;
-                    ActivarCampos(true);
-                    ActivarBotones(false);
-                }
-                else
-                {
-                    _form.EnviarEstado("Usuario no encontrado");
-                }
-            }
-            else
-            {
-                _form.EnviarEstado("Falta el Id Usuario");
-            }
-
-        }
-
+   
         private void SetStatusCombo(bool value)
         {
             if (value == true)
@@ -204,6 +165,43 @@ namespace WorkTrackerAPP
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+
+            if (txtNumEmpleado.Text != string.Empty)
+            {
+                var users = apiclient.ApiUserGetUserByIdIdGet(txtNumEmpleado.Text);
+                var user = users.FirstOrDefault();
+                if (user != null)
+                {
+                    this.txtNumEmpleado.Text = user.IdUser.ToString();
+                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
+                    this.txtNombre.Text = user.UserName;
+                    this.txtEmail.Text = user.Email;
+                    this.txtApellido1.Text = user.SurName1;
+                    this.txtApellido2.Text = user.SurName2;
+                    this.txtTelefono.Text = user.Phone.ToString();
+                    this.txtNumVacaciones.Text = user.NHollidays.ToString();
+                    this.txtContrasena.Text = user.Password; /// TODO Encrptada¿?¿?¿?
+                    this.txtDepartamento.Text = user.Phone.ToString();
+                    SetStatusCombo((bool)user.Status);
+                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
+                    edicion = true;
+                    ActivarCampos(true);
+                    ActivarBotones(false);
+                }
+                else
+                {
+                    _form.EnviarEstado("Usuario no encontrado");
+                }
+            }
+            else
+            {
+                _form.EnviarEstado("Falta el Id Usuario");
             }
         }
     }

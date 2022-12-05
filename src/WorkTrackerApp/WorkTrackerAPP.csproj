@@ -78,11 +78,11 @@
     <Compile Include="Calendario.Designer.cs">
       <DependentUpon>Calendario.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreacionUsuarios.cs">
+    <Compile Include="Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreacionUsuarios.Designer.cs">
-      <DependentUpon>CreacionUsuarios.cs</DependentUpon>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Encriptado.cs" />
     <Compile Include="Fichar.cs">
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreacionUsuarios.resx">
-      <DependentUpon>CreacionUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fichar.resx">
       <DependentUpon>Fichar.cs</DependentUpon>
@@ -264,6 +264,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\busqueda.png" />
+    <Content Include="Resources\check.png" />
+    <None Include="Resources\cross-circle.png" />
+    <None Include="Resources\search-alt.png" />
+    <None Include="Resources\comment-check.png" />
+    <Content Include="Resources\user-add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

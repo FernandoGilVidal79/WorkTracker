@@ -20,14 +20,11 @@ namespace WorkTrackerAPP.Helpers
         public BtnGrabar()
         {
             // InitializeComponent();
-            //poner aqui la imagen
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(100,35);
             this.BackColor = Color.Silver;
-            this.ForeColor = Color.DarkOliveGreen;
-            
-
+            this.ForeColor = Color.DarkOliveGreen;    
         }
 
         private GraphicsPath GetFigurePath(RectangleF rect, float radius)

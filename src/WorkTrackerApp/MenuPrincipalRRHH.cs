@@ -68,7 +68,7 @@ namespace WorkTrackerAPP
         {
 
             pnlFichar.Controls.Clear(); 
-            CreacionUsuarios FrmCreacion = new CreacionUsuarios(this);
+            Usuarios FrmCreacion = new Usuarios(this);
             FrmCreacion.TopLevel = false;
             FrmCreacion.FormBorderStyle = FormBorderStyle.None;
             FrmCreacion.Dock = DockStyle.Fill;
