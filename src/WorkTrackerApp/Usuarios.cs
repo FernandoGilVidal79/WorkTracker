@@ -144,21 +144,7 @@ namespace WorkTrackerAPP
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            ActivarCampos(true);
-            ActivarBotones(false);
-            LimpiarCampos();
-            edicion = false;
-        }
-
-        private void btnAnular_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            ActivarCampos(false);
-            ActivarBotones(true);
-            edicion = false;
-        }
+   
 
         private void ValidationNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -205,9 +191,20 @@ namespace WorkTrackerAPP
             }
         }
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
+            LimpiarCampos();
+            ActivarCampos(false);
+            ActivarBotones(true);
+            edicion = false;
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            ActivarCampos(true);
+            ActivarBotones(false);
+            LimpiarCampos();
+            edicion = false;
         }
     }
 }

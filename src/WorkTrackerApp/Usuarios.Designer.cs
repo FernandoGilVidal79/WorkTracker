@@ -52,12 +52,12 @@ namespace WorkTrackerAPP
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.component11 = new WorkTrackerAPP.Helpers.Component1(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnGrabar2 = new WorkTrackerAPP.Helpers.BtnGrabar();
-            this.btnGrabar1 = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.btnGuardar = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.btnCancelar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnNuevo = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnBuscar = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.component11 = new WorkTrackerAPP.Helpers.Component1(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -278,42 +278,43 @@ namespace WorkTrackerAPP
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnGrabar2);
-            this.groupBox1.Controls.Add(this.btnGrabar1);
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnNuevo);
-            this.groupBox1.Location = new System.Drawing.Point(1013, 22);
+            this.groupBox1.Location = new System.Drawing.Point(1389, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(174, 71);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
-            // btnGrabar2
+            // btnGuardar
             // 
-            this.btnGrabar2.BackColor = System.Drawing.Color.Transparent;
-            this.btnGrabar2.FlatAppearance.BorderSize = 0;
-            this.btnGrabar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrabar2.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnGrabar2.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
-            this.btnGrabar2.Location = new System.Drawing.Point(8, 16);
-            this.btnGrabar2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnGrabar2.Name = "btnGrabar2";
-            this.btnGrabar2.Size = new System.Drawing.Size(58, 48);
-            this.btnGrabar2.TabIndex = 47;
-            this.btnGrabar2.UseVisualStyleBackColor = false;
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnGuardar.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
+            this.btnGuardar.Location = new System.Drawing.Point(8, 16);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(58, 48);
+            this.btnGuardar.TabIndex = 47;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // btnGrabar1
+            // btnCancelar
             // 
-            this.btnGrabar1.BackColor = System.Drawing.Color.Transparent;
-            this.btnGrabar1.FlatAppearance.BorderSize = 0;
-            this.btnGrabar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrabar1.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnGrabar1.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
-            this.btnGrabar1.Location = new System.Drawing.Point(125, 17);
-            this.btnGrabar1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnGrabar1.Name = "btnGrabar1";
-            this.btnGrabar1.Size = new System.Drawing.Size(47, 47);
-            this.btnGrabar1.TabIndex = 46;
-            this.btnGrabar1.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnCancelar.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
+            this.btnCancelar.Location = new System.Drawing.Point(127, 16);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(47, 47);
+            this.btnCancelar.TabIndex = 46;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNuevo
             // 
@@ -328,7 +329,7 @@ namespace WorkTrackerAPP
             this.btnNuevo.Size = new System.Drawing.Size(66, 47);
             this.btnNuevo.TabIndex = 45;
             this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -349,7 +350,7 @@ namespace WorkTrackerAPP
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1204, 393);
+            this.ClientSize = new System.Drawing.Size(1575, 610);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtEmail);
@@ -411,8 +412,8 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label label8;
         private Helpers.Component1 component11;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Helpers.BtnGrabar btnGrabar2;
-        private Helpers.BtnGrabar btnGrabar1;
+        private Helpers.BtnGrabar btnGuardar;
+        private Helpers.BtnGrabar btnCancelar;
         private Helpers.BtnGrabar btnNuevo;
         private Helpers.BtnGrabar btnBuscar;
     }
