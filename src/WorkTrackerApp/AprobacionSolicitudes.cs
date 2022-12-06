@@ -48,8 +48,9 @@ namespace WorkTrackerAPP
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
-            CargarComboUsuarios();
             CargarTiposAusencias();
+            CargarComboUsuarios();
+         
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
