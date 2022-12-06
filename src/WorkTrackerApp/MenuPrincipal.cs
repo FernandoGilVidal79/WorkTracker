@@ -105,7 +105,7 @@ namespace WorkTrackerAPP
         int IForm.EnviarValueProgressBar(int value)
         {
             this.toolStripProgressBar1.Value = value;
-            System.Threading.Thread.Sleep(1000);
+            
             return this.toolStripProgressBar1.Value;
         }
     }
