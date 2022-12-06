@@ -65,7 +65,7 @@ namespace WorkTrackerAPP
 
         private void CargarTipoUsuarios()
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new UserApi(UserSession.APIUrl);
             var userTypes = apiclient.ApiUserGetUserTypesGet();
             
             cmbTipoUsuario.DisplayMember = "Description";

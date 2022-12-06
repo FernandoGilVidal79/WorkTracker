@@ -35,7 +35,7 @@ namespace WorkTrackerAPP
         {
             var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
             var absensesTypes = apiUsers.ApiUserGetUsersGet();
-            cmbUsuarios.DisplayMember = "UserName";
+            cmbUsuarios.DisplayMember = "Name";
             cmbUsuarios.ValueMember = "IdUser";
             cmbUsuarios.DataSource = absensesTypes;
         }
@@ -74,7 +74,6 @@ namespace WorkTrackerAPP
 
         private void CargarDatosGrid(List<Absenses> absenses)
         {
-
             dataGridView1.Columns.Clear();
           
             var dt = new DataTable();
@@ -100,26 +99,17 @@ namespace WorkTrackerAPP
             }
             
             dataGridView1.DataSource = dt;
- 
-       
-            
-            //int columnIndex = dt.Columns.Count ;
-            //if (dataGridView1.Columns["uninstall_column"] == null)
-            //{
-            //    var i = dataGridView1.Columns["uninstall_column"];
-         
-            //}
-
             dataGridView1.Columns[0].Visible = false;
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+        private void btnAprobar_Click(object sender, EventArgs e)
         {
             int index = 0;
             int increment = 100 / dataGridView1.Rows.Count;
 
-            foreach ( DataGridViewRow data in dataGridView1.Rows)
+            foreach (DataGridViewRow data in dataGridView1.Rows)
             {
                 _form.EnviarValue(index);
                 var cellAprobacion = data.Cells[4];
@@ -127,13 +117,14 @@ namespace WorkTrackerAPP
                 if (cellAprobacion.Value == null)
                     break;
 
-                if ((bool)cellAprobacion?.Value == true && (bool)cellDenegacion?.Value == true) 
+                if ((bool)cellAprobacion?.Value == true && (bool)cellDenegacion?.Value == true)
                 {
                     _form.EnviarEstado("No se puede dar de alta la validación");
                     Helper.MensajeError("No se puede seleccionar Validación y Denegación", "Error");
                     break;
                 }
-                else {
+                else
+                {
                     if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
                     {
                         int id = int.Parse((string)data.Cells[0].Value);
@@ -148,12 +139,10 @@ namespace WorkTrackerAPP
                         var absenses = apiAbsenses.ApiAbsensesDenegateAbsensesByIdIdGet(id);
                     }
                 }
-                index =  index  + increment;
-               
+                index = index + increment;
+
             }
             _form.EnviarValue(0);
         }
-
-        
     }
 }

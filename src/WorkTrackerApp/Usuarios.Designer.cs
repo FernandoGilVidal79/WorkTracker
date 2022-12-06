@@ -299,6 +299,7 @@ namespace WorkTrackerAPP
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(58, 48);
             this.btnGuardar.TabIndex = 47;
+            this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
@@ -313,6 +314,7 @@ namespace WorkTrackerAPP
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(47, 47);
             this.btnCancelar.TabIndex = 46;
+            this.btnCancelar.Tag = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -328,6 +330,7 @@ namespace WorkTrackerAPP
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(66, 47);
             this.btnNuevo.TabIndex = 45;
+            this.btnNuevo.Tag = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -343,6 +346,7 @@ namespace WorkTrackerAPP
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(72, 47);
             this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
