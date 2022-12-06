@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLogs = new System.Windows.Forms.DataGridView();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,34 +36,20 @@
             // 
             // dgvLogs
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLogs.Location = new System.Drawing.Point(16, 122);
-            this.dgvLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLogs.Location = new System.Drawing.Point(14, 42);
+            this.dgvLogs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgvLogs.Name = "dgvLogs";
             this.dgvLogs.RowHeadersWidth = 62;
-            this.dgvLogs.Size = new System.Drawing.Size(959, 418);
+            this.dgvLogs.Size = new System.Drawing.Size(962, 523);
             this.dgvLogs.TabIndex = 0;
             // 
             // cmbTipo
             // 
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Info",
-            "Error",
-            "Warn"});
-            this.cmbTipo.Location = new System.Drawing.Point(105, 39);
+            this.cmbTipo.Location = new System.Drawing.Point(0, 0);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(158, 25);
-            this.cmbTipo.TabIndex = 1;
-            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            this.cmbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipo.TabIndex = 0;
             // 
             // label1
             // 
@@ -80,9 +65,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(988, 570);
+            this.ClientSize = new System.Drawing.Size(990, 578);
             this.Controls.Add(this.dgvLogs);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Logs";
             this.Text = "Logs";
             this.Load += new System.EventHandler(this.Logs_Load);

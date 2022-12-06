@@ -54,7 +54,7 @@ namespace WorkTrackerAPP
             this.cmbTipoAusencia.Location = new System.Drawing.Point(48, 250);
             this.cmbTipoAusencia.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cmbTipoAusencia.Name = "cmbTipoAusencia";
-            this.cmbTipoAusencia.Size = new System.Drawing.Size(123, 28);
+            this.cmbTipoAusencia.Size = new System.Drawing.Size(123, 24);
             this.cmbTipoAusencia.TabIndex = 81;
             this.cmbTipoAusencia.SelectedIndexChanged += new System.EventHandler(this.cbxTipoAusencia_SelectedIndexChanged);
             // 
@@ -65,7 +65,7 @@ namespace WorkTrackerAPP
             this.label1.Location = new System.Drawing.Point(43, 222);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(105, 17);
             this.label1.TabIndex = 82;
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -78,6 +78,7 @@ namespace WorkTrackerAPP
             this.mCalendar.Name = "mCalendar";
             this.mCalendar.TabIndex = 83;
             this.mCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.mCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mCalendar_DateSelected);
             // 
             // tbxDesde
             // 
@@ -85,7 +86,7 @@ namespace WorkTrackerAPP
             this.tbxDesde.Location = new System.Drawing.Point(185, 250);
             this.tbxDesde.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(113, 28);
+            this.tbxDesde.Size = new System.Drawing.Size(113, 24);
             this.tbxDesde.TabIndex = 84;
             // 
             // tbxHasta
@@ -94,7 +95,7 @@ namespace WorkTrackerAPP
             this.tbxHasta.Location = new System.Drawing.Point(308, 250);
             this.tbxHasta.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxHasta.Name = "tbxHasta";
-            this.tbxHasta.Size = new System.Drawing.Size(109, 28);
+            this.tbxHasta.Size = new System.Drawing.Size(109, 24);
             this.tbxHasta.TabIndex = 85;
             // 
             // label2
@@ -104,7 +105,7 @@ namespace WorkTrackerAPP
             this.label2.Location = new System.Drawing.Point(181, 222);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 86;
             this.label2.Text = "Fecha Desde";
             // 
@@ -115,7 +116,7 @@ namespace WorkTrackerAPP
             this.label3.Location = new System.Drawing.Point(309, 222);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
             // 
@@ -134,7 +135,7 @@ namespace WorkTrackerAPP
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // pnlListadoAusencias
             // 
@@ -187,7 +188,7 @@ namespace WorkTrackerAPP
             // 
             // SolicitudAusencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(988, 570);

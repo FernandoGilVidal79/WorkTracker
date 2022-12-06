@@ -136,11 +136,11 @@ namespace WorkTrackerAPP
              * Datos Mock
              */
 
-           this.txtUsuario.Text = "mariano@superman.com";
+            this.txtUsuario.Text = "mariano@superman.com";
             this.txtContrasena.Text = "Worktracker@1";
 
-          //  this.txtUsuario.Text = "olema@worktrackers";
-          //  this.txtContrasena.Text = "Worktracker@1";
+            //  this.txtUsuario.Text = "olema@worktrackers";
+            //  this.txtContrasena.Text = "Worktracker@1";
         }
 
             private void ValidateEnterPress(object sender, KeyPressEventArgs e)

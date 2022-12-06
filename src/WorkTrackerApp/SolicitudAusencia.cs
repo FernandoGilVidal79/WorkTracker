@@ -31,22 +31,10 @@ namespace WorkTrackerAPP
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            {
-                if (tbxDesde.Text.Length == 0)
-                {
-                    tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
-                }
-                else if (tbxHasta.Text.Length != 0)
-                {
-                    tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
-                    tbxHasta.Clear();
-                }
-                else
-                {
-                    tbxHasta.Text = mCalendar.SelectionEnd.ToShortDateString();
-                }
+          
+              
 
-            }
+            
 
         }
 
@@ -168,6 +156,23 @@ namespace WorkTrackerAPP
             cmbTipoAusencia.SelectedIndex = -1;
             tbxDesde.Clear();
             tbxHasta.Clear();
+        }
+
+        private void mCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            if (tbxDesde.Text.Length == 0)
+            {
+                tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
+            }
+            else if (tbxHasta.Text.Length != 0)
+            {
+                tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
+                tbxHasta.Clear();
+            }
+            else
+            {
+                tbxHasta.Text = mCalendar.SelectionEnd.ToShortDateString();
+            }
         }
     }
 }
