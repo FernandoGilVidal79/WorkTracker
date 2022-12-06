@@ -87,7 +87,7 @@ namespace WorkTrackerAPP
             this.cmbAño.Location = new System.Drawing.Point(776, 62);
             this.cmbAño.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAño.Name = "cmbAño";
-            this.cmbAño.Size = new System.Drawing.Size(87, 33);
+            this.cmbAño.Size = new System.Drawing.Size(87, 28);
             this.cmbAño.TabIndex = 82;
             // 
             // labAño
@@ -96,7 +96,7 @@ namespace WorkTrackerAPP
             this.labAño.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labAño.Location = new System.Drawing.Point(605, 65);
             this.labAño.Name = "labAño";
-            this.labAño.Size = new System.Drawing.Size(51, 25);
+            this.labAño.Size = new System.Drawing.Size(42, 20);
             this.labAño.TabIndex = 83;
             this.labAño.Text = "Año";
             // 
@@ -106,7 +106,7 @@ namespace WorkTrackerAPP
             this.lblSaldo.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaldo.Location = new System.Drawing.Point(348, 106);
             this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(363, 25);
+            this.lblSaldo.Size = new System.Drawing.Size(310, 20);
             this.lblSaldo.TabIndex = 87;
             this.lblSaldo.Text = "Vacaciones pendientes de disfrutar";
             // 
@@ -117,7 +117,7 @@ namespace WorkTrackerAPP
             this.txbVacaciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbVacaciones.Name = "txbVacaciones";
             this.txbVacaciones.ReadOnly = true;
-            this.txbVacaciones.Size = new System.Drawing.Size(104, 32);
+            this.txbVacaciones.Size = new System.Drawing.Size(104, 28);
             this.txbVacaciones.TabIndex = 88;
             // 
             // label1
@@ -126,7 +126,7 @@ namespace WorkTrackerAPP
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(941, 164);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 25);
+            this.label1.Size = new System.Drawing.Size(148, 20);
             this.label1.TabIndex = 97;
             this.label1.Text = "Días rechazados";
             // 
@@ -136,7 +136,7 @@ namespace WorkTrackerAPP
             this.lblAprobados.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAprobados.Location = new System.Drawing.Point(747, 164);
             this.lblAprobados.Name = "lblAprobados";
-            this.lblAprobados.Size = new System.Drawing.Size(165, 25);
+            this.lblAprobados.Size = new System.Drawing.Size(141, 20);
             this.lblAprobados.TabIndex = 91;
             this.lblAprobados.Text = "Días aprobados";
             // 
@@ -146,7 +146,7 @@ namespace WorkTrackerAPP
             this.lblPendientesAprobar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPendientesAprobar.Location = new System.Drawing.Point(552, 164);
             this.lblPendientesAprobar.Name = "lblPendientesAprobar";
-            this.lblPendientesAprobar.Size = new System.Drawing.Size(192, 25);
+            this.lblPendientesAprobar.Size = new System.Drawing.Size(162, 20);
             this.lblPendientesAprobar.TabIndex = 90;
             this.lblPendientesAprobar.Text = "Días para aprobar";
             // 
@@ -156,7 +156,7 @@ namespace WorkTrackerAPP
             this.lblSolicitados.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSolicitados.Location = new System.Drawing.Point(341, 164);
             this.lblSolicitados.Name = "lblSolicitados";
-            this.lblSolicitados.Size = new System.Drawing.Size(166, 25);
+            this.lblSolicitados.Size = new System.Drawing.Size(142, 20);
             this.lblSolicitados.TabIndex = 89;
             this.lblSolicitados.Text = "Días solicitados";
             // 
@@ -167,7 +167,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados1.Name = "txtSolicitados1";
             this.txtSolicitados1.ReadOnly = true;
-            this.txtSolicitados1.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados1.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados1.TabIndex = 106;
             // 
             // txtSolicitados6
@@ -177,7 +177,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados6.Name = "txtSolicitados6";
             this.txtSolicitados6.ReadOnly = true;
-            this.txtSolicitados6.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados6.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados6.TabIndex = 107;
             // 
             // txtSolicitados5
@@ -187,7 +187,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados5.Name = "txtSolicitados5";
             this.txtSolicitados5.ReadOnly = true;
-            this.txtSolicitados5.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados5.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados5.TabIndex = 108;
             // 
             // txtSolicitados4
@@ -197,7 +197,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados4.Name = "txtSolicitados4";
             this.txtSolicitados4.ReadOnly = true;
-            this.txtSolicitados4.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados4.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados4.TabIndex = 109;
             // 
             // txtSolicitados3
@@ -207,7 +207,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados3.Name = "txtSolicitados3";
             this.txtSolicitados3.ReadOnly = true;
-            this.txtSolicitados3.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados3.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados3.TabIndex = 110;
             // 
             // txtSolicitados2
@@ -217,7 +217,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados2.Name = "txtSolicitados2";
             this.txtSolicitados2.ReadOnly = true;
-            this.txtSolicitados2.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados2.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados2.TabIndex = 111;
             // 
             // txtPendientes3
@@ -227,7 +227,7 @@ namespace WorkTrackerAPP
             this.txtPendientes3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes3.Name = "txtPendientes3";
             this.txtPendientes3.ReadOnly = true;
-            this.txtPendientes3.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes3.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes3.TabIndex = 112;
             // 
             // txtPendientes4
@@ -237,7 +237,7 @@ namespace WorkTrackerAPP
             this.txtPendientes4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes4.Name = "txtPendientes4";
             this.txtPendientes4.ReadOnly = true;
-            this.txtPendientes4.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes4.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes4.TabIndex = 113;
             // 
             // txtPendientes2
@@ -247,7 +247,7 @@ namespace WorkTrackerAPP
             this.txtPendientes2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes2.Name = "txtPendientes2";
             this.txtPendientes2.ReadOnly = true;
-            this.txtPendientes2.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes2.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes2.TabIndex = 114;
             // 
             // txtPendientes1
@@ -257,7 +257,7 @@ namespace WorkTrackerAPP
             this.txtPendientes1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes1.Name = "txtPendientes1";
             this.txtPendientes1.ReadOnly = true;
-            this.txtPendientes1.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes1.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes1.TabIndex = 115;
             // 
             // txtPendientes5
@@ -267,7 +267,7 @@ namespace WorkTrackerAPP
             this.txtPendientes5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes5.Name = "txtPendientes5";
             this.txtPendientes5.ReadOnly = true;
-            this.txtPendientes5.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes5.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes5.TabIndex = 116;
             // 
             // txtPendientes6
@@ -277,7 +277,7 @@ namespace WorkTrackerAPP
             this.txtPendientes6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes6.Name = "txtPendientes6";
             this.txtPendientes6.ReadOnly = true;
-            this.txtPendientes6.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes6.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes6.TabIndex = 117;
             // 
             // txtAprobados1
@@ -287,7 +287,7 @@ namespace WorkTrackerAPP
             this.txtAprobados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados1.Name = "txtAprobados1";
             this.txtAprobados1.ReadOnly = true;
-            this.txtAprobados1.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados1.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados1.TabIndex = 118;
             // 
             // txtAprobados2
@@ -297,7 +297,7 @@ namespace WorkTrackerAPP
             this.txtAprobados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados2.Name = "txtAprobados2";
             this.txtAprobados2.ReadOnly = true;
-            this.txtAprobados2.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados2.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados2.TabIndex = 119;
             // 
             // txtAprobados3
@@ -307,7 +307,7 @@ namespace WorkTrackerAPP
             this.txtAprobados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados3.Name = "txtAprobados3";
             this.txtAprobados3.ReadOnly = true;
-            this.txtAprobados3.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados3.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados3.TabIndex = 120;
             // 
             // txtAprobados4
@@ -317,7 +317,7 @@ namespace WorkTrackerAPP
             this.txtAprobados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados4.Name = "txtAprobados4";
             this.txtAprobados4.ReadOnly = true;
-            this.txtAprobados4.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados4.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados4.TabIndex = 121;
             // 
             // txtAprobados5
@@ -327,7 +327,7 @@ namespace WorkTrackerAPP
             this.txtAprobados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados5.Name = "txtAprobados5";
             this.txtAprobados5.ReadOnly = true;
-            this.txtAprobados5.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados5.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados5.TabIndex = 122;
             // 
             // txtAprobados6
@@ -337,7 +337,7 @@ namespace WorkTrackerAPP
             this.txtAprobados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados6.Name = "txtAprobados6";
             this.txtAprobados6.ReadOnly = true;
-            this.txtAprobados6.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados6.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados6.TabIndex = 123;
             // 
             // txtRechazados1
@@ -347,7 +347,7 @@ namespace WorkTrackerAPP
             this.txtRechazados1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados1.Name = "txtRechazados1";
             this.txtRechazados1.ReadOnly = true;
-            this.txtRechazados1.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados1.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados1.TabIndex = 124;
             // 
             // txtRechazados2
@@ -357,7 +357,7 @@ namespace WorkTrackerAPP
             this.txtRechazados2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados2.Name = "txtRechazados2";
             this.txtRechazados2.ReadOnly = true;
-            this.txtRechazados2.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados2.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados2.TabIndex = 125;
             // 
             // txtRechazados3
@@ -367,7 +367,7 @@ namespace WorkTrackerAPP
             this.txtRechazados3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados3.Name = "txtRechazados3";
             this.txtRechazados3.ReadOnly = true;
-            this.txtRechazados3.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados3.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados3.TabIndex = 126;
             // 
             // txtRechazados4
@@ -377,7 +377,7 @@ namespace WorkTrackerAPP
             this.txtRechazados4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados4.Name = "txtRechazados4";
             this.txtRechazados4.ReadOnly = true;
-            this.txtRechazados4.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados4.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados4.TabIndex = 127;
             // 
             // txtRechazados5
@@ -387,7 +387,7 @@ namespace WorkTrackerAPP
             this.txtRechazados5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados5.Name = "txtRechazados5";
             this.txtRechazados5.ReadOnly = true;
-            this.txtRechazados5.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados5.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados5.TabIndex = 128;
             // 
             // txtRechazados6
@@ -397,7 +397,7 @@ namespace WorkTrackerAPP
             this.txtRechazados6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados6.Name = "txtRechazados6";
             this.txtRechazados6.ReadOnly = true;
-            this.txtRechazados6.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados6.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados6.TabIndex = 129;
             // 
             // txtAprobados7
@@ -407,7 +407,7 @@ namespace WorkTrackerAPP
             this.txtAprobados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAprobados7.Name = "txtAprobados7";
             this.txtAprobados7.ReadOnly = true;
-            this.txtAprobados7.Size = new System.Drawing.Size(164, 32);
+            this.txtAprobados7.Size = new System.Drawing.Size(164, 28);
             this.txtAprobados7.TabIndex = 132;
             // 
             // txtPendientes7
@@ -417,7 +417,7 @@ namespace WorkTrackerAPP
             this.txtPendientes7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPendientes7.Name = "txtPendientes7";
             this.txtPendientes7.ReadOnly = true;
-            this.txtPendientes7.Size = new System.Drawing.Size(164, 32);
+            this.txtPendientes7.Size = new System.Drawing.Size(164, 28);
             this.txtPendientes7.TabIndex = 133;
             // 
             // txtSolicitados7
@@ -427,7 +427,7 @@ namespace WorkTrackerAPP
             this.txtSolicitados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSolicitados7.Name = "txtSolicitados7";
             this.txtSolicitados7.ReadOnly = true;
-            this.txtSolicitados7.Size = new System.Drawing.Size(164, 32);
+            this.txtSolicitados7.Size = new System.Drawing.Size(164, 28);
             this.txtSolicitados7.TabIndex = 134;
             // 
             // txtRechazados7
@@ -437,7 +437,7 @@ namespace WorkTrackerAPP
             this.txtRechazados7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRechazados7.Name = "txtRechazados7";
             this.txtRechazados7.ReadOnly = true;
-            this.txtRechazados7.Size = new System.Drawing.Size(164, 32);
+            this.txtRechazados7.Size = new System.Drawing.Size(164, 28);
             this.txtRechazados7.TabIndex = 135;
             // 
             // lblTipoAusencia
@@ -446,7 +446,7 @@ namespace WorkTrackerAPP
             this.lblTipoAusencia.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoAusencia.Location = new System.Drawing.Point(205, 207);
             this.lblTipoAusencia.Name = "lblTipoAusencia";
-            this.lblTipoAusencia.Size = new System.Drawing.Size(122, 25);
+            this.lblTipoAusencia.Size = new System.Drawing.Size(103, 20);
             this.lblTipoAusencia.TabIndex = 95;
             this.lblTipoAusencia.Text = "Vacaciones";
             this.lblTipoAusencia.Click += new System.EventHandler(this.lblVacaciones_Click);
@@ -457,7 +457,7 @@ namespace WorkTrackerAPP
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(194, 238);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 25);
+            this.label2.Size = new System.Drawing.Size(112, 20);
             this.label2.TabIndex = 136;
             this.label2.Text = "Baja Médica";
             // 
@@ -467,7 +467,7 @@ namespace WorkTrackerAPP
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(183, 273);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 25);
+            this.label3.Size = new System.Drawing.Size(122, 20);
             this.label3.TabIndex = 137;
             this.label3.Text = "Visita Médica";
             // 
@@ -477,7 +477,7 @@ namespace WorkTrackerAPP
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(201, 301);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 25);
+            this.label4.Size = new System.Drawing.Size(105, 20);
             this.label4.TabIndex = 138;
             this.label4.Text = "Matrimonio";
             // 
@@ -487,7 +487,7 @@ namespace WorkTrackerAPP
             this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(225, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 25);
+            this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 139;
             this.label5.Text = "Mudanza";
             // 
@@ -497,7 +497,7 @@ namespace WorkTrackerAPP
             this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(147, 364);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 25);
+            this.label6.Size = new System.Drawing.Size(153, 20);
             this.label6.TabIndex = 140;
             this.label6.Text = "Nacimiento Hij@";
             // 
@@ -507,7 +507,7 @@ namespace WorkTrackerAPP
             this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(177, 397);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 25);
+            this.label7.Size = new System.Drawing.Size(127, 20);
             this.label7.TabIndex = 141;
             this.label7.Text = "Deber Público";
             // 
@@ -517,7 +517,7 @@ namespace WorkTrackerAPP
             this.lblAnio.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnio.Location = new System.Drawing.Point(145, 164);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(0, 25);
+            this.lblAnio.Size = new System.Drawing.Size(0, 20);
             this.lblAnio.TabIndex = 142;
             // 
             // groupBox1
@@ -564,10 +564,10 @@ namespace WorkTrackerAPP
             // 
             // Situacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1749, 1080);
+            this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.label7);

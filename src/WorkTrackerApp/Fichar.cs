@@ -177,9 +177,8 @@ namespace WorkTrackerAPP
         private void MostrarHistoricoFichajes()
         {
             lblHistorico.Text = "";
-            int contadorFichajes = 0;
             var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
-            var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(UserSession.User.IdUser);
+            var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet( UserSession.User.IdUser);
             Console.WriteLine(UserSession.Fichajes);
             
 
@@ -390,7 +389,7 @@ namespace WorkTrackerAPP
             }
             if(estado == Estados.Entrada)
             {
-                //btnJornada.Image = Image.FromFile("Resources\\salida.png");
+                //btnJornada.Image = Image.FromFile(@"Resources\\salida.png");
             }
             MaquinaEstados();
             Fichaje();
@@ -431,24 +430,6 @@ namespace WorkTrackerAPP
             Fichaje();
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
 
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void trViewHistorico_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
     }
 }
