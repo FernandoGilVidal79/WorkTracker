@@ -14,6 +14,7 @@ using System.Linq;
 using RestSharp;
 using IO.Swagger.Client;
 using IO.Swagger.Model;
+using Newtonsoft.Json.Linq;
 
 namespace IO.Swagger.Api
 {
@@ -1186,6 +1187,9 @@ namespace IO.Swagger.Api
             {
                 localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
             }
+
+        
+
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,

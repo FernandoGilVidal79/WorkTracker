@@ -52,8 +52,22 @@ namespace WorkTrackerAPP
                 string psw = Encriptado.GetSHA256(pswMailUsuario);
 
                 //Llamamos a al api para obtener el usuario
+
+                //var userAPI = new LoginApi("https://localhost:44363/");
+                //var token = userAPI.ApiLoginTokenGet("usuario","123456");
+                //token = token.Replace("\"", "");
+                //var apiclient = new UserApi("https://localhost:44363/");
+
+                //apiclient.Configuration = new IO.Swagger.Client.Configuration();
+                //apiclient.Configuration.BasePath = "https://localhost:44363/";
+                //apiclient.Configuration.AddApiKeyPrefix("Authorization", $"Bearer {token}");
+                //apiclient.Configuration.AddDefaultHeader("Content-Type", "application/json");
+                //apiclient.Configuration.AddDefaultHeader("Authorization", $"Bearer {token}"); 
+                //var users = apiclient.ApiUserLoginGet(txtUsuario.Text, psw);
+
                 var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
                 var users = apiclient.ApiUserLoginGet(txtUsuario.Text, psw);
+
 
                 //Comprobamos que el usuario existe, en caso de existir entra en al APP, en caso contrario muestra un mensaje
                 var user = users;

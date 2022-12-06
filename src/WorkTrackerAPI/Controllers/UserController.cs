@@ -19,7 +19,7 @@ namespace WorkTrackerAPI.Controllers
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize(Roles = "Cliente")]
+    [Authorize(Roles = "Cliente")]
     public class UserController : ControllerBase
     {
         private readonly ILoggerManager _logger;
