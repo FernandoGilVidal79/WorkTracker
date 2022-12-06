@@ -74,7 +74,7 @@ namespace WorkTrackerAPP
             // 
             this.calendarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(76, 35);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(76, 37);
             this.calendarioToolStripMenuItem.Text = "Logs";
             // 
             // salirToolStripMenuItem
@@ -85,7 +85,7 @@ namespace WorkTrackerAPP
             this.salirToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed;
             this.salirToolStripMenuItem.Image = global::WorkTrackerAPP.Properties.Resources.Salir_Rojo;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(40, 35);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(40, 37);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
@@ -151,6 +151,7 @@ namespace WorkTrackerAPP
             this.pnlInformes.BackColor = System.Drawing.SystemColors.Window;
             this.pnlInformes.Controls.Add(this.lgnStripResult);
             this.pnlInformes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlInformes.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlInformes.Location = new System.Drawing.Point(0, 109);
             this.pnlInformes.Name = "pnlInformes";
             this.pnlInformes.Size = new System.Drawing.Size(1591, 644);

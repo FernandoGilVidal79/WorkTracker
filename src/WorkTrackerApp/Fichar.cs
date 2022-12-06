@@ -56,6 +56,7 @@ namespace WorkTrackerAPP
             else if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour != null))
             {
                 return Estados.Saliendo;
+                
             }
             else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
             {
@@ -69,14 +70,19 @@ namespace WorkTrackerAPP
             {
                 estado = Estados.Descansado;
             }
+            /*btnJornada.Image = null;
+            btnJornada.Image = */
+
             return Estados.Entrada;
         }
 
         private void CargarFichajes(int id)
         {
-
+            //Cargamos los fichajes
             var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
+            //Instanciamos el treeview
+            
 
             if (fichajesUsuario.Count > 0)
             {
@@ -94,6 +100,7 @@ namespace WorkTrackerAPP
                         }
                         else
                         {
+                            lblHistorico.Hide();
                             lblResumen.Text = "Jornada de hoy: " + ffechaActual.ToString();
 
                             switch (ultimoFichaje.ClockinTypeId)
@@ -102,13 +109,13 @@ namespace WorkTrackerAPP
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de entrada: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Entrada;
                                     }
                                     else
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de salida: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Fuera;
                                     }
                                     break;
@@ -117,14 +124,14 @@ namespace WorkTrackerAPP
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de entrada: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Comiendo;
 
                                     }
                                     else
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de salida: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Comido;
 
                                     }
@@ -134,13 +141,13 @@ namespace WorkTrackerAPP
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de entrada: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Descansando;
                                     }
                                     else
                                     {
                                         var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
-                                        lblHistorico.Text = "Hora de salida: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Descansado;
                                     }
                                     break;
@@ -155,7 +162,7 @@ namespace WorkTrackerAPP
                     }
 
                     else
-                        lblHistorico.Text = "No hay fichajes registrados aún";
+                        lblFichajeActual.Text = "";
 
                 }
                 catch (IO.Swagger.Client.ApiException ex)
@@ -174,47 +181,28 @@ namespace WorkTrackerAPP
             var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(UserSession.User.IdUser);
             Console.WriteLine(UserSession.Fichajes);
+            
 
-            foreach (var _data in UserSession.Fichajes.Skip(Math.Max(0, UserSession.Fichajes.Count() - 5)).Reverse())
+            if (UserSession.Fichajes.Count() > 0)
             {
-                var ffecha = Convert.ToDateTime(_data.Date).ToString(Format);
-                Console.WriteLine(UserSession.Fichajes);
-                lblHistorico.Text += "Fecha: " + ffecha;
-                lblHistorico.Text += "\n";
-                lblHistorico.Text += "Hora de entrada:" + _data.StartHour;
-                lblHistorico.Text += "\n";
-                lblHistorico.Text += "Hora de salida: " + _data.FinishHour;
-                lblHistorico.Text += "\n-------------------------------------------------\n";
-            }
-            /*for (int i = UserSession.Fichajes.Count - 1; i > 0; i--)
-            {
-                //Helper.MensajeError(i.ToString(), "error");
-                if(i == UserSession.Fichajes.Count)
+
+                foreach (var _data in UserSession.Fichajes.Skip(Math.Max(0, UserSession.Fichajes.Count() - 5)).Reverse())
                 {
+                    var ffecha = Convert.ToDateTime(_data.Date).ToString(Format);
+                    Console.WriteLine(UserSession.Fichajes);
 
-                //if (UserSession.Fichajes[i].Date != UserSession.Fichajes[i - 1].Date)
-                //{
-                    if (UserSession.Fichajes[i].ClockinTypeId == 1)
-                    {
-                        //Helper.MensajeError("Contador Fichajes" + contadorFichajes, "Error");
-                        var ffecha = Convert.ToDateTime(UserSession.Fichajes[i].Date).ToString(Format);
-                        Console.WriteLine(UserSession.Fichajes[i]);
-                        lblHistorico.Text += "Fecha: " + ffecha;
-                        lblHistorico.Text += "\n";
-                        lblHistorico.Text += "Hora de entrada:" + UserSession.Fichajes[i].StartHour;
-                        lblHistorico.Text += "\n";
-                        lblHistorico.Text += "Hora de salida: " + UserSession.Fichajes[i].FinishHour;
-                        lblHistorico.Text += "\n-------------------------------------------------\n";
-                        //contadorFichajes++;
-                    }
-
-                //}
-                contadorFichajes++;
+                    lblHistorico.Text += "Fecha: " + ffecha;
+                    lblHistorico.Text += "\n";
+                    lblHistorico.Text += "Hora de entrada:" + _data.StartHour;
+                    lblHistorico.Text += "\n";
+                    lblHistorico.Text += "Hora de salida: " + _data.FinishHour;
+                    lblHistorico.Text += "\n-------------------------------------------------\n";
 
                 }
-
-
-            }*/
+            } 
+            else {
+                lblHistorico.Text = "No hay fichajes registrados aún";
+            }
 
         }
 
@@ -236,6 +224,7 @@ namespace WorkTrackerAPP
                     clockin.StartHour = DateTime.UtcNow.AddHours(1);
                     clockin.FinishHour = null;
                     apiclient.ApiClockInClockInPut(clockin);
+                    
                 }
                 else if (estado == Estados.Saliendo)
                 {
@@ -269,7 +258,8 @@ namespace WorkTrackerAPP
                     clockin.FinishHour = DateTime.UtcNow;
                     apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                CargarFichajesHoy();
+                //CargarFichajesHoy();
+                CargarFichajes((int)UserSession.User.IdUser);
 
             }
             catch (IO.Swagger.Client.ApiException ex)
@@ -412,6 +402,7 @@ namespace WorkTrackerAPP
             {
                 contadorComida = 1;
                 estado = Estados.Comiendo;
+                
             }
             else if (estado == Estados.Comiendo)
             {
@@ -448,6 +439,11 @@ namespace WorkTrackerAPP
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void trViewHistorico_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
         }
