@@ -89,6 +89,9 @@ namespace WorkTrackerAPP
                 var ultimoFichaje = fichajesUsuario.Last();
                 var ffechaUltimoFichaje = Convert.ToDateTime(ultimoFichaje.Date).ToString(Format);
                 var ffechaActual = Convert.ToDateTime(DateTime.UtcNow).ToString(Format);
+                //Seleccionar el estado del usuario
+                //TODO: Comprobar que el estado 1 no esté vacío antes de salir.
+                Console.WriteLine(GetEstadosByFichajes().ToString());
                 UserSession.Fichajes = fichajesUsuario;
                 try
                 {
@@ -124,30 +127,31 @@ namespace WorkTrackerAPP
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
                                         var hora = Convert.ToDateTime(ultimoFichaje.StartHour).ToString(FormatHora);
-                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de salida a comer: " + hora.ToString();
                                         estado = Estados.Comiendo;
 
                                     }
                                     else
                                     {
                                         var hora = Convert.ToDateTime(ultimoFichaje.FinishHour).ToString(FormatHora);
-                                        lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Comido;
 
                                     }
                                     break;
 
                                 case 3:
-                                    if (ultimoFichaje.FinishHour.ToString() == "")
+
+                                    if (ultimoFichaje.FinishHour.ToString() =="")
                                     {
                                         var hora = Convert.ToDateTime(ultimoFichaje.StartHour).ToString(FormatHora);
-                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de salida descanso: " + hora.ToString();
                                         estado = Estados.Descansando;
                                     }
                                     else
                                     {
                                         var hora = Convert.ToDateTime(ultimoFichaje.FinishHour).ToString(FormatHora);
-                                        lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
+                                        lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Descansado;
                                     }
                                     break;
@@ -393,7 +397,7 @@ namespace WorkTrackerAPP
             }
             MaquinaEstados();
             Fichaje();
-            //MaquinaEstadoComida();
+            MaquinaEstadoComida();
 
         }
 

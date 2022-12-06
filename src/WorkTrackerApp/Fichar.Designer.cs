@@ -71,7 +71,7 @@ namespace WorkTrackerAPP
             this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.lblResumen.AutoSize = true;
             this.lblResumen.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumen.Location = new System.Drawing.Point(585, 31);
+            this.lblResumen.Location = new System.Drawing.Point(363, 33);
             this.lblResumen.Name = "lblResumen";
             this.lblResumen.Size = new System.Drawing.Size(210, 20);
             this.lblResumen.TabIndex = 41;
@@ -95,7 +95,7 @@ namespace WorkTrackerAPP
             // 
             this.lblHistorico.AutoSize = true;
             this.lblHistorico.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistorico.Location = new System.Drawing.Point(585, 137);
+            this.lblHistorico.Location = new System.Drawing.Point(461, 103);
             this.lblHistorico.Name = "lblHistorico";
             this.lblHistorico.Size = new System.Drawing.Size(0, 20);
             this.lblHistorico.TabIndex = 45;
@@ -104,7 +104,7 @@ namespace WorkTrackerAPP
             // 
             this.lblFichajeActual.AutoSize = true;
             this.lblFichajeActual.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFichajeActual.Location = new System.Drawing.Point(1080, 91);
+            this.lblFichajeActual.Location = new System.Drawing.Point(363, 77);
             this.lblFichajeActual.Name = "lblFichajeActual";
             this.lblFichajeActual.Size = new System.Drawing.Size(0, 20);
             this.lblFichajeActual.TabIndex = 46;
