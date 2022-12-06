@@ -49,30 +49,31 @@ namespace WorkTrackerAPP
             // cmbTipoAusencia
             // 
             this.cmbTipoAusencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoAusencia.Font = new System.Drawing.Font("Verdana", 12F);
+            this.cmbTipoAusencia.Font = new System.Drawing.Font("Verdana", 10F);
             this.cmbTipoAusencia.FormattingEnabled = true;
             this.cmbTipoAusencia.Location = new System.Drawing.Point(48, 250);
             this.cmbTipoAusencia.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cmbTipoAusencia.Name = "cmbTipoAusencia";
-            this.cmbTipoAusencia.Size = new System.Drawing.Size(194, 33);
+            this.cmbTipoAusencia.Size = new System.Drawing.Size(123, 28);
             this.cmbTipoAusencia.TabIndex = 81;
             this.cmbTipoAusencia.SelectedIndexChanged += new System.EventHandler(this.cbxTipoAusencia_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F);
+            this.label1.Font = new System.Drawing.Font("Verdana", 10F);
             this.label1.Location = new System.Drawing.Point(43, 222);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 25);
+            this.label1.Size = new System.Drawing.Size(128, 20);
             this.label1.TabIndex = 82;
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // mCalendar
             // 
-            this.mCalendar.Location = new System.Drawing.Point(633, 163);
+            this.mCalendar.Font = new System.Drawing.Font("Verdana", 10F);
+            this.mCalendar.Location = new System.Drawing.Point(185, 306);
             this.mCalendar.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.mCalendar.Name = "mCalendar";
             this.mCalendar.TabIndex = 83;
@@ -80,41 +81,41 @@ namespace WorkTrackerAPP
             // 
             // tbxDesde
             // 
-            this.tbxDesde.Font = new System.Drawing.Font("Verdana", 12F);
-            this.tbxDesde.Location = new System.Drawing.Point(266, 251);
+            this.tbxDesde.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbxDesde.Location = new System.Drawing.Point(185, 250);
             this.tbxDesde.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(160, 32);
+            this.tbxDesde.Size = new System.Drawing.Size(113, 28);
             this.tbxDesde.TabIndex = 84;
             // 
             // tbxHasta
             // 
-            this.tbxHasta.Font = new System.Drawing.Font("Verdana", 12F);
-            this.tbxHasta.Location = new System.Drawing.Point(453, 251);
+            this.tbxHasta.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbxHasta.Location = new System.Drawing.Point(308, 250);
             this.tbxHasta.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbxHasta.Name = "tbxHasta";
-            this.tbxHasta.Size = new System.Drawing.Size(160, 32);
+            this.tbxHasta.Size = new System.Drawing.Size(109, 28);
             this.tbxHasta.TabIndex = 85;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F);
-            this.label2.Location = new System.Drawing.Point(261, 222);
+            this.label2.Font = new System.Drawing.Font("Verdana", 10F);
+            this.label2.Location = new System.Drawing.Point(181, 222);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 25);
+            this.label2.Size = new System.Drawing.Size(118, 20);
             this.label2.TabIndex = 86;
             this.label2.Text = "Fecha Desde";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F);
-            this.label3.Location = new System.Drawing.Point(448, 222);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10F);
+            this.label3.Location = new System.Drawing.Point(309, 222);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 25);
+            this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
             // 
@@ -123,10 +124,10 @@ namespace WorkTrackerAPP
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 580);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 548);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 23, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1573, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 90;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -137,10 +138,10 @@ namespace WorkTrackerAPP
             // 
             // pnlListadoAusencias
             // 
-            this.pnlListadoAusencias.Location = new System.Drawing.Point(1008, 85);
+            this.pnlListadoAusencias.Location = new System.Drawing.Point(454, 12);
             this.pnlListadoAusencias.Margin = new System.Windows.Forms.Padding(5);
             this.pnlListadoAusencias.Name = "pnlListadoAusencias";
-            this.pnlListadoAusencias.Size = new System.Drawing.Size(409, 580);
+            this.pnlListadoAusencias.Size = new System.Drawing.Size(363, 500);
             this.pnlListadoAusencias.TabIndex = 91;
             this.pnlListadoAusencias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -148,7 +149,7 @@ namespace WorkTrackerAPP
             // 
             this.groupBox1.Controls.Add(this.btnGrabar2);
             this.groupBox1.Controls.Add(this.btnGrabar3);
-            this.groupBox1.Location = new System.Drawing.Point(1366, 4);
+            this.groupBox1.Location = new System.Drawing.Point(846, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(130, 71);
             this.groupBox1.TabIndex = 94;
@@ -189,7 +190,7 @@ namespace WorkTrackerAPP
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1573, 602);
+            this.ClientSize = new System.Drawing.Size(988, 570);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlListadoAusencias);
             this.Controls.Add(this.statusStrip1);
