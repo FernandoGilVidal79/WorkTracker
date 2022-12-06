@@ -42,7 +42,7 @@ namespace WorkTrackerAPP
 
         private void CargarTiposAusencias()
         {
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+            var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
             absensesType = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
         }
 
@@ -57,11 +57,11 @@ namespace WorkTrackerAPP
             var Combo = (ComboBox)sender;
             if (Combo.SelectedIndex > -1)
             {
-                var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
                 var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet((int)Combo.SelectedValue);              
                 CargarDatosGrid(absenses);
 
-                var apiUser = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                var apiUser = new UserApi(UserSession.APIUrl);
                 var user = apiUser.ApiUserGetUserByIdIdGet(Combo.SelectedValue.ToString());
 
                 if (user != null)
@@ -69,7 +69,6 @@ namespace WorkTrackerAPP
                     lblUsuario.Text = user.First().Name + " " + user.First().SurName1;
                 }
             }
-         
         }
 
         private void CargarDatosGrid(List<Absenses> absenses)
@@ -83,8 +82,7 @@ namespace WorkTrackerAPP
             dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
             dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
             dt.Columns.Add(new DataColumn("Denegar", typeof(bool)));
-            //dt.Columns.Add(new DataColumn("Uninstall", typeof(System.Windows.Forms.Button)));
-
+            
             foreach (var absense in absenses)
             {
                 DataRow dr = dt.NewRow();
@@ -128,14 +126,14 @@ namespace WorkTrackerAPP
                     if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
                     {
                         int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
                         var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
                     }
 
                     if (cellDenegacion.Value != null && (bool)cellDenegacion.Value == true)
                     {
                         int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
                         var absenses = apiAbsenses.ApiAbsensesDenegateAbsensesByIdIdGet(id);
                     }
                 }

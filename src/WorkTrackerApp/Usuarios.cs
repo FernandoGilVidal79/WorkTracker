@@ -67,7 +67,7 @@ namespace WorkTrackerAPP
         {
             var apiclient = new UserApi(UserSession.APIUrl);
             var userTypes = apiclient.ApiUserGetUserTypesGet();
-            
+           
             cmbTipoUsuario.DisplayMember = "Description";
             cmbTipoUsuario.ValueMember = "IdUserType";
             cmbTipoUsuario.DataSource = userTypes;
@@ -120,7 +120,7 @@ namespace WorkTrackerAPP
                     Password = txtContrasena.Text
                 };
 
-                var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                var apiclient = new UserApi(UserSession.APIUrl);
                 if (edicion)
                 {
                     user.IdUser = Int32.Parse(txtNumEmpleado.Text);
@@ -152,6 +152,11 @@ namespace WorkTrackerAPP
             {
                 e.Handled = true;
             }
+
+            else if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Buscar();
+            }
         }
 
 
@@ -171,9 +176,9 @@ namespace WorkTrackerAPP
             edicion = false;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void Buscar()
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new UserApi(UserSession.APIUrl);
 
             if (txtNumEmpleado.Text != string.Empty)
             {
@@ -189,7 +194,7 @@ namespace WorkTrackerAPP
                     this.txtApellido2.Text = user.SurName2;
                     this.txtTelefono.Text = user.Phone.ToString();
                     this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                    this.txtContrasena.Text = user.Password; /// TODO Encrptada¿?¿?¿?
+                    this.txtContrasena.Text = user.Password;
                     this.txtDepartamento.Text = user.Phone.ToString();
                     SetStatusCombo((bool)user.Status);
                     _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
@@ -206,6 +211,17 @@ namespace WorkTrackerAPP
             {
                 _form.EnviarEstado("Falta el Id Usuario");
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void ValidateEnterPress(object sender, KeyPressEventArgs e)
+        {
+
+           
         }
     }
 }
