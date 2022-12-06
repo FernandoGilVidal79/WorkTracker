@@ -58,7 +58,7 @@ namespace WorkTrackerAPP
             var apiAbsences = new AbsencesApi(UserSession.APIUrl);
             var AbsencesTypes = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
             cmbTipoAusencia.DisplayMember = "Description";
-            cmbTipoAusencia.ValueMember = "IdAbsenseType";
+            cmbTipoAusencia.ValueMember = "IdAbsenceType";
             cmbTipoAusencia.DataSource = AbsencesTypes;
 
             
@@ -143,6 +143,8 @@ namespace WorkTrackerAPP
 
         private void btnGrabar2_Click(object sender, EventArgs e)
         {
+            
+            
             try
             {
                 DateTime desde = DateTime.Parse(tbxDesde.Text);
@@ -156,6 +158,7 @@ namespace WorkTrackerAPP
                 Absences.UserId = UserSession.User.IdUser;
                 if (cmbTipoAusencia.SelectedValue != null)
                 {
+                    
                     Absences.AbsencesTypeId = (int)cmbTipoAusencia.SelectedValue;
                     if (desde > hasta)
                     {

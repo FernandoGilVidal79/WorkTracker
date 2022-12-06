@@ -149,9 +149,9 @@ namespace WorkTrackerAPP
             // 
             this.groupBox1.Controls.Add(this.btnGrabar2);
             this.groupBox1.Controls.Add(this.btnGrabar3);
-            this.groupBox1.Location = new System.Drawing.Point(846, 12);
+            this.groupBox1.Location = new System.Drawing.Point(882, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(130, 71);
+            this.groupBox1.Size = new System.Drawing.Size(105, 65);
             this.groupBox1.TabIndex = 94;
             this.groupBox1.TabStop = false;
             // 
@@ -165,7 +165,7 @@ namespace WorkTrackerAPP
             this.btnGrabar2.Location = new System.Drawing.Point(8, 17);
             this.btnGrabar2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGrabar2.Name = "btnGrabar2";
-            this.btnGrabar2.Size = new System.Drawing.Size(58, 48);
+            this.btnGrabar2.Size = new System.Drawing.Size(45, 40);
             this.btnGrabar2.TabIndex = 47;
             this.btnGrabar2.UseVisualStyleBackColor = false;
             this.btnGrabar2.Click += new System.EventHandler(this.btnGrabar2_Click);
@@ -177,10 +177,10 @@ namespace WorkTrackerAPP
             this.btnGrabar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabar3.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGrabar3.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
-            this.btnGrabar3.Location = new System.Drawing.Point(76, 17);
+            this.btnGrabar3.Location = new System.Drawing.Point(63, 17);
             this.btnGrabar3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGrabar3.Name = "btnGrabar3";
-            this.btnGrabar3.Size = new System.Drawing.Size(47, 47);
+            this.btnGrabar3.Size = new System.Drawing.Size(39, 40);
             this.btnGrabar3.TabIndex = 46;
             this.btnGrabar3.UseVisualStyleBackColor = false;
             this.btnGrabar3.Click += new System.EventHandler(this.btnGrabar3_Click);

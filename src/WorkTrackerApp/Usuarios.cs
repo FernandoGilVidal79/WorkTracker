@@ -101,49 +101,7 @@ namespace WorkTrackerAPP
             //throw new Exception("No se ha seleccionado un valor");
         }
       
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            ComboStatusValor();
-            try
-            {
-                var user = new Users
-                {
-                    Department = txtDepartamento.Text,
-                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
-                    Name = txtNombre.Text,
-                    SurName1 = txtApellido1.Text,
-                    SurName2 = txtApellido2.Text,
-                    Status = ComboStatusValor(),
-                    Phone = Int32.Parse(txtTelefono.Text),
-                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
-                    Email = txtEmail.Text,
-                    Password = txtContrasena.Text
-                };
-
-                var apiclient = new UserApi(UserSession.APIUrl);
-                if (edicion)
-                {
-                    user.IdUser = Int32.Parse(txtNumEmpleado.Text);
-                    apiclient.ApiUserUpdateUserPost(user);
-                    Helper.MensajeOk("Usuario modificado correctamente", "Modificacion de Usuario");
-                }
-                else
-                {
-                    apiclient.ApiUserCreateUserPut(user);
-                    LimpiarCampos();
-                    Helper.MensajeOk("Usuario Creado correctamente", "Creación de Usuario");
-
-
-                }
-
-                _form.EnviarEstado("Guardado correctamente");
-            }
-            catch (Exception ex)
-            {
-                _form.EnviarEstado("Error al guardar el usuario");
-            }
-        }
-
+       
    
 
         private void ValidationNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -223,5 +181,49 @@ namespace WorkTrackerAPP
 
            
         }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            ComboStatusValor();
+            try
+            {
+                var user = new Users
+                {
+                    Department = txtDepartamento.Text,
+                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
+                    Name = txtNombre.Text,
+                    SurName1 = txtApellido1.Text,
+                    SurName2 = txtApellido2.Text,
+                    Status = ComboStatusValor(),
+                    Phone = Int32.Parse(txtTelefono.Text),
+                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
+                    Email = txtEmail.Text,
+                    Password = txtContrasena.Text
+                };
+
+                var apiclient = new UserApi(UserSession.APIUrl);
+                if (edicion)
+                {
+                    user.IdUser = Int32.Parse(txtNumEmpleado.Text);
+                    apiclient.ApiUserUpdateUserPost(user);
+                    Helper.MensajeOk("Usuario modificado correctamente", "Modificacion de Usuario");
+                }
+                else
+                {
+                    apiclient.ApiUserCreateUserPut(user);
+                    LimpiarCampos();
+                    Helper.MensajeOk("Usuario Creado correctamente", "Creación de Usuario");
+
+
+                }
+
+                _form.EnviarEstado("Guardado correctamente");
+            }
+            catch (Exception ex)
+            {
+                _form.EnviarEstado("Error al guardar el usuario");
+            }
+        
+    }
     }
 }
