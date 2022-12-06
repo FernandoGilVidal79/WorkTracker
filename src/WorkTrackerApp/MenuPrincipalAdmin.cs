@@ -59,5 +59,19 @@ namespace WorkTrackerAPP
 
             }
         }
+
+        private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrHora.Enabled = true;
+            pnlInformes.Controls.Clear();
+            Logs Frm = new Logs();
+            Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            ///Frm.Dock = DockStyle.Fill;
+            pnlInformes.Controls.Add(Frm);
+            pnlInformes.Tag = Frm;
+            Frm.Show();
+            Helper.MensajeBienvenida(lblBienvenida);
+        }
     }
 }

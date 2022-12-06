@@ -72,6 +72,7 @@ namespace WorkTrackerAPP
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
             this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(51, 28);
             this.calendarioToolStripMenuItem.Text = "Logs";
+            this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.calendarioToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
