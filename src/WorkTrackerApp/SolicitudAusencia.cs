@@ -55,11 +55,11 @@ namespace WorkTrackerAPP
         {
             //cmbTipoAusencia.Items.Insert(0, string.Empty);
 
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-            var absensesTypes = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
+            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var AbsencesTypes = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
             cmbTipoAusencia.DisplayMember = "Description";
             cmbTipoAusencia.ValueMember = "IdAbsenseType";
-            cmbTipoAusencia.DataSource = absensesTypes;
+            cmbTipoAusencia.DataSource = AbsencesTypes;
 
             
         }
@@ -70,24 +70,24 @@ namespace WorkTrackerAPP
             {
                 DateTime desde= DateTime.Parse(tbxDesde.Text);
                 DateTime hasta= DateTime.Parse(tbxHasta.Text);
-                var absenses = new Absenses();
+                var Absences = new Absences();
 
-                absenses.StartDate = desde;
-                absenses.FinishDate = hasta;
-                absenses.Aproved = false;
-                absenses.Denied = false;
-                absenses.UserId = UserSession.User.IdUser;
+                Absences.StartDate = desde;
+                Absences.FinishDate = hasta;
+                Absences.Aproved = false;
+                Absences.Denied = false;
+                Absences.UserId = UserSession.User.IdUser;
                 if (cmbTipoAusencia.SelectedValue != null)
                 {
-                    absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
+                    Absences.AbsencesTypeId = (int)cmbTipoAusencia.SelectedValue;
                     if (desde > hasta)
                     {
                         MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
                     }
                     else
                     {
-                        var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                        apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                        var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                        apiAbsences.ApiAbsencesCreateAbsencePut(Absences);
                         MessageBox.Show("Ausencia grabada");
                         toolStripStatusLabel1.Text = "Ausencia grabada";
 
@@ -147,24 +147,24 @@ namespace WorkTrackerAPP
             {
                 DateTime desde = DateTime.Parse(tbxDesde.Text);
                 DateTime hasta = DateTime.Parse(tbxHasta.Text);
-                var absenses = new Absenses();
+                var Absences = new Absences();
 
-                absenses.StartDate = desde;
-                absenses.FinishDate = hasta;
-                absenses.Aproved = false;
-                absenses.Denied = false;
-                absenses.UserId = UserSession.User.IdUser;
+                Absences.StartDate = desde;
+                Absences.FinishDate = hasta;
+                Absences.Aproved = false;
+                Absences.Denied = false;
+                Absences.UserId = UserSession.User.IdUser;
                 if (cmbTipoAusencia.SelectedValue != null)
                 {
-                    absenses.AbsensesTypeId = (int)cmbTipoAusencia.SelectedValue;
+                    Absences.AbsencesTypeId = (int)cmbTipoAusencia.SelectedValue;
                     if (desde > hasta)
                     {
                         MessageBox.Show("Fecha Inicio anterior a Fecha Fin, vuelva a intentarlo");
                     }
                     else
                     {
-                        var apiabsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                        apiabsenses.ApiAbsensesCreateAbsensePut(absenses);
+                        var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                        apiAbsences.ApiAbsencesCreateAbsencePut(Absences);
                         MessageBox.Show("Ausencia grabada");
                         toolStripStatusLabel1.Text = "Ausencia grabada";
 

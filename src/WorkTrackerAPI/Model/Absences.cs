@@ -5,13 +5,13 @@ using KeyAttribute = Dapper.KeyAttribute;
 namespace WorkTrackerAPI.Model
 {
     /// <summary>
-    /// Absenses Model
+    /// Absences Model
     /// </summary>
-    public class Absenses
+    public class Absences
     {
         [Key]
         [IgnoreInsert]
-        public int IdAbsenses { get; set; }
+        public int IdAbsences { get; set; }
 
         public DateTime StartDate { get; set; }
 
@@ -23,6 +23,6 @@ namespace WorkTrackerAPI.Model
 
         public int UserId { get; set; }
 
-        public int AbsensesTypeId { get; set; }
+        public int AbsencesTypeId { get; set; }
     }
 }

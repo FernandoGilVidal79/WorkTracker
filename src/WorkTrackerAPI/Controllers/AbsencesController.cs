@@ -14,13 +14,13 @@ namespace WorkTrackerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AbsensesController : ControllerBase
+    public class AbsencesController : ControllerBase
     {
         private readonly ILoggerManager _logger;
         private string connection;
         private MySqlConnection db;
 
-        public AbsensesController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
+        public AbsencesController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
             connection = connectionStrings.Value.connectionString;
             _logger = logger;
@@ -28,14 +28,14 @@ namespace WorkTrackerAPI.Controllers
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
         }
 
-        [ProducesResponseType(typeof(IEnumerable<Absenses>), (int)HttpStatusCode.OK)]
-        [HttpGet("GetAbsensesByUserId/{id}")]
-        public IEnumerable<Absenses> GetAbsensesByUserId(int id)
+        [ProducesResponseType(typeof(IEnumerable<Absences>), (int)HttpStatusCode.OK)]
+        [HttpGet("GetAbsencesByUserId/{id}")]
+        public IEnumerable<Absences> GetAbsencesByUserId(int id)
         {
-            List<Absenses> listAbsenses = null;
+            List<Absences> listAbsences = null;
             try
             {
-                listAbsenses = (List<Absenses>)SimpleCRUD.GetList<Absenses>(db, $"where userid = {id}");
+                listAbsences = (List<Absences>)SimpleCRUD.GetList<Absences>(db, $"where userid = {id}");
             }
 
             catch (Exception ex)
@@ -47,21 +47,21 @@ namespace WorkTrackerAPI.Controllers
             {
                 db.Close();
             }
-            return listAbsenses;
+            return listAbsences;
         }
 
-        [HttpGet("ValidateAbsensesById/{id}")]
-        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
-        public Absenses ValidateAbsensesById(int id)
+        [HttpGet("ValidateAbsencesById/{id}")]
+        [ProducesResponseType(typeof(Absences), (int)HttpStatusCode.OK)]
+        public Absences ValidateAbsencesById(int id)
         {
             try
             {
-                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                var absense = SimpleCRUD.Get<Absences>(db, id);
                 if (absense != null) 
                 { 
                     absense.Aproved = true;
                     absense.Denied  = false;
-                    SimpleCRUD.Update<Absenses>(db, absense);
+                    SimpleCRUD.Update<Absences>(db, absense);
                     _logger.LogInfo($"-- Valida la ausencia {id}");
                 }
                 return absense; 
@@ -77,18 +77,18 @@ namespace WorkTrackerAPI.Controllers
             }
         }
 
-        [HttpGet("DenegateAbsensesById/{id}")]
-        [ProducesResponseType(typeof(Absenses), (int)HttpStatusCode.OK)]
-        public Absenses DenegateAbsensesById(int id)
+        [HttpGet("DenegateAbsencesById/{id}")]
+        [ProducesResponseType(typeof(Absences), (int)HttpStatusCode.OK)]
+        public Absences DenegateAbsencesById(int id)
         {
             try
             {
-                var absense = SimpleCRUD.Get<Absenses>(db, id);
+                var absense = SimpleCRUD.Get<Absences>(db, id);
                 if (absense != null)
                 {
                     absense.Aproved = false;
                     absense.Denied  = true;
-                    SimpleCRUD.Update<Absenses>(db, absense);
+                    SimpleCRUD.Update<Absences>(db, absense);
                 }
                 return absense;
             }
@@ -103,15 +103,15 @@ namespace WorkTrackerAPI.Controllers
             }
         }
 
-        [HttpGet("GetAbsensesTypes")]
-        [ProducesResponseType(typeof(IEnumerable<AbsenseType>), (int)HttpStatusCode.OK)]
-        [SwaggerOperation("GetAbsensesTypes")]
-        public IEnumerable<AbsenseType> GetAbsensesTypes()
+        [HttpGet("GetAbsencesTypes")]
+        [ProducesResponseType(typeof(IEnumerable<AbsenceType>), (int)HttpStatusCode.OK)]
+        [SwaggerOperation("GetAbsencesTypes")]
+        public IEnumerable<AbsenceType> GetAbsencesTypes()
         {
-            IEnumerable<AbsenseType> listAbsensesType = null;
+            IEnumerable<AbsenceType> listAbsencesType = null;
             try
             {
-                listAbsensesType = db.GetList<AbsenseType>();
+                listAbsencesType = db.GetList<AbsenceType>();
             }
             catch(Exception ex)
             {
@@ -122,22 +122,22 @@ namespace WorkTrackerAPI.Controllers
             {
                 db.Close();
             }
-            return listAbsensesType;
+            return listAbsencesType;
         }
 
-        // POST api/<AbsensesController>
+        // POST api/<AbsencesController>
         [HttpPost]
-        public void Post([FromBody] Absenses value)
+        public void Post([FromBody] Absences value)
         {
             try
             {
-                var absenses = SimpleCRUD.Get<Absenses>(db, value.IdAbsenses);
-                absenses.Aproved = value.Aproved;
-                absenses.Denied = value.Denied;
-                absenses.StartDate = value.StartDate;
-                absenses.AbsensesTypeId = value.AbsensesTypeId;
-                absenses.FinishDate = value.FinishDate;
-                SimpleCRUD.Update(db, absenses);
+                var Absences = SimpleCRUD.Get<Absences>(db, value.IdAbsences);
+                Absences.Aproved = value.Aproved;
+                Absences.Denied = value.Denied;
+                Absences.StartDate = value.StartDate;
+                Absences.AbsencesTypeId = value.AbsencesTypeId;
+                Absences.FinishDate = value.FinishDate;
+                SimpleCRUD.Update(db, Absences);
             }
             catch (Exception ex)
             {
@@ -150,12 +150,12 @@ namespace WorkTrackerAPI.Controllers
             }
         }
 
-        [HttpPut("CreateAbsense")]
-        public void Put([FromBody] Absenses absense)
+        [HttpPut("CreateAbsence")]
+        public void Put([FromBody] Absences absence)
         {
             try
             {
-                SimpleCRUD.Insert(db, absense);
+                SimpleCRUD.Insert(db, absence);
             }
             catch (Exception ex)
             {

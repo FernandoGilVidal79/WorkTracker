@@ -11,7 +11,7 @@ namespace WorkTrackerAPP
     public partial class AprobacionSolicitudes : Form
     {
 
-        private static List<AbsenseType> absensesType;
+        private static List<AbsenceType> AbsencesType;
         public AprobacionSolicitudes()
         {
             InitializeComponent();
@@ -34,16 +34,16 @@ namespace WorkTrackerAPP
         private void CargarComboUsuarios()
         {
             var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
-            var absensesTypes = apiUsers.ApiUserGetUsersGet();
+            var AbsencesTypes = apiUsers.ApiUserGetUsersGet();
             cmbUsuarios.DisplayMember = "Name";
             cmbUsuarios.ValueMember = "IdUser";
-            cmbUsuarios.DataSource = absensesTypes;
+            cmbUsuarios.DataSource = AbsencesTypes;
         }
 
         private void CargarTiposAusencias()
         {
-            var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
-            absensesType = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+            AbsencesType = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
         }
 
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
@@ -57,9 +57,9 @@ namespace WorkTrackerAPP
             var Combo = (ComboBox)sender;
             if (Combo.SelectedIndex > -1)
             {
-                var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
-                var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet((int)Combo.SelectedValue);              
-                CargarDatosGrid(absenses);
+                var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+                var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet((int)Combo.SelectedValue);              
+                CargarDatosGrid(Absences);
 
                 var apiUser = new UserApi(UserSession.APIUrl);
                 var user = apiUser.ApiUserGetUserByIdIdGet(Combo.SelectedValue.ToString());
@@ -71,7 +71,7 @@ namespace WorkTrackerAPP
             }
         }
 
-        private void CargarDatosGrid(List<Absenses> absenses)
+        private void CargarDatosGrid(List<Absences> Absences)
         {
             dataGridView1.Columns.Clear();
           
@@ -83,12 +83,12 @@ namespace WorkTrackerAPP
             dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
             dt.Columns.Add(new DataColumn("Denegar", typeof(bool)));
             
-            foreach (var absense in absenses)
+            foreach (var absense in Absences)
             {
                 DataRow dr = dt.NewRow();
 
-                dr[0] = absense.IdAbsenses;
-                dr[1] = absensesType.First(x => x.IdAbsenseType == absense.AbsensesTypeId).Description;
+                dr[0] = absense.IdAbsences;
+                dr[1] = AbsencesType.First(x => x.IdAbsenceType == absense.AbsencesTypeId).Description;
                 dr[2] = absense.StartDate;
                 dr[3] = absense.FinishDate;
                 dr[4] = absense.Aproved;
@@ -126,15 +126,15 @@ namespace WorkTrackerAPP
                     if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
                     {
                         int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
-                        var absenses = apiAbsenses.ApiAbsensesValidateAbsensesByIdIdGet(id);
+                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+                        var Absences = apiAbsences.ApiAbsencesValidateAbsencesByIdIdGet(id);
                     }
 
                     if (cellDenegacion.Value != null && (bool)cellDenegacion.Value == true)
                     {
                         int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsenses = new AbsensesApi(UserSession.APIUrl);
-                        var absenses = apiAbsenses.ApiAbsensesDenegateAbsensesByIdIdGet(id);
+                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+                        var Absences = apiAbsences.ApiAbsencesDenegateAbsencesByIdIdGet(id);
                     }
                 }
                 index = index + increment;

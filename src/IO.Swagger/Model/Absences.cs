@@ -24,37 +24,37 @@ using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 namespace IO.Swagger.Model
 {
     /// <summary>
-    /// Absenses
+    /// Absences
     /// </summary>
     [DataContract]
-        public partial class Absenses :  IEquatable<Absenses>, IValidatableObject
+        public partial class Absences :  IEquatable<Absences>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Absenses" /> class.
+        /// Initializes a new instance of the <see cref="Absences" /> class.
         /// </summary>
-        /// <param name="idAbsenses">idAbsenses.</param>
+        /// <param name="idAbsences">idAbsences.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="finishDate">finishDate.</param>
         /// <param name="aproved">aproved.</param>
         /// <param name="denied">denied.</param>
         /// <param name="userId">userId.</param>
-        /// <param name="absensesTypeId">absensesTypeId.</param>
-        public Absenses(int? idAbsenses = default(int?), DateTime? startDate = default(DateTime?), DateTime? finishDate = default(DateTime?), bool? aproved = default(bool?), bool? denied = default(bool?), int? userId = default(int?), int? absensesTypeId = default(int?))
+        /// <param name="absencesTypeId">absencesTypeId.</param>
+        public Absences(int? idAbsences = default(int?), DateTime? startDate = default(DateTime?), DateTime? finishDate = default(DateTime?), bool? aproved = default(bool?), bool? denied = default(bool?), int? userId = default(int?), int? absencesTypeId = default(int?))
         {
-            this.IdAbsenses = idAbsenses;
+            this.IdAbsences = idAbsences;
             this.StartDate = startDate;
             this.FinishDate = finishDate;
             this.Aproved = aproved;
             this.Denied = denied;
             this.UserId = userId;
-            this.AbsensesTypeId = absensesTypeId;
+            this.AbsencesTypeId = absencesTypeId;
         }
         
         /// <summary>
-        /// Gets or Sets IdAbsenses
+        /// Gets or Sets IdAbsences
         /// </summary>
-        [DataMember(Name="idAbsenses", EmitDefaultValue=false)]
-        public int? IdAbsenses { get; set; }
+        [DataMember(Name="idAbsences", EmitDefaultValue=false)]
+        public int? IdAbsences { get; set; }
 
         /// <summary>
         /// Gets or Sets StartDate
@@ -87,10 +87,10 @@ namespace IO.Swagger.Model
         public int? UserId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsensesTypeId
+        /// Gets or Sets AbsencesTypeId
         /// </summary>
-        [DataMember(Name="absensesTypeId", EmitDefaultValue=false)]
-        public int? AbsensesTypeId { get; set; }
+        [DataMember(Name="absencesTypeId", EmitDefaultValue=false)]
+        public int? AbsencesTypeId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,14 +99,14 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Absenses {\n");
-            sb.Append("  IdAbsenses: ").Append(IdAbsenses).Append("\n");
+            sb.Append("class Absences {\n");
+            sb.Append("  IdAbsences: ").Append(IdAbsences).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  FinishDate: ").Append(FinishDate).Append("\n");
             sb.Append("  Aproved: ").Append(Aproved).Append("\n");
             sb.Append("  Denied: ").Append(Denied).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  AbsensesTypeId: ").Append(AbsensesTypeId).Append("\n");
+            sb.Append("  AbsencesTypeId: ").Append(AbsencesTypeId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,24 +127,24 @@ namespace IO.Swagger.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Absenses);
+            return this.Equals(input as Absences);
         }
 
         /// <summary>
-        /// Returns true if Absenses instances are equal
+        /// Returns true if Absences instances are equal
         /// </summary>
-        /// <param name="input">Instance of Absenses to be compared</param>
+        /// <param name="input">Instance of Absences to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Absenses input)
+        public bool Equals(Absences input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IdAbsenses == input.IdAbsenses ||
-                    (this.IdAbsenses != null &&
-                    this.IdAbsenses.Equals(input.IdAbsenses))
+                    this.IdAbsences == input.IdAbsences ||
+                    (this.IdAbsences != null &&
+                    this.IdAbsences.Equals(input.IdAbsences))
                 ) && 
                 (
                     this.StartDate == input.StartDate ||
@@ -172,9 +172,9 @@ namespace IO.Swagger.Model
                     this.UserId.Equals(input.UserId))
                 ) && 
                 (
-                    this.AbsensesTypeId == input.AbsensesTypeId ||
-                    (this.AbsensesTypeId != null &&
-                    this.AbsensesTypeId.Equals(input.AbsensesTypeId))
+                    this.AbsencesTypeId == input.AbsencesTypeId ||
+                    (this.AbsencesTypeId != null &&
+                    this.AbsencesTypeId.Equals(input.AbsencesTypeId))
                 );
         }
 
@@ -187,8 +187,8 @@ namespace IO.Swagger.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdAbsenses != null)
-                    hashCode = hashCode * 59 + this.IdAbsenses.GetHashCode();
+                if (this.IdAbsences != null)
+                    hashCode = hashCode * 59 + this.IdAbsences.GetHashCode();
                 if (this.StartDate != null)
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.FinishDate != null)
@@ -199,8 +199,8 @@ namespace IO.Swagger.Model
                     hashCode = hashCode * 59 + this.Denied.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                if (this.AbsensesTypeId != null)
-                    hashCode = hashCode * 59 + this.AbsensesTypeId.GetHashCode();
+                if (this.AbsencesTypeId != null)
+                    hashCode = hashCode * 59 + this.AbsencesTypeId.GetHashCode();
                 return hashCode;
             }
         }

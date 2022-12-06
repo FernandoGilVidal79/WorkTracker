@@ -24,27 +24,27 @@ using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 namespace IO.Swagger.Model
 {
     /// <summary>
-    /// AbsenseType
+    /// AbsenceType
     /// </summary>
     [DataContract]
-        public partial class AbsenseType :  IEquatable<AbsenseType>, IValidatableObject
+        public partial class AbsenceType :  IEquatable<AbsenceType>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbsenseType" /> class.
+        /// Initializes a new instance of the <see cref="AbsenceType" /> class.
         /// </summary>
-        /// <param name="idAbsenseType">idAbsenseType.</param>
+        /// <param name="idAbsenceType">idAbsenceType.</param>
         /// <param name="description">description.</param>
-        public AbsenseType(int? idAbsenseType = default(int?), string description = default(string))
+        public AbsenceType(int? idAbsenceType = default(int?), string description = default(string))
         {
-            this.IdAbsenseType = idAbsenseType;
+            this.IdAbsenceType = idAbsenceType;
             this.Description = description;
         }
         
         /// <summary>
-        /// Gets or Sets IdAbsenseType
+        /// Gets or Sets IdAbsenceType
         /// </summary>
-        [DataMember(Name="idAbsenseType", EmitDefaultValue=false)]
-        public int? IdAbsenseType { get; set; }
+        [DataMember(Name="idAbsenceType", EmitDefaultValue=false)]
+        public int? IdAbsenceType { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -59,8 +59,8 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AbsenseType {\n");
-            sb.Append("  IdAbsenseType: ").Append(IdAbsenseType).Append("\n");
+            sb.Append("class AbsenceType {\n");
+            sb.Append("  IdAbsenceType: ").Append(IdAbsenceType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -82,24 +82,24 @@ namespace IO.Swagger.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AbsenseType);
+            return this.Equals(input as AbsenceType);
         }
 
         /// <summary>
-        /// Returns true if AbsenseType instances are equal
+        /// Returns true if AbsenceType instances are equal
         /// </summary>
-        /// <param name="input">Instance of AbsenseType to be compared</param>
+        /// <param name="input">Instance of AbsenceType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AbsenseType input)
+        public bool Equals(AbsenceType input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IdAbsenseType == input.IdAbsenseType ||
-                    (this.IdAbsenseType != null &&
-                    this.IdAbsenseType.Equals(input.IdAbsenseType))
+                    this.IdAbsenceType == input.IdAbsenceType ||
+                    (this.IdAbsenceType != null &&
+                    this.IdAbsenceType.Equals(input.IdAbsenceType))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -117,8 +117,8 @@ namespace IO.Swagger.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdAbsenseType != null)
-                    hashCode = hashCode * 59 + this.IdAbsenseType.GetHashCode();
+                if (this.IdAbsenceType != null)
+                    hashCode = hashCode * 59 + this.IdAbsenceType.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;

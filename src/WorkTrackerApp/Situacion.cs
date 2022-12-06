@@ -53,13 +53,13 @@ namespace WorkTrackerAPP
                     borrado++;
 
 
-                    var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-                    var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
+                    var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                    var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
 
                     try
                     {
 
-                        var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin).GroupBy(x => x.AbsensesTypeId);
+                        var ausenciasAgrupadasByType = Absences.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin).GroupBy(x => x.AbsencesTypeId);
 
                         foreach (var ausenciaAgrupada in ausenciasAgrupadasByType)
                         {
@@ -83,7 +83,7 @@ namespace WorkTrackerAPP
                                     {
                                         //diasAprobados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
                                         diasAprobados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
-                                        if (ausencia.AbsensesTypeId == 1)
+                                        if (ausencia.AbsencesTypeId == 1)
                                         {
                                            // nVacaciones += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
                                            nVacaciones += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
@@ -101,7 +101,7 @@ namespace WorkTrackerAPP
                             diasTotales = diasAprobados + diasPendientes + diasRechazados;
                             Ausencia ausenciaTipoPintar = new Ausencia
                             {
-                                Id = ausenciaAgrupada.First().AbsensesTypeId.Value,
+                                Id = ausenciaAgrupada.First().AbsencesTypeId.Value,
                                 DiasPendientes = diasPendientes,
                                 DiasRechazados = diasRechazados,
                                 DiasTotales = diasTotales,
@@ -243,16 +243,16 @@ namespace WorkTrackerAPP
 
         private void CargarAnio()
         {
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-            var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
-            var absensesAgrupadasAnio = absenses.GroupBy(x => x.StartDate);
+            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
+            var AbsencesAgrupadasAnio = Absences.GroupBy(x => x.StartDate);
             try
             {
                 DateTime anio;
                 String year;
                 List<String> years = new List<string>();
-                var absensesAgrupadasAnioPorFecha = absenses.GroupBy(x => x.StartDate);
-                foreach (var ausenciaAnio in absensesAgrupadasAnioPorFecha)
+                var AbsencesAgrupadasAnioPorFecha = Absences.GroupBy(x => x.StartDate);
+                foreach (var ausenciaAnio in AbsencesAgrupadasAnioPorFecha)
                 {
                     var anios = ausenciaAnio.Min(x => x.StartDate);
                     anio = Convert.ToDateTime(anios);
