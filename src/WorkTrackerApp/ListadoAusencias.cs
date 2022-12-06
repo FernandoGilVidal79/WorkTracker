@@ -35,7 +35,7 @@ namespace WorkTrackerAPP
 
         private void LeerTiposAusencias()
         {
-            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
             tiposAusencias = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
         }
 
@@ -49,7 +49,7 @@ namespace WorkTrackerAPP
             DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
             DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
 
-            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var apiAbsences = new AbsencesApi("UserSession.APIUrl");
             var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
 
             int y;
