@@ -49,7 +49,7 @@ namespace WorkTrackerAPP
                     int diasTotales = 0;
                     int diasRechazados = 0;
                     nVacaciones = 0;
-                    lblAnio.Text = cmbAño.SelectedItem.ToString();
+                    lblAnioN.Text = cmbAño.SelectedItem.ToString();
                     borrado++;
 
 
@@ -199,7 +199,8 @@ namespace WorkTrackerAPP
                 }
 
             }
-            lblAnio.Text = "";
+            lblAnioN.Text = "";
+            
             borrado = 0;
         }
         private void CargarDiasPendientes()
