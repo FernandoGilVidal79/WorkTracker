@@ -55,7 +55,7 @@ namespace WorkTrackerAPP
         {
             //cmbTipoAusencia.Items.Insert(0, string.Empty);
 
-            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
             var AbsencesTypes = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
             cmbTipoAusencia.DisplayMember = "Description";
             cmbTipoAusencia.ValueMember = "IdAbsenseType";
@@ -86,7 +86,7 @@ namespace WorkTrackerAPP
                     }
                     else
                     {
-                        var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
                         apiAbsences.ApiAbsencesCreateAbsencePut(Absences);
                         MessageBox.Show("Ausencia grabada");
                         toolStripStatusLabel1.Text = "Ausencia grabada";
@@ -163,7 +163,7 @@ namespace WorkTrackerAPP
                     }
                     else
                     {
-                        var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
                         apiAbsences.ApiAbsencesCreateAbsencePut(Absences);
                         MessageBox.Show("Ausencia grabada");
                         toolStripStatusLabel1.Text = "Ausencia grabada";
