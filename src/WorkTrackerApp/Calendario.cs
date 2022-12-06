@@ -222,7 +222,7 @@ namespace WorkTrackerAPP
         {
             this.txbAnio.Value = DateTime.Now.Year;
             PintarMeses();
-           this.MarcarFestivos();
+          
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -293,6 +293,11 @@ namespace WorkTrackerAPP
             this.txbAnio.Value = DateTime.Now.Year;
             PintarMeses();
             MarcarFestivos();
+        }
+
+        private void Calendario_Shown(object sender, EventArgs e)
+        {
+            this.MarcarFestivos();
         }
 
         private void MarcarFestivos()
