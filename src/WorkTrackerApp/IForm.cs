@@ -5,6 +5,8 @@
 
         void EnviarEstado(string estado);
 
-        int EnviarValue(int value);
+        int EnviarValueProgressBar(int value);
+
+        void EnviarMaxValueProgressBar(int value);
     }
 }

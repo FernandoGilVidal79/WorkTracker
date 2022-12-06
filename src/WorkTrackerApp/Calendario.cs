@@ -174,43 +174,43 @@ namespace WorkTrackerAPP
         public void PintarMeses()
         {
             _form.EnviarEstado("Cargando Calendario...");
-           
+            _form.EnviarMaxValueProgressBar(120);
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = RellenarMeses(1);
            
             dataGridView2.Columns.Clear();
             dataGridView2.DataSource = RellenarMeses(2);
-            _form.EnviarValue(24);
+            _form.EnviarValueProgressBar(10);
             dataGridView3.Columns.Clear();
             dataGridView3.DataSource = RellenarMeses(3);
-            _form.EnviarValue(32);
+            _form.EnviarValueProgressBar(20);
             dataGridView4.Columns.Clear();
             dataGridView4.DataSource = RellenarMeses(4);
-            _form.EnviarValue(40);
+            _form.EnviarValueProgressBar(30);
             dataGridView5.Columns.Clear();
             dataGridView5.DataSource = RellenarMeses(5);
-            _form.EnviarValue(48);
+            _form.EnviarValueProgressBar(40);
             dataGridView6.Columns.Clear();
             dataGridView6.DataSource = RellenarMeses(6);
-            _form.EnviarValue(56);
+            _form.EnviarValueProgressBar(50);
             dataGridView7.Columns.Clear();
             dataGridView7.DataSource = RellenarMeses(7);
-            _form.EnviarValue(64);
+            _form.EnviarValueProgressBar(60);
             dataGridView8.Columns.Clear();
             dataGridView8.DataSource = RellenarMeses(8);
-            _form.EnviarValue(72);
+            _form.EnviarValueProgressBar(70);
             dataGridView9.Columns.Clear();
             dataGridView9.DataSource = RellenarMeses(9);
-            _form.EnviarValue(80);
+            _form.EnviarValueProgressBar(80);
             dataGridView10.Columns.Clear();
             dataGridView10.DataSource = RellenarMeses(10);
-            _form.EnviarValue(88);
+            _form.EnviarValueProgressBar(80);
             dataGridView11.Columns.Clear();
             dataGridView11.DataSource = RellenarMeses(11);
-            _form.EnviarValue(94);
+            _form.EnviarValueProgressBar(100);
             dataGridView12.Columns.Clear();
             dataGridView12.DataSource = RellenarMeses(12);
-            _form.EnviarValue(0);
+            _form.EnviarValueProgressBar(0);
             _form.EnviarEstado("Carga completada");
 
         }
@@ -300,6 +300,11 @@ namespace WorkTrackerAPP
             this.MarcarFestivos();
         }
 
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void MarcarFestivos()
         {
             var apiclient = new CalendarApi(UserSession.APIUrl);
@@ -309,7 +314,7 @@ namespace WorkTrackerAPP
             foreach (var festive in festives)
             {
                 _form.EnviarEstado("Cargar Festivos");
-                _form.EnviarValue(index);
+                _form.EnviarValueProgressBar(index);
                 switch (festive.Month)
                 {
                     case 1:
@@ -353,7 +358,7 @@ namespace WorkTrackerAPP
 
 
             }
-            _form.EnviarValue(0);
+            _form.EnviarValueProgressBar(0);
         }
 
     }

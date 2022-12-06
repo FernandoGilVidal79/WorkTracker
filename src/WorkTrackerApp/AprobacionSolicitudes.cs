@@ -109,7 +109,7 @@ namespace WorkTrackerAPP
 
             foreach (DataGridViewRow data in dataGridView1.Rows)
             {
-                _form.EnviarValue(index);
+                _form.EnviarValueProgressBar(index);
                 var cellAprobacion = data.Cells[4];
                 var cellDenegacion = data.Cells[5];
                 if (cellAprobacion.Value == null)
@@ -143,7 +143,7 @@ namespace WorkTrackerAPP
 
             }
             MessageBox.Show("Acción registrada");
-            _form.EnviarValue(0);
+            _form.EnviarValueProgressBar(0);
         }
 
         private void btnGrabar3_Click(object sender, EventArgs e)

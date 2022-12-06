@@ -94,10 +94,15 @@ namespace WorkTrackerAPP
 
         void IForm.EnviarEstado(string estado)
         {
-            this.toolStripMenuAdminStatus.Text = estado;
+            this.toolStripMenuPrincipalStatus.Text = estado;
         }
 
-        int IForm.EnviarValue(int value)
+        void IForm.EnviarMaxValueProgressBar(int value)
+        {
+            this.toolStripProgressBar1.Maximum = value;
+        }
+
+        int IForm.EnviarValueProgressBar(int value)
         {
             this.toolStripProgressBar1.Value = value;
             System.Threading.Thread.Sleep(1000);

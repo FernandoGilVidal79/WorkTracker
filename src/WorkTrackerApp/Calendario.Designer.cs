@@ -218,6 +218,7 @@ namespace WorkTrackerAPP
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(992, 573);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // groupBox13
             // 
