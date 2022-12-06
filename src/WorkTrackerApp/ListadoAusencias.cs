@@ -49,7 +49,7 @@ namespace WorkTrackerAPP
             DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
             DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
 
-            var apiAbsences = new AbsencesApi("UserSession.APIUrl");
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
             var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
 
             int y;
