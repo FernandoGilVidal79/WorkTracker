@@ -235,6 +235,7 @@ namespace WorkTrackerAPP
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mstrpPrincipal;
+            this.MaximizeBox = false;
             this.Name = "MenuPrincipal";
             this.Text = "Work Tracker";
             this.mstrpPrincipal.ResumeLayout(false);

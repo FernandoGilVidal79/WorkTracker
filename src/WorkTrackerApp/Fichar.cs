@@ -108,13 +108,13 @@ namespace WorkTrackerAPP
                                 case 1:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.StartHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Entrada;
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.FinishHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Fuera;
                                     }
@@ -123,14 +123,14 @@ namespace WorkTrackerAPP
                                 case 2:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.StartHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Comiendo;
 
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.FinishHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Comido;
 
@@ -140,13 +140,13 @@ namespace WorkTrackerAPP
                                 case 3:
                                     if (ultimoFichaje.FinishHour.ToString() == "")
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.StartHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de entrada: " + hora.ToString();
                                         estado = Estados.Descansando;
                                     }
                                     else
                                     {
-                                        var hora = Convert.ToDateTime(DateTime.UtcNow).ToString(FormatHora);
+                                        var hora = Convert.ToDateTime(ultimoFichaje.FinishHour).ToString(FormatHora);
                                         lblFichajeActual.Text = "Hora de salida: " + hora.ToString();
                                         estado = Estados.Descansado;
                                     }
@@ -258,8 +258,8 @@ namespace WorkTrackerAPP
                     clockin.FinishHour = DateTime.UtcNow;
                     apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                //CargarFichajesHoy();
-                CargarFichajes((int)UserSession.User.IdUser);
+                CargarFichajesHoy();
+                //CargarFichajes((int)UserSession.User.IdUser);
 
             }
             catch (IO.Swagger.Client.ApiException ex)
