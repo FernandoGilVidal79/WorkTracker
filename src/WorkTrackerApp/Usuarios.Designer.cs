@@ -53,10 +53,10 @@ namespace WorkTrackerAPP
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnGuardar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnCancelar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnNuevo = new WorkTrackerAPP.Helpers.BtnGrabar();
-            this.btnBuscar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.component11 = new WorkTrackerAPP.Helpers.Component1(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -283,9 +283,24 @@ namespace WorkTrackerAPP
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(147, 65);
+            this.groupBox1.Size = new System.Drawing.Size(152, 65);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnBuscar.Image = global::WorkTrackerAPP.Properties.Resources.search_alt;
+            this.btnBuscar.Location = new System.Drawing.Point(332, 20);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(61, 38);
+            this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.Tag = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnGuardar
             // 
@@ -301,6 +316,7 @@ namespace WorkTrackerAPP
             this.btnGuardar.TabIndex = 47;
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // btnCancelar
             // 
@@ -333,21 +349,6 @@ namespace WorkTrackerAPP
             this.btnNuevo.Tag = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnBuscar.Image = global::WorkTrackerAPP.Properties.Resources.search_alt;
-            this.btnBuscar.Location = new System.Drawing.Point(332, 20);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(61, 38);
-            this.btnBuscar.TabIndex = 45;
-            this.btnBuscar.Tag = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Usuarios
             // 
