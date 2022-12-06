@@ -90,6 +90,13 @@ namespace WorkTrackerAPP
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+
+            ActualizarContrasenia();
+        }
+
+
+        private void ActualizarContrasenia()
+        {
             if (ConfirmarContraseniaActual(txtContraseniaActual.Text))
             {
                 if (AlgoritmoContraseñaSegura(txtContraseniaNueva.Text))
@@ -131,7 +138,7 @@ namespace WorkTrackerAPP
                         }
 
 
-                        
+
                     }
                     else { MessageBox.Show("Las contraseñas no coinciden"); }
                 }
@@ -139,7 +146,15 @@ namespace WorkTrackerAPP
             }
             else { MessageBox.Show("La contraseña actual no coincide con la del sistema"); }
 
+        }
 
+        private void ValidateEnterPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                ActualizarContrasenia();
+            }
         }
     }
 }
