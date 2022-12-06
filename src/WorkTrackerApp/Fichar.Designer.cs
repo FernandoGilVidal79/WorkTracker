@@ -40,6 +40,7 @@ namespace WorkTrackerAPP
             // 
             // btnDescanso
             // 
+            this.btnDescanso.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescanso.Image = ((System.Drawing.Image)(resources.GetObject("btnDescanso.Image")));
             this.btnDescanso.Location = new System.Drawing.Point(73, 391);
             this.btnDescanso.Name = "btnDescanso";
@@ -52,6 +53,7 @@ namespace WorkTrackerAPP
             // 
             // btnComida
             // 
+            this.btnComida.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComida.Image = ((System.Drawing.Image)(resources.GetObject("btnComida.Image")));
             this.btnComida.Location = new System.Drawing.Point(73, 301);
             this.btnComida.Name = "btnComida";
@@ -66,14 +68,16 @@ namespace WorkTrackerAPP
             // 
             this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(589, 91);
+            this.lblResumen.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumen.Location = new System.Drawing.Point(585, 31);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(289, 29);
+            this.lblResumen.Size = new System.Drawing.Size(295, 30);
             this.lblResumen.TabIndex = 41;
             this.lblResumen.Text = "Resumen de la semana";
             // 
             // btnJornada
             // 
+            this.btnJornada.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJornada.Image = ((System.Drawing.Image)(resources.GetObject("btnJornada.Image")));
             this.btnJornada.Location = new System.Drawing.Point(73, 221);
             this.btnJornada.Name = "btnJornada";
@@ -87,17 +91,19 @@ namespace WorkTrackerAPP
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(682, 207);
+            this.lblHistorico.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHistorico.Location = new System.Drawing.Point(585, 137);
             this.lblHistorico.Name = "lblHistorico";
-            this.lblHistorico.Size = new System.Drawing.Size(0, 35);
+            this.lblHistorico.Size = new System.Drawing.Size(0, 30);
             this.lblHistorico.TabIndex = 45;
             // 
             // lblFichajeActual
             // 
             this.lblFichajeActual.AutoSize = true;
+            this.lblFichajeActual.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFichajeActual.Location = new System.Drawing.Point(1080, 91);
             this.lblFichajeActual.Name = "lblFichajeActual";
-            this.lblFichajeActual.Size = new System.Drawing.Size(0, 35);
+            this.lblFichajeActual.Size = new System.Drawing.Size(0, 30);
             this.lblFichajeActual.TabIndex = 46;
             // 
             // Fichar

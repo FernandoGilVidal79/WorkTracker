@@ -3,6 +3,7 @@ using IO.Swagger.Model;
 using System;
 using System.Windows.Forms;
 using System.Linq;
+using System.Drawing;
 
 namespace WorkTrackerAPP
 {
@@ -81,7 +82,6 @@ namespace WorkTrackerAPP
             //Cargamos los fichajes
             var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
-            //Instanciamos el treeview
             
 
             if (fichajesUsuario.Count > 0)
@@ -258,8 +258,8 @@ namespace WorkTrackerAPP
                     clockin.FinishHour = DateTime.UtcNow;
                     apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                CargarFichajesHoy();
-                //CargarFichajes((int)UserSession.User.IdUser);
+                //CargarFichajesHoy();
+                CargarFichajes((int)UserSession.User.IdUser);
 
             }
             catch (IO.Swagger.Client.ApiException ex)
@@ -273,8 +273,8 @@ namespace WorkTrackerAPP
         {
 
             CargarFichajes((int)UserSession.User.IdUser);
-            CargarFichajesHoy();
-            estado = GetEstadosByFichajes();
+            //CargarFichajesHoy();
+            //estado = GetEstadosByFichajes();
             //estado = 0;
             MaquinaEstados();
             MaquinaEstadoComida();    
@@ -382,12 +382,15 @@ namespace WorkTrackerAPP
             if (estado == Estados.Fuera)
             {
                 estado = Estados.Entrada;
-                Console.WriteLine(estado);
 
             }
             else if (estado == Estados.Entrada || estado == Estados.Comido || estado == Estados.Descansado)
             {
                 estado = Estados.Saliendo;
+            }
+            if(estado == Estados.Entrada)
+            {
+                //btnJornada.Image = Image.FromFile("Resources\\salida.png");
             }
             MaquinaEstados();
             Fichaje();
