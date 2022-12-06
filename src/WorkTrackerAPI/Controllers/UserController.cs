@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
@@ -18,6 +19,7 @@ namespace WorkTrackerAPI.Controllers
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
+    //[Authorize(Roles = "Cliente")]
     public class UserController : ControllerBase
     {
         private readonly ILoggerManager _logger;
