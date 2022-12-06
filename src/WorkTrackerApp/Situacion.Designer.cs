@@ -76,6 +76,7 @@ namespace WorkTrackerAPP
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAplicar = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnLimpiar = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.lblAnioN = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@ namespace WorkTrackerAPP
             this.cmbAño.Location = new System.Drawing.Point(701, 91);
             this.cmbAño.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbAño.Name = "cmbAño";
-            this.cmbAño.Size = new System.Drawing.Size(118, 28);
+            this.cmbAño.Size = new System.Drawing.Size(142, 28);
             this.cmbAño.TabIndex = 82;
             // 
             // labAño
@@ -159,7 +160,7 @@ namespace WorkTrackerAPP
             // 
             this.lblSolicitados.AutoSize = true;
             this.lblSolicitados.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSolicitados.Location = new System.Drawing.Point(199, 205);
+            this.lblSolicitados.Location = new System.Drawing.Point(207, 205);
             this.lblSolicitados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSolicitados.Name = "lblSolicitados";
             this.lblSolicitados.Size = new System.Drawing.Size(142, 20);
@@ -539,9 +540,9 @@ namespace WorkTrackerAPP
             this.groupBox1.Controls.Add(this.btnAplicar);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Location = new System.Drawing.Point(882, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(105, 65);
             this.groupBox1.TabIndex = 144;
             this.groupBox1.TabStop = false;
@@ -578,12 +579,21 @@ namespace WorkTrackerAPP
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // lblAnioN
+            // 
+            this.lblAnioN.AutoSize = true;
+            this.lblAnioN.Location = new System.Drawing.Point(50, 207);
+            this.lblAnioN.Name = "lblAnioN";
+            this.lblAnioN.Size = new System.Drawing.Size(0, 20);
+            this.lblAnioN.TabIndex = 145;
+            // 
             // Situacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(988, 570);
+            this.Controls.Add(this.lblAnioN);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.label7);
@@ -689,5 +699,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.GroupBox groupBox1;
         private Helpers.BtnGrabar btnAplicar;
         private Helpers.BtnGrabar btnLimpiar;
+        private System.Windows.Forms.Label lblAnioN;
     }
 }
