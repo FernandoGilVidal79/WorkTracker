@@ -32,7 +32,16 @@ namespace WorkTrackerAPP
 
         private void MenuPrincipalAdmin_Load(object sender, EventArgs e)
         {
-
+            TmrHora.Enabled = true;
+            pnlInformes.Controls.Clear();
+            Logs Frm = new Logs();
+            Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            ///Frm.Dock = DockStyle.Fill;
+            pnlInformes.Controls.Add(Frm);
+            pnlInformes.Tag = Frm;
+            Frm.Show();
+            Helper.MensajeBienvenida(lblBienvenida);
         }
 
         private void pnlInformes_Paint(object sender, PaintEventArgs e)
@@ -42,14 +51,27 @@ namespace WorkTrackerAPP
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?", "", MessageBoxButtons.YesNo);
-                if (dr == DialogResult.Yes)
-                {
-                    this.Close();
-                    this.Dispose();
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea salir?", "", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                this.Close();
+                this.Dispose();
 
-                }
+            }
+        }
 
+        private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrHora.Enabled = true;
+            pnlInformes.Controls.Clear();
+            Logs Frm = new Logs();
+            Frm.TopLevel = false;
+            Frm.FormBorderStyle = FormBorderStyle.None;
+            ///Frm.Dock = DockStyle.Fill;
+            pnlInformes.Controls.Add(Frm);
+            pnlInformes.Tag = Frm;
+            Frm.Show();
+            Helper.MensajeBienvenida(lblBienvenida);
         }
     }
 }
