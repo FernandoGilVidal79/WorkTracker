@@ -50,30 +50,32 @@ namespace WorkTrackerAPP
         {
             var fichajesActuales = UserSession.FichajesHoy;
             Estados estado;
-            if (!fichajesActuales.Any(x => x.ClockinTypeId == 1))
+            if (fichajesActuales != null)
             {
-                return Estados.Fuera;
-            }
-            else if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour != null))
-            {
-                return Estados.Saliendo;
-                
-            }
-            else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
-            {
-                return Estados.Comiendo;
-            }
-            else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour != null))
-            {
-                estado = Estados.Comido;
-            }
-            if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
-            {
-                estado = Estados.Descansado;
-            }
-            /*btnJornada.Image = null;
-            btnJornada.Image = */
+                if (!fichajesActuales.Any(x => x.ClockinTypeId == 1))
+                {
+                    return Estados.Fuera;
+                }
+                else if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour != null))
+                {
+                    return Estados.Saliendo;
 
+                }
+                else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
+                {
+                    return Estados.Comiendo;
+                }
+                else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour != null))
+                {
+                    estado = Estados.Comido;
+                }
+                if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
+                {
+                    estado = Estados.Descansado;
+                }
+                /*btnJornada.Image = null;
+                btnJornada.Image = */
+            }
             return Estados.Entrada;
         }
 
@@ -274,9 +276,10 @@ namespace WorkTrackerAPP
 
         private void Fichar_Load(object sender, EventArgs e)
         {
+            CargarFichajesHoy();
 
             CargarFichajes((int)UserSession.User.IdUser);
-            CargarFichajesHoy();
+         
             estado = GetEstadosByFichajes();
             //estado = 0;
             MaquinaEstados();
