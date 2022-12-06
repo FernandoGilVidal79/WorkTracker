@@ -258,7 +258,7 @@ namespace WorkTrackerAPP
                     clockin.FinishHour = DateTime.UtcNow;
                     apiclient.ApiClockInUpdateClockInPost(fichaje);
                 }
-                //CargarFichajesHoy();
+                CargarFichajesHoy();
                 CargarFichajes((int)UserSession.User.IdUser);
 
             }
@@ -273,8 +273,8 @@ namespace WorkTrackerAPP
         {
 
             CargarFichajes((int)UserSession.User.IdUser);
-            //CargarFichajesHoy();
-            //estado = GetEstadosByFichajes();
+            CargarFichajesHoy();
+            estado = GetEstadosByFichajes();
             //estado = 0;
             MaquinaEstados();
             MaquinaEstadoComida();    
