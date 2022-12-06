@@ -136,10 +136,13 @@ namespace WorkTrackerAPP
                         var apiAbsences = new AbsencesApi(UserSession.APIUrl);
                         var Absences = apiAbsences.ApiAbsencesDenegateAbsencesByIdIdGet(id);
                     }
+
+                   
                 }
                 index = index + increment;
 
             }
+            MessageBox.Show("Acción registrada");
             _form.EnviarValue(0);
         }
 
