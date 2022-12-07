@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.linkPassword = new System.Windows.Forms.LinkLabel();
             this.lgnStripResult.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -72,6 +73,7 @@
             this.pnlLogin.AutoSize = true;
             this.pnlLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlLogin.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlLogin.Controls.Add(this.linkPassword);
             this.pnlLogin.Controls.Add(this.btnIniciarSesion);
             this.pnlLogin.Controls.Add(this.txtContrasena);
             this.pnlLogin.Controls.Add(this.label2);
@@ -79,6 +81,7 @@
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.pcBoxLogo);
             this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLogin.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlLogin.Location = new System.Drawing.Point(3, 2);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogin.Name = "pnlLogin";
@@ -183,6 +186,17 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // linkPassword
+            // 
+            this.linkPassword.AutoSize = true;
+            this.linkPassword.Location = new System.Drawing.Point(471, 733);
+            this.linkPassword.Name = "linkPassword";
+            this.linkPassword.Size = new System.Drawing.Size(155, 17);
+            this.linkPassword.TabIndex = 12;
+            this.linkPassword.TabStop = true;
+            this.linkPassword.Text = "Modificar Contraseña";
+            this.linkPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPassword_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,6 +236,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pcBoxLogo;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.LinkLabel linkPassword;
     }
 }
 

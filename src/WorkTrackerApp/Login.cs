@@ -153,5 +153,11 @@ namespace WorkTrackerAPP
             //this.txtContrasena.Text = "Worktracker@1";
 
         }
+
+        private void linkPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetLogin frmResetLogin = new ResetLogin();
+            frmResetLogin.ShowDialog();
+        }
     }
     }
