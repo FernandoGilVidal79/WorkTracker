@@ -11,6 +11,9 @@ namespace WorkTrackerAPP
 
         private bool edicion = false;
         private readonly IForm _form;
+        ToolTip mouseBotones = new ToolTip();
+
+       
 
         public Usuarios (IForm form)
         {
@@ -23,6 +26,10 @@ namespace WorkTrackerAPP
             ActivarCampos(false);
             CargarTipoUsuarios();
             ActivarBotones(true);
+            mouseBotones.SetToolTip(btnBuscar, "Buscar");
+            mouseBotones.SetToolTip(btnCancelar, "Cancelar");
+            mouseBotones.SetToolTip(btnGuardar, "Guardar");
+            mouseBotones.SetToolTip(btnNuevo, "Nuevo");
         }
 
         private void ActivarCampos(bool status)
