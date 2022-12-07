@@ -17,7 +17,7 @@ namespace WorkTrackerAPP
         private int nVacaciones = 0;
         private int diasRestantes = 0;
         private int borrado = 0;
-
+        ToolTip mouseBotones = new ToolTip();
         public Situacion()
         {
             InitializeComponent();
@@ -27,7 +27,8 @@ namespace WorkTrackerAPP
         {
             
             CargarAnio();
-            
+            mouseBotones.SetToolTip(btnAplicar, "Guardar");
+            mouseBotones.SetToolTip(btnLimpiar, "Cancelar");
         }
 
         private void LeerAusencias()
