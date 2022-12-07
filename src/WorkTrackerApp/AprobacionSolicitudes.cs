@@ -33,7 +33,7 @@ namespace WorkTrackerAPP
 
         private void CargarComboUsuarios()
         {
-            var apiUsers = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiUsers = new UserApi(UserSession.APIUrl);
             var AbsencesTypes = apiUsers.ApiUserGetUsersGet();
             cmbUsuarios.DisplayMember = "Name";
             cmbUsuarios.ValueMember = "IdUser";
@@ -49,8 +49,7 @@ namespace WorkTrackerAPP
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
             CargarTiposAusencias();
-            CargarComboUsuarios();
-         
+            CargarComboUsuarios();    
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,6 +68,7 @@ namespace WorkTrackerAPP
                 {
                     lblUsuario.Text = user.First().Name + " " + user.First().SurName1;
                 }
+                _form.EnviarEstado($"Mostrando Solicitudes de {lblUsuario.Text}");
             }
         }
 
@@ -79,8 +79,8 @@ namespace WorkTrackerAPP
             var dt = new DataTable();
             dt.Columns.Add(new DataColumn("Id", typeof(string)));
             dt.Columns.Add(new DataColumn("Tipo", typeof(string)));
-            dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(string)));
-            dt.Columns.Add(new DataColumn("Fecha Fin", typeof(string)));
+            dt.Columns.Add(new DataColumn("Fecha Inicio", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("Fecha Fin", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("Aprobar", typeof(bool)));
             dt.Columns.Add(new DataColumn("Denegar", typeof(bool)));
             
@@ -95,55 +95,62 @@ namespace WorkTrackerAPP
                 dr[4] = absense.Aproved;
                 dr[5] = absense.Denied;
                 dt.Rows.Add(dr);
-            }
-            
+            }      
             dataGridView1.DataSource = dt;
             dataGridView1.Columns[0].Visible = false;
-
         }
 
 
         private void btnAprobar_Click(object sender, EventArgs e)
         {
             int index = 0;
-            int increment = 100 / dataGridView1.Rows.Count;
+            int increment = 1;
+            _form.EnviarEstado("Actualizando Ausencias");
+            _form.EnviarMaxValueProgressBar(dataGridView1.Rows.Count);
 
-            foreach (DataGridViewRow data in dataGridView1.Rows)
+            if (dataGridView1.Rows.Count > 0)
             {
-                _form.EnviarValueProgressBar(index);
-                var cellAprobacion = data.Cells[4];
-                var cellDenegacion = data.Cells[5];
-                if (cellAprobacion.Value == null)
-                    break;
 
-                if ((bool)cellAprobacion?.Value == true && (bool)cellDenegacion?.Value == true)
+                foreach (DataGridViewRow data in dataGridView1.Rows)
                 {
-                    _form.EnviarEstado("No se puede dar de alta la validación");
-                    Helper.MensajeError("No se puede seleccionar Validación y Denegación", "Error");
-                    break;
-                }
-                else
-                {
-                    if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
+                    _form.EnviarValueProgressBar(index);
+                    var cellAprobacion = data.Cells[4];
+                    var cellDenegacion = data.Cells[5];
+                    if (cellAprobacion.Value == null)
+                        break;
+
+                    if ((bool)cellAprobacion?.Value == true && (bool)cellDenegacion?.Value == true)
                     {
-                        int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
-                        var Absences = apiAbsences.ApiAbsencesValidateAbsencesByIdIdGet(id);
+                        _form.EnviarEstado("No se puede dar de alta la validación");
+                        Helper.MensajeError("No se puede seleccionar Validación y Denegación", "Error");
+                        break;
                     }
-
-                    if (cellDenegacion.Value != null && (bool)cellDenegacion.Value == true)
+                    else
                     {
-                        int id = int.Parse((string)data.Cells[0].Value);
-                        var apiAbsences = new AbsencesApi(UserSession.APIUrl);
-                        var Absences = apiAbsences.ApiAbsencesDenegateAbsencesByIdIdGet(id);
+                        if (cellAprobacion.Value != null && (bool)cellAprobacion.Value == true)
+                        {
+                            int id = int.Parse((string)data.Cells[0].Value);
+                            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+                            var Absences = apiAbsences.ApiAbsencesValidateAbsencesByIdIdGet(id);
+                        }
+
+                        if (cellDenegacion.Value != null && (bool)cellDenegacion.Value == true)
+                        {
+                            int id = int.Parse((string)data.Cells[0].Value);
+                            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+                            var Absences = apiAbsences.ApiAbsencesDenegateAbsencesByIdIdGet(id);
+                        }
                     }
-
-                   
+                    index = index + increment;
                 }
-                index = index + increment;
-
+                MessageBox.Show("Acción registrada");
             }
-            MessageBox.Show("Acción registrada");
+            else
+            {
+                Helper.MensajeError("Ninguna solicitud a validar", "Error Solicitud");
+            }
+      
+            _form.EnviarEstado("Aprobación");
             _form.EnviarValueProgressBar(0);
         }
 

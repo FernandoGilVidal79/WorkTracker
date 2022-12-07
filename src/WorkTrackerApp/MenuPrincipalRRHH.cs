@@ -15,6 +15,7 @@ namespace WorkTrackerAPP
             Frm.FormBorderStyle = FormBorderStyle.None;
             ///Frm.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(Frm);
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Fichaje";
             pnlFichar.Tag = Frm;
             Frm.Show();
             Helper.MensajeBienvenida(lblBienvenida);
@@ -36,6 +37,7 @@ namespace WorkTrackerAPP
             FrmAusencia.FormBorderStyle = FormBorderStyle.None;
             FrmAusencia.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmAusencia);
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Ausencias";
             pnlFichar.Tag = FrmAusencia;
             FrmAusencia.Show();
         }
@@ -48,6 +50,7 @@ namespace WorkTrackerAPP
             FrmSituacion.FormBorderStyle = FormBorderStyle.None;
             FrmSituacion.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmSituacion);
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Situación";
             pnlFichar.Tag = FrmSituacion;
             FrmSituacion.Show();
         }
@@ -60,6 +63,7 @@ namespace WorkTrackerAPP
             FrmAprobaciones.FormBorderStyle = FormBorderStyle.None;
             FrmAprobaciones.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmAprobaciones);
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Aprobaciones";
             pnlFichar.Tag = FrmAprobaciones;
             FrmAprobaciones.Show();
         }
@@ -72,6 +76,7 @@ namespace WorkTrackerAPP
             FrmCreacion.TopLevel = false;
             FrmCreacion.FormBorderStyle = FormBorderStyle.None;
             FrmCreacion.Dock = DockStyle.Fill;
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Usuarios";
             pnlFichar.Controls.Add(FrmCreacion);
             pnlFichar.Tag = FrmCreacion;
             FrmCreacion.Show();
@@ -84,6 +89,7 @@ namespace WorkTrackerAPP
             Frm.TopLevel = false;
             Frm.FormBorderStyle = FormBorderStyle.None;
             Frm.Dock = DockStyle.Fill;
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Fichaje";
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
@@ -97,13 +103,11 @@ namespace WorkTrackerAPP
                 this.Close();
                 this.Dispose();
             }
-        }     
-
-       
+        }       
 
         void IForm.EnviarEstado(string estado)
         {
-            this.toolStripMenuPrincipalRRHHStatus.Text = estado;
+            this.toolStripMenuPrincipalRRHHStatus.Text = estado;      
         }
 
         void IForm.EnviarMaxValueProgressBar(int value)
@@ -114,9 +118,10 @@ namespace WorkTrackerAPP
         int IForm.EnviarValueProgressBar(int value)
         {
             this.toolStripProgressBar1.Value = value;
-       
+            System.Threading.Thread.Sleep(20);
             return this.toolStripProgressBar1.Value;
         }
+
 
         private void pnlFichar_Paint(object sender, PaintEventArgs e)
         {
@@ -129,7 +134,9 @@ namespace WorkTrackerAPP
             Calendario FrmCalendario = new Calendario(this);
             FrmCalendario.TopLevel = false;
             FrmCalendario.FormBorderStyle = FormBorderStyle.None;
-            FrmCalendario.Dock = DockStyle.Fill;
+            FrmCalendario.Dock = DockStyle.Fill;          
+            this.toolStripMenuPrincipalRRHHStatus.Text = "Calendario";
+
             pnlFichar.Controls.Add(FrmCalendario);
             pnlFichar.Tag = FrmCalendario;
             FrmCalendario.Show();

@@ -10,6 +10,7 @@ namespace WorkTrackerAPP
             InitializeComponent();
             TmrHora.Enabled = true;
             Helper.MensajeBienvenida(lblBienvenida);
+            this.toolStripMenuPrincipalAdminStatus.Spring = true;
         }
         private void TmrHora_Tick(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace WorkTrackerAPP
             Frm.TopLevel = false;
             Frm.FormBorderStyle = FormBorderStyle.None;
             ///Frm.Dock = DockStyle.Fill;
+            this.toolStripMenuPrincipalAdminStatus.Text = "Logs";
             pnlInformes.Controls.Add(Frm);
             pnlInformes.Tag = Frm;
             Frm.Show();

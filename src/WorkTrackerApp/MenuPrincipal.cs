@@ -16,6 +16,7 @@ namespace WorkTrackerAPP
             Frm.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
+            this.toolStripMenuPrincipalStatus.Text = "Fichaje";
             Frm.Show();
             Helper.MensajeBienvenida(lblBienvenida);
         }
@@ -27,6 +28,8 @@ namespace WorkTrackerAPP
             Frm.TopLevel = false;
             Frm.FormBorderStyle = FormBorderStyle.None;
             Frm.Dock = DockStyle.Fill;
+            this.toolStripMenuPrincipalStatus.Text = "Fichaje";
+
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
@@ -45,7 +48,8 @@ namespace WorkTrackerAPP
             FrmAusencia.TopLevel = false;
             FrmAusencia.FormBorderStyle = FormBorderStyle.None;
             FrmAusencia.Dock = DockStyle.Fill;
-            pnlFichar.Controls.Add(FrmAusencia);
+            pnlFichar.Controls.Add(FrmAusencia);       
+            this.toolStripMenuPrincipalStatus.Text = "Solicitud Ausencias";
             pnlFichar.Tag = FrmAusencia;
             FrmAusencia.Show();
         }
@@ -58,6 +62,7 @@ namespace WorkTrackerAPP
             FrmSituacion.FormBorderStyle = FormBorderStyle.None;
             FrmSituacion.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmSituacion);
+            this.toolStripMenuPrincipalStatus.Text = "Situación";
             pnlFichar.Tag = FrmSituacion;
             FrmSituacion.Show();
         }
@@ -88,6 +93,7 @@ namespace WorkTrackerAPP
             FrmCalendario.FormBorderStyle = FormBorderStyle.None;
             FrmCalendario.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmCalendario);
+            this.toolStripMenuPrincipalStatus.Text = "Calendario";
             pnlFichar.Tag = FrmCalendario;
             FrmCalendario.Show();
         }

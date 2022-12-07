@@ -42,9 +42,9 @@ namespace WorkTrackerAPP
 
         private void ActivarBotones(bool status)
         {
-            //btnAnular.Enabled = !status;
-            //btnGuardar.Enabled = !status;
-            //btnConsultar.Enabled = status;      
+            btnCancelar.Enabled = !status;
+            btnGuardar.Enabled = !status;
+            btnBuscar.Enabled = status;      
             btnNuevo.Enabled = status;
         }
         
@@ -66,8 +66,7 @@ namespace WorkTrackerAPP
         private void CargarTipoUsuarios()
         {
             var apiclient = new UserApi(UserSession.APIUrl);
-            var userTypes = apiclient.ApiUserGetUserTypesGet();
-           
+            var userTypes = apiclient.ApiUserGetUserTypesGet();       
             cmbTipoUsuario.DisplayMember = "Description";
             cmbTipoUsuario.ValueMember = "IdUserType";
             cmbTipoUsuario.DataSource = userTypes;
