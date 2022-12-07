@@ -7,6 +7,7 @@ namespace WorkTrackerAPP
 {
     public partial class SolicitudAusencia : Form
     {
+        ToolTip mouseBotones = new ToolTip();
         public SolicitudAusencia()
         {
             InitializeComponent();
@@ -17,7 +18,8 @@ namespace WorkTrackerAPP
         {
             CargarTipoAusencias();
             cmbTipoAusencia.SelectedItem = null;
-            
+            mouseBotones.SetToolTip(btnGrabar2, "Grabar");
+            mouseBotones.SetToolTip(btnGrabar3, "Cancelar");
         }
 
         private void label1_Click(object sender, EventArgs e)
