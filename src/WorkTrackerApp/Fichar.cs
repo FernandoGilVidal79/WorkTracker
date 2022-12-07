@@ -41,7 +41,7 @@ namespace WorkTrackerAPP
 
         private void CargarFichajesHoy()
         {
-            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new ClockInApi(UserSession.APIUrl);
             var userClockIn = apiclient.ApiClockInGetClockInsTodayByUserIdIdGet((int)UserSession.User.IdUser);
             UserSession.FichajesHoy = userClockIn;
         }
@@ -82,7 +82,7 @@ namespace WorkTrackerAPP
         private void CargarFichajes(int id)
         {
             //Cargamos los fichajes
-            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new ClockInApi(UserSession.APIUrl);
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet(id);
             
 
@@ -183,7 +183,7 @@ namespace WorkTrackerAPP
         private void MostrarHistoricoFichajes()
         {
             lblHistorico.Text = "";
-            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new ClockInApi(UserSession.APIUrl);
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet( UserSession.User.IdUser);
             Console.WriteLine(UserSession.Fichajes);
             
@@ -218,7 +218,7 @@ namespace WorkTrackerAPP
             var clockin = new Clockin();
             clockin.UserId = UserSession.User.IdUser;
             clockin.Date = DateTime.UtcNow;
-            var apiclient = new ClockInApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new ClockInApi(UserSession.APIUrl);
 
             try
             {

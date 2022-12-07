@@ -29,7 +29,7 @@ namespace WorkTrackerAPP
 
         private bool ConfirmarContraseniaActual(String contrasenia)
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new UserApi(UserSession.APIUrl);
             var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
             var user = users.FirstOrDefault();
 
@@ -103,7 +103,7 @@ namespace WorkTrackerAPP
                 {
                     if (ConfirmarContrasenia(txtContraseniaNueva2.Text))
                     {
-                        var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiclient = new UserApi(UserSession.APIUrl);
                         var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
                         var user = users.FirstOrDefault();
                         try

@@ -238,7 +238,7 @@ namespace WorkTrackerAPP
                 int day = (int)i[0].Value;
 
 
-                var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
+                var apiclient = new CalendarApi(UserSession.APIUrl);
                 var calendar = new Calendar()
                 {
                     Day = day,

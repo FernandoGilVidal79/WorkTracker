@@ -21,7 +21,7 @@ namespace WorkTrackerAPP
 
         private void Logs_Load(object sender, EventArgs e)
         {
-            var apiLogs = new LogApi("http://worktracker-001-site1.atempurl.com/");
+            var apiLogs = new LogApi(UserSession.APIUrl);
             logs = apiLogs.ApiLogGetLogsByDateGet(DateTime.Now);
             dgvLogs.DataSource = logs;
 

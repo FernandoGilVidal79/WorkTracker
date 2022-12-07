@@ -65,7 +65,7 @@ namespace WorkTrackerAPP
                 //apiclient.Configuration.AddDefaultHeader("Authorization", $"Bearer {token}"); 
                 //var users = apiclient.ApiUserLoginGet(txtUsuario.Text, psw);
 
-                var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                var apiclient = new UserApi(UserSession.APIUrl);
                 var users = apiclient.ApiUserLoginGet(txtUsuario.Text, psw);
 
 
@@ -128,19 +128,9 @@ namespace WorkTrackerAPP
             {
                 Helper.MensajeError("Ocurrió un error en la validación", "Error");
             }
-            }
-
-            private void pnlLogin_Paint(object sender, PaintEventArgs e)
-            {
-            /*
-             * Datos Mock
-             */
-
-
-
-            this.txtUsuario.Text = "olema@worktrackers";
-            this.txtContrasena.Text = "Worktracker@1";
         }
+
+
 
         private void ValidateEnterPress(object sender, KeyPressEventArgs e)
             {
@@ -158,6 +148,9 @@ namespace WorkTrackerAPP
             this.txtUsuario.Text = "mariano@superman.com";
             this.txtContrasena.Text = "Worktracker@1";
 
+            //Usuario Admin
+            //this.txtUsuario.Text = "olema@worktrackers";
+            //this.txtContrasena.Text = "Worktracker@1";
 
         }
     }

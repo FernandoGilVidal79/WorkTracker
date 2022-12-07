@@ -53,7 +53,7 @@ namespace WorkTrackerAPP
                     borrado++;
 
 
-                    var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+                    var apiAbsences = new AbsencesApi(UserSession.APIUrl);
                     var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
 
                     try
@@ -205,7 +205,7 @@ namespace WorkTrackerAPP
         }
         private void CargarDiasPendientes()
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new UserApi(UserSession.APIUrl);
             var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
             var user = users.FirstOrDefault();
             diasRestantes = ((int)user.NHollidays - nVacaciones);
@@ -219,7 +219,7 @@ namespace WorkTrackerAPP
             DateTime fechaDateTime;
             festivos = new List<DateTime>();
           
-            var apicalendar = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
+            var apicalendar = new CalendarApi(UserSession.APIUrl);
             var calendar = apicalendar.ApiCalendarGetFestiveByYearYearGet(int.Parse(cmbAño.SelectedItem.ToString()));
             foreach (var fecha in calendar)
             {
@@ -244,7 +244,7 @@ namespace WorkTrackerAPP
 
         private void CargarAnio()
         {
-            var apiAbsences = new AbsencesApi("http://worktracker-001-site1.atempurl.com/");
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
             var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
             var AbsencesAgrupadasAnio = Absences.GroupBy(x => x.StartDate);
             try
