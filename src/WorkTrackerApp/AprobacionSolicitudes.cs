@@ -12,6 +12,7 @@ namespace WorkTrackerAPP
     {
 
         private static List<AbsenceType> AbsencesType;
+        ToolTip mouseBotones = new ToolTip();
         public AprobacionSolicitudes()
         {
             InitializeComponent();
@@ -45,7 +46,8 @@ namespace WorkTrackerAPP
         private void AprobacionSolicitudes_Load(object sender, EventArgs e)
         {
             CargarTiposAusencias();
-            CargarComboUsuarios();    
+            CargarComboUsuarios();
+            mouseBotones.SetToolTip(btnAprobar, "Grabar");
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
