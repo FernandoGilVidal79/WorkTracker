@@ -26,10 +26,6 @@ namespace WorkTrackerAPP
         }
 
 
-        private void AprobacionSolicitudes_Combo_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void CargarComboUsuarios()
         {
@@ -143,7 +139,7 @@ namespace WorkTrackerAPP
                     }
                     index = index + increment;
                 }
-                MessageBox.Show("Acción registrada");
+               // MessageBox.Show("Acción registrada");
             }
             else
             {
@@ -154,9 +150,6 @@ namespace WorkTrackerAPP
             _form.EnviarValueProgressBar(0);
         }
 
-        private void btnGrabar3_Click(object sender, EventArgs e)
-        {
-            
-        }
+
     }
 }
