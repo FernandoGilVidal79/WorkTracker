@@ -3,6 +3,7 @@ using IO.Swagger.Model;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -227,27 +228,53 @@ namespace WorkTrackerAPP
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
-            if (messageResult == DialogResult.Yes)
+            int Anio = int.Parse(txbAnio.Text);
+            var apiclient = new CalendarApi(UserSession.APIUrl);
+            var festivos = apiclient.ApiCalendarGetFestiveByYearYearGet(Anio);
+
+            DataGridView dataGrid = (DataGridView)sender;
+            var index = dataGrid.Name.Replace("dataGridView", "");
+            int month = int.Parse(index);
+
+            var i = dataGrid.SelectedCells;
+            int day = (int)i[0].Value;
+
+            DateTime fechaSeleccionada = DateTime.Parse(day + "/" + month + "/" + Anio);
+            DateTime fechaCalendar;
+            int existe = 0;
+
+            foreach ( var festivo in festivos)
             {
-                DataGridView dataGrid = (DataGridView)sender;
-                var index = dataGrid.Name.Replace("dataGridView", "");
-                int month = int.Parse(index);
-
-                var i = dataGrid.SelectedCells;
-                int day = (int)i[0].Value;
-
-
-                var apiclient = new CalendarApi(UserSession.APIUrl);
-                var calendar = new Calendar()
+                fechaCalendar = DateTime.Parse(festivo.Day + "/" + festivo.Month + "/" + festivo.Year);
+                if (fechaSeleccionada == fechaCalendar)
                 {
-                    Day = day,
-                    Month = month,
-                    Year = int.Parse(txbAnio.Text)
-                };
-                apiclient.ApiCalendarCreateFestivePut(calendar);
-                MarcarFestivos();
-                //int index =  vvv.SelectedCells.
+                    existe = 1;
+                }
+            }
+
+            if (existe == 1)
+            {
+                MessageBox.Show("El día ya existe como festivo");
+
+            }
+
+            else
+            {
+
+                var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
+                if (messageResult == DialogResult.Yes)
+                {
+
+                    var calendar = new Calendar()
+                    {
+                        Day = day,
+                        Month = month,
+                        Year = Anio
+                    };
+                    apiclient.ApiCalendarCreateFestivePut(calendar);
+                    MarcarFestivos();
+                    //int index =  vvv.SelectedCells.
+                }
             }
             string vv = "";
 
