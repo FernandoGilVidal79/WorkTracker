@@ -235,11 +235,17 @@ namespace WorkTrackerAPP
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-            CargarFestivos();
-            LeerAusencias();
-            CargarDiasPendientes();
-            cmbAño.SelectedIndex = -1;
-
+            if (cmbAño.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione el año por favor");
+            }
+            else
+            {
+                CargarFestivos();
+                LeerAusencias();
+                CargarDiasPendientes();
+                cmbAño.SelectedIndex = -1;
+            }
         }
 
         private void CargarAnio()
