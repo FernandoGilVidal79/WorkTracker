@@ -14,6 +14,7 @@ namespace WorkTrackerAPP
         public int IndicePrimerosDia, UlmitoDias;
         public int FechMin = 1583;
         public int FechMax = 3210;
+        ToolTip mouseBotones = new ToolTip();
 
         private readonly IForm _form;
         public Calendario(IForm formPadre)
@@ -223,7 +224,9 @@ namespace WorkTrackerAPP
         {
             this.txbAnio.Value = DateTime.Now.Year;
             PintarMeses();
-          
+            mouseBotones.SetToolTip(btnGrabar2, "Aplicar");
+            mouseBotones.SetToolTip(btnGrabar3, "Cancelar");
+
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
