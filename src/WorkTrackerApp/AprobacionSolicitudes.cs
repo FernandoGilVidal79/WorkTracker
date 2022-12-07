@@ -108,7 +108,7 @@ namespace WorkTrackerAPP
             _form.EnviarEstado("Actualizando Ausencias");
             _form.EnviarMaxValueProgressBar(dataGridView1.Rows.Count);
 
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.Rows.Count > 1)
             {
 
                 foreach (DataGridViewRow data in dataGridView1.Rows)

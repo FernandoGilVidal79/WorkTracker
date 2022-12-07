@@ -97,7 +97,7 @@ namespace WorkTrackerAPP
             this.pnlBanner.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBanner.Location = new System.Drawing.Point(0, 21);
             this.pnlBanner.Name = "pnlBanner";
-            this.pnlBanner.Size = new System.Drawing.Size(1006, 29);
+            this.pnlBanner.Size = new System.Drawing.Size(1006, 18);
             this.pnlBanner.TabIndex = 41;
             // 
             // lblBienvenida
@@ -148,9 +148,9 @@ namespace WorkTrackerAPP
             this.pnlInformes.Controls.Add(this.lgnStripResult);
             this.pnlInformes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlInformes.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlInformes.Location = new System.Drawing.Point(0, 44);
+            this.pnlInformes.Location = new System.Drawing.Point(0, 35);
             this.pnlInformes.Name = "pnlInformes";
-            this.pnlInformes.Size = new System.Drawing.Size(1006, 677);
+            this.pnlInformes.Size = new System.Drawing.Size(1006, 686);
             this.pnlInformes.TabIndex = 42;
             this.pnlInformes.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInformes_Paint);
             // 
@@ -164,7 +164,7 @@ namespace WorkTrackerAPP
             this.toolStripProgressBar1,
             this.toolStripMenuPrincipalAdminStatus});
             this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 641);
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 650);
             this.lgnStripResult.Name = "lgnStripResult";
             this.lgnStripResult.Size = new System.Drawing.Size(1006, 36);
             this.lgnStripResult.TabIndex = 47;

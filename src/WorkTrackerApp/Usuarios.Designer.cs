@@ -31,7 +31,6 @@ namespace WorkTrackerAPP
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -41,7 +40,6 @@ namespace WorkTrackerAPP
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumEmpleado = new System.Windows.Forms.TextBox();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
@@ -71,20 +69,10 @@ namespace WorkTrackerAPP
             this.label1.TabIndex = 2;
             this.label1.Text = "Nº Empleado";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 136);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 178);
+            this.label3.Location = new System.Drawing.Point(59, 142);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
@@ -94,7 +82,7 @@ namespace WorkTrackerAPP
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(59, 219);
+            this.label10.Location = new System.Drawing.Point(59, 183);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 17);
@@ -104,7 +92,7 @@ namespace WorkTrackerAPP
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(59, 263);
+            this.label9.Location = new System.Drawing.Point(59, 227);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 17);
@@ -114,7 +102,7 @@ namespace WorkTrackerAPP
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(557, 311);
+            this.label7.Location = new System.Drawing.Point(59, 315);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 17);
@@ -170,18 +158,9 @@ namespace WorkTrackerAPP
             this.txtNumEmpleado.TabIndex = 0;
             this.txtNumEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationNumber_KeyPress);
             // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Location = new System.Drawing.Point(169, 131);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(175, 24);
-            this.txtContrasena.TabIndex = 2;
-            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(169, 174);
+            this.txtNombre.Location = new System.Drawing.Point(169, 138);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
@@ -190,7 +169,7 @@ namespace WorkTrackerAPP
             // 
             // txtApellido1
             // 
-            this.txtApellido1.Location = new System.Drawing.Point(169, 214);
+            this.txtApellido1.Location = new System.Drawing.Point(169, 178);
             this.txtApellido1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido1.MaxLength = 50;
             this.txtApellido1.Name = "txtApellido1";
@@ -199,7 +178,7 @@ namespace WorkTrackerAPP
             // 
             // txtApellido2
             // 
-            this.txtApellido2.Location = new System.Drawing.Point(169, 259);
+            this.txtApellido2.Location = new System.Drawing.Point(169, 223);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido2.MaxLength = 50;
             this.txtApellido2.Name = "txtApellido2";
@@ -208,11 +187,11 @@ namespace WorkTrackerAPP
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(711, 308);
+            this.txtTelefono.Location = new System.Drawing.Point(169, 312);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTelefono.MaxLength = 12;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(197, 24);
+            this.txtTelefono.Size = new System.Drawing.Size(175, 24);
             this.txtTelefono.TabIndex = 24;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationNumber_KeyPress);
@@ -258,7 +237,7 @@ namespace WorkTrackerAPP
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(169, 306);
+            this.txtEmail.Location = new System.Drawing.Point(169, 270);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(338, 24);
@@ -267,7 +246,7 @@ namespace WorkTrackerAPP
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(59, 311);
+            this.label8.Location = new System.Drawing.Point(59, 275);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 17);
@@ -368,7 +347,6 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.txtApellido2);
             this.Controls.Add(this.txtApellido1);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtNumEmpleado);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
@@ -378,7 +356,6 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 10F);
             this.Name = "Usuarios";
@@ -393,7 +370,6 @@ namespace WorkTrackerAPP
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -403,7 +379,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNumEmpleado;
-        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido1;
         private System.Windows.Forms.TextBox txtApellido2;

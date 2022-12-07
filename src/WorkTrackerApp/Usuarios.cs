@@ -30,8 +30,7 @@ namespace WorkTrackerAPP
             txtNumEmpleado.Enabled      = !status;
             txtNombre.Enabled           = status;
             txtApellido1.Enabled        = status;
-            txtApellido2.Enabled        = status;
-            txtContrasena.Enabled       = status;
+            txtApellido2.Enabled        = status;           
             txtDepartamento.Enabled     = status;
             txtEmail.Enabled            = status;
             txtTelefono.Enabled         = status;
@@ -51,8 +50,7 @@ namespace WorkTrackerAPP
         private void LimpiarCampos()
         {
             txtApellido1.Text       = "";
-            txtApellido2.Text       = "";
-            txtContrasena.Text      = "";
+            txtApellido2.Text       = "";      
             txtDepartamento.Text    = "";
             txtDepartamento.Text    = "";
             txtEmail.Text           = "";
@@ -151,7 +149,6 @@ namespace WorkTrackerAPP
                     this.txtApellido2.Text = user.SurName2;
                     this.txtTelefono.Text = user.Phone.ToString();
                     this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                    this.txtContrasena.Text = user.Password;
                     this.txtDepartamento.Text = user.Phone.ToString();
                     SetStatusCombo((bool)user.Status);
                     _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
@@ -197,7 +194,7 @@ namespace WorkTrackerAPP
                     Phone = Int32.Parse(txtTelefono.Text),
                     NHollidays = Int32.Parse(txtNumVacaciones.Text),
                     Email = txtEmail.Text,
-                    Password = txtContrasena.Text
+                    Password = txtNombre.Text
                 };
 
                 var apiclient = new UserApi(UserSession.APIUrl);
@@ -217,6 +214,8 @@ namespace WorkTrackerAPP
                 }
 
                 _form.EnviarEstado("Guardado correctamente");
+                ActivarCampos(false);
+                ActivarBotones(true);
             }
             catch (Exception ex)
             {

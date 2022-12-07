@@ -136,8 +136,7 @@ namespace WorkTrackerAPP
              * Datos Mock
              */
 
-            this.txtUsuario.Text = "mariano@superman.com";
-            this.txtContrasena.Text = "Worktracker@1";
+           
 
             //  this.txtUsuario.Text = "olema@worktrackers";
             //  this.txtContrasena.Text = "Worktracker@1";
@@ -151,5 +150,15 @@ namespace WorkTrackerAPP
                     LoginExecute();
                 }
             }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+            ///Usuario RRHH
+            this.txtUsuario.Text = "mariano@superman.com";
+            this.txtContrasena.Text = "Worktracker@1";
+
+
         }
+    }
     }
