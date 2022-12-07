@@ -17,6 +17,7 @@ namespace WorkTrackerAPP
         {
             CargarTipoAusencias();
             cmbTipoAusencia.SelectedItem = null;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,8 +74,8 @@ namespace WorkTrackerAPP
             
             try
             {
-                DateTime desde = DateTime.Parse(tbxDesde.Text);
-                DateTime hasta = DateTime.Parse(tbxHasta.Text);
+                DateTime desde = DateTime.Parse(mtbxDesde.Text);
+                DateTime hasta = DateTime.Parse(mtbxHasta.Text);
                 var Absences = new Absences();
 
                 Absences.StartDate = desde;
@@ -118,8 +119,8 @@ namespace WorkTrackerAPP
                         toolStripStatusLabel1.Text = "Ausencia grabada";
 
                         cmbTipoAusencia.SelectedItem = null;
-                        tbxDesde.Text = "";
-                        tbxHasta.Text = "";
+                        mtbxDesde.Text = "";
+                        mtbxHasta.Text = "";
 
                         pnlListadoAusencias.Controls.Clear();
                         ListadoAusencias FrmListaAusencia = new ListadoAusencias();
@@ -136,8 +137,8 @@ namespace WorkTrackerAPP
 
                 {
                     MessageBox.Show("Introduzca el tipo de ausencia");
-                    tbxDesde.Clear();
-                    tbxHasta.Clear();
+                    mtbxDesde.Clear();
+                    mtbxHasta.Clear();
 
                 }
 
@@ -154,24 +155,27 @@ namespace WorkTrackerAPP
         private void btnGrabar3_Click(object sender, EventArgs e)
         {
             cmbTipoAusencia.SelectedIndex = -1;
-            tbxDesde.Clear();
-            tbxHasta.Clear();
+            mtbxDesde.Clear();
+            mtbxHasta.Clear();
         }
 
         private void mCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            if (tbxDesde.Text.Length == 0)
+            
+           // if (mtbxDesde.Text.Length == 6)
+           if (mtbxDesde.MaskCompleted == false)
             {
-                tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
+                mtbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
             }
-            else if (tbxHasta.Text.Length != 0)
+           // else if (mtbxHasta.Text.Length != 6)
+           else if (mtbxHasta.MaskCompleted)
             {
-                tbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
-                tbxHasta.Clear();
+                mtbxDesde.Text = mCalendar.SelectionStart.ToShortDateString();
+                mtbxHasta.Clear();
             }
             else
             {
-                tbxHasta.Text = mCalendar.SelectionEnd.ToShortDateString();
+                mtbxHasta.Text = mCalendar.SelectionEnd.ToShortDateString();
             }
         }
     }

@@ -32,14 +32,14 @@ namespace WorkTrackerAPP
             this.cmbTipoAusencia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mCalendar = new System.Windows.Forms.MonthCalendar();
-            this.tbxDesde = new System.Windows.Forms.TextBox();
-            this.tbxHasta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlListadoAusencias = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mtbxDesde = new System.Windows.Forms.MaskedTextBox();
+            this.mtbxHasta = new System.Windows.Forms.MaskedTextBox();
             this.btnGrabar2 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.btnGrabar3 = new WorkTrackerAPP.Helpers.BtnGrabar();
             this.statusStrip1.SuspendLayout();
@@ -54,7 +54,7 @@ namespace WorkTrackerAPP
             this.cmbTipoAusencia.Location = new System.Drawing.Point(48, 250);
             this.cmbTipoAusencia.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cmbTipoAusencia.Name = "cmbTipoAusencia";
-            this.cmbTipoAusencia.Size = new System.Drawing.Size(123, 24);
+            this.cmbTipoAusencia.Size = new System.Drawing.Size(123, 28);
             this.cmbTipoAusencia.TabIndex = 81;
             this.cmbTipoAusencia.SelectedIndexChanged += new System.EventHandler(this.cbxTipoAusencia_SelectedIndexChanged);
             // 
@@ -65,7 +65,7 @@ namespace WorkTrackerAPP
             this.label1.Location = new System.Drawing.Point(43, 222);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 17);
+            this.label1.Size = new System.Drawing.Size(128, 20);
             this.label1.TabIndex = 82;
             this.label1.Text = "Tipo Ausencia";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -80,24 +80,6 @@ namespace WorkTrackerAPP
             this.mCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             this.mCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mCalendar_DateSelected);
             // 
-            // tbxDesde
-            // 
-            this.tbxDesde.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbxDesde.Location = new System.Drawing.Point(185, 250);
-            this.tbxDesde.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(113, 24);
-            this.tbxDesde.TabIndex = 84;
-            // 
-            // tbxHasta
-            // 
-            this.tbxHasta.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbxHasta.Location = new System.Drawing.Point(308, 250);
-            this.tbxHasta.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.tbxHasta.Name = "tbxHasta";
-            this.tbxHasta.Size = new System.Drawing.Size(109, 24);
-            this.tbxHasta.TabIndex = 85;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -105,7 +87,7 @@ namespace WorkTrackerAPP
             this.label2.Location = new System.Drawing.Point(181, 222);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 17);
+            this.label2.Size = new System.Drawing.Size(118, 20);
             this.label2.TabIndex = 86;
             this.label2.Text = "Fecha Desde";
             // 
@@ -116,7 +98,7 @@ namespace WorkTrackerAPP
             this.label3.Location = new System.Drawing.Point(309, 222);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 17);
+            this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 87;
             this.label3.Text = "Fecha Hasta";
             // 
@@ -135,7 +117,7 @@ namespace WorkTrackerAPP
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
             // 
             // pnlListadoAusencias
             // 
@@ -155,6 +137,26 @@ namespace WorkTrackerAPP
             this.groupBox1.Size = new System.Drawing.Size(105, 65);
             this.groupBox1.TabIndex = 94;
             this.groupBox1.TabStop = false;
+            // 
+            // mtbxDesde
+            // 
+            this.mtbxDesde.Font = new System.Drawing.Font("Verdana", 10F);
+            this.mtbxDesde.Location = new System.Drawing.Point(185, 250);
+            this.mtbxDesde.Mask = "00/00/0000";
+            this.mtbxDesde.Name = "mtbxDesde";
+            this.mtbxDesde.Size = new System.Drawing.Size(113, 28);
+            this.mtbxDesde.TabIndex = 95;
+            this.mtbxDesde.ValidatingType = typeof(System.DateTime);
+            // 
+            // mtbxHasta
+            // 
+            this.mtbxHasta.Font = new System.Drawing.Font("Verdana", 10F);
+            this.mtbxHasta.Location = new System.Drawing.Point(314, 250);
+            this.mtbxHasta.Mask = "00/00/0000";
+            this.mtbxHasta.Name = "mtbxHasta";
+            this.mtbxHasta.Size = new System.Drawing.Size(113, 28);
+            this.mtbxHasta.TabIndex = 96;
+            this.mtbxHasta.ValidatingType = typeof(System.DateTime);
             // 
             // btnGrabar2
             // 
@@ -188,17 +190,17 @@ namespace WorkTrackerAPP
             // 
             // SolicitudAusencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(988, 570);
+            this.Controls.Add(this.mtbxHasta);
+            this.Controls.Add(this.mtbxDesde);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlListadoAusencias);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbxHasta);
-            this.Controls.Add(this.tbxDesde);
             this.Controls.Add(this.mCalendar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTipoAusencia);
@@ -219,8 +221,6 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.ComboBox cmbTipoAusencia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MonthCalendar mCalendar;
-        private System.Windows.Forms.TextBox tbxDesde;
-        private System.Windows.Forms.TextBox tbxHasta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -229,5 +229,7 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.GroupBox groupBox1;
         private Helpers.BtnGrabar btnGrabar2;
         private Helpers.BtnGrabar btnGrabar3;
+        private System.Windows.Forms.MaskedTextBox mtbxDesde;
+        private System.Windows.Forms.MaskedTextBox mtbxHasta;
     }
 }
