@@ -149,7 +149,7 @@ namespace WorkTrackerAPP
                     this.txtApellido2.Text = user.SurName2;
                     this.txtTelefono.Text = user.Phone.ToString();
                     this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                    this.txtDepartamento.Text = user.Phone.ToString();
+                    this.txtDepartamento.Text = user.Department;
                     SetStatusCombo((bool)user.Status);
                     _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
                     edicion = true;
@@ -223,5 +223,26 @@ namespace WorkTrackerAPP
             }
         
     }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            Validar.SoloLetras(e);
+        }
+
+        private void txtApellido1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void txtApellido2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void txtDepartamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
     }
 }
