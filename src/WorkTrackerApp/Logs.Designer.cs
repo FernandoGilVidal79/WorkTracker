@@ -36,11 +36,13 @@
             // 
             // dgvLogs
             // 
+            this.dgvLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLogs.Location = new System.Drawing.Point(14, 42);
             this.dgvLogs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgvLogs.Name = "dgvLogs";
             this.dgvLogs.RowHeadersWidth = 62;
+            this.dgvLogs.ShowEditingIcon = false;
             this.dgvLogs.Size = new System.Drawing.Size(962, 523);
             this.dgvLogs.TabIndex = 0;
             // 
@@ -48,7 +50,7 @@
             // 
             this.cmbTipo.Location = new System.Drawing.Point(0, 0);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipo.Size = new System.Drawing.Size(121, 25);
             this.cmbTipo.TabIndex = 0;
             // 
             // label1
@@ -62,7 +64,7 @@
             // 
             // Logs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(990, 578);
