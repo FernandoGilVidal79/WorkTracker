@@ -33,6 +33,7 @@
             this.lgnStripResult = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.linkPassword = new System.Windows.Forms.LinkLabel();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.linkPassword = new System.Windows.Forms.LinkLabel();
             this.lgnStripResult.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
@@ -55,17 +55,17 @@
             this.lgnStripResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.lgnStripResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.lgnStripResult.Location = new System.Drawing.Point(0, 814);
+            this.lgnStripResult.Location = new System.Drawing.Point(0, 1018);
             this.lgnStripResult.Name = "lgnStripResult";
-            this.lgnStripResult.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
-            this.lgnStripResult.Size = new System.Drawing.Size(1319, 25);
+            this.lgnStripResult.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.lgnStripResult.Size = new System.Drawing.Size(1484, 31);
             this.lgnStripResult.TabIndex = 38;
             this.lgnStripResult.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(186, 19);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(147, 26);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // pnlLogin
@@ -85,8 +85,19 @@
             this.pnlLogin.Location = new System.Drawing.Point(3, 2);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(1294, 790);
+            this.pnlLogin.Size = new System.Drawing.Size(1456, 841);
             this.pnlLogin.TabIndex = 39;
+            // 
+            // linkPassword
+            // 
+            this.linkPassword.AutoSize = true;
+            this.linkPassword.Location = new System.Drawing.Point(530, 916);
+            this.linkPassword.Name = "linkPassword";
+            this.linkPassword.Size = new System.Drawing.Size(128, 13);
+            this.linkPassword.TabIndex = 12;
+            this.linkPassword.TabStop = true;
+            this.linkPassword.Text = "Modificar Contraseña";
+            this.linkPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPassword_LinkClicked);
             // 
             // btnIniciarSesion
             // 
@@ -97,12 +108,12 @@
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(471, 619);
-            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnIniciarSesion.MaximumSize = new System.Drawing.Size(408, 60);
-            this.btnIniciarSesion.MinimumSize = new System.Drawing.Size(408, 60);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(530, 667);
+            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btnIniciarSesion.MaximumSize = new System.Drawing.Size(459, 75);
+            this.btnIniciarSesion.MinimumSize = new System.Drawing.Size(459, 75);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(408, 60);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(459, 75);
             this.btnIniciarSesion.TabIndex = 11;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -115,12 +126,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContrasena.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(471, 514);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtContrasena.MaximumSize = new System.Drawing.Size(407, 39);
+            this.txtContrasena.Location = new System.Drawing.Point(530, 535);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtContrasena.MaximumSize = new System.Drawing.Size(457, 39);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(382, 34);
+            this.txtContrasena.Size = new System.Drawing.Size(429, 28);
             this.txtContrasena.TabIndex = 10;
             this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateEnterPress);
             // 
@@ -131,10 +142,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(605, 469);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(681, 479);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 26);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "Contraseña";
             // 
@@ -145,11 +156,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsuario.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(471, 380);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtUsuario.MaximumSize = new System.Drawing.Size(407, 39);
+            this.txtUsuario.Location = new System.Drawing.Point(530, 368);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtUsuario.MaximumSize = new System.Drawing.Size(457, 39);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(382, 34);
+            this.txtUsuario.Size = new System.Drawing.Size(429, 28);
             this.txtUsuario.TabIndex = 8;
             // 
             // label1
@@ -159,10 +170,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(620, 334);
+            this.label1.Location = new System.Drawing.Point(698, 311);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 26);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "E-mail";
             // 
@@ -172,11 +183,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcBoxLogo.Image = global::WorkTrackerAPP.Properties.Resources.Logo;
-            this.pcBoxLogo.Location = new System.Drawing.Point(526, 10);
+            this.pcBoxLogo.Location = new System.Drawing.Point(592, 12);
             this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(286, 252);
+            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(322, 315);
             this.pcBoxLogo.Name = "pcBoxLogo";
-            this.pcBoxLogo.Size = new System.Drawing.Size(261, 203);
+            this.pcBoxLogo.Size = new System.Drawing.Size(294, 170);
             this.pcBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcBoxLogo.TabIndex = 6;
             this.pcBoxLogo.TabStop = false;
@@ -186,30 +197,19 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // linkPassword
-            // 
-            this.linkPassword.AutoSize = true;
-            this.linkPassword.Location = new System.Drawing.Point(471, 733);
-            this.linkPassword.Name = "linkPassword";
-            this.linkPassword.Size = new System.Drawing.Size(155, 17);
-            this.linkPassword.TabIndex = 12;
-            this.linkPassword.TabStop = true;
-            this.linkPassword.Text = "Modificar Contraseña";
-            this.linkPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPassword_LinkClicked);
-            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1300, 794);
+            this.ClientSize = new System.Drawing.Size(1462, 845);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.lgnStripResult);
             this.ForeColor = System.Drawing.Color.DarkRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
