@@ -15,5 +15,10 @@ namespace WorkTrackerAPP
             {
                 return Properties.Settings.Default.APIUrl;
             } }
+
+        public static int Jornada { get
+            {
+                return Properties.Settings.Default.Jornada;
+            } }
     }
 }
