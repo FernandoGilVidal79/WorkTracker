@@ -104,6 +104,7 @@ namespace WorkTrackerAPP
             // 
             this.lblBienvenida.AutoSize = true;
             this.lblBienvenida.Font = new System.Drawing.Font("Tempus Sans ITC", 14F);
+            this.lblBienvenida.ForeColor = System.Drawing.Color.DarkRed;
             this.lblBienvenida.Location = new System.Drawing.Point(311, 26);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(148, 31);
