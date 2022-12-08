@@ -12,6 +12,9 @@ namespace WorkTrackerAPP
         private const string FormatHora = "HH:mm:ss";
         public static Estados estado;
         public static EstadoComida estadoComida;
+        TimeSpan tiempoJornada = default;
+        TimeSpan tiempoComida = default;
+        TimeSpan tiempoDescanso = default;
         public enum Estados
         {
             Fuera = 0,
@@ -30,7 +33,7 @@ namespace WorkTrackerAPP
             Comido = 3
 
         }
-        public static int contadorComida = 0;
+        public int contadorComida = 0;
 
 
         public Fichar()
@@ -48,43 +51,95 @@ namespace WorkTrackerAPP
         private Estados GetEstadosByFichajes()
         {
             var fichajesActuales = UserSession.FichajesHoy;
-
+            Estados estado;
             if (fichajesActuales != null)
             {
-                if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour == null))
+                if (!fichajesActuales.Any(x => x.ClockinTypeId == 1))
                 {
-                    estado = Estados.Entrada;
-                    return estado;
+                    return Estados.Fuera;
                 }
                 else if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour != null))
                 {
-                    estado = Estados.Saliendo;
-                    return estado;
+                    return Estados.Saliendo;
                 }
                 else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour == null))
                 {
-                    estado = Estados.Comiendo;
-                    return estado;
+                    return Estados.Comiendo;
                 }
                 else if (fichajesActuales.Any(x => x.ClockinTypeId == 2 && x.FinishHour != null))
                 {
                     estado = Estados.Comido;
+                    contadorComida = 1;
                     return estado;
-
                 }
                 if (fichajesActuales.Any(x => x.ClockinTypeId == 3 && x.FinishHour == null))
                 {
-                    estado = Estados.Descansando;
-                    return estado;
+                    return Estados.Descansando;
                 }
-                else if (fichajesActuales.Any(x => x.ClockinTypeId == 3 && x.FinishHour == null))
+                /*btnJornada.Image = null;
+                btnJornada.Image = */
+            }
+            return Estados.Entrada;
+        }
+
+
+        private void CargarTiempoJornada()
+        {
+            lblTJornada.Text = string.Empty;
+            lblTDesc.Text = string.Empty;
+            lblTComida.Text = string.Empty;
+
+            var fichajesActuales = UserSession.FichajesHoy;
+            if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour == null))
+            {
+               var fichajeJornada = fichajesActuales.First(x => x.ClockinTypeId == 1);
+                if (fichajeJornada.FinishHour == null)
                 {
-                    estado = Estados.Descansado;
-                    return estado;
+                    tiempoJornada = DateTime.UtcNow.AddHours(1).Subtract((DateTime)fichajeJornada.StartHour);
                 }
+                else
+                {
+                    tiempoJornada = fichajeJornada.FinishHour.Value.Subtract((DateTime)fichajeJornada.StartHour);
+                }
+             
+              
 
             }
-            return estado;
+
+            if (fichajesActuales.Any(x => x.ClockinTypeId == 2)){
+                var fichajeComida = fichajesActuales.First(x => x.ClockinTypeId == 2);
+                if (fichajeComida.FinishHour == null)
+                {
+                    tiempoComida = DateTime.UtcNow.AddHours(1).Subtract((DateTime)fichajeComida.StartHour);
+                }
+                else
+                {
+                    tiempoComida = fichajeComida.FinishHour.Value.Subtract((DateTime)fichajeComida.StartHour);
+                }
+               
+            }
+
+            if (fichajesActuales.Any(x => x.ClockinTypeId == 3))
+            {
+                var fichajesDescanso = fichajesActuales.Where(x => x.ClockinTypeId == 3);
+                foreach (var fichajeDescanso in fichajesDescanso)
+                {
+                    if (fichajeDescanso.FinishHour == null)
+                    {
+                        tiempoDescanso += DateTime.UtcNow.AddHours(1).Subtract((DateTime)fichajeDescanso.StartHour);
+                    }
+                    else
+                    {
+                        tiempoDescanso += fichajeDescanso.FinishHour.Value.Subtract((DateTime)fichajeDescanso.StartHour);
+                    }
+                }
+            }
+
+            tiempoJornada = tiempoJornada - tiempoDescanso - tiempoComida;
+
+            lblTJornada.Text = tiempoJornada.ToString("hh\\:mm\\:ss");
+            lblTComida.Text = tiempoComida.ToString("hh\\:mm\\:ss");
+            lblTDesc.Text = tiempoDescanso.ToString("hh\\:mm\\:ss");
 
         }
 
@@ -279,12 +334,15 @@ namespace WorkTrackerAPP
 
         }
 
+
+
         private void Fichar_Load(object sender, EventArgs e)
         {
             CargarFichajesHoy();
             CargarFichajes((int)UserSession.User.IdUser);  
             estado = GetEstadosByFichajes();
-            MaquinaEstados();    
+            MaquinaEstados();
+            CargarTiempoJornada();
         }
 
         private void MaquinaEstados()
@@ -414,7 +472,8 @@ namespace WorkTrackerAPP
             }
 
             MaquinaEstados();
-            Fichaje();            
+            Fichaje();
+            CargarTiempoJornada();
 
         }
 
@@ -434,6 +493,7 @@ namespace WorkTrackerAPP
             MaquinaEstados();
             Fichaje();
             CargarFichajes((int)UserSession.User.IdUser);
+            CargarTiempoJornada();
 
         }
 
@@ -451,6 +511,7 @@ namespace WorkTrackerAPP
             MaquinaEstados();
             Fichaje();
             CargarFichajes((int)UserSession.User.IdUser);
+            CargarTiempoJornada();
         }
 
 
