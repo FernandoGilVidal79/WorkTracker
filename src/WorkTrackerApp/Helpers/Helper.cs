@@ -47,7 +47,7 @@ namespace WorkTrackerAPP
         }
         public static void MostrarHora(Label hora, Label fecha)
         {
-            hora.Text = DateTime.UtcNow.ToString("HH:mm:ss tt");
+            hora.Text = DateTime.UtcNow.AddHours(1).ToString("HH:mm:ss tt");
             fecha.Text = DateTime.UtcNow.ToString("D");
         }
     }
