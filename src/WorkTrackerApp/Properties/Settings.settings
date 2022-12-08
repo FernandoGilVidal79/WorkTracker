@@ -23,5 +23,8 @@
     <Setting Name="APIUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://worktracker-001-site1.atempurl.com/</Value>
     </Setting>
+    <Setting Name="Jornada" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

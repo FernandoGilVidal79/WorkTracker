@@ -135,12 +135,17 @@ namespace WorkTrackerAPP
                 }
             }
 
-            tiempoJornada = tiempoJornada - tiempoDescanso - tiempoComida;
 
-            lblTJornada.Text = tiempoJornada.ToString("hh\\:mm\\:ss");
+
+            lblTJornada.Text = CalcularTotalJornada().ToString("hh\\:mm\\:ss");
             lblTComida.Text = tiempoComida.ToString("hh\\:mm\\:ss");
             lblTDesc.Text = tiempoDescanso.ToString("hh\\:mm\\:ss");
 
+        }
+
+        private TimeSpan CalcularTotalJornada()
+        {
+            return tiempoJornada - tiempoDescanso - tiempoComida;
         }
 
         private void CargarFichajes(int id)
@@ -468,12 +473,28 @@ namespace WorkTrackerAPP
             }
             else if (estado == Estados.Entrada || estado == Estados.Comido || estado == Estados.Descansado)
             {
-                estado = Estados.Saliendo;
-            }
 
-            MaquinaEstados();
-            Fichaje();
-            CargarTiempoJornada();
+                var timeTotalJornada = new TimeSpan(UserSession.Jornada, 0, 0);
+                if (CalcularTotalJornada().CompareTo(timeTotalJornada) < 0)
+                {
+                    var messageResult = MessageBox.Show("No ha cumplido con el total de la jornada. ¿Desa fichar la salida", "Fichaje Salida", MessageBoxButtons.YesNo);
+                    if (messageResult == DialogResult.Yes)
+                    {
+                        estado = Estados.Saliendo;
+                        MaquinaEstados();
+                        Fichaje();
+                        CargarTiempoJornada();
+                    }
+                }
+                else
+                {
+                    estado = Estados.Saliendo;
+                    MaquinaEstados();
+                    Fichaje();
+                    CargarTiempoJornada();
+                }
+            }
+        
 
         }
 
