@@ -38,7 +38,7 @@ namespace WorkTrackerAPP
 
         private void TmrHora_Tick(object sender, EventArgs e)
         {
-            Helper.MostrarHora(lblHora, lblFecha);
+            Helper.MostrarHora(lblFecha, lblHora);
         }
 
         private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)

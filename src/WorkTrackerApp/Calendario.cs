@@ -214,6 +214,26 @@ namespace WorkTrackerAPP
             dataGridView12.DataSource = RellenarMeses(12);
             _form.EnviarValueProgressBar(0);
             _form.EnviarEstado("Carga completada");
+            
+            //ReadOnly para usuario de tipo empleado
+            if(UserSession.User.UserTypeId == 3) 
+            {
+
+                //dataGridView1.ReadOnly = true;
+                dataGridView1.Enabled = false;
+                dataGridView2.Enabled = false;
+                dataGridView3.Enabled = false;
+                dataGridView4.Enabled = false;
+                dataGridView5.Enabled = false;
+                dataGridView6.Enabled = false;
+                dataGridView7.Enabled = false;
+                dataGridView8.Enabled = false;
+                dataGridView9.Enabled = false;
+                dataGridView10.Enabled = false;
+                dataGridView11.Enabled = false;
+                dataGridView12.Enabled = false;
+                
+            }
 
         }
 
@@ -231,55 +251,62 @@ namespace WorkTrackerAPP
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int Anio = int.Parse(txbAnio.Text);
-            var apiclient = new CalendarApi(UserSession.APIUrl);
-            var festivos = apiclient.ApiCalendarGetFestiveByYearYearGet(Anio);
-
-            DataGridView dataGrid = (DataGridView)sender;
-            var index = dataGrid.Name.Replace("dataGridView", "");
-            int month = int.Parse(index);
-
-            var i = dataGrid.SelectedCells;
-            int day = (int)i[0].Value;
-
-            DateTime fechaSeleccionada = DateTime.Parse(day + "/" + month + "/" + Anio);
-            DateTime fechaCalendar;
-            int existe = 0;
-
-            foreach ( var festivo in festivos)
+            if(UserSession.User.UserTypeId == 3)
             {
-                fechaCalendar = DateTime.Parse(festivo.Day + "/" + festivo.Month + "/" + festivo.Year);
-                if (fechaSeleccionada == fechaCalendar)
-                {
-                    existe = 1;
-                }
-            }
-
-            if (existe == 1)
-            {
-                MessageBox.Show("El día ya existe como festivo");
-
-            }
-
+                return;
+            } 
             else
             {
+                int Anio = int.Parse(txbAnio.Text);
+                var apiclient = new CalendarApi(UserSession.APIUrl);
+                var festivos = apiclient.ApiCalendarGetFestiveByYearYearGet(Anio);
 
-                var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
-                if (messageResult == DialogResult.Yes)
+                DataGridView dataGrid = (DataGridView)sender;
+                var index = dataGrid.Name.Replace("dataGridView", "");
+                int month = int.Parse(index);
+
+                var i = dataGrid.SelectedCells;
+                int day = (int)i[0].Value;
+
+                DateTime fechaSeleccionada = DateTime.Parse(day + "/" + month + "/" + Anio);
+                DateTime fechaCalendar;
+                int existe = 0;
+
+                foreach (var festivo in festivos)
+                {
+                    fechaCalendar = DateTime.Parse(festivo.Day + "/" + festivo.Month + "/" + festivo.Year);
+                    if (fechaSeleccionada == fechaCalendar)
+                    {
+                        existe = 1;
+                    }
+                }
+
+                if (existe == 1)
+                {
+                    MessageBox.Show("El día ya existe como festivo");
+
+                }
+
+                else
                 {
 
-                    var calendar = new Calendar()
+                    var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
+                    if (messageResult == DialogResult.Yes)
                     {
-                        Day = day,
-                        Month = month,
-                        Year = Anio
-                    };
-                    apiclient.ApiCalendarCreateFestivePut(calendar);
-                    MarcarFestivos();
-                    //int index =  vvv.SelectedCells.
+
+                        var calendar = new Calendar()
+                        {
+                            Day = day,
+                            Month = month,
+                            Year = Anio
+                        };
+                        apiclient.ApiCalendarCreateFestivePut(calendar);
+                        MarcarFestivos();
+                        //int index =  vvv.SelectedCells.
+                    }
                 }
-            }
-            string vv = "";
+                string vv = "";
+            }             
 
         }
 
@@ -290,7 +317,6 @@ namespace WorkTrackerAPP
 
         private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
         {
-          
 
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
@@ -389,6 +415,14 @@ namespace WorkTrackerAPP
 
             }
             _form.EnviarValueProgressBar(0);
+        }
+        
+        private void DeshabilitarCalendario() 
+        {
+            if(UserSession.User.UserTypeId == 3) 
+            {
+                dataGridView1.ReadOnly = true;               
+            }
         }
 
     }
