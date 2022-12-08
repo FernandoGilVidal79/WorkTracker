@@ -14,7 +14,7 @@ namespace WorkTrackerAPP
         }
         private void TmrHora_Tick(object sender, EventArgs e)
         {
-            Helper.MostrarHora(lblHora, lblFecha);
+            Helper.MostrarHora(lblFecha, lblHora);
         }
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {

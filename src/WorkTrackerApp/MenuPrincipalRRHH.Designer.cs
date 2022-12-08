@@ -42,8 +42,8 @@ namespace WorkTrackerAPP
             this.pnlBanner = new System.Windows.Forms.Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.pcBoxLogo = new System.Windows.Forms.PictureBox();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.pnlFichar = new System.Windows.Forms.Panel();
             this.TmrHora = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -142,8 +142,8 @@ namespace WorkTrackerAPP
             this.pnlBanner.BackColor = System.Drawing.SystemColors.Window;
             this.pnlBanner.Controls.Add(this.lblBienvenida);
             this.pnlBanner.Controls.Add(this.pcBoxLogo);
-            this.pnlBanner.Controls.Add(this.lblFecha);
             this.pnlBanner.Controls.Add(this.lblHora);
+            this.pnlBanner.Controls.Add(this.lblFecha);
             this.pnlBanner.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBanner.Location = new System.Drawing.Point(0, 34);
             this.pnlBanner.Name = "pnlBanner";
@@ -170,27 +170,29 @@ namespace WorkTrackerAPP
             this.pcBoxLogo.TabIndex = 1;
             this.pcBoxLogo.TabStop = false;
             // 
-            // lblFecha
-            // 
-            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblFecha.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFecha.Location = new System.Drawing.Point(749, 40);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(0, 25);
-            this.lblFecha.TabIndex = 45;
-            // 
             // lblHora
             // 
             this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblHora.ForeColor = System.Drawing.Color.DimGray;
-            this.lblHora.Location = new System.Drawing.Point(749, 10);
+            this.lblHora.Location = new System.Drawing.Point(749, 40);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(0, 25);
-            this.lblHora.TabIndex = 44;
+            this.lblHora.Size = new System.Drawing.Size(52, 25);
+            this.lblHora.TabIndex = 45;
+            this.lblHora.Text = "zzzz";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblFecha.ForeColor = System.Drawing.Color.DimGray;
+            this.lblFecha.Location = new System.Drawing.Point(749, 10);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(52, 25);
+            this.lblFecha.TabIndex = 44;
+            this.lblFecha.Text = "zzzz";
             // 
             // pnlFichar
             // 
@@ -274,8 +276,8 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.Panel pnlBanner;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.PictureBox pcBoxLogo;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Panel pnlFichar;
         private System.Windows.Forms.Timer TmrHora;
         private System.Windows.Forms.ToolStripMenuItem aprobacionestoolStripMenuItem1;
