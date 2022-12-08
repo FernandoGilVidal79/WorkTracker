@@ -76,7 +76,7 @@ namespace WorkTrackerAPP
                     if (user.Status == true)
                     {
                         UserSession.User = user;
-                        Helper.MensajeOk("Bienvenido " + user.Name, "Correcto");
+                        Helper.MensajeOk("Hola " + user.Name, "Correcto");
                         this.Hide();
                         //Obtenemos el id del usuario
                         if (user.UserTypeId == 1)
