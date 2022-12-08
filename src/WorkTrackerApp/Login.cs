@@ -145,12 +145,12 @@ namespace WorkTrackerAPP
         {
 
             ///Usuario RRHH
-            this.txtUsuario.Text = "mariano@superman.com";
-            this.txtContrasena.Text = "Worktracker@1";
+          //  this.txtUsuario.Text = "mariano@superman.com";
+           // this.txtContrasena.Text = "Worktracker@1";
 
             //Usuario Admin
-            //this.txtUsuario.Text = "olema@worktrackers";
-            //this.txtContrasena.Text = "Worktracker@1";
+         //   this.txtUsuario.Text = "olema@worktrackers";
+           // this.txtContrasena.Text = "Worktracker@1";
 
         }
 
