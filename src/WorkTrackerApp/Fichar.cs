@@ -267,7 +267,7 @@ namespace WorkTrackerAPP
                     lblHistorico.Text += "Hora de entrada:" + _data.StartHour;
                     lblHistorico.Text += "\n";
                     lblHistorico.Text += "Hora de salida: " + _data.FinishHour;
-                    lblHistorico.Text += "\n-------------------------------------------------\n";
+                    lblHistorico.Text += "\n----------------------------------------\n";
 
                 }
             } 
