@@ -475,18 +475,26 @@ namespace WorkTrackerAPP
             {
 
                 var timeTotalJornada = new TimeSpan(UserSession.Jornada, 0, 0);
-                if (CalcularTotalJornada().CompareTo(new TimeSpan(UserSession.Jornada)) > 0)
+                if (CalcularTotalJornada().CompareTo(timeTotalJornada) < 0)
                 {
                     var messageResult = MessageBox.Show("No ha cumplido con el total de la jornada. ¿Desa fichar la salida", "Fichaje Salida", MessageBoxButtons.YesNo);
                     if (messageResult == DialogResult.Yes)
                     {
                         estado = Estados.Saliendo;
+                        MaquinaEstados();
+                        Fichaje();
+                        CargarTiempoJornada();
                     }
                 }
+                else
+                {
+                    estado = Estados.Saliendo;
+                    MaquinaEstados();
+                    Fichaje();
+                    CargarTiempoJornada();
+                }
             }
-            MaquinaEstados();
-            Fichaje();
-            CargarTiempoJornada();
+        
 
         }
 
