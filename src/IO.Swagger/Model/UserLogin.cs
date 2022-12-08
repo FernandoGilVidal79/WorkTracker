@@ -24,33 +24,33 @@ using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 namespace IO.Swagger.Model
 {
     /// <summary>
-    /// AbsenseType
+    /// UserLogin
     /// </summary>
     [DataContract]
-        public partial class AbsenseType :  IEquatable<AbsenseType>, IValidatableObject
+        public partial class UserLogin :  IEquatable<UserLogin>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbsenseType" /> class.
+        /// Initializes a new instance of the <see cref="UserLogin" /> class.
         /// </summary>
-        /// <param name="idAbsenseType">idAbsenseType.</param>
-        /// <param name="description">description.</param>
-        public AbsenseType(int? idAbsenseType = default(int?), string description = default(string))
+        /// <param name="username">username.</param>
+        /// <param name="password">password.</param>
+        public UserLogin(string username = default(string), string password = default(string))
         {
-            this.IdAbsenseType = idAbsenseType;
-            this.Description = description;
+            this.Username = username;
+            this.Password = password;
         }
         
         /// <summary>
-        /// Gets or Sets IdAbsenseType
+        /// Gets or Sets Username
         /// </summary>
-        [DataMember(Name="idAbsenseType", EmitDefaultValue=false)]
-        public int? IdAbsenseType { get; set; }
+        [DataMember(Name="username", EmitDefaultValue=false)]
+        public string Username { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
+        [DataMember(Name="password", EmitDefaultValue=false)]
+        public string Password { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +59,9 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AbsenseType {\n");
-            sb.Append("  IdAbsenseType: ").Append(IdAbsenseType).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class UserLogin {\n");
+            sb.Append("  Username: ").Append(Username).Append("\n");
+            sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,29 +82,29 @@ namespace IO.Swagger.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AbsenseType);
+            return this.Equals(input as UserLogin);
         }
 
         /// <summary>
-        /// Returns true if AbsenseType instances are equal
+        /// Returns true if UserLogin instances are equal
         /// </summary>
-        /// <param name="input">Instance of AbsenseType to be compared</param>
+        /// <param name="input">Instance of UserLogin to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AbsenseType input)
+        public bool Equals(UserLogin input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IdAbsenseType == input.IdAbsenseType ||
-                    (this.IdAbsenseType != null &&
-                    this.IdAbsenseType.Equals(input.IdAbsenseType))
+                    this.Username == input.Username ||
+                    (this.Username != null &&
+                    this.Username.Equals(input.Username))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Password == input.Password ||
+                    (this.Password != null &&
+                    this.Password.Equals(input.Password))
                 );
         }
 
@@ -117,10 +117,10 @@ namespace IO.Swagger.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdAbsenseType != null)
-                    hashCode = hashCode * 59 + this.IdAbsenseType.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.Username != null)
+                    hashCode = hashCode * 59 + this.Username.GetHashCode();
+                if (this.Password != null)
+                    hashCode = hashCode * 59 + this.Password.GetHashCode();
                 return hashCode;
             }
         }

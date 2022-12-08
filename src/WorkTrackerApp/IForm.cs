@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WorkTrackerAPP
+﻿namespace WorkTrackerAPP
 {
     public interface IForm
-    {
-
-        void MensajeBox(string texto);
+    {       
 
         void EnviarEstado(string estado);
+
+        int EnviarValueProgressBar(int value);
+
+        void EnviarMaxValueProgressBar(int value);
     }
 }

@@ -5,10 +5,10 @@ namespace WorkTrackerAPI.Model
     /// <summary>
     /// Usertype Model
     /// </summary>
-    public class AbsenseType
+    public class AbsenceType
     {
         [Key]
-        public int idAbsenseType { get; set; }
+        public int idAbsenceType { get; set; }
 
         public string Description { get; set; }
     }

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : Form, IForm
     {
         public MenuPrincipal()
         {
@@ -16,6 +16,7 @@ namespace WorkTrackerAPP
             Frm.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
+            this.toolStripMenuPrincipalStatus.Text = "Fichaje";
             Frm.Show();
             Helper.MensajeBienvenida(lblBienvenida);
         }
@@ -27,6 +28,8 @@ namespace WorkTrackerAPP
             Frm.TopLevel = false;
             Frm.FormBorderStyle = FormBorderStyle.None;
             Frm.Dock = DockStyle.Fill;
+            this.toolStripMenuPrincipalStatus.Text = "Fichaje";
+
             pnlFichar.Controls.Add(Frm);
             pnlFichar.Tag = Frm;
             Frm.Show();
@@ -35,7 +38,7 @@ namespace WorkTrackerAPP
 
         private void TmrHora_Tick(object sender, EventArgs e)
         {
-            Helper.MostrarHora(lblHora, lblFecha);
+            Helper.MostrarHora(lblFecha, lblHora);
         }
 
         private void SolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +48,8 @@ namespace WorkTrackerAPP
             FrmAusencia.TopLevel = false;
             FrmAusencia.FormBorderStyle = FormBorderStyle.None;
             FrmAusencia.Dock = DockStyle.Fill;
-            pnlFichar.Controls.Add(FrmAusencia);
+            pnlFichar.Controls.Add(FrmAusencia);       
+            this.toolStripMenuPrincipalStatus.Text = "Solicitud Ausencias";
             pnlFichar.Tag = FrmAusencia;
             FrmAusencia.Show();
         }
@@ -58,6 +62,7 @@ namespace WorkTrackerAPP
             FrmSituacion.FormBorderStyle = FormBorderStyle.None;
             FrmSituacion.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmSituacion);
+            this.toolStripMenuPrincipalStatus.Text = "Situación";
             pnlFichar.Tag = FrmSituacion;
             FrmSituacion.Show();
         }
@@ -83,13 +88,31 @@ namespace WorkTrackerAPP
         private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlFichar.Controls.Clear();
-            Calendario FrmCalendario = new Calendario();
+            Calendario FrmCalendario = new Calendario(this);
             FrmCalendario.TopLevel = false;
             FrmCalendario.FormBorderStyle = FormBorderStyle.None;
             FrmCalendario.Dock = DockStyle.Fill;
             pnlFichar.Controls.Add(FrmCalendario);
+            this.toolStripMenuPrincipalStatus.Text = "Calendario";
             pnlFichar.Tag = FrmCalendario;
             FrmCalendario.Show();
+        }
+
+        void IForm.EnviarEstado(string estado)
+        {
+            this.toolStripMenuPrincipalStatus.Text = estado;
+        }
+
+        void IForm.EnviarMaxValueProgressBar(int value)
+        {
+            this.toolStripProgressBar1.Maximum = value;
+        }
+
+        int IForm.EnviarValueProgressBar(int value)
+        {
+            this.toolStripProgressBar1.Value = value;
+            
+            return this.toolStripProgressBar1.Value;
         }
     }
 }

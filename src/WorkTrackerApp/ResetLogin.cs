@@ -29,7 +29,7 @@ namespace WorkTrackerAPP
 
         private bool ConfirmarContraseniaActual(String contrasenia)
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+            var apiclient = new UserApi(UserSession.APIUrl);
             var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
             var user = users.FirstOrDefault();
 
@@ -90,25 +90,34 @@ namespace WorkTrackerAPP
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+
+            ActualizarContrasenia();
+        }
+
+
+        private void ActualizarContrasenia()
+        {
             if (ConfirmarContraseniaActual(txtContraseniaActual.Text))
             {
                 if (AlgoritmoContraseñaSegura(txtContraseniaNueva.Text))
                 {
                     if (ConfirmarContrasenia(txtContraseniaNueva2.Text))
                     {
-                        var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
+                        var apiclient = new UserApi(UserSession.APIUrl);
                         var users = apiclient.ApiUserGetUserByIdIdGet(UserSession.User.IdUser.ToString());
                         var user = users.FirstOrDefault();
                         try
                         {
-                            String psw = Encriptado.GetSHA256(txtContraseniaNueva2.Text);
+                            String pswMail = user.Email;
+                            String pswMailUsuario = txtContraseniaNueva.Text + pswMail.Substring(0, pswMail.IndexOf("@"));
+                            String psw = Encriptado.GetSHA256(pswMailUsuario);
 
                             var usuario = new Users
                             {
                                 IdUser = user.IdUser,
                                 Department = user.Department,
                                 UserTypeId = user.UserTypeId,
-                                UserName = user.UserName,
+                                Name = user.Name,
                                 SurName1 = user.SurName1,
                                 SurName2 = user.SurName2,
                                 Status = user.Status,
@@ -129,7 +138,7 @@ namespace WorkTrackerAPP
                         }
 
 
-                        
+
                     }
                     else { MessageBox.Show("Las contraseñas no coinciden"); }
                 }
@@ -137,7 +146,15 @@ namespace WorkTrackerAPP
             }
             else { MessageBox.Show("La contraseña actual no coincide con la del sistema"); }
 
+        }
 
+        private void ValidateEnterPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                ActualizarContrasenia();
+            }
         }
     }
 }

@@ -6,13 +6,16 @@ using System.Windows.Forms;
 
 namespace WorkTrackerAPP
 {
-    public partial class CreacionUsuarios : Form
+    public partial class Usuarios : Form
     {
 
         private bool edicion = false;
         private readonly IForm _form;
+        ToolTip mouseBotones = new ToolTip();
 
-        public CreacionUsuarios (IForm form)
+       
+
+        public Usuarios (IForm form)
         {
             _form = form;
             InitializeComponent();
@@ -23,6 +26,10 @@ namespace WorkTrackerAPP
             ActivarCampos(false);
             CargarTipoUsuarios();
             ActivarBotones(true);
+            mouseBotones.SetToolTip(btnBuscar, "Buscar");
+            mouseBotones.SetToolTip(btnCancelar, "Cancelar");
+            mouseBotones.SetToolTip(btnGuardar, "Guardar");
+            mouseBotones.SetToolTip(btnNuevo, "Nuevo");
         }
 
         private void ActivarCampos(bool status)
@@ -30,8 +37,7 @@ namespace WorkTrackerAPP
             txtNumEmpleado.Enabled      = !status;
             txtNombre.Enabled           = status;
             txtApellido1.Enabled        = status;
-            txtApellido2.Enabled        = status;
-            txtContrasena.Enabled       = status;
+            txtApellido2.Enabled        = status;           
             txtDepartamento.Enabled     = status;
             txtEmail.Enabled            = status;
             txtTelefono.Enabled         = status;
@@ -42,17 +48,16 @@ namespace WorkTrackerAPP
 
         private void ActivarBotones(bool status)
         {
-            btnAnular.Enabled = !status;
+            btnCancelar.Enabled = !status;
             btnGuardar.Enabled = !status;
-            btnConsultar.Enabled = status;      
+            btnBuscar.Enabled = status;      
             btnNuevo.Enabled = status;
         }
         
         private void LimpiarCampos()
         {
             txtApellido1.Text       = "";
-            txtApellido2.Text       = "";
-            txtContrasena.Text      = "";
+            txtApellido2.Text       = "";      
             txtDepartamento.Text    = "";
             txtDepartamento.Text    = "";
             txtEmail.Text           = "";
@@ -65,53 +70,13 @@ namespace WorkTrackerAPP
 
         private void CargarTipoUsuarios()
         {
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-            var userTypes = apiclient.ApiUserGetUserTypesGet();
-            
+            var apiclient = new UserApi(UserSession.APIUrl);
+            var userTypes = apiclient.ApiUserGetUserTypesGet();       
             cmbTipoUsuario.DisplayMember = "Description";
             cmbTipoUsuario.ValueMember = "IdUserType";
             cmbTipoUsuario.DataSource = userTypes;
         }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            
-            var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-          
-            if (txtNumEmpleado.Text != string.Empty)
-            {
-                var users = apiclient.ApiUserGetUserByIdIdGet(txtNumEmpleado.Text);
-                var user = users.FirstOrDefault();
-                if (user != null)
-                {
-                    this.txtNumEmpleado.Text   = user.IdUser.ToString();
-                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
-                    this.txtNombre.Text        = user.UserName;
-                    this.txtEmail.Text         = user.Email;
-                    this.txtApellido1.Text     = user.SurName1;
-                    this.txtApellido2.Text     = user.SurName2;
-                    this.txtTelefono.Text      = user.Phone.ToString();
-                    this.txtNumVacaciones.Text = user.NHollidays.ToString();
-                    this.txtContrasena.Text    = user.Password; /// TODO Encrptada¿?¿?¿?
-                    this.txtDepartamento.Text  = user.Phone.ToString();
-                    SetStatusCombo((bool)user.Status);
-                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
-                    edicion = true;
-                    ActivarCampos(true);
-                    ActivarBotones(false);
-                }
-                else
-                {
-                    _form.EnviarEstado("Usuario no encontrado");
-                }
-            }
-            else
-            {
-                _form.EnviarEstado("Falta el Id Usuario");
-            }
-
-        }
-
+   
         private void SetStatusCombo(bool value)
         {
             if (value == true)
@@ -140,47 +105,29 @@ namespace WorkTrackerAPP
             //throw new Exception("No se ha seleccionado un valor");
         }
       
-        private void btnGuardar_Click(object sender, EventArgs e)
+       
+   
+
+        private void ValidationNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ComboStatusValor();
-            try
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                var user = new Users
-                {
-                    Department = txtDepartamento.Text,
-                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
-                    UserName = txtNombre.Text,
-                    SurName1 = txtApellido1.Text,
-                    SurName2 = txtApellido2.Text,
-                    Status = ComboStatusValor(),
-                    Phone = Int32.Parse(txtTelefono.Text),
-                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
-                    Email = txtEmail.Text,
-                    Password = txtContrasena.Text
-                };
-
-                var apiclient = new UserApi("http://worktracker-001-site1.atempurl.com/");
-                if (edicion)
-                {
-                    user.IdUser = Int32.Parse(txtNumEmpleado.Text);
-                    apiclient.ApiUserUpdateUserPost(user);
-                    _form.MensajeBox("Usuario modificado correctamente");
-                }
-                else
-                {
-                    apiclient.ApiUserCreateUserPut(user);
-                    LimpiarCampos();
-                    _form.MensajeBox("Usuario Creado correctamente");
-
-
-                }
-
-                _form.EnviarEstado("Guardado correctamente");
+                e.Handled = true;
             }
-            catch (Exception ex)
+
+            else if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                _form.EnviarEstado("Error al guardar el usuario");
+                Buscar();
             }
+        }
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            ActivarCampos(false);
+            ActivarBotones(true);
+            edicion = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -191,20 +138,118 @@ namespace WorkTrackerAPP
             edicion = false;
         }
 
-        private void btnAnular_Click(object sender, EventArgs e)
+        private void Buscar()
         {
-            LimpiarCampos();
-            ActivarCampos(false);
-            ActivarBotones(true);
-            edicion = false;
+            var apiclient = new UserApi(UserSession.APIUrl);
+
+            if (txtNumEmpleado.Text != string.Empty)
+            {
+                var users = apiclient.ApiUserGetUserByIdIdGet(txtNumEmpleado.Text);
+                var user = users.FirstOrDefault();
+                if (user != null)
+                {
+                    this.txtNumEmpleado.Text = user.IdUser.ToString();
+                    cmbTipoUsuario.SelectedValue = (int)user.UserTypeId;
+                    this.txtNombre.Text = user.Name;
+                    this.txtEmail.Text = user.Email;
+                    this.txtApellido1.Text = user.SurName1;
+                    this.txtApellido2.Text = user.SurName2;
+                    this.txtTelefono.Text = user.Phone.ToString();
+                    this.txtNumVacaciones.Text = user.NHollidays.ToString();
+                    this.txtDepartamento.Text = user.Department;
+                    SetStatusCombo((bool)user.Status);
+                    _form.EnviarEstado("Mostrando Usuario  id: " + user.IdUser.ToString());
+                    edicion = true;
+                    ActivarCampos(true);
+                    ActivarBotones(false);
+                }
+                else
+                {
+                    _form.EnviarEstado("Usuario no encontrado");
+                }
+            }
+            else
+            {
+                _form.EnviarEstado("Falta el Id Usuario");
+            }
         }
 
-        private void ValidationNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            Buscar();
+        }
+
+        private void ValidateEnterPress(object sender, KeyPressEventArgs e)
+        {
+
+           
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            ComboStatusValor();
+            try
             {
-                e.Handled = true;
+                var user = new Users
+                {
+                    Department = txtDepartamento.Text,
+                    UserTypeId = (int?)cmbTipoUsuario.SelectedValue,
+                    Name = txtNombre.Text,
+                    SurName1 = txtApellido1.Text,
+                    SurName2 = txtApellido2.Text,
+                    Status = ComboStatusValor(),
+                    Phone = Int32.Parse(txtTelefono.Text),
+                    NHollidays = Int32.Parse(txtNumVacaciones.Text),
+                    Email = txtEmail.Text,
+                    Password = txtNombre.Text
+                };
+
+                var apiclient = new UserApi(UserSession.APIUrl);
+                if (edicion)
+                {
+                    user.IdUser = Int32.Parse(txtNumEmpleado.Text);
+                    apiclient.ApiUserUpdateUserPost(user);
+                    Helper.MensajeOk("Usuario modificado correctamente", "Modificacion de Usuario");
+                }
+                else
+                {
+                    apiclient.ApiUserCreateUserPut(user);
+                    LimpiarCampos();
+                    Helper.MensajeOk("Usuario Creado correctamente", "Creación de Usuario");
+
+
+                }
+
+                _form.EnviarEstado("Guardado correctamente");
+                ActivarCampos(false);
+                ActivarBotones(true);
             }
+            catch (Exception ex)
+            {
+                _form.EnviarEstado("Error al guardar el usuario");
+            }
+        
+    }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            Validar.SoloLetras(e);
+        }
+
+        private void txtApellido1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void txtApellido2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void txtDepartamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
         }
     }
 }

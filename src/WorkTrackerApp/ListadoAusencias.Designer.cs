@@ -33,9 +33,13 @@ namespace WorkTrackerAPP
             // 
             // ListadoAusencias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(345, 453);
+            this.Font = new System.Drawing.Font("Verdana", 10F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListadoAusencias";
             this.Text = "ListadoAusencias";
             this.Load += new System.EventHandler(this.ListadoAusencias_Load);

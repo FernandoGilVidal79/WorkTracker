@@ -10,5 +10,15 @@ namespace WorkTrackerAPP
         public static List<Clockin> Fichajes { get; set; }
 
         public static List<Clockin> FichajesHoy { get; set; }
+
+        public static string APIUrl { get
+            {
+                return Properties.Settings.Default.APIUrl;
+            } }
+
+        public static int Jornada { get
+            {
+                return Properties.Settings.Default.Jornada;
+            } }
     }
 }

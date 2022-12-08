@@ -29,123 +29,207 @@ namespace WorkTrackerAPP
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fichar));
             this.btnDescanso = new System.Windows.Forms.Button();
             this.btnComida = new System.Windows.Forms.Button();
+            this.lblResumen = new System.Windows.Forms.Label();
             this.btnJornada = new System.Windows.Forms.Button();
             this.lblHistorico = new System.Windows.Forms.Label();
-            this.lblResumen = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.lblFichajeActual = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTComida = new System.Windows.Forms.Label();
+            this.lblTDesc = new System.Windows.Forms.Label();
+            this.lblTJornada = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnDescanso);
-            this.splitContainer1.Panel1.Controls.Add(this.btnComida);
-            this.splitContainer1.Panel1.Controls.Add(this.btnJornada);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.lblHistorico);
-            this.splitContainer1.Panel2.Controls.Add(this.lblResumen);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(713, 344);
-            this.splitContainer1.SplitterDistance = 229;
-            this.splitContainer1.SplitterWidth = 3;
-            this.splitContainer1.TabIndex = 38;
             // 
             // btnDescanso
             // 
-            this.btnDescanso.Location = new System.Drawing.Point(31, 177);
-            this.btnDescanso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDescanso.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescanso.Image = ((System.Drawing.Image)(resources.GetObject("btnDescanso.Image")));
+            this.btnDescanso.Location = new System.Drawing.Point(70, 279);
             this.btnDescanso.Name = "btnDescanso";
-            this.btnDescanso.Size = new System.Drawing.Size(161, 46);
-            this.btnDescanso.TabIndex = 40;
+            this.btnDescanso.Size = new System.Drawing.Size(269, 64);
+            this.btnDescanso.TabIndex = 44;
             this.btnDescanso.Text = "Descanso";
+            this.btnDescanso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDescanso.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDescanso.UseVisualStyleBackColor = true;
             this.btnDescanso.Click += new System.EventHandler(this.btnDescanso_Click);
             // 
             // btnComida
             // 
-            this.btnComida.Location = new System.Drawing.Point(31, 112);
-            this.btnComida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnComida.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComida.Image = ((System.Drawing.Image)(resources.GetObject("btnComida.Image")));
+            this.btnComida.Location = new System.Drawing.Point(70, 189);
             this.btnComida.Name = "btnComida";
-            this.btnComida.Size = new System.Drawing.Size(161, 49);
-            this.btnComida.TabIndex = 39;
+            this.btnComida.Size = new System.Drawing.Size(269, 67);
+            this.btnComida.TabIndex = 43;
             this.btnComida.Text = "Comida";
+            this.btnComida.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnComida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnComida.UseVisualStyleBackColor = true;
             this.btnComida.Click += new System.EventHandler(this.btnComida_Click);
             // 
+            // lblResumen
+            // 
+            this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumen.Location = new System.Drawing.Point(363, 33);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(170, 17);
+            this.lblResumen.TabIndex = 41;
+            this.lblResumen.Text = "Resumen de la semana";
+            // 
             // btnJornada
             // 
-            this.btnJornada.Location = new System.Drawing.Point(31, 54);
-            this.btnJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJornada.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJornada.Image = ((System.Drawing.Image)(resources.GetObject("btnJornada.Image")));
+            this.btnJornada.Location = new System.Drawing.Point(70, 103);
             this.btnJornada.Name = "btnJornada";
-            this.btnJornada.Size = new System.Drawing.Size(161, 47);
-            this.btnJornada.TabIndex = 38;
+            this.btnJornada.Size = new System.Drawing.Size(269, 65);
+            this.btnJornada.TabIndex = 42;
             this.btnJornada.Text = "Entrada";
+            this.btnJornada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnJornada.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnJornada.UseVisualStyleBackColor = true;
             this.btnJornada.Click += new System.EventHandler(this.btnJornada_Click);
             // 
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(57, 63);
-            this.lblHistorico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHistorico.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHistorico.Location = new System.Drawing.Point(363, 103);
             this.lblHistorico.Name = "lblHistorico";
-            this.lblHistorico.Size = new System.Drawing.Size(78, 13);
-            this.lblHistorico.TabIndex = 1;
-            this.lblHistorico.Text = "No hay Fichaje";
+            this.lblHistorico.Size = new System.Drawing.Size(0, 17);
+            this.lblHistorico.TabIndex = 45;
             // 
-            // lblResumen
+            // lblFichajeActual
             // 
-            this.lblResumen.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
-            this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(57, 28);
-            this.lblResumen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(118, 13);
-            this.lblResumen.TabIndex = 0;
-            this.lblResumen.Text = "Resumen de la semana";
+            this.lblFichajeActual.AutoSize = true;
+            this.lblFichajeActual.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFichajeActual.Location = new System.Drawing.Point(363, 77);
+            this.lblFichajeActual.Name = "lblFichajeActual";
+            this.lblFichajeActual.Size = new System.Drawing.Size(0, 17);
+            this.lblFichajeActual.TabIndex = 46;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblTComida);
+            this.groupBox1.Controls.Add(this.lblTDesc);
+            this.groupBox1.Controls.Add(this.lblTJornada);
+            this.groupBox1.Location = new System.Drawing.Point(696, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(269, 135);
+            this.groupBox1.TabIndex = 47;
+            this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Comida";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Descanso";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Jornada";
+            // 
+            // lblTComida
+            // 
+            this.lblTComida.AutoSize = true;
+            this.lblTComida.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTComida.Location = new System.Drawing.Point(155, 106);
+            this.lblTComida.Name = "lblTComida";
+            this.lblTComida.Size = new System.Drawing.Size(64, 16);
+            this.lblTComida.TabIndex = 2;
+            this.lblTComida.Text = "TComida";
+            // 
+            // lblTDesc
+            // 
+            this.lblTDesc.AutoSize = true;
+            this.lblTDesc.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTDesc.Location = new System.Drawing.Point(155, 63);
+            this.lblTDesc.Name = "lblTDesc";
+            this.lblTDesc.Size = new System.Drawing.Size(49, 16);
+            this.lblTDesc.TabIndex = 1;
+            this.lblTDesc.Text = "TDesc";
+            // 
+            // lblTJornada
+            // 
+            this.lblTJornada.AutoSize = true;
+            this.lblTJornada.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTJornada.Location = new System.Drawing.Point(155, 23);
+            this.lblTJornada.Name = "lblTJornada";
+            this.lblTJornada.Size = new System.Drawing.Size(68, 16);
+            this.lblTJornada.TabIndex = 0;
+            this.lblTJornada.Text = "TJornada";
             // 
             // Fichar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 344);
-            this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1185, 684);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblFichajeActual);
+            this.Controls.Add(this.lblHistorico);
+            this.Controls.Add(this.btnDescanso);
+            this.Controls.Add(this.btnComida);
+            this.Controls.Add(this.lblResumen);
+            this.Controls.Add(this.btnJornada);
+            this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
             this.Name = "Fichar";
             this.Text = "Fichar";
             this.Load += new System.EventHandler(this.Fichar_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnDescanso;
         private System.Windows.Forms.Button btnComida;
-        private System.Windows.Forms.Button btnJornada;
         private System.Windows.Forms.Label lblResumen;
+        private System.Windows.Forms.Button btnJornada;
         private System.Windows.Forms.Label lblHistorico;
+        private System.Windows.Forms.Label lblFichajeActual;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTComida;
+        private System.Windows.Forms.Label lblTDesc;
+        private System.Windows.Forms.Label lblTJornada;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

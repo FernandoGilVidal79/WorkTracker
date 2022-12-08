@@ -29,10 +29,25 @@ namespace WorkTrackerAPP
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblAnio = new System.Windows.Forms.Label();
-            this.txbAnio = new System.Windows.Forms.TextBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.btnGrabar2 = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.btnGrabar3 = new WorkTrackerAPP.Helpers.BtnGrabar();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.txbAnio = new System.Windows.Forms.NumericUpDown();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView12 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -142,6 +157,8 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txbAnio)).BeginInit();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
             this.groupBox11.SuspendLayout();
@@ -171,35 +188,21 @@ namespace WorkTrackerAPP
             // lblAnio
             // 
             this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(853, 34);
+            this.lblAnio.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lblAnio.Location = new System.Drawing.Point(897, 99);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(36, 16);
+            this.lblAnio.Size = new System.Drawing.Size(39, 17);
             this.lblAnio.TabIndex = 0;
             this.lblAnio.Text = "AÑO";
             // 
-            // txbAnio
-            // 
-            this.txbAnio.Location = new System.Drawing.Point(817, 54);
-            this.txbAnio.MaxLength = 4;
-            this.txbAnio.Multiline = true;
-            this.txbAnio.Name = "txbAnio";
-            this.txbAnio.Size = new System.Drawing.Size(120, 28);
-            this.txbAnio.TabIndex = 1;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(817, 88);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 36);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "ACTUALIZAR";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox13);
+            this.panel1.Controls.Add(this.lblYear);
+            this.panel1.Controls.Add(this.txbAnio);
             this.panel1.Controls.Add(this.groupBox12);
             this.panel1.Controls.Add(this.groupBox11);
+            this.panel1.Controls.Add(this.lblAnio);
             this.panel1.Controls.Add(this.groupBox10);
             this.panel1.Controls.Add(this.groupBox9);
             this.panel1.Controls.Add(this.groupBox8);
@@ -211,22 +214,105 @@ namespace WorkTrackerAPP
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(-3, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 427);
+            this.panel1.Size = new System.Drawing.Size(992, 573);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.btnGrabar2);
+            this.groupBox13.Controls.Add(this.btnGrabar3);
+            this.groupBox13.Font = new System.Drawing.Font("Verdana", 9F);
+            this.groupBox13.Location = new System.Drawing.Point(882, 10);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(105, 65);
+            this.groupBox13.TabIndex = 95;
+            this.groupBox13.TabStop = false;
+            // 
+            // btnGrabar2
+            // 
+            this.btnGrabar2.BackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar2.FlatAppearance.BorderSize = 0;
+            this.btnGrabar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnGrabar2.Image = global::WorkTrackerAPP.Properties.Resources.comment_check;
+            this.btnGrabar2.Location = new System.Drawing.Point(8, 17);
+            this.btnGrabar2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnGrabar2.Name = "btnGrabar2";
+            this.btnGrabar2.Size = new System.Drawing.Size(45, 40);
+            this.btnGrabar2.TabIndex = 47;
+            this.btnGrabar2.UseVisualStyleBackColor = false;
+            this.btnGrabar2.Click += new System.EventHandler(this.btnGrabar2_Click);
+            // 
+            // btnGrabar3
+            // 
+            this.btnGrabar3.BackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar3.FlatAppearance.BorderSize = 0;
+            this.btnGrabar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar3.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnGrabar3.Image = global::WorkTrackerAPP.Properties.Resources.cross_circle;
+            this.btnGrabar3.Location = new System.Drawing.Point(57, 17);
+            this.btnGrabar3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnGrabar3.Name = "btnGrabar3";
+            this.btnGrabar3.Size = new System.Drawing.Size(39, 40);
+            this.btnGrabar3.TabIndex = 46;
+            this.btnGrabar3.UseVisualStyleBackColor = false;
+            this.btnGrabar3.Click += new System.EventHandler(this.btnGrabar3_Click);
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(479, -16);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(45, 14);
+            this.lblYear.TabIndex = 18;
+            this.lblYear.Text = "label1";
+            // 
+            // txbAnio
+            // 
+            this.txbAnio.Font = new System.Drawing.Font("Verdana", 10F);
+            this.txbAnio.Location = new System.Drawing.Point(901, 122);
+            this.txbAnio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txbAnio.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.txbAnio.Minimum = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            this.txbAnio.Name = "txbAnio";
+            this.txbAnio.Size = new System.Drawing.Size(77, 24);
+            this.txbAnio.TabIndex = 4;
+            this.txbAnio.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
             // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.dataGridView12);
-            this.groupBox12.Location = new System.Drawing.Point(600, 295);
+            this.groupBox12.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox12.Location = new System.Drawing.Point(669, 388);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(187, 140);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox12.Size = new System.Drawing.Size(210, 170);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Diciembre";
             // 
             // dataGridView12
             // 
+            this.dataGridView12.AllowUserToAddRows = false;
+            this.dataGridView12.AllowUserToDeleteRows = false;
+            this.dataGridView12.AllowUserToResizeColumns = false;
+            this.dataGridView12.AllowUserToResizeRows = false;
             this.dataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView12.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -237,16 +323,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn82,
             this.dataGridViewTextBoxColumn83,
             this.dataGridViewTextBoxColumn84});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView12.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView12.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView12.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView12.RowHeadersVisible = false;
             this.dataGridView12.RowHeadersWidth = 51;
             this.dataGridView12.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView12.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView12.Size = new System.Drawing.Size(204, 156);
             this.dataGridView12.TabIndex = 4;
             this.dataGridView12.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -295,15 +389,22 @@ namespace WorkTrackerAPP
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.dataGridView11);
-            this.groupBox11.Location = new System.Drawing.Point(407, 295);
+            this.groupBox11.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox11.Location = new System.Drawing.Point(453, 388);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(187, 140);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox11.Size = new System.Drawing.Size(210, 170);
             this.groupBox11.TabIndex = 17;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Noviembre";
             // 
             // dataGridView11
             // 
+            this.dataGridView11.AllowUserToAddRows = false;
+            this.dataGridView11.AllowUserToDeleteRows = false;
+            this.dataGridView11.AllowUserToResizeColumns = false;
+            this.dataGridView11.AllowUserToResizeRows = false;
             this.dataGridView11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -314,16 +415,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn75,
             this.dataGridViewTextBoxColumn76,
             this.dataGridViewTextBoxColumn77});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView11.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView11.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView11.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView11.RowHeadersVisible = false;
             this.dataGridView11.RowHeadersWidth = 51;
             this.dataGridView11.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView11.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView11.Size = new System.Drawing.Size(204, 156);
             this.dataGridView11.TabIndex = 4;
             this.dataGridView11.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -372,15 +481,22 @@ namespace WorkTrackerAPP
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.dataGridView10);
-            this.groupBox10.Location = new System.Drawing.Point(212, 295);
+            this.groupBox10.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox10.Location = new System.Drawing.Point(237, 388);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(187, 140);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox10.Size = new System.Drawing.Size(210, 170);
             this.groupBox10.TabIndex = 17;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Octubre";
             // 
             // dataGridView10
             // 
+            this.dataGridView10.AllowUserToAddRows = false;
+            this.dataGridView10.AllowUserToDeleteRows = false;
+            this.dataGridView10.AllowUserToResizeColumns = false;
+            this.dataGridView10.AllowUserToResizeRows = false;
             this.dataGridView10.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -391,16 +507,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn68,
             this.dataGridViewTextBoxColumn69,
             this.dataGridViewTextBoxColumn70});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView10.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView10.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView10.RowHeadersVisible = false;
             this.dataGridView10.RowHeadersWidth = 51;
             this.dataGridView10.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView10.Size = new System.Drawing.Size(204, 156);
             this.dataGridView10.TabIndex = 4;
             this.dataGridView10.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -449,15 +573,22 @@ namespace WorkTrackerAPP
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.dataGridView9);
-            this.groupBox9.Location = new System.Drawing.Point(21, 293);
+            this.groupBox9.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox9.Location = new System.Drawing.Point(15, 388);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(187, 140);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox9.Size = new System.Drawing.Size(210, 170);
             this.groupBox9.TabIndex = 17;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Septiembre";
             // 
             // dataGridView9
             // 
+            this.dataGridView9.AllowUserToAddRows = false;
+            this.dataGridView9.AllowUserToDeleteRows = false;
+            this.dataGridView9.AllowUserToResizeColumns = false;
+            this.dataGridView9.AllowUserToResizeRows = false;
             this.dataGridView9.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView9.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -468,16 +599,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn61,
             this.dataGridViewTextBoxColumn62,
             this.dataGridViewTextBoxColumn63});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView9.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView9.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView9.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView9.RowHeadersVisible = false;
             this.dataGridView9.RowHeadersWidth = 51;
             this.dataGridView9.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView9.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView9.Size = new System.Drawing.Size(204, 156);
             this.dataGridView9.TabIndex = 4;
             this.dataGridView9.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -526,15 +665,22 @@ namespace WorkTrackerAPP
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.dataGridView8);
-            this.groupBox8.Location = new System.Drawing.Point(597, 149);
+            this.groupBox8.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox8.Location = new System.Drawing.Point(664, 200);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(190, 140);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Size = new System.Drawing.Size(210, 170);
             this.groupBox8.TabIndex = 17;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Agosto";
             // 
             // dataGridView8
             // 
+            this.dataGridView8.AllowUserToAddRows = false;
+            this.dataGridView8.AllowUserToDeleteRows = false;
+            this.dataGridView8.AllowUserToResizeColumns = false;
+            this.dataGridView8.AllowUserToResizeRows = false;
             this.dataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView8.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -545,16 +691,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn54,
             this.dataGridViewTextBoxColumn55,
             this.dataGridViewTextBoxColumn56});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView8.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView8.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView8.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView8.RowHeadersVisible = false;
             this.dataGridView8.RowHeadersWidth = 51;
             this.dataGridView8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView8.Size = new System.Drawing.Size(184, 119);
+            this.dataGridView8.Size = new System.Drawing.Size(204, 156);
             this.dataGridView8.TabIndex = 4;
             this.dataGridView8.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -603,15 +757,22 @@ namespace WorkTrackerAPP
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dataGridView7);
-            this.groupBox7.Location = new System.Drawing.Point(404, 149);
+            this.groupBox7.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox7.Location = new System.Drawing.Point(450, 200);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(187, 140);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox7.Size = new System.Drawing.Size(210, 170);
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Julio";
             // 
             // dataGridView7
             // 
+            this.dataGridView7.AllowUserToAddRows = false;
+            this.dataGridView7.AllowUserToDeleteRows = false;
+            this.dataGridView7.AllowUserToResizeColumns = false;
+            this.dataGridView7.AllowUserToResizeRows = false;
             this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -622,16 +783,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn47,
             this.dataGridViewTextBoxColumn48,
             this.dataGridViewTextBoxColumn49});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView7.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView7.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.RowHeadersWidth = 51;
             this.dataGridView7.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView7.Size = new System.Drawing.Size(204, 156);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -680,15 +849,22 @@ namespace WorkTrackerAPP
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dataGridView6);
-            this.groupBox6.Location = new System.Drawing.Point(211, 149);
+            this.groupBox6.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox6.Location = new System.Drawing.Point(234, 200);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(187, 140);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox6.Size = new System.Drawing.Size(210, 170);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Junio";
             // 
             // dataGridView6
             // 
+            this.dataGridView6.AllowUserToAddRows = false;
+            this.dataGridView6.AllowUserToDeleteRows = false;
+            this.dataGridView6.AllowUserToResizeColumns = false;
+            this.dataGridView6.AllowUserToResizeRows = false;
             this.dataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -699,16 +875,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn40,
             this.dataGridViewTextBoxColumn41,
             this.dataGridViewTextBoxColumn42});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView6.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView6.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView6.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.RowHeadersWidth = 51;
             this.dataGridView6.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView6.Size = new System.Drawing.Size(204, 156);
             this.dataGridView6.TabIndex = 4;
             this.dataGridView6.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -757,15 +941,22 @@ namespace WorkTrackerAPP
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridView5);
-            this.groupBox5.Location = new System.Drawing.Point(18, 149);
+            this.groupBox5.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox5.Location = new System.Drawing.Point(15, 200);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(187, 140);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(210, 170);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mayo";
             // 
             // dataGridView5
             // 
+            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.AllowUserToResizeColumns = false;
+            this.dataGridView5.AllowUserToResizeRows = false;
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -776,16 +967,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn33,
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView5.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.RowHeadersWidth = 51;
             this.dataGridView5.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView5.Size = new System.Drawing.Size(204, 156);
             this.dataGridView5.TabIndex = 4;
             this.dataGridView5.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -834,15 +1033,22 @@ namespace WorkTrackerAPP
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView4);
-            this.groupBox4.Location = new System.Drawing.Point(592, 3);
+            this.groupBox4.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox4.Location = new System.Drawing.Point(666, 20);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(192, 140);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(210, 170);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Abril";
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToResizeColumns = false;
+            this.dataGridView4.AllowUserToResizeRows = false;
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -853,16 +1059,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView4.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(186, 119);
+            this.dataGridView4.Size = new System.Drawing.Size(204, 156);
             this.dataGridView4.TabIndex = 4;
             this.dataGridView4.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -911,15 +1125,22 @@ namespace WorkTrackerAPP
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Location = new System.Drawing.Point(401, 3);
+            this.groupBox3.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox3.Location = new System.Drawing.Point(447, 20);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(187, 140);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(210, 170);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Marzo";
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeColumns = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -930,16 +1151,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView3.Size = new System.Drawing.Size(204, 156);
             this.dataGridView3.TabIndex = 4;
             this.dataGridView3.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -988,15 +1217,22 @@ namespace WorkTrackerAPP
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(208, 3);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox2.Location = new System.Drawing.Point(231, 20);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(187, 140);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(210, 170);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Febrero";
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1007,16 +1243,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView2.Size = new System.Drawing.Size(204, 156);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -1065,15 +1309,23 @@ namespace WorkTrackerAPP
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 3);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 6F);
+            this.groupBox1.Location = new System.Drawing.Point(15, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 140);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(210, 170);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enero";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1084,16 +1336,24 @@ namespace WorkTrackerAPP
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 6F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 12);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(181, 119);
+            this.dataGridView1.Size = new System.Drawing.Size(204, 156);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -1141,17 +1401,21 @@ namespace WorkTrackerAPP
             // 
             // Calendario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 461);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(988, 570);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.txbAnio);
-            this.Controls.Add(this.lblAnio);
+            this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Calendario";
             this.Text = "Calendario";
-            this.Load += new System.EventHandler(this.Calendario_Load_1);
+            this.Load += new System.EventHandler(this.Calendario_Load);
+            this.Shown += new System.EventHandler(this.Calendario_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txbAnio)).EndInit();
             this.groupBox12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
             this.groupBox11.ResumeLayout(false);
@@ -1177,15 +1441,12 @@ namespace WorkTrackerAPP
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label lblAnio;
-        private System.Windows.Forms.TextBox txbAnio;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -1295,5 +1556,10 @@ namespace WorkTrackerAPP
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.NumericUpDown txbAnio;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private Helpers.BtnGrabar btnGrabar2;
+        private Helpers.BtnGrabar btnGrabar3;
     }
 }

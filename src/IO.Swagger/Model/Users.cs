@@ -33,7 +33,7 @@ namespace IO.Swagger.Model
         /// Initializes a new instance of the <see cref="Users" /> class.
         /// </summary>
         /// <param name="idUser">idUser.</param>
-        /// <param name="userName">userName.</param>
+        /// <param name="name">name.</param>
         /// <param name="surName1">surName1.</param>
         /// <param name="surName2">surName2.</param>
         /// <param name="email">email.</param>
@@ -43,10 +43,10 @@ namespace IO.Swagger.Model
         /// <param name="userTypeId">userTypeId.</param>
         /// <param name="password">password.</param>
         /// <param name="nHollidays">nHollidays.</param>
-        public Users(int? idUser = default(int?), string userName = default(string), string surName1 = default(string), string surName2 = default(string), string email = default(string), int? phone = default(int?), string department = default(string), bool? status = default(bool?), int? userTypeId = default(int?), string password = default(string), int? nHollidays = default(int?))
+        public Users(int? idUser = default(int?), string name = default(string), string surName1 = default(string), string surName2 = default(string), string email = default(string), int? phone = default(int?), string department = default(string), bool? status = default(bool?), int? userTypeId = default(int?), string password = default(string), int? nHollidays = default(int?))
         {
             this.IdUser = idUser;
-            this.UserName = userName;
+            this.Name = name;
             this.SurName1 = surName1;
             this.SurName2 = surName2;
             this.Email = email;
@@ -65,10 +65,10 @@ namespace IO.Swagger.Model
         public int? IdUser { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserName
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="userName", EmitDefaultValue=false)]
-        public string UserName { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets SurName1
@@ -133,7 +133,7 @@ namespace IO.Swagger.Model
             var sb = new StringBuilder();
             sb.Append("class Users {\n");
             sb.Append("  IdUser: ").Append(IdUser).Append("\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  SurName1: ").Append(SurName1).Append("\n");
             sb.Append("  SurName2: ").Append(SurName2).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -183,9 +183,9 @@ namespace IO.Swagger.Model
                     this.IdUser.Equals(input.IdUser))
                 ) && 
                 (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.SurName1 == input.SurName1 ||
@@ -245,8 +245,8 @@ namespace IO.Swagger.Model
                 int hashCode = 41;
                 if (this.IdUser != null)
                     hashCode = hashCode * 59 + this.IdUser.GetHashCode();
-                if (this.UserName != null)
-                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.SurName1 != null)
                     hashCode = hashCode * 59 + this.SurName1.GetHashCode();
                 if (this.SurName2 != null)

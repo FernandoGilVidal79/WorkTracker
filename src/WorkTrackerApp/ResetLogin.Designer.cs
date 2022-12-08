@@ -29,6 +29,7 @@ namespace WorkTrackerAPP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetLogin));
             this.txtContraseniaActual = new System.Windows.Forms.TextBox();
             this.txtContraseniaNueva = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
@@ -42,43 +43,46 @@ namespace WorkTrackerAPP
             // 
             // txtContraseniaActual
             // 
-            this.txtContraseniaActual.Location = new System.Drawing.Point(292, 140);
+            this.txtContraseniaActual.Location = new System.Drawing.Point(328, 175);
+            this.txtContraseniaActual.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtContraseniaActual.Name = "txtContraseniaActual";
             this.txtContraseniaActual.PasswordChar = '*';
-            this.txtContraseniaActual.Size = new System.Drawing.Size(232, 22);
+            this.txtContraseniaActual.Size = new System.Drawing.Size(260, 26);
             this.txtContraseniaActual.TabIndex = 0;
             // 
             // txtContraseniaNueva
             // 
-            this.txtContraseniaNueva.Location = new System.Drawing.Point(292, 180);
+            this.txtContraseniaNueva.Location = new System.Drawing.Point(328, 225);
+            this.txtContraseniaNueva.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtContraseniaNueva.Name = "txtContraseniaNueva";
             this.txtContraseniaNueva.PasswordChar = '*';
-            this.txtContraseniaNueva.Size = new System.Drawing.Size(232, 22);
+            this.txtContraseniaNueva.Size = new System.Drawing.Size(260, 26);
             this.txtContraseniaNueva.TabIndex = 1;
             // 
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(157, 140);
+            this.lblContrasenia.Location = new System.Drawing.Point(177, 175);
             this.lblContrasenia.Name = "lblContrasenia";
-            this.lblContrasenia.Size = new System.Drawing.Size(116, 17);
+            this.lblContrasenia.Size = new System.Drawing.Size(132, 20);
             this.lblContrasenia.TabIndex = 3;
             this.lblContrasenia.Text = "Contrseña Actual";
             // 
             // lblContraseniaNueva
             // 
             this.lblContraseniaNueva.AutoSize = true;
-            this.lblContraseniaNueva.Location = new System.Drawing.Point(157, 180);
+            this.lblContraseniaNueva.Location = new System.Drawing.Point(177, 225);
             this.lblContraseniaNueva.Name = "lblContraseniaNueva";
-            this.lblContraseniaNueva.Size = new System.Drawing.Size(118, 17);
+            this.lblContraseniaNueva.Size = new System.Drawing.Size(132, 20);
             this.lblContraseniaNueva.TabIndex = 5;
             this.lblContraseniaNueva.Text = "Contrseña Nueva";
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(341, 279);
+            this.btnActualizar.Location = new System.Drawing.Point(384, 349);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 36);
+            this.btnActualizar.Size = new System.Drawing.Size(135, 45);
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -90,37 +94,40 @@ namespace WorkTrackerAPP
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcBoxLogo.Image = global::WorkTrackerAPP.Properties.Resources.Logo;
-            this.pcBoxLogo.Location = new System.Drawing.Point(568, 11);
-            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(287, 252);
+            this.pcBoxLogo.Location = new System.Drawing.Point(639, 14);
+            this.pcBoxLogo.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.pcBoxLogo.MaximumSize = new System.Drawing.Size(323, 315);
             this.pcBoxLogo.Name = "pcBoxLogo";
-            this.pcBoxLogo.Size = new System.Drawing.Size(207, 166);
+            this.pcBoxLogo.Size = new System.Drawing.Size(233, 208);
             this.pcBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcBoxLogo.TabIndex = 7;
             this.pcBoxLogo.TabStop = false;
             // 
             // txtContraseniaNueva2
             // 
-            this.txtContraseniaNueva2.Location = new System.Drawing.Point(292, 220);
+            this.txtContraseniaNueva2.Location = new System.Drawing.Point(328, 275);
+            this.txtContraseniaNueva2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtContraseniaNueva2.Name = "txtContraseniaNueva2";
             this.txtContraseniaNueva2.PasswordChar = '*';
-            this.txtContraseniaNueva2.Size = new System.Drawing.Size(232, 22);
+            this.txtContraseniaNueva2.Size = new System.Drawing.Size(260, 26);
             this.txtContraseniaNueva2.TabIndex = 2;
+            this.txtContraseniaNueva2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateEnterPress);
             // 
             // lblContraseniaNueva2
             // 
             this.lblContraseniaNueva2.AutoSize = true;
-            this.lblContraseniaNueva2.Location = new System.Drawing.Point(157, 220);
+            this.lblContraseniaNueva2.Location = new System.Drawing.Point(177, 275);
             this.lblContraseniaNueva2.Name = "lblContraseniaNueva2";
-            this.lblContraseniaNueva2.Size = new System.Drawing.Size(126, 17);
+            this.lblContraseniaNueva2.Size = new System.Drawing.Size(143, 20);
             this.lblContraseniaNueva2.TabIndex = 9;
             this.lblContraseniaNueva2.Text = "Repita Contraseña";
             // 
             // ResetLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(900, 561);
             this.Controls.Add(this.lblContraseniaNueva2);
             this.Controls.Add(this.txtContraseniaNueva2);
             this.Controls.Add(this.pcBoxLogo);
@@ -129,8 +136,10 @@ namespace WorkTrackerAPP
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.txtContraseniaNueva);
             this.Controls.Add(this.txtContraseniaActual);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "ResetLogin";
-            this.Text = "ResetLogin";
+            this.Text = "Work Tracker";
             this.Load += new System.EventHandler(this.ResetLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).EndInit();
             this.ResumeLayout(false);

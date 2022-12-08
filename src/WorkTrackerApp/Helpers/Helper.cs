@@ -33,21 +33,21 @@ namespace WorkTrackerAPP
             var mensaje = "";
             if (int.Parse(hora) >= 5 && int.Parse(hora) < 12)
             {
-                mensaje = "¡Buenos días " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenos días " + UserSession.User.Name + "!";
             }
             if (int.Parse(hora) >= 12 && int.Parse(hora) < 21)
             {
-                mensaje = "¡Buenas tardes " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenas tardes " + UserSession.User.Name + "!";
             }
             if (int.Parse(hora) >= 21 || int.Parse(hora) < 5)
             {
-                mensaje = "¡Buenas noches " + UserSession.User.UserName + "!";
+                mensaje = "¡Buenas noches " + UserSession.User.Name + "!";
             }
             lblBienvenida.Text = mensaje;
         }
         public static void MostrarHora(Label hora, Label fecha)
         {
-            hora.Text = DateTime.UtcNow.ToString("HH:mm:ss tt");
+            hora.Text = DateTime.UtcNow.AddHours(1).ToString("HH:mm:ss tt");
             fecha.Text = DateTime.UtcNow.ToString("D");
         }
     }

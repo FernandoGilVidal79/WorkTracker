@@ -16,7 +16,7 @@ namespace WorkTrackerAPP
     public partial class ListadoAusencias : Form
     {
         private List<Ausencia> ausencias;
-        private List<AbsenseType> tiposAusencias;
+        private List<AbsenceType> tiposAusencias;
        
         public ListadoAusencias()
         {
@@ -35,8 +35,8 @@ namespace WorkTrackerAPP
 
         private void LeerTiposAusencias()
         {
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-            tiposAusencias = apiAbsenses.ApiAbsensesGetAbsensesTypesGet();
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+            tiposAusencias = apiAbsences.ApiAbsencesGetAbsencesTypesGet();
         }
 
         private void LeerAusencias()
@@ -49,15 +49,15 @@ namespace WorkTrackerAPP
             DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
             DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
 
-            var apiAbsenses = new AbsensesApi("http://worktracker-001-site1.atempurl.com/");
-            var absenses = apiAbsenses.ApiAbsensesGetAbsensesByUserIdIdGet(UserSession.User.IdUser);
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+            var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
 
             int y;
-            y = 50;
+            y = 25;
                        
             try
             {
-                var ausenciasAgrupadasByType = absenses.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin);
+                var ausenciasAgrupadasByType = Absences.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin);
 
                 foreach (var ausencia in ausenciasAgrupadasByType)
                 {
@@ -89,7 +89,7 @@ namespace WorkTrackerAPP
 
 
                     //txtTipo.TextChanged += new System.EventHandler(this.MostrarAusencias);
-                    txbTipo.Text = tiposAusencias.First(x => x.IdAbsenseType == ausencia.AbsensesTypeId).Description;
+                    txbTipo.Text = tiposAusencias.First(x => x.IdAbsenceType == ausencia.AbsencesTypeId).Description;
                     txbDesde.Text = ((DateTime)ausencia.StartDate).ToShortDateString();
                     txbHasta.Text = ((DateTime)ausencia.FinishDate).ToShortDateString();
 

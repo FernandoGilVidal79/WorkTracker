@@ -76,5 +76,23 @@ namespace WorkTrackerAPP.Properties {
                 return ((global::System.Drawing.Color)(this["WorkTrackerSuccessColor"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://worktracker-001-site1.atempurl.com/")]
+        public string APIUrl {
+            get {
+                return ((string)(this["APIUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int Jornada {
+            get {
+                return ((int)(this["Jornada"]));
+            }
+        }
     }
 }

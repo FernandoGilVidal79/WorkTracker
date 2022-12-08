@@ -3,6 +3,7 @@ using IO.Swagger.Model;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WorkTrackerAPP
@@ -13,14 +14,13 @@ namespace WorkTrackerAPP
         public int IndicePrimerosDia, UlmitoDias;
         public int FechMin = 1583;
         public int FechMax = 3210;
-        public Calendario()
+        ToolTip mouseBotones = new ToolTip();
+
+        private readonly IForm _form;
+        public Calendario(IForm formPadre)
         {
+            _form = formPadre;
             InitializeComponent();
-        }
-
-        private void Calendario_Load(object sender, EventArgs e)
-        {
-
         }
 
         private int EsBisiesto(int anio)
@@ -143,7 +143,6 @@ namespace WorkTrackerAPP
 
                     //hace 7 columnas una por cada dia
                     for (int diaSemana = 0; diaSemana < 7; diaSemana++)
-
                     {
                         int posicion = diaSemana + 2;
                         if (primerDia < posicion)
@@ -175,78 +174,139 @@ namespace WorkTrackerAPP
         }
 
         public void PintarMeses()
-        {            
-                         
+        {
+            _form.EnviarEstado("Cargando Calendario...");
+            _form.EnviarMaxValueProgressBar(120);
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = RellenarMeses(1);
+           
             dataGridView2.Columns.Clear();
             dataGridView2.DataSource = RellenarMeses(2);
+            _form.EnviarValueProgressBar(10);
             dataGridView3.Columns.Clear();
             dataGridView3.DataSource = RellenarMeses(3);
+            _form.EnviarValueProgressBar(20);
             dataGridView4.Columns.Clear();
             dataGridView4.DataSource = RellenarMeses(4);
+            _form.EnviarValueProgressBar(30);
             dataGridView5.Columns.Clear();
             dataGridView5.DataSource = RellenarMeses(5);
+            _form.EnviarValueProgressBar(40);
             dataGridView6.Columns.Clear();
             dataGridView6.DataSource = RellenarMeses(6);
+            _form.EnviarValueProgressBar(50);
             dataGridView7.Columns.Clear();
             dataGridView7.DataSource = RellenarMeses(7);
+            _form.EnviarValueProgressBar(60);
             dataGridView8.Columns.Clear();
             dataGridView8.DataSource = RellenarMeses(8);
+            _form.EnviarValueProgressBar(70);
             dataGridView9.Columns.Clear();
             dataGridView9.DataSource = RellenarMeses(9);
+            _form.EnviarValueProgressBar(80);
             dataGridView10.Columns.Clear();
             dataGridView10.DataSource = RellenarMeses(10);
+            _form.EnviarValueProgressBar(80);
             dataGridView11.Columns.Clear();
             dataGridView11.DataSource = RellenarMeses(11);
+            _form.EnviarValueProgressBar(100);
             dataGridView12.Columns.Clear();
             dataGridView12.DataSource = RellenarMeses(12);
+            _form.EnviarValueProgressBar(0);
+            _form.EnviarEstado("Carga completada");
+            
+            //ReadOnly para usuario de tipo empleado
+            if(UserSession.User.UserTypeId == 3) 
+            {
+
+                //dataGridView1.ReadOnly = true;
+                dataGridView1.Enabled = false;
+                dataGridView2.Enabled = false;
+                dataGridView3.Enabled = false;
+                dataGridView4.Enabled = false;
+                dataGridView5.Enabled = false;
+                dataGridView6.Enabled = false;
+                dataGridView7.Enabled = false;
+                dataGridView8.Enabled = false;
+                dataGridView9.Enabled = false;
+                dataGridView10.Enabled = false;
+                dataGridView11.Enabled = false;
+                dataGridView12.Enabled = false;
+                
+            }
 
         }
 
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+      
+
+        private void Calendario_Load(object sender, EventArgs e)
         {
+            this.txbAnio.Value = DateTime.Now.Year;
             PintarMeses();
-            MarcarFestivos();
-        }
+            mouseBotones.SetToolTip(btnGrabar2, "Aplicar");
+            mouseBotones.SetToolTip(btnGrabar3, "Cancelar");
 
-        private void Calendario_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private TextBox GetTxbAnio()
-        {
-            return txbAnio;
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
-            if (messageResult == DialogResult.Yes)
+            if(UserSession.User.UserTypeId == 3)
             {
-                DataGridView dataGrid =  (DataGridView)sender;
+                return;
+            } 
+            else
+            {
+                int Anio = int.Parse(txbAnio.Text);
+                var apiclient = new CalendarApi(UserSession.APIUrl);
+                var festivos = apiclient.ApiCalendarGetFestiveByYearYearGet(Anio);
+
+                DataGridView dataGrid = (DataGridView)sender;
                 var index = dataGrid.Name.Replace("dataGridView", "");
                 int month = int.Parse(index);
 
-                var  i = dataGrid.SelectedCells;
+                var i = dataGrid.SelectedCells;
                 int day = (int)i[0].Value;
 
+                DateTime fechaSeleccionada = DateTime.Parse(day + "/" + month + "/" + Anio);
+                DateTime fechaCalendar;
+                int existe = 0;
 
-                var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
-                var calendar = new Calendar()
+                foreach (var festivo in festivos)
                 {
-                    Day = day,
-                    Month = month,
-                    Year = int.Parse(txbAnio.Text),
-                    Festive = true
-                };
-                apiclient.ApiCalendarCreateFestivePut(calendar);
-                MarcarFestivos();
-                //int index =  vvv.SelectedCells.
-            }
-            string vv = "";
+                    fechaCalendar = DateTime.Parse(festivo.Day + "/" + festivo.Month + "/" + festivo.Year);
+                    if (fechaSeleccionada == fechaCalendar)
+                    {
+                        existe = 1;
+                    }
+                }
+
+                if (existe == 1)
+                {
+                    MessageBox.Show("El día ya existe como festivo");
+
+                }
+
+                else
+                {
+
+                    var messageResult = MessageBox.Show("Quiere dar de alta este día como festivo.", "Dar de alta festivo", MessageBoxButtons.YesNo);
+                    if (messageResult == DialogResult.Yes)
+                    {
+
+                        var calendar = new Calendar()
+                        {
+                            Day = day,
+                            Month = month,
+                            Year = Anio
+                        };
+                        apiclient.ApiCalendarCreateFestivePut(calendar);
+                        MarcarFestivos();
+                        //int index =  vvv.SelectedCells.
+                    }
+                }
+                string vv = "";
+            }             
 
         }
 
@@ -257,6 +317,7 @@ namespace WorkTrackerAPP
 
         private void MarcarFestivosGrid(ref DataGridView datagridView, int festive)
         {
+
             for (int i = 0; i < datagridView.Rows.Count; i++)
             {
                 for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
@@ -269,16 +330,47 @@ namespace WorkTrackerAPP
                     }
                 }
             }
-        } 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGrabar2_Click(object sender, EventArgs e)
+        {
+
+            PintarMeses();
+            MarcarFestivos();
+        }
+
+        private void btnGrabar3_Click(object sender, EventArgs e)
+        {
+            this.txbAnio.Value = DateTime.Now.Year;
+            PintarMeses();
+            MarcarFestivos();
+        }
+
+        private void Calendario_Shown(object sender, EventArgs e)
+        {
+            this.MarcarFestivos();
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void MarcarFestivos()
         {
-            var apiclient = new CalendarApi("http://worktracker-001-site1.atempurl.com/");
-            var festives = apiclient.ApiCalendarGetFestiveByYearYearGet(2022);
-
-            foreach( var festive in festives)
+            var apiclient = new CalendarApi(UserSession.APIUrl);
+            var festives = apiclient.ApiCalendarGetFestiveByYearYearGet(int.Parse(txbAnio.Text));
+            int index = 0;
+            int incremento = 8;
+            foreach (var festive in festives)
             {
-               
+                _form.EnviarEstado("Cargar Festivos");
+                _form.EnviarValueProgressBar(index);
                 switch (festive.Month)
                 {
                     case 1:
@@ -317,8 +409,19 @@ namespace WorkTrackerAPP
                     case 12:
                         MarcarFestivosGrid(ref dataGridView12, festive.Day.Value);
                         break;
-
                 }
+                index += incremento;
+
+
+            }
+            _form.EnviarValueProgressBar(0);
+        }
+        
+        private void DeshabilitarCalendario() 
+        {
+            if(UserSession.User.UserTypeId == 3) 
+            {
+                dataGridView1.ReadOnly = true;               
             }
         }
 
