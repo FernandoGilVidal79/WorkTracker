@@ -53,7 +53,6 @@ namespace WorkTrackerAPP
             {
                 if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour == null))
                 {
-                    Helper.MensajeError("bum","");
                     estado = Estados.Entrada;
                     return estado;
                 }
@@ -101,12 +100,10 @@ namespace WorkTrackerAPP
                 var ultimoFichaje = fichajesUsuario.Last();
                 var ffechaUltimoFichaje = Convert.ToDateTime(ultimoFichaje.Date).ToString(Format);
                 var ffechaActual = Convert.ToDateTime(DateTime.UtcNow.AddHours(1)).ToString(Format);
-                Console.WriteLine("Fecha ultimo Fichaje"+ffechaUltimoFichaje);
-                Console.WriteLine("Fecha " + ffechaActual);
+
                 //Seleccionar el estado del usuario
-                //TODO: Comprobar que el estado 1 no esté vacío antes de salir.
-                Console.WriteLine(GetEstadosByFichajes().ToString());
                 UserSession.Fichajes = fichajesUsuario;
+
                 try
                 {
                     if (UserSession.Fichajes != null)
@@ -196,8 +193,7 @@ namespace WorkTrackerAPP
             lblHistorico.Text = "";
             var apiclient = new ClockInApi(UserSession.APIUrl);
             var fichajesUsuario = apiclient.ApiClockInGetClockInsByUserIdIdGet( UserSession.User.IdUser);
-            Console.WriteLine(UserSession.Fichajes);
-            
+           
 
             if (UserSession.Fichajes.Count() > 0)
             {
@@ -205,7 +201,6 @@ namespace WorkTrackerAPP
                 foreach (var _data in UserSession.Fichajes.Skip(Math.Max(0, UserSession.Fichajes.Count() - 5)).Reverse())
                 {
                     var ffecha = Convert.ToDateTime(_data.Date).ToString(Format);
-                    Console.WriteLine(UserSession.Fichajes);
 
                     lblHistorico.Text += "Fecha: " + ffecha;
                     lblHistorico.Text += "\n";
@@ -289,7 +284,6 @@ namespace WorkTrackerAPP
             CargarFichajesHoy();
             CargarFichajes((int)UserSession.User.IdUser);  
             estado = GetEstadosByFichajes();
-            Console.WriteLine("estado perdido"+estado);
             MaquinaEstados();    
         }
 
@@ -420,8 +414,7 @@ namespace WorkTrackerAPP
             }
 
             MaquinaEstados();
-            Fichaje();
-            
+            Fichaje();            
 
         }
 
