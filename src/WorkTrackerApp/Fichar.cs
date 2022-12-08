@@ -90,7 +90,7 @@ namespace WorkTrackerAPP
             lblTComida.Text = string.Empty;
 
             var fichajesActuales = UserSession.FichajesHoy;
-            if (fichajesActuales.Any(x => x.ClockinTypeId == 1 && x.FinishHour == null))
+            if (fichajesActuales.Any(x => x.ClockinTypeId == 1 ))
             {
                var fichajeJornada = fichajesActuales.First(x => x.ClockinTypeId == 1);
                 if (fichajeJornada.FinishHour == null)
@@ -469,6 +469,9 @@ namespace WorkTrackerAPP
             if (estado == Estados.Fuera)
             {
                 estado = Estados.Entrada;
+                MaquinaEstados();
+                Fichaje();
+                CargarTiempoJornada();
 
             }
             else if (estado == Estados.Entrada || estado == Estados.Comido || estado == Estados.Descansado)
@@ -477,7 +480,7 @@ namespace WorkTrackerAPP
                 var timeTotalJornada = new TimeSpan(UserSession.Jornada, 0, 0);
                 if (CalcularTotalJornada().CompareTo(timeTotalJornada) < 0)
                 {
-                    var messageResult = MessageBox.Show("No ha cumplido con el total de la jornada. ¿Desa fichar la salida", "Fichaje Salida", MessageBoxButtons.YesNo);
+                    var messageResult = MessageBox.Show("No ha cumplido con el total de la jornada. ¿Desa fichar la salida?", "Fichaje Salida", MessageBoxButtons.YesNo);
                     if (messageResult == DialogResult.Yes)
                     {
                         estado = Estados.Saliendo;
