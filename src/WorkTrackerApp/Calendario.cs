@@ -3,6 +3,7 @@ using IO.Swagger.Model;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -179,7 +180,7 @@ namespace WorkTrackerAPP
             _form.EnviarMaxValueProgressBar(120);
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = RellenarMeses(1);
-           
+
             dataGridView2.Columns.Clear();
             dataGridView2.DataSource = RellenarMeses(2);
             _form.EnviarValueProgressBar(10);
@@ -214,9 +215,9 @@ namespace WorkTrackerAPP
             dataGridView12.DataSource = RellenarMeses(12);
             _form.EnviarValueProgressBar(0);
             _form.EnviarEstado("Carga completada");
-            
+
             //ReadOnly para usuario de tipo empleado
-            if(UserSession.User.UserTypeId == 3) 
+            if (UserSession.User.UserTypeId == 3)
             {
 
                 //dataGridView1.ReadOnly = true;
@@ -232,13 +233,13 @@ namespace WorkTrackerAPP
                 dataGridView10.Enabled = false;
                 dataGridView11.Enabled = false;
                 dataGridView12.Enabled = false;
-                
+
             }
 
         }
 
 
-      
+
 
         private void Calendario_Load(object sender, EventArgs e)
         {
@@ -251,10 +252,10 @@ namespace WorkTrackerAPP
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(UserSession.User.UserTypeId == 3)
+            if (UserSession.User.UserTypeId == 3)
             {
                 return;
-            } 
+            }
             else
             {
                 int Anio = int.Parse(txbAnio.Text);
@@ -294,7 +295,7 @@ namespace WorkTrackerAPP
                     if (messageResult == DialogResult.Yes)
                     {
 
-                        var calendar = new Calendar()
+                        var calendar = new IO.Swagger.Model.Calendar()
                         {
                             Day = day,
                             Month = month,
@@ -306,7 +307,7 @@ namespace WorkTrackerAPP
                     }
                 }
                 string vv = "";
-            }             
+            }
 
         }
 
@@ -331,6 +332,23 @@ namespace WorkTrackerAPP
                 }
             }
         }
+        private void MarcarAusenciasGrid(ref DataGridView datagridView, int festive)
+        {
+
+            for (int i = 0; i < datagridView.Rows.Count; i++)
+            {
+                for (int j = 0; j < datagridView.Rows[i].Cells.Count; j++)
+                {
+                    int valueCell = 0;
+                    int.TryParse(datagridView.Rows[i].Cells[j].Value?.ToString(), out valueCell);
+                    if (valueCell == festive)
+                    {
+                        if (datagridView.Rows[i].Cells[j].Style.BackColor == Color.OrangeRed) { }
+                        else { datagridView.Rows[i].Cells[j].Style.BackColor = Color.Green; }
+                    }
+                }
+            }
+        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -342,6 +360,7 @@ namespace WorkTrackerAPP
 
             PintarMeses();
             MarcarFestivos();
+            MarcarAusencias();
         }
 
         private void btnGrabar3_Click(object sender, EventArgs e)
@@ -349,11 +368,13 @@ namespace WorkTrackerAPP
             this.txbAnio.Value = DateTime.Now.Year;
             PintarMeses();
             MarcarFestivos();
+            MarcarAusencias();
         }
 
         private void Calendario_Shown(object sender, EventArgs e)
         {
             this.MarcarFestivos();
+            this.MarcarAusencias();
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
@@ -416,15 +437,106 @@ namespace WorkTrackerAPP
             }
             _form.EnviarValueProgressBar(0);
         }
-        
-        private void DeshabilitarCalendario() 
+
+        private void DeshabilitarCalendario()
         {
-            if(UserSession.User.UserTypeId == 3) 
+            if (UserSession.User.UserTypeId == 3)
             {
-                dataGridView1.ReadOnly = true;               
+                dataGridView1.ReadOnly = true;
             }
         }
 
-    }
+        private void MarcarAusencias()
+        {
+            string year = DateTime.Today.Year.ToString();
+            string fechaInicioTexto = "01/01/" + year;
+            String fechaFinTexto = "31/12/" + year;
+            string format = "dd/MM/yyyy";
+            DateTime fechaInicio = DateTime.ParseExact(fechaInicioTexto, format, CultureInfo.InvariantCulture);
+            DateTime fechaFin = DateTime.ParseExact(fechaFinTexto, format, CultureInfo.InvariantCulture);
 
+            var apiAbsences = new AbsencesApi(UserSession.APIUrl);
+            var Absences = apiAbsences.ApiAbsencesGetAbsencesByUserIdIdGet(UserSession.User.IdUser);
+
+            int index = 0;
+            int incremento = 8;
+            try
+            {
+
+                var ausenciasAgrupadasAnio = Absences.Where(x => x.StartDate >= fechaInicio && x.StartDate <= fechaFin);
+
+                foreach (var ausenciaAgrupada in ausenciasAgrupadasAnio)
+                {
+                    int contador = 0;
+                    if (ausenciaAgrupada.FinishDate > fechaFin)
+                    {
+                        contador = ((int)(fechaFin - ausenciaAgrupada.StartDate.Value).TotalDays);
+                    }
+                    else
+                    {
+                        contador = ((int)(ausenciaAgrupada.FinishDate.Value - ausenciaAgrupada.StartDate.Value).TotalDays);
+                    }
+
+                    _form.EnviarEstado("Cargar Ausencias");
+                    _form.EnviarValueProgressBar(index);
+                    for (int i = 0; i <= contador; i++)
+                    {
+                        DateTime festive = ((DateTime)ausenciaAgrupada.StartDate).AddDays(i);
+                        switch (festive.Month)
+                        {
+                            case 1:
+                                MarcarAusenciasGrid(ref dataGridView1, festive.Day);
+                                break;
+                            case 2:
+                                MarcarAusenciasGrid(ref dataGridView2, festive.Day);
+                                break;
+                            case 3:
+                                MarcarAusenciasGrid(ref dataGridView3, festive.Day);
+                                break;
+                            case 4:
+                                MarcarAusenciasGrid(ref dataGridView4, festive.Day);
+                                break;
+                            case 5:
+                                MarcarAusenciasGrid(ref dataGridView5, festive.Day);
+                                break;
+                            case 6:
+                                MarcarAusenciasGrid(ref dataGridView6, festive.Day);
+                                break;
+                            case 7:
+                                MarcarAusenciasGrid(ref dataGridView7, festive.Day);
+                                break;
+                            case 8:
+                                MarcarAusenciasGrid(ref dataGridView8, festive.Day);
+                                break;
+                            case 9:
+                                MarcarAusenciasGrid(ref dataGridView9, festive.Day);
+                                break;
+                            case 10:
+                                MarcarAusenciasGrid(ref dataGridView10, festive.Day);
+                                break;
+                            case 11:
+                                MarcarAusenciasGrid(ref dataGridView11, festive.Day);
+                                break;
+                            case 12:
+                                MarcarAusenciasGrid(ref dataGridView12, festive.Day);
+                                break;
+                        }
+                    }
+                    index += incremento;
+
+
+                }
+                _form.EnviarValueProgressBar(0);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Generic Exception Handler: {e}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // MessageBox.Show("indice " + indiceIncidencias);          
+            }
+
+
+
+
+        }
+    }
 }
