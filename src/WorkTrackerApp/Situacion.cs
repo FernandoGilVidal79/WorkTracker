@@ -245,7 +245,7 @@ namespace WorkTrackerAPP
                 CargarFestivos();
                 LeerAusencias();
                 CargarDiasPendientes();
-                cmbAño.SelectedIndex = -1;
+                //cmbAño.SelectedIndex = -1;
             }
         }
 
@@ -276,6 +276,14 @@ namespace WorkTrackerAPP
                 foreach (var anioMostrado in years)
                 {
                     cmbAño.Items.Add(anioMostrado);
+                    if(anioMostrado == @DateTime.Now.Year.ToString())
+                    {
+                        cmbAño.SelectedItem = anioMostrado;
+                        CargarFestivos();
+                        LeerAusencias();
+                        CargarDiasPendientes(); 
+                        
+                    }
                 }
 
 
@@ -290,6 +298,7 @@ namespace WorkTrackerAPP
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            cmbAño.SelectedIndex = -1;
             EliminarValorTxt(this);
             
         }
