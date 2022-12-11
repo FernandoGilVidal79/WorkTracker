@@ -74,25 +74,19 @@ namespace WorkTrackerAPP
                                 if (ausencia.Aproved == true)
 
                                 {
-                                    if (ausencia.Denied == true)
+                                    diasAprobados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
+                                    if (ausencia.AbsencesTypeId == 1)
                                     {
-                                        
-                                        //diasRechazados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
-                                        diasRechazados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
-                                    }
-                                    else
-                                    {
-                                        //diasAprobados += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
-                                        diasAprobados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
-                                        if (ausencia.AbsencesTypeId == 1)
-                                        {
-                                           // nVacaciones += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);
-                                           nVacaciones += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
-
-                                        }
+                                        nVacaciones += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
 
                                     }
                                 }
+                                else if (ausencia.Denied == true)
+                                    {
+
+                                        diasRechazados += DiasSinFestivos((DateTime)ausencia.StartDate, (DateTime)ausencia.FinishDate, true, festivos);
+                                    }
+                                
                                 else
                                 {
                                     //diasPendientes += (((int)(ausencia.FinishDate.Value - ausencia.StartDate.Value).TotalDays) + 1);

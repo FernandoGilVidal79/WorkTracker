@@ -309,6 +309,8 @@ namespace WorkTrackerAPP
                 string vv = "";
             }
 
+            this.MarcarFestivos();
+            this.MarcarAusencias();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -448,7 +450,7 @@ namespace WorkTrackerAPP
 
         private void MarcarAusencias()
         {
-            string year = DateTime.Today.Year.ToString();
+            string year = txbAnio.Value.ToString();
             string fechaInicioTexto = "01/01/" + year;
             String fechaFinTexto = "31/12/" + year;
             string format = "dd/MM/yyyy";
