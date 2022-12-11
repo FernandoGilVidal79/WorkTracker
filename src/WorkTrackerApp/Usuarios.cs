@@ -135,6 +135,7 @@ namespace WorkTrackerAPP
             ActivarCampos(true);
             ActivarBotones(false);
             LimpiarCampos();
+            cmbTipoUsuario.SelectedValue = 3;
             edicion = false;
         }
 
