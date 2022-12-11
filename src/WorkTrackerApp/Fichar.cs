@@ -258,7 +258,7 @@ namespace WorkTrackerAPP
             if (UserSession.Fichajes.Count() > 0)
             {
 
-                foreach (var _data in UserSession.Fichajes.Skip(Math.Max(0, UserSession.Fichajes.Count() - 5)).Reverse())
+                foreach (var _data in UserSession.Fichajes.Where(x => x.ClockinTypeId == 1).OrderByDescending(x => x.IdClockIn).Take(5))
                 {
                     var ffecha = Convert.ToDateTime(_data.Date).ToString(Format);
 
