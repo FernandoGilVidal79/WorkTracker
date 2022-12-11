@@ -110,12 +110,19 @@ namespace WorkTrackerAPP
                     var user2 = usersSinEncriptar;
                     UserSession.User = user2;
 
-                    if ((user2!= null) && txtContrasena.Text.Equals(user2.Name))
+                    if ((user2 != null) && txtContrasena.Text.Equals(user2.Name))
                     {
-                        txtContrasena.Clear();
-                        Helper.MensajeOk("Por favor cambie la contraseña ", "OK");
-                        ResetLogin frmResetLogin = new ResetLogin();
-                        frmResetLogin.ShowDialog();
+                        if (user2.Status == true)
+                        {
+                            txtContrasena.Clear();
+                            Helper.MensajeOk("Por favor cambie la contraseña ", "OK");
+                            ResetLogin frmResetLogin = new ResetLogin();
+                            frmResetLogin.ShowDialog();
+                        }
+                        else 
+                        { 
+                            MessageBox.Show("Usuario en estado de baja, pruebe otro usuario.");
+                        }
                     }
                     else
                     {
@@ -133,24 +140,24 @@ namespace WorkTrackerAPP
 
 
         private void ValidateEnterPress(object sender, KeyPressEventArgs e)
-            {
+        {
 
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    LoginExecute();
-                }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                LoginExecute();
             }
+        }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
             ///Usuario RRHH
-          //  this.txtUsuario.Text = "mariano@superman.com";
-           // this.txtContrasena.Text = "Worktracker@1";
+            //  this.txtUsuario.Text = "mariano@superman.com";
+            // this.txtContrasena.Text = "Worktracker@1";
 
             //Usuario Admin
-         //   this.txtUsuario.Text = "olema@worktrackers";
-           // this.txtContrasena.Text = "Worktracker@1";
+            //   this.txtUsuario.Text = "olema@worktrackers";
+            // this.txtContrasena.Text = "Worktracker@1";
 
         }
 
@@ -160,4 +167,4 @@ namespace WorkTrackerAPP
             frmResetLogin.ShowDialog();
         }
     }
-    }
+}
