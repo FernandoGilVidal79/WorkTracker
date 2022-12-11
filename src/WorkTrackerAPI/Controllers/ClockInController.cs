@@ -12,7 +12,7 @@ using WorkTrackerAPI.Model;
 namespace WorkTrackerAPI.Controllers
 {
     /// <summary>
-    /// 
+    /// Controlador de Fichaje
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -24,10 +24,10 @@ namespace WorkTrackerAPI.Controllers
         private readonly ILoggerManager _logger;
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="connectionStrings"></param>
+        /// <param name="logger">Manejador de Log</param>
+        /// <param name="connectionStrings">Cadenas de conexión</param>
         public ClockInController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
             connection = connectionStrings.Value.connectionString;

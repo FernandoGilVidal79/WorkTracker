@@ -1,20 +1,25 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using WorkTrackerAPI.Model;
 using WorkTrackerAPI.Services.Contracts;
 
 namespace WorkTrackerAPI.Controllers
 {
+    /// <summary>
+    /// Controller Login API
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly IAuthService authService;
 
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="authService">Servicio de autenticación</param>
         public LoginController(IAuthService authService)
         {
             this.authService = authService;

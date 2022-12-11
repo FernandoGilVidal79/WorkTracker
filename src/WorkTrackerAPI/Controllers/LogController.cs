@@ -14,7 +14,7 @@ using WorkTrackerAPI.Model;
 namespace WorkTrackerAPI.Controllers
 {
     /// <summary>
-    /// 
+    /// Controller Log
     /// </summary>
     [Route("api/log")]
     [ApiController]
@@ -25,10 +25,10 @@ namespace WorkTrackerAPI.Controllers
         private readonly ILoggerManager _logger;
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="connectionStrings"></param>
+        /// <param name="logger">Manejador de Log</param>
+        /// <param name="connectionStrings">Cadenas de conexión</param>
         public LogController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
             connection = connectionStrings.Value.connectionString;

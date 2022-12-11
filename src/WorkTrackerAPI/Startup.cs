@@ -77,7 +77,9 @@ namespace WorkTrackerAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
+
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "WorkTracker API V1");
+                
             });
 
 
@@ -88,6 +90,9 @@ namespace WorkTrackerAPI
                 endpoints.MapControllers();
             });
         }
+
+
+
 
         private void AddSwagger(IServiceCollection services)
         {
@@ -107,7 +112,7 @@ namespace WorkTrackerAPI
                         Url = new Uri("http://worktracker-001-site1.atempurl.com/"),
                     }
                 });
-
+                
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {

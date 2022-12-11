@@ -27,10 +27,10 @@ namespace WorkTrackerAPI.Controllers
         private MySqlConnection db;
 
         /// <summary>
-        /// Constructor Usuarios
+        /// Constructor
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="connectionStrings"></param>
+        /// <param name="logger">Manejador de Log</param>
+        /// <param name="connectionStrings">Cadenas de conexión</param>
         public UserController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
             connection = connectionStrings.Value.connectionString;

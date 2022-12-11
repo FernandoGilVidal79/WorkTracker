@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
@@ -13,6 +12,9 @@ using WorkTrackerAPI.Model;
 
 namespace WorkTrackerAPI.Controllers
 {
+    /// <summary>
+    /// Controller Ausencias
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AbsencesController : ControllerBase
@@ -21,6 +23,12 @@ namespace WorkTrackerAPI.Controllers
         private string connection;
         private MySqlConnection db;
 
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="logger">Manejador de Log</param>
+        /// <param name="connectionStrings">Cadenas de conexión</param>
         public AbsencesController(ILoggerManager logger, IOptions<ConnectionStringList> connectionStrings)
         {
             connection = connectionStrings.Value.connectionString;
